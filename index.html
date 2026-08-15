@@ -618,6 +618,110 @@
     .admin-grid{grid-template-columns:1fr 1fr}
     .footer{flex-direction:column}
   }
+
+  .impact-link{
+    appearance:none;border:0;background:transparent;color:inherit;padding:0;margin:0;
+    font:inherit;font-weight:inherit;text-decoration:underline;text-decoration-style:dotted;
+    text-underline-offset:3px;cursor:pointer;
+  }
+  .impact-link:hover,.impact-link:focus{
+    color:var(--accent);outline:none;text-decoration-style:solid;
+  }
+  .impact-modal-backdrop{
+    position:fixed;inset:0;background:rgba(20,20,16,.64);display:none;align-items:center;
+    justify-content:center;padding:20px;z-index:9999;
+  }
+  .impact-modal-backdrop.open{display:flex}
+  .impact-modal{
+    width:min(680px,100%);max-height:88vh;overflow:auto;background:var(--paper);color:var(--ink);
+    border:5px double var(--ink);box-shadow:0 22px 70px rgba(0,0,0,.34);
+    padding:24px 26px 22px;position:relative;
+  }
+  .impact-modal h2{margin:0 40px 4px 0;font-size:34px;letter-spacing:-.025em}
+  .impact-modal .impact-scale{
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);margin-bottom:16px;
+  }
+  .impact-modal p{font-size:16px;line-height:1.5}
+  .impact-modal ul{margin:12px 0 16px;padding-left:22px;font-size:15px;line-height:1.55}
+  .impact-modal li{margin:6px 0}
+  .impact-modal-note{
+    border-top:1px solid var(--rule);padding-top:13px;font-family:Arial,Helvetica,sans-serif;
+    font-size:12px !important;color:var(--muted);
+  }
+  .impact-modal-close{
+    position:absolute;top:12px;right:12px;border:1px solid var(--rule);background:transparent;
+    width:34px;height:34px;font:700 18px/1 Arial,sans-serif;
+  }
+  .impact-modal-close:hover{background:var(--ink);color:var(--paper)}
+
+
+  .metric-link{
+    appearance:none;border:0;background:transparent;color:inherit;padding:0;margin:0;
+    font:inherit;font-weight:inherit;text-decoration:underline;text-decoration-style:dotted;
+    text-underline-offset:3px;cursor:pointer;
+  }
+  .metric-link:hover,.metric-link:focus{
+    color:var(--accent);outline:none;text-decoration-style:solid;
+  }
+  .metric-modal-backdrop{
+    position:fixed;inset:0;background:rgba(20,20,16,.64);display:none;align-items:center;
+    justify-content:center;padding:20px;z-index:10000;
+  }
+  .metric-modal-backdrop.open{display:flex}
+  .metric-modal{
+    width:min(700px,100%);max-height:88vh;overflow:auto;background:var(--paper);color:var(--ink);
+    border:5px double var(--ink);box-shadow:0 22px 70px rgba(0,0,0,.34);
+    padding:24px 26px 22px;position:relative;
+  }
+  .metric-modal h2{margin:0 40px 5px 0;font-size:34px;letter-spacing:-.025em}
+  .metric-modal p{font-size:16px;line-height:1.5}
+  .metric-modal ul{margin:12px 0 16px;padding-left:22px;font-size:15px;line-height:1.55}
+  .metric-modal li{margin:6px 0}
+  .metric-modal-note{
+    border-top:1px solid var(--rule);padding-top:13px;font-family:Arial,Helvetica,sans-serif;
+    font-size:12px !important;color:var(--muted);
+  }
+  .metric-modal-close{
+    position:absolute;top:12px;right:12px;border:1px solid var(--rule);background:transparent;
+    width:34px;height:34px;font:700 18px/1 Arial,sans-serif;
+  }
+  .metric-modal-close:hover{background:var(--ink);color:var(--paper)}
+  .analysis-badges{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
+  .analysis-badge{
+    display:inline-flex;align-items:center;gap:5px;border:1px solid var(--rule);
+    padding:4px 7px;font-family:Arial,Helvetica,sans-serif;font-size:10px;
+    text-transform:uppercase;letter-spacing:.045em;background:rgba(255,255,255,.28)
+  }
+  .analysis-badge.pending{color:var(--muted)}
+
+
+  .story-title-link{
+    color:inherit;
+    text-decoration:none;
+  }
+  .story-title-link:hover,
+  .story-title-link:focus{
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:4px;
+    outline:none;
+  }
+
+
+  .ranked-story h4 .story-title-link,
+  .hero h1 .story-title-link{
+    color:inherit;
+    text-decoration:none;
+  }
+  .ranked-story h4 .story-title-link:hover,
+  .ranked-story h4 .story-title-link:focus,
+  .hero h1 .story-title-link:hover,
+  .hero h1 .story-title-link:focus{
+    text-decoration:underline;
+    text-underline-offset:4px;
+    outline:none;
+  }
+
 </style>
 </head>
 <body>
@@ -693,13 +797,13 @@
         <option value="Other / Interfaith">Other / Interfaith</option>
       </select>
     </div>
-    <div class="edition-note" id="editionNote">49 sourced story clusters · real links · ranked by POC impact</div>
+    <div class="edition-note" id="editionNote">49 sourced story clusters · real links · ranked by Impact Score</div>
   </div>
 
   <main id="newsView">
     <div class="edition-note" style="padding:10px 0;border-bottom:1px solid var(--rule)">
       <strong>LIVE-SOURCED SNAPSHOT · Aug. 14, 2026 · 10:17 PM CDT.</strong>
-      Real publisher/official-source links; 7 Tribunes impact rankings and neutral briefs are proof-of-concept editorial synthesis. Social Heat and article-level perspective scores are intentionally pending rather than guessed.
+      Real publisher/official-source links; 7 Tribunes impact rankings and neutral briefs are proof-of-concept editorial synthesis. Social Heat, Story Framing and Reporting Reliability are intentionally pending rather than guessed.
     </div>
     <section class="frontgrid" id="frontGrid">
       <article class="hero" id="hero"></article>
@@ -892,12 +996,12 @@ const PILLARS = ["Local News","State","National","Weather","Sports","Family Impa
 
 const DAILY_QUOTES = [
   {text:"This is the day which the LORD hath made; we will rejoice and be glad in it.", source:"The Bible · Psalm 118:24 (KJV)"},
-  {text:"Do the next good thing well. Momentum has a funny way of introducing itself after that.", source:"7 Tribunes"},
-  {text:"A calm mind sees farther than a loud room.", source:"7 Tribunes"},
-  {text:"Progress counts even when it arrives wearing work clothes.", source:"7 Tribunes"},
-  {text:"Be serious about the mission, but not so serious that you forget to laugh.", source:"7 Tribunes"},
-  {text:"Good judgment improves when gratitude gets a seat at the table.", source:"7 Tribunes"},
-  {text:"Some days the win is simply refusing to let a bad five minutes rent the whole day.", source:"7 Tribunes"}
+  {text:"Do the next good thing well. Momentum has a funny way of introducing itself after that.", source:"Unknown"},
+  {text:"A calm mind sees farther than a loud room.", source:"Unknown"},
+  {text:"Progress counts even when it arrives wearing work clothes.", source:"Unknown"},
+  {text:"Be serious about the mission, but not so serious that you forget to laugh.", source:"Unknown"},
+  {text:"Good judgment improves when gratitude gets a seat at the table.", source:"Unknown"},
+  {text:"Some days the win is simply refusing to let a bad five minutes rent the whole day.", source:"Unknown"}
 ];
 
 function setDailyQuote(){
@@ -909,7 +1013,7 @@ function setDailyQuote(){
   const qs = document.querySelector("#dailyQuoteSource");
   if(qt) qt.textContent = `“${q.text}”`;
   if(qs){
-    qs.textContent = q.source || "7 Tribunes";
+    qs.textContent = q.source || "Unknown";
     qs.style.display = "block";
   }
 }
@@ -1006,7 +1110,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1037,7 +1141,7 @@ const stories = [
       "Responsibility for the cleanup cost is contested; the linked report contains the parties' positions.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1068,7 +1172,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1099,7 +1203,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1130,7 +1234,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1161,7 +1265,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1192,7 +1296,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1223,7 +1327,7 @@ const stories = [
       "Supporters emphasize industrial capacity and jobs; opponents raise environmental, land-use and ownership concerns.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1262,7 +1366,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1293,7 +1397,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1324,7 +1428,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1355,7 +1459,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1386,7 +1490,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1417,7 +1521,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1464,7 +1568,7 @@ const stories = [
       "Responsibility, motives and the path to a durable settlement remain contested among governments and analysts.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1495,7 +1599,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1526,7 +1630,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1557,7 +1661,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1588,7 +1692,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1619,7 +1723,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1650,7 +1754,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1681,7 +1785,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1720,7 +1824,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1759,7 +1863,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1790,7 +1894,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1821,7 +1925,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1852,7 +1956,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1883,7 +1987,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1914,7 +2018,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1945,7 +2049,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -1976,7 +2080,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2007,7 +2111,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2038,7 +2142,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2069,7 +2173,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2100,7 +2204,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2131,7 +2235,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2162,7 +2266,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2201,7 +2305,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2232,7 +2336,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2263,7 +2367,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2294,7 +2398,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2325,7 +2429,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2356,7 +2460,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2387,7 +2491,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2418,7 +2522,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2449,7 +2553,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2480,7 +2584,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2511,7 +2615,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   },
@@ -2542,7 +2646,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
     "reactions": null,
     "live": true
   }
@@ -2600,9 +2704,9 @@ function render(){
 
   $("#hero").innerHTML=`
     <span class="kicker">Biggest Impact Story · ${hero.pillar} · #${hero.rank} in pillar</span>
-    <h1>${hero.title}</h1>
+    <h1><a class="story-title-link" href="${hero.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${hero.title}</a></h1>
     <p class="deck">${hero.deck}</p>
-    <div class="meta">Impact ${hero.significance}/100 · ${hero.sources} linked source${hero.sources===1?"":"s"} · published ${hero.published}</div>
+    <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score ${hero.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${hero.sources})">${hero.sources} linked source${hero.sources===1?"":"s"}</button> · published ${hero.published}</div>
     <div class="story-actions">
       <button class="btn primary" onclick="openStory('${hero.id}','summary')">What We Know</button>
       <button class="btn" onclick="openStory('${hero.id}','coverage')">Source Coverage</button>
@@ -2610,9 +2714,9 @@ function render(){
       <a class="btn soft" target="_blank" rel="noopener noreferrer" href="${hero.sourcesDetail[0].url}">Read Primary Link ↗</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><b>${hero.significance}</b><span>POC Impact Score</span></div>
-      <div class="stat"><b>Pending</b><span>Social Heat</span></div>
-      <div class="stat"><b>${hero.sources}</b><span>Linked Sources</span></div>
+      <div class="stat"><b>${hero.significance}</b><span><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score</button></span></div>
+      <div class="stat"><b>Pending</b><span><button class="metric-link" type="button" onclick="openMetricModal('social')">Social Heat</button></span></div>
+      <div class="stat"><b>${hero.sources}</b><span><button class="metric-link" type="button" onclick="openMetricModal('sources',${hero.sources})">Linked Sources</button></span></div>
       <div class="stat"><b>Live</b><span>Source Links</span></div>
     </div>
   `;
@@ -2628,8 +2732,8 @@ function render(){
     <article class="rail-item">
       <span class="num">${i+2}</span>
       <span class="kicker">${s.pillar}</span>
-      <h3>${s.title}</h3>
-      <div class="meta">Impact ${s.significance} · ${s.sources} source${s.sources===1?"":"s"}</div>
+      <h3><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">${s.title}</a></h3>
+      <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} source${s.sources===1?"":"s"}</button></div>
       <button class="linkbtn" onclick="openStory('${s.id}','summary')">Read the cluster</button>
     </article>`).join("");
 
@@ -2648,7 +2752,7 @@ function render(){
         </div>
         <div class="pillar-layout">
           <article class="reaction-feature">
-            <div class="reaction-label"><span>Social Heat</span><span>Engagement ≠ truth or impact</span></div>
+            <div class="reaction-label"><span><button class="metric-link" type="button" onclick="openMetricModal('social')">Social Heat</button></span><span>Engagement ≠ truth or impact</span></div>
             <span class="kicker">Most Reacted Story</span>
             <h3>Awaiting verified platform reaction data</h3>
             <p>This live-sourced snapshot does not invent likes, shares or reaction totals. Production will rank eligible social stories only after direct platform/API data, bot filtering and reputable-source verification are connected.</p>
@@ -2660,10 +2764,10 @@ function render(){
               <article class="ranked-story ${i===0?"is-one":""}">
                 <div class="rnum">${i+1}</div>
                 <div>
-                  <h4><button class="linkbtn" onclick="openStory('${s.id}','summary')">${s.title}</button></h4>
-                  <div class="rmeta">Impact ${s.significance}/100 · ${s.sources} linked source${s.sources===1?"":"s"} · ${s.published}</div>
+                  <h4><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${s.title}</a></h4>
+                  <div class="rmeta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · ${s.published}</div>
                 </div>
-                <div class="mini-reactions"><a href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
+                <div class="mini-reactions"><a href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">Primary Source ↗</a></div>
               </article>
             `).join("")}
           </div>
@@ -2683,7 +2787,7 @@ function openStory(id,tab="summary"){
     <span class="kicker">${s.pillar} · ${scopeLabel(s.scope)} · Live-Sourced Snapshot</span>
     <h1>${s.title}</h1>
     <p class="deck" style="font-size:18px">${s.deck}</p>
-    <div class="meta">Published ${s.published} · ${s.sources} linked source${s.sources===1?"":"s"} · POC impact ${s.significance}/100 · Social Heat pending</div>
+    <div class="meta">Published ${s.published} · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal('social')">Social Heat: Pending</button></div>
     <div class="badges"><span class="badge reliable">Real publisher/source links</span><span class="badge">Neutral brief: POC synthesis</span><span class="badge demo">Perspective scoring pending</span></div>
   `;
 
@@ -2706,6 +2810,10 @@ function openStory(id,tab="summary"){
             <h4>${src.name}</h4>
             <p>${src.headline}</p>
             <div class="meta">${src.published}${src.note ? " · "+src.note : ""}</div>
+            <div class="analysis-badges">
+              <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('framing')">Story Framing: Pending</button>
+              <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('reliability')">Reporting Reliability: Pending</button>
+            </div>
           </div>
           <a class="btn soft" href="${src.url}" target="_blank" rel="noopener noreferrer">Read Source ↗</a>
         </article>
@@ -2750,12 +2858,16 @@ function coverageHTML(s){
       </div>
       <p><strong>${src.headline}</strong></p>
       <div class="meta">${src.published}</div>
+      <div class="analysis-badges">
+        <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('framing')">Story Framing: Pending</button>
+        <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('reliability')">Reporting Reliability: Pending</button>
+      </div>
       <p>${src.note || (s.sourcesDetail.length>1 ? "One of the linked sources in this story cluster." : "The linked source currently attached to this snapshot story.")}</p>
       <a class="btn soft" href="${src.url}" target="_blank" rel="noopener noreferrer">Open Publisher ↗</a>
     </div>`).join("");
   return `
     <h2>Source Coverage</h2>
-    <p><strong>This live snapshot does not fabricate political-orientation or reliability numbers.</strong> The production version will score individual articles only after the 7 Tribunes methodology is operational and auditable. For now, read the original source material directly.</p>
+    <p><strong>7 Tribunes will analyze the individual article—not simply label the publisher.</strong> Story Framing will show the direction and intensity of framing in this specific coverage, while Reporting Reliability will remain a separate measure of factual sourcing and reporting quality. This snapshot shows both as Pending rather than inventing scores.</p>
     ${s.sourcesDetail.length===1 ? '<div class="lock"><strong>One linked source in this snapshot.</strong><p>A production cluster would continue discovery for independent corroboration or competing coverage when available.</p></div>' : ''}
     ${cards}
   `;
@@ -2900,6 +3012,154 @@ setDailyQuote();
 renderFeaturedComments();
 render();
 if(state.premium) activatePremium();
+
+function openImpactModal(score){
+  const backdrop=document.getElementById("impactModalBackdrop");
+  const scale=document.getElementById("impactModalScale");
+  if(scale){
+    scale.textContent = Number.isFinite(Number(score))
+      ? `Current story score: ${score}/100 · 7 Tribunes editorial significance signal`
+      : "7 Tribunes editorial significance signal · 0–100";
+  }
+  if(backdrop){
+    backdrop.classList.add("open");
+    document.body.style.overflow="hidden";
+    const closeBtn=backdrop.querySelector(".impact-modal-close");
+    if(closeBtn) closeBtn.focus();
+  }
+}
+function closeImpactModal(event){
+  const backdrop=document.getElementById("impactModalBackdrop");
+  if(event && event.target !== backdrop) return;
+  if(backdrop) backdrop.classList.remove("open");
+  document.body.style.overflow="";
+}
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") closeImpactModal();
+});
+
+
+function openMetricModal(type,count){
+  const backdrop=document.getElementById("metricModalBackdrop");
+  const title=document.getElementById("metricModalTitle");
+  const body=document.getElementById("metricModalBody");
+  if(!backdrop || !title || !body) return;
+
+  const content={
+    social:{
+      title:"What is Social Heat?",
+      body:`<p><strong>Social Heat</strong> measures how much verified public engagement a story is generating across connected social platforms. It is a discovery and attention signal—not evidence that a claim is true.</p>
+      <ul>
+        <li><strong>Reaction volume:</strong> verified likes and reactions.</li>
+        <li><strong>Velocity:</strong> how quickly engagement is increasing.</li>
+        <li><strong>Sharing and discussion:</strong> reposts, shares and comments.</li>
+        <li><strong>Cross-platform breadth:</strong> whether interest exists on more than one platform.</li>
+        <li><strong>Geographic relevance:</strong> whether engagement is concentrated in the community affected by the story.</li>
+        <li><strong>Manipulation discount:</strong> suspected bots, purchased engagement and coordinated activity reduce the signal.</li>
+      </ul>
+      <p><strong>Important:</strong> Social Heat never authenticates a story and does not automatically place it in the Top 7. High engagement tells 7 Tribunes what deserves investigation; reputable journalism or authoritative primary evidence must still support the story.</p>
+      <p class="metric-modal-note">The live demo shows Pending because direct social-platform metrics are not yet connected.</p>`
+    },
+    sources:{
+      title:"What are Linked Sources?",
+      body:`<p><strong>Linked Sources</strong> are the underlying articles, official records or primary materials used to build a 7 Tribunes story cluster. ${Number(count)>0?`This story currently has <strong>${count}</strong> linked source${Number(count)===1?"":"s"}.`:""}</p>
+      <ul>
+        <li>Each link should lead readers to the original publisher or authoritative source.</li>
+        <li>Multiple links are not automatically multiple independent confirmations; syndicated or duplicated reporting should be identified.</li>
+        <li>Primary evidence—such as government, court, weather or league records—is distinguished from secondary reporting when available.</li>
+        <li>7 Tribunes uses linked reporting to establish the fact spine: Confirmed, Reported, Disputed, Unknown and Changed.</li>
+      </ul>
+      <p class="metric-modal-note">A larger source count does not automatically make a story more accurate. Independence, quality, relevance and primary evidence matter more than raw quantity.</p>`
+    },
+    framing:{
+      title:"How 7 Tribunes will show Story Framing",
+      body:`<p><strong>Story Framing</strong> evaluates the specific article being linked—not merely the reputation or political identity of the publisher.</p>
+      <p>The reader-facing indicator will show both <strong>direction</strong> and <strong>intensity</strong>, for example:</p>
+      <ul>
+        <li><strong>Minimal Framing</strong></li>
+        <li><strong>Leans Left · Mild</strong></li>
+        <li><strong>Leans Left · Strong</strong></li>
+        <li><strong>Leans Right · Mild</strong></li>
+        <li><strong>Leans Right · Strong</strong></li>
+        <li><strong>Opinion / Analysis</strong> when the article is intentionally commentary rather than straight reporting.</li>
+        <li><strong>Insufficient Evidence</strong> when the article cannot be rated confidently.</li>
+      </ul>
+      <p>The analysis will examine loaded or emotive language, headline framing, which facts are emphasized or omitted, source selection, characterization of people and institutions, certainty beyond available evidence, and whether reporting and opinion are mixed.</p>
+      <p class="metric-modal-note"><strong>Framing is not a truth score.</strong> A left-leaning or right-leaning article may still be highly reliable. That is why Reporting Reliability is displayed separately.</p>`
+    },
+    reliability:{
+      title:"What is Reporting Reliability?",
+      body:`<p><strong>Reporting Reliability</strong> is separate from political framing. It evaluates how well the specific article supports its factual claims.</p>
+      <ul>
+        <li>Use of named, attributable and relevant sources.</li>
+        <li>Use of primary documents or direct evidence when available.</li>
+        <li>Independent corroboration of important factual claims.</li>
+        <li>Clear distinction between fact, allegation, analysis and opinion.</li>
+        <li>Accurate treatment of uncertainty and disputed claims.</li>
+        <li>Corrections, transparency and headline-to-article consistency.</li>
+      </ul>
+      <p>A future article badge could read <strong>High Reliability</strong>, <strong>Generally Reliable</strong>, <strong>Mixed / Needs Caution</strong>, or <strong>Insufficient Evidence</strong>.</p>
+      <p class="metric-modal-note">7 Tribunes should never infer reliability solely from whether an outlet is left, center or right.</p>`
+    }
+  };
+
+  const item=content[type] || content.sources;
+  title.textContent=item.title;
+  body.innerHTML=item.body;
+  backdrop.classList.add("open");
+  document.body.style.overflow="hidden";
+  const closeBtn=backdrop.querySelector(".metric-modal-close");
+  if(closeBtn) closeBtn.focus();
+}
+function closeMetricModal(event){
+  const backdrop=document.getElementById("metricModalBackdrop");
+  if(event && event.target !== backdrop) return;
+  if(backdrop) backdrop.classList.remove("open");
+  document.body.style.overflow="";
+}
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") closeMetricModal();
+});
+
+
+function guardStoryTitleLink(event, url){
+  if(!url){
+    event.preventDefault();
+    return false;
+  }
+  return true;
+}
+
 </script>
+
+<div class="impact-modal-backdrop" id="impactModalBackdrop" role="presentation" onclick="closeImpactModal(event)">
+  <section class="impact-modal" id="impactModal" role="dialog" aria-modal="true" aria-labelledby="impactModalTitle">
+    <button class="impact-modal-close" type="button" aria-label="Close Impact Score explanation" onclick="closeImpactModal()">×</button>
+    <h2 id="impactModalTitle">What drives the Impact Score?</h2>
+    <div class="impact-scale" id="impactModalScale">7 Tribunes editorial significance signal · 0–100</div>
+    <p>The <strong>Impact Score</strong> helps 7 Tribunes decide which stories deserve the greatest prominence. It measures potential public consequence—not popularity, ideology, or whether a story is favorable to one side.</p>
+    <ul>
+      <li><strong>Public consequence:</strong> How significantly could the event affect people, institutions, rights, services, or major decisions?</li>
+      <li><strong>Breadth of impact:</strong> How many people, communities, sectors, or geographic areas may be affected?</li>
+      <li><strong>Geographic relevance:</strong> How directly does the story matter to the audience and the category in which it appears?</li>
+      <li><strong>Public safety and household/economic effect:</strong> Does it affect health, safety, essential services, finances, jobs, costs, or daily life?</li>
+      <li><strong>Official action and magnitude:</strong> Does it involve consequential government, court, institutional, emergency, or other authoritative action?</li>
+      <li><strong>Source strength and coverage breadth:</strong> Is the event supported by credible reporting and, when available, primary evidence or multiple independent sources?</li>
+      <li><strong>Recency and persistence:</strong> Is the development new, still unfolding, or likely to remain consequential beyond a short news cycle?</li>
+    </ul>
+    <p><strong>What does not drive the score:</strong> partisan viewpoint, advertiser interest, clicks, outrage, or raw social-media reaction totals. Social Heat can help identify stories worth investigating, but it does not substitute for verified impact.</p>
+    <p class="impact-modal-note">The Impact Score is an editorial ranking aid. It is not a truth score, political-bias rating, or prediction. The methodology will be refined and documented as 7 Tribunes develops.</p>
+  </section>
+</div>
+
+
+<div class="metric-modal-backdrop" id="metricModalBackdrop" role="presentation" onclick="closeMetricModal(event)">
+  <section class="metric-modal" role="dialog" aria-modal="true" aria-labelledby="metricModalTitle">
+    <button class="metric-modal-close" type="button" aria-label="Close explanation" onclick="closeMetricModal()">×</button>
+    <h2 id="metricModalTitle">Metric</h2>
+    <div id="metricModalBody"></div>
+  </section>
+</div>
+
 </body>
 </html>

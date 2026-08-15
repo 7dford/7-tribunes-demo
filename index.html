@@ -105,45 +105,13 @@
   .quote-source{
     margin-top:6px;font-family:Arial,Helvetica,sans-serif;font-size:6px;letter-spacing:.11em;text-transform:uppercase;color:#5d6678;
   }
-  .brand-lockup{min-width:0;text-align:center;position:relative;padding:0 38px}
+  .brand-lockup{min-width:0;text-align:center;position:relative;padding:0}
   .brand-overline{display:none}
   .brand-mark-wrap{width:min(100%,620px);margin:0 auto}
   .brand-mark{display:flex;justify-content:center;align-items:center;gap:12px;line-height:.78}
   .brand-seven-stack{display:contents}
   .brand-seven-center{
     font-size:clamp(58px,5.4vw,78px);line-height:.66;font-weight:900;letter-spacing:-.08em;color:#cb1f1f;position:relative;z-index:2;margin-bottom:-2px;
-  }
-  .brand-pillar-row{
-    position:absolute;
-    inset:0 8px 0 8px;
-    display:flex;
-    justify-content:space-between;
-    align-items:stretch;
-    pointer-events:none;
-    z-index:0;
-  }
-  .brand-pillar-icon{
-    width:24px;
-    height:100%;
-    display:block;
-    position:relative;
-    flex:0 0 24px;
-  }
-  .brand-pillar-icon:before{
-    content:"";
-    position:absolute;
-    left:0;right:0;top:0;
-    height:6px;
-    background:#11284e;
-    clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);
-  }
-  .brand-pillar-icon:after{
-    content:"";
-    position:absolute;
-    left:3px;right:3px;
-    top:8px;bottom:0;
-    background:repeating-linear-gradient(to right,#11284e 0 3px,transparent 3px 6px);
-    border-bottom:5px solid #11284e;
   }
   .brand-word{
     display:block;font-size:clamp(54px,5.4vw,78px);line-height:.83;letter-spacing:-.055em;font-weight:900;color:#11284e;text-shadow:none;position:relative;z-index:2;
@@ -255,18 +223,37 @@
   }
   .reaction-btn:hover{background:var(--ink);color:var(--paper)}
   .nav{
-    display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #d6ccbc;border-bottom:1px solid #d6ccbc;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #d6ccbc;border-bottom:1px solid #d6ccbc;
     padding:16px 18px;margin:0;background:rgba(255,255,255,.56);box-shadow:0 8px 22px rgba(28,24,17,.05)
   }
   .nav button,.seg button,.chip{
-    background:transparent;border:0;padding:0 18px 0 0;font-family:Arial,sans-serif;font-size:12px;
-    text-transform:uppercase;letter-spacing:.055em;color:#1f2942;position:relative;font-weight:800
+    background:rgba(255,255,255,.86);
+    border:1px solid #c9d1dc;
+    padding:8px 12px;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    text-transform:none;
+    letter-spacing:.01em;
+    color:#11284e;
+    position:relative;
+    font-weight:800;
+    border-radius:8px;
+    box-shadow:0 1px 0 rgba(17,40,78,.05);
+    transition:background .15s ease,border-color .15s ease,color .15s ease,transform .15s ease;
   }
-  .nav button:not(.active):not(#adminBtn):after{
-    content:"";position:absolute;right:8px;top:1px;bottom:1px;width:1px;background:rgba(23,23,19,.15)
+  .nav button:not(.active):not(#adminBtn):after{display:none}
+  .nav button:hover{
+    background:#eef2f7;
+    border-color:#9eabbc;
+    color:#11284e;
+    transform:translateY(-1px);
   }
-  .nav button:hover,.nav button.active,.seg button.active,.chip.active{background:transparent;color:#c02822}
-  .nav button.active:before{content:"";position:absolute;left:0;top:-12px;width:42px;border-top:4px solid #c02822}
+  .nav button.active,.seg button.active,.chip.active{
+    background:#11284e;
+    border-color:#11284e;
+    color:#fff;
+  }
+  .nav button.active:before{display:none}
   .nav .spacer{flex:1}
   .search{display:flex;align-items:center;border:1px solid var(--rule);background:rgba(255,255,255,.72);min-width:245px;border-radius:3px}
   .search input{border:0;background:transparent;outline:0;padding:7px 9px;width:100%;font-family:Arial,sans-serif;font-size:13px;color:var(--ink)}
@@ -608,10 +595,7 @@
     .edition-info-row{max-width:280px}
     .brand-mark{gap:10px;align-items:center}
     .brand-seven-stack{transform:none}
-    .brand-lockup{padding:0 28px}
     .brand-mark-wrap{width:min(100%,360px)}
-    .brand-pillar-row{inset:0 4px}
-    .brand-pillar-icon{width:18px;height:100%;flex-basis:18px}
     .brand-seven-center{font-size:76px}
     .brand-word{font-size:clamp(46px,15vw,67px)}
     .brand-subline{font-size:18px;letter-spacing:.01em;margin-top:9px}
@@ -822,6 +806,18 @@
   .entertainment-chip.active{background:#11284e;color:white;border-color:#11284e}
   .entertainment-chip:hover{border-color:#c02822}
 
+
+  #pillarNav button[data-pillar="All"]{
+    border-color:#d9aaa6;
+    color:#a92822;
+    background:#fff8f7;
+  }
+  #pillarNav button[data-pillar="All"].active{
+    background:#c02822;
+    border-color:#c02822;
+    color:#fff;
+  }
+
 </style>
 </head>
 <body>
@@ -849,10 +845,6 @@
           <div class="brand-mark">
             <span class="brand-seven-center">7</span>
             <span class="brand-word">TRIBUNES</span>
-          </div>
-          <div class="brand-pillar-row" aria-hidden="true">
-            <span class="brand-pillar-icon brand-pillar-left"></span>
-            <span class="brand-pillar-icon brand-pillar-right"></span>
           </div>
         </div>
         <div class="brand-subline">The Truth Is Stubborn</div>
@@ -883,13 +875,13 @@
 
   <nav class="nav" id="pillarNav">
     <button class="active" data-pillar="All">Front Page</button>
-    <button data-pillar="Local">1 Local</button>
-    <button data-pillar="State & National">2 State &amp; National</button>
-    <button data-pillar="World & Nature">3 World &amp; Nature</button>
-    <button data-pillar="Sports">4 Sports</button>
-    <button data-pillar="Entertainment">5 Entertainment</button>
-    <button data-pillar="Business & Tech">6 Business &amp; Tech</button>
-    <button data-pillar="Faith & Family">7 Faith &amp; Family</button>
+    <button data-pillar="Local">Local</button>
+    <button data-pillar="State & National">State &amp; National</button>
+    <button data-pillar="World & Nature">Word &amp; Nature</button>
+    <button data-pillar="Sports">Sports</button>
+    <button data-pillar="Entertainment">Entertainment</button>
+    <button data-pillar="Business & Tech">Business &amp; Tech</button>
+    <button data-pillar="Faith & Family">Faith &amp; Family</button>
     <span class="spacer"></span>
     <div class="search">
       <input id="searchInput" placeholder="Search stories, topics, people..." aria-label="Search">

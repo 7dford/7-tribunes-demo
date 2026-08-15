@@ -722,6 +722,49 @@
     outline:none;
   }
 
+
+  .location-picker{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    font-family:Arial,Helvetica,sans-serif;font-size:11px;
+  }
+  .location-picker label{
+    text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:var(--muted)
+  }
+  .location-picker input{
+    min-width:230px;border:1px solid var(--rule);background:rgba(255,255,255,.35);
+    padding:7px 9px;color:var(--ink);outline:none;
+  }
+  .location-picker input:focus{border-color:var(--ink)}
+  .location-picker select{
+    border:1px solid var(--rule);background:rgba(255,255,255,.35);
+    padding:7px 9px;color:var(--ink);
+  }
+  .location-note{
+    flex-basis:100%;font-size:10px;color:var(--muted);line-height:1.35
+  }
+  .geo-badge{
+    display:inline-block;border:1px solid var(--rule);padding:3px 6px;
+    font-family:Arial,Helvetica,sans-serif;font-size:9px;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--muted);background:rgba(255,255,255,.22)
+  }
+  .bias-row{
+    display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px
+  }
+  .bias-meter{
+    display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);
+    padding:5px 7px;background:rgba(255,255,255,.24);
+    font-family:Arial,Helvetica,sans-serif;font-size:10px;text-transform:uppercase;
+    letter-spacing:.045em
+  }
+  .bias-meter .bias-value{
+    font-weight:800;color:var(--muted)
+  }
+  .bias-meter button{
+    border:0;background:transparent;padding:0;margin:0;font:inherit;
+    text-transform:inherit;letter-spacing:inherit;color:inherit;cursor:pointer;
+    text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px
+  }
+
 </style>
 </head>
 <body>
@@ -778,6 +821,32 @@
     </div>
     <button id="adminBtn">Admin</button>
   </nav>
+<div class="filters">
+    <div class="location-picker">
+      <label for="preferredLocation">Preferred Location</label>
+      <input id="preferredLocation" list="locationSuggestions" value="Broken Arrow, Oklahoma" aria-label="Preferred location" placeholder="City, town, ZIP or county">
+      <datalist id="locationSuggestions">
+        <option value="Broken Arrow, Oklahoma"></option>
+        <option value="Tulsa, Oklahoma"></option>
+        <option value="Coweta, Oklahoma"></option>
+        <option value="Bixby, Oklahoma"></option>
+        <option value="Jenks, Oklahoma"></option>
+        <option value="Owasso, Oklahoma"></option>
+        <option value="Wagoner County, Oklahoma"></option>
+        <option value="Tulsa County, Oklahoma"></option>
+      </datalist>
+      <label for="coverageScope">Coverage</label>
+      <select id="coverageScope" aria-label="Local coverage scope">
+        <option value="automatic" selected>Automatic</option>
+        <option value="community">Community only</option>
+        <option value="county">Community + County</option>
+        <option value="regional">Community + County + Region</option>
+        <option value="state">Through State</option>
+      </select>
+      <div class="location-note" id="locationNote">Automatic coverage starts with your community and widens only when needed: Community → County → Regional/Metro → State.</div>
+    </div>
+</div>
+
 
   <div class="filters">
     <div class="seg" id="timeSeg">
@@ -803,7 +872,7 @@
   <main id="newsView">
     <div class="edition-note" style="padding:10px 0;border-bottom:1px solid var(--rule)">
       <strong>LIVE-SOURCED SNAPSHOT · Aug. 14, 2026 · 10:17 PM CDT.</strong>
-      Real publisher/official-source links; 7 Tribunes impact rankings and neutral briefs are proof-of-concept editorial synthesis. Social Heat, Story Framing and Reporting Reliability are intentionally pending rather than guessed.
+      Real publisher/official-source links; 7 Tribunes impact rankings and neutral briefs are proof-of-concept editorial synthesis. Social Heat, Source Bias, Story Bias and Reporting Reliability are intentionally pending rather than guessed.
     </div>
     <section class="frontgrid" id="frontGrid">
       <article class="hero" id="hero"></article>
@@ -2707,6 +2776,10 @@ function render(){
     <h1><a class="story-title-link" href="${hero.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${hero.title}</a></h1>
     <p class="deck">${hero.deck}</p>
     <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score ${hero.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${hero.sources})">${hero.sources} linked source${hero.sources===1?"":"s"}</button> · published ${hero.published}</div>
+    <div class="bias-row">
+        <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
+        <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
+      </div>
     <div class="story-actions">
       <button class="btn primary" onclick="openStory('${hero.id}','summary')">What We Know</button>
       <button class="btn" onclick="openStory('${hero.id}','coverage')">Source Coverage</button>
@@ -2766,6 +2839,10 @@ function render(){
                 <div>
                   <h4><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${s.title}</a></h4>
                   <div class="rmeta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · ${s.published}</div>
+                  <div class="bias-row">
+                    <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
+                    <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
+                  </div>
                 </div>
                 <div class="mini-reactions"><a href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">Primary Source ↗</a></div>
               </article>
@@ -2788,6 +2865,10 @@ function openStory(id,tab="summary"){
     <h1>${s.title}</h1>
     <p class="deck" style="font-size:18px">${s.deck}</p>
     <div class="meta">Published ${s.published} · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal('social')">Social Heat: Pending</button></div>
+    <div class="bias-row">
+        <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
+        <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
+      </div>
     <div class="badges"><span class="badge reliable">Real publisher/source links</span><span class="badge">Neutral brief: POC synthesis</span><span class="badge demo">Perspective scoring pending</span></div>
   `;
 
@@ -2810,8 +2891,11 @@ function openStory(id,tab="summary"){
             <h4>${src.name}</h4>
             <p>${src.headline}</p>
             <div class="meta">${src.published}${src.note ? " · "+src.note : ""}</div>
+            <div class="bias-row">
+              <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
+              <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
+            </div>
             <div class="analysis-badges">
-              <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('framing')">Story Framing: Pending</button>
               <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('reliability')">Reporting Reliability: Pending</button>
             </div>
           </div>
@@ -2858,8 +2942,11 @@ function coverageHTML(s){
       </div>
       <p><strong>${src.headline}</strong></p>
       <div class="meta">${src.published}</div>
+      <div class="bias-row">
+        <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
+        <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
+      </div>
       <div class="analysis-badges">
-        <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('framing')">Story Framing: Pending</button>
         <button class="analysis-badge pending metric-link" type="button" onclick="openMetricModal('reliability')">Reporting Reliability: Pending</button>
       </div>
       <p>${src.note || (s.sourcesDetail.length>1 ? "One of the linked sources in this story cluster." : "The linked source currently attached to this snapshot story.")}</p>
@@ -3100,6 +3187,30 @@ function openMetricModal(type,count){
       </ul>
       <p>A future article badge could read <strong>High Reliability</strong>, <strong>Generally Reliable</strong>, <strong>Mixed / Needs Caution</strong>, or <strong>Insufficient Evidence</strong>.</p>
       <p class="metric-modal-note">7 Tribunes should never infer reliability solely from whether an outlet is left, center or right.</p>`
+    },
+    sourcebias:{
+      title:"What is Source Bias?",
+      body:`<p><strong>Source Bias</strong> describes the general editorial or ideological tendency of the publisher or source organization—not whether this particular article is true or false.</p>
+      <ul>
+        <li><strong>Left</strong> or <strong>Right</strong> indicates a consistent directional editorial tendency.</li>
+        <li><strong>Center / Mixed</strong> indicates limited or inconsistent directional tendency.</li>
+        <li><strong>Primary / Official</strong> identifies government, court, weather, league or other authoritative primary material rather than a news publisher.</li>
+        <li><strong>Unknown / Pending</strong> is used when 7 Tribunes does not have enough auditable evidence to classify the source.</li>
+      </ul>
+      <p class="metric-modal-note">Source Bias is not a reliability score. A left- or right-leaning source may still produce highly reliable reporting.</p>`
+    },
+    storybias:{
+      title:"What is Story Bias?",
+      body:`<p><strong>Story Bias</strong> evaluates the framing of this specific article, independently of the publisher's general orientation.</p>
+      <ul>
+        <li>Headline wording and emotional or loaded language.</li>
+        <li>Which facts are emphasized, minimized or omitted.</li>
+        <li>Selection and balance of quoted sources.</li>
+        <li>Characterization of people, institutions and disputed claims.</li>
+        <li>Whether opinion, speculation or certainty is presented as fact.</li>
+      </ul>
+      <p>Reader-facing labels may include <strong>Minimal</strong>, <strong>Leans Left · Mild</strong>, <strong>Leans Left · Strong</strong>, <strong>Leans Right · Mild</strong>, <strong>Leans Right · Strong</strong>, <strong>Opinion / Analysis</strong>, or <strong>Insufficient Evidence</strong>.</p>
+      <p class="metric-modal-note">Story Bias is separate from Reporting Reliability. A strongly framed story can still contain accurate facts, and a minimally framed story can still contain errors.</p>`
     }
   };
 
@@ -3129,6 +3240,39 @@ function guardStoryTitleLink(event, url){
   }
   return true;
 }
+
+
+function updateLocationPreference(){
+  const input=document.getElementById("preferredLocation");
+  const scope=document.getElementById("coverageScope");
+  const note=document.getElementById("locationNote");
+  if(!input || !scope) return;
+  const location=(input.value || "Preferred community").trim();
+  localStorage.setItem("sevenTribunesPreferredLocation",location);
+  localStorage.setItem("sevenTribunesCoverageScope",scope.value);
+  const labels={
+    automatic:"Automatic coverage starts with your community and widens only when needed: Community → County → Regional/Metro → State.",
+    community:`Local coverage is limited to ${location}. If seven meaningful stories are not available, the list may contain fewer than seven.`,
+    county:`Coverage starts with ${location}, then expands to its county when needed.`,
+    regional:`Coverage starts with ${location}, then expands through county and nearby regional/metro reporting when needed.`,
+    state:`Coverage starts with ${location} and may expand through county, regional/metro and statewide reporting when needed.`
+  };
+  if(note) note.textContent=labels[scope.value] || labels.automatic;
+}
+document.addEventListener("DOMContentLoaded",()=>{
+  const input=document.getElementById("preferredLocation");
+  const scope=document.getElementById("coverageScope");
+  if(input){
+    input.value=localStorage.getItem("sevenTribunesPreferredLocation") || input.value;
+    input.addEventListener("change",updateLocationPreference);
+    input.addEventListener("blur",updateLocationPreference);
+  }
+  if(scope){
+    scope.value=localStorage.getItem("sevenTribunesCoverageScope") || scope.value;
+    scope.addEventListener("change",updateLocationPreference);
+  }
+  updateLocationPreference();
+});
 
 </script>
 

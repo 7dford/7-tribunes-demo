@@ -1,0 +1,2905 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7 Tribunes — Filtering Bias From Facts</title>
+<style>
+  :root{
+    --paper:#f4f0e5;
+    --paper-2:#ebe4d5;
+    --ink:#171713;
+    --muted:#686357;
+    --rule:#b8ae9a;
+    --deep:#26332d;
+    --accent:#7a2f2f;
+    --gold:#9a7a35;
+    --panel:rgba(255,255,255,.38);
+    --shadow:0 12px 40px rgba(36,30,19,.10);
+    --left:#315a8c;
+    --right:#9a3b35;
+    --center:#6c725f;
+    --good:#315e46;
+    --warn:#8b6524;
+    --bad:#8d3434;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Georgia, 'Times New Roman', serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 20%, rgba(120,90,40,.045), transparent 30%),
+      linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.15)),
+      var(--paper);
+    min-height:100vh;
+  }
+  button,input,select,textarea{font:inherit}
+  button{cursor:pointer}
+  a{color:inherit}
+  .app{max-width:1500px;margin:auto;padding:18px 22px 56px}
+  .topline{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:8px 0;
+  }
+  .topline .right{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .demo-pill{background:var(--accent);color:white;padding:5px 8px;border-radius:999px;font-weight:700}
+  .masthead{
+    margin:14px 0 0;
+    background:
+      linear-gradient(90deg,rgba(219,193,126,.035),transparent 22%,transparent 78%,rgba(219,193,126,.035)),
+      var(--deep);
+    color:#f3efe3;
+    border-top:6px double #cdbb91;
+    border-bottom:6px double #cdbb91;
+    box-shadow:0 12px 34px rgba(28,24,17,.17);
+    position:relative;
+    overflow:hidden;
+  }
+  .masthead:before,.masthead:after{
+    content:"";position:absolute;top:12px;bottom:12px;width:1px;background:rgba(219,193,126,.28)
+  }
+  .masthead:before{left:12px}.masthead:after{right:12px}
+  .masthead-inner{
+    display:grid;
+    grid-template-columns:245px minmax(0,1fr) 190px;
+    gap:26px;
+    align-items:center;
+    max-width:1320px;
+    margin:auto;
+    padding:16px 24px 12px;
+  }
+  .quote-box{
+    min-height:132px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-right:1px solid rgba(219,193,126,.36);
+    padding:8px 24px 8px 4px;
+  }
+  .quote-label{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:8px;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    color:#dfc47a;
+    margin-bottom:9px;
+  }
+  .quote-text{
+    margin:0;
+    font-size:17px;
+    line-height:1.34;
+    font-style:italic;
+    color:#f2ead8;
+  }
+  .quote-source{
+    margin-top:9px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:9px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#cfc5b0;
+  }
+  .brand-lockup{min-width:0;text-align:center}
+  .brand-overline{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    justify-content:center;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.25em;
+    color:#cabfaa;
+    margin-bottom:5px;
+  }
+  .brand-overline:before,.brand-overline:after{
+    content:"";height:1px;flex:1;max-width:95px;background:rgba(219,193,126,.34)
+  }
+  .brand-mark{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:13px;
+    line-height:.78;
+  }
+  .brand-seven-center{
+    font-size:clamp(108px,9vw,150px);
+    line-height:.70;
+    font-weight:900;
+    letter-spacing:-.10em;
+    color:#dfc47a;
+    text-shadow:0 3px 0 rgba(0,0,0,.18),0 0 28px rgba(219,193,126,.08);
+    transform:translateY(1px);
+  }
+  .brand-word{
+    display:block;
+    font-size:clamp(64px,7vw,108px);
+    line-height:.80;
+    letter-spacing:-.065em;
+    font-weight:900;
+    color:#f8f3e8;
+    text-shadow:0 2px 0 rgba(0,0,0,.18);
+  }
+  .brand-subline{
+    margin:10px auto 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:#d8cfbd;
+  }
+  .brand-subline:before,.brand-subline:after{
+    content:"◆";
+    color:#9d7f42;
+    font-size:7px;
+  }
+  .tagline{
+    margin:7px 0 0;
+    font-size:16px;
+    font-style:italic;
+    color:#e8e0cf;
+  }
+  .takes-seal{
+    min-height:118px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border:1px solid rgba(219,193,126,.43);
+    outline:1px solid rgba(219,193,126,.14);
+    outline-offset:5px;
+    padding:13px 10px;
+    text-align:center;
+  }
+  .takes-seal small{
+    display:block;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:8px;
+    text-transform:uppercase;
+    letter-spacing:.17em;
+    color:#cfc5b0;
+  }
+  .takes-seal b{
+    display:block;
+    font-size:28px;
+    color:#dfc47a;
+    margin:4px 0 2px;
+    line-height:1;
+  }
+  .takes-seal span{
+    font-size:10px;
+    line-height:1.3;
+    color:#e5dcc9;
+  }
+  .takes-link{
+    text-decoration:none;color:inherit;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .takes-link:hover,.takes-link:focus{
+    transform:translateY(-2px);background:rgba(219,193,126,.07);
+    border-color:#dfc47a;outline:none;
+  }
+  .featured-takes{
+    margin:30px 0 0;padding-top:18px;border-top:5px double var(--ink);
+    scroll-margin-top:18px;
+  }
+  .featured-takes-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:18px;flex-wrap:wrap;margin-bottom:12px;
+  }
+  .featured-takes-title{margin:0;font-size:34px;letter-spacing:-.025em}
+  .featured-takes-sub{
+    margin:5px 0 0;color:var(--muted);font-size:14px;line-height:1.4;max-width:780px
+  }
+  .featured-comment-grid{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px
+  }
+  .featured-comment{
+    border:1px solid var(--rule);background:rgba(255,255,255,.28);padding:15px;
+    display:flex;flex-direction:column;min-height:190px
+  }
+  .featured-comment:nth-child(1){grid-column:1/-1}
+  .featured-comment-top{
+    display:flex;justify-content:space-between;gap:12px;align-items:center;
+    font-family:Arial,sans-serif
+  }
+  .featured-comment-rank{
+    font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--accent);font-weight:800
+  }
+  .featured-comment-reactions{font-size:11px;font-weight:800}
+  .featured-comment blockquote{
+    margin:12px 0;font-size:18px;line-height:1.42;flex:1
+  }
+  .featured-comment-meta{
+    border-top:1px solid var(--rule);padding-top:9px;
+    font-family:Arial,sans-serif;font-size:10px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:10px
+  }
+  .reaction-btn{
+    border:1px solid var(--rule);background:transparent;padding:5px 7px;
+    font-family:Arial,sans-serif;font-size:10px
+  }
+  .reaction-btn:hover{background:var(--ink);color:var(--paper)}
+  .nav{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:4px double var(--ink);border-bottom:1px solid var(--ink);
+    padding:9px 0;margin-top:10px
+  }
+  .nav button,.seg button,.chip{
+    background:transparent;border:1px solid transparent;padding:7px 10px;font-family:Arial,sans-serif;
+    font-size:12px;text-transform:uppercase;letter-spacing:.055em;border-radius:2px;color:var(--ink)
+  }
+  .nav button:hover,.nav button.active,.seg button.active,.chip.active{background:var(--ink);color:var(--paper)}
+  .nav .spacer{flex:1}
+  .search{
+    display:flex;align-items:center;border:1px solid var(--rule);background:rgba(255,255,255,.28);
+    min-width:245px
+  }
+  .search input{border:0;background:transparent;outline:0;padding:7px 9px;width:100%;font-family:Arial,sans-serif;font-size:13px}
+  .search button{border:0;background:transparent;padding:6px 9px}
+  .filters{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);flex-wrap:wrap
+  }
+  .seg{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+  .seg-label{font-family:Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+  .edition-note{font-size:12px;color:var(--muted);font-family:Arial,sans-serif}
+  .frontgrid{
+    display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.62fr);gap:28px;padding:22px 0 18px;border-bottom:4px double var(--ink)
+  }
+  .kicker{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+  .hero h1{font-size:clamp(40px,5vw,72px);line-height:.96;letter-spacing:-.045em;margin:6px 0 8px}
+  .deck{font-size:20px;line-height:1.35;color:#38352f;max-width:900px}
+  .meta{
+    font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.045em;color:var(--muted);margin:10px 0
+  }
+  .story-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .btn{
+    border:1px solid var(--ink);background:transparent;padding:9px 12px;font-family:Arial,sans-serif;font-size:12px;
+    text-transform:uppercase;letter-spacing:.06em;font-weight:700
+  }
+  .btn.primary{background:var(--ink);color:var(--paper)}
+  .btn.soft{border-color:var(--rule);background:rgba(255,255,255,.32)}
+  .btn:hover{transform:translateY(-1px)}
+  a.btn{text-decoration:none;display:inline-block}
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:20px
+  }
+  .stat{background:var(--paper);padding:11px}
+  .stat b{display:block;font-size:21px}
+  .stat span{font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;color:var(--muted)}
+  .rail{border-left:1px solid var(--rule);padding-left:24px}
+  .rail h2,.section-title{
+    margin:0 0 10px;font-size:24px;text-transform:uppercase;letter-spacing:.02em;border-bottom:2px solid var(--ink);padding-bottom:6px
+  }
+  .rail-item{padding:11px 0;border-bottom:1px solid var(--rule)}
+  .rail-item h3{font-size:20px;line-height:1.03;margin:3px 0}
+  .rail-item .num{float:left;font-size:28px;font-weight:700;margin-right:10px;color:var(--rule)}
+  .pillars{padding:20px 0}
+  .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:10px}
+  .section-title{flex:1}
+
+  .pillar-stacks{display:grid;gap:24px}
+  .pillar-block{
+    border-top:4px double var(--ink);padding-top:12px;
+  }
+  .pillar-block-head{
+    display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:10px;flex-wrap:wrap
+  }
+  .pillar-block-title{
+    margin:0;font-size:32px;letter-spacing:-.02em
+  }
+  .pillar-block-title .pillar-number{
+    color:var(--accent);font-family:Arial,sans-serif;font-size:.5em;letter-spacing:.04em;
+    vertical-align:.35em;margin-right:6px
+  }
+  .pillar-description{
+    margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.4;max-width:820px
+  }
+  .pillar-layout{
+    display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:18px
+  }
+  .reaction-feature{
+    border:1px solid var(--rule);background:rgba(255,255,255,.30);padding:16px;
+    box-shadow:0 7px 24px rgba(36,30,19,.05)
+  }
+  .reaction-label{
+    display:flex;justify-content:space-between;gap:10px;align-items:center;
+    font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);
+    border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:9px
+  }
+  .reaction-feature h3{font-size:28px;line-height:1.02;margin:5px 0 8px}
+  .reaction-feature p{font-size:14px;line-height:1.42;color:#3d3931}
+  .reaction-count{
+    font-family:Arial,sans-serif;font-size:20px;font-weight:800;color:var(--ink)
+  }
+  .reaction-count small{
+    display:block;font-size:8px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600
+  }
+  .top7-panel{border-left:1px solid var(--rule);padding-left:18px}
+  .top7-heading{
+    display:flex;justify-content:space-between;gap:10px;align-items:center;
+    font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+    border-bottom:2px solid var(--ink);padding-bottom:7px;margin-bottom:2px
+  }
+  .ranked-story{
+    display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:start;
+    border-bottom:1px solid var(--rule);padding:10px 0
+  }
+  .ranked-story .rnum{
+    font-size:24px;font-weight:800;color:var(--rule);line-height:1
+  }
+  .ranked-story.is-one .rnum{color:var(--accent)}
+  .ranked-story h4{font-size:18px;line-height:1.08;margin:0 0 4px}
+  .ranked-story .rmeta{
+    font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)
+  }
+  .ranked-story .mini-reactions{
+    font-family:Arial,sans-serif;font-size:10px;white-space:nowrap;color:var(--muted);padding-top:2px
+  }
+  .faith-control{
+    display:flex;gap:7px;align-items:center;font-family:Arial,sans-serif;font-size:10px;
+    text-transform:uppercase;letter-spacing:.06em;color:var(--muted)
+  }
+  .faith-control select{
+    border:1px solid var(--rule);background:rgba(255,255,255,.32);padding:7px 9px;
+    color:var(--ink);font-family:Arial,sans-serif;font-size:12px;text-transform:none;letter-spacing:0
+  }
+
+  .story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+  .story-card{
+    padding:17px 18px 18px 0;margin-right:18px;border-bottom:1px solid var(--rule);position:relative;min-height:220px
+  }
+  .story-card:nth-child(3n+1),.story-card:nth-child(3n+2){border-right:1px solid var(--rule)}
+  .story-card h3{font-size:26px;line-height:1.03;margin:5px 0 7px;letter-spacing:-.02em}
+  .story-card p{font-size:15px;line-height:1.42;margin:7px 0;color:#39362f}
+  .rank{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+  .badge{
+    border:1px solid var(--rule);font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.055em;
+    padding:4px 5px;background:rgba(255,255,255,.25)
+  }
+  .badge.reliable{border-color:#7f9c88;color:var(--good)}
+  .badge.demo{border-color:#b88f8f;color:var(--accent)}
+  .spectrum-mini{height:5px;background:linear-gradient(90deg,var(--left),#c4c9cf 39%,#aaa 50%,#d7c5c2 61%,var(--right));margin-top:11px;position:relative}
+  .spectrum-mini:after{content:"";position:absolute;top:-3px;left:calc(var(--bias,50)*1%);width:2px;height:11px;background:var(--ink)}
+  .footer-action{margin-top:11px}
+  .linkbtn{border:0;background:transparent;padding:0;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+
+  .local-voices{
+    margin:26px 0 0;padding-top:18px;border-top:4px double var(--ink)
+  }
+  .voices-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:12px;flex-wrap:wrap
+  }
+  .voices-title{margin:0;font-size:31px;line-height:1}
+  .voices-sub{max-width:760px;margin:5px 0 0;color:var(--muted);font-size:14px;line-height:1.45}
+  .balance-summary{
+    display:flex;gap:5px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:.05em
+  }
+  .balance-summary span{padding:5px 7px;border:1px solid var(--rule);background:rgba(255,255,255,.25)}
+  .voices-grid{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px
+  }
+  .voice-card{
+    border:1px solid var(--rule);background:rgba(255,255,255,.28);padding:14px;min-height:255px;
+    box-shadow:0 5px 20px rgba(36,30,19,.05);display:flex;flex-direction:column
+  }
+  .voice-card:nth-child(1){grid-column:span 2}
+  .voice-card:nth-child(1) .voice-post{font-size:20px}
+  .voice-top{display:flex;gap:10px;align-items:center}
+  .voice-avatar{
+    width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex:0 0 42px;
+    background:var(--ink);color:var(--paper);font-family:Arial,sans-serif;font-weight:800;font-size:12px
+  }
+  .voice-name{font-size:17px;font-weight:700;line-height:1.05}
+  .voice-role{font-family:Arial,sans-serif;font-size:10px;color:var(--muted);margin-top:3px}
+  .lean{
+    margin-left:auto;border:1px solid var(--rule);padding:4px 5px;font-family:Arial,sans-serif;font-size:8px;
+    text-transform:uppercase;letter-spacing:.05em;white-space:nowrap
+  }
+  .lean.conservative{color:#8a3935;border-color:#b98b86}
+  .lean.centerleft{color:#315a8c;border-color:#8ba3bd}
+  .lean.center{color:#58604f;border-color:#9ca18e}
+  .lean.nonpolitical{color:#5f5b52;border-color:#a8a18f}
+  .voice-post{font-size:16px;line-height:1.38;margin:13px 0 12px;flex:1}
+  .voice-meta{
+    display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px solid var(--rule);padding-top:9px;
+    font-family:Arial,sans-serif;font-size:10px;color:var(--muted)
+  }
+  .reaction{font-weight:800;color:var(--ink)}
+  .safe-tag{font-size:8px;text-transform:uppercase;letter-spacing:.05em;border:1px solid #8eaa94;color:var(--good);padding:3px 4px}
+  .voices-method{
+    margin-top:10px;font-family:Arial,sans-serif;font-size:10px;color:var(--muted);line-height:1.45
+  }
+  .sponsor-band{
+    margin:18px 0 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    padding:11px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+    background:rgba(255,255,255,.18);font-family:Arial,sans-serif
+  }
+  .sponsor-label{
+    font-size:9px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--accent);
+    border:1px solid #b98b86;padding:5px 7px
+  }
+  .sponsor-copy b{display:block;font-family:Georgia,'Times New Roman',serif;font-size:17px;color:var(--ink)}
+  .sponsor-copy span{font-size:10px;color:var(--muted)}
+  .sponsor-band .btn{white-space:nowrap}
+
+  .daily-brief{
+    margin:26px 0 0;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;border-top:4px double var(--ink);padding-top:18px
+  }
+  .brief-box{border:1px solid var(--rule);padding:18px;background:var(--panel);box-shadow:var(--shadow)}
+  .brief-box h3{margin:0 0 8px;font-size:25px}
+  .brief-box p{line-height:1.48}
+  .premium{background:var(--deep);color:#f3efe3}
+  .premium .btn{border-color:#f3efe3;color:#f3efe3}
+  .premium .btn.primary{background:#f3efe3;color:var(--deep)}
+  .footer{
+    display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-top:1px solid var(--ink);margin-top:32px;padding-top:16px;
+    font-family:Arial,sans-serif;font-size:11px;line-height:1.45;color:var(--muted)
+  }
+
+  /* Drawer */
+  .overlay{position:fixed;inset:0;background:rgba(16,14,10,.54);z-index:50;opacity:0;pointer-events:none;transition:.2s}
+  .overlay.open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;z-index:60;right:0;top:0;height:100vh;width:min(760px,94vw);background:var(--paper);
+    box-shadow:-20px 0 50px rgba(0,0,0,.22);transform:translateX(102%);transition:.25s;overflow:auto
+  }
+  .drawer.open{transform:translateX(0)}
+  .drawer-inner{padding:24px 28px 50px}
+  .drawer-close{position:sticky;top:10px;float:right;background:var(--ink);color:var(--paper);border:0;border-radius:50%;width:36px;height:36px;z-index:2}
+  .drawer h1{font-size:44px;line-height:.98;margin:8px 0 10px}
+  .tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--ink);margin-top:18px}
+  .tabs button{border:0;background:transparent;padding:10px 9px;font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .tabs button.active{background:var(--ink);color:var(--paper)}
+  .tabpane{display:none;padding-top:18px}
+  .tabpane.active{display:block}
+  .factrow{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:9px 0;border-bottom:1px dotted var(--rule)}
+  .factrow b{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .factrow p{margin:0;line-height:1.45}
+  .spectrum{
+    position:relative;height:70px;margin:22px 6px 32px;border-top:6px solid transparent;
+    background:linear-gradient(90deg,var(--left),#8ba3bd 24%,#ccc 48%,#aaa 50%,#d6b7b3 72%,var(--right));
+    height:8px
+  }
+  .spectrum .marker{
+    position:absolute;top:-8px;width:3px;height:24px;background:var(--ink)
+  }
+  .spectrum .marker span{
+    position:absolute;top:28px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:Arial,sans-serif;font-size:9px;text-transform:uppercase
+  }
+  .linked-reporting{
+    border-top:2px solid var(--ink);margin-top:10px
+  }
+  .linked-story{
+    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
+    border-bottom:1px solid var(--rule);padding:13px 0
+  }
+  .linked-story h4{margin:2px 0 3px;font-size:19px}
+  .linked-story p{margin:3px 0 5px;line-height:1.35}
+  .linked-story .btn{white-space:nowrap}
+
+  .sourcecard,.take,.comment{
+    border-top:1px solid var(--rule);padding:13px 0
+  }
+  .sourcecard:first-child,.take:first-child{border-top:0}
+  .sourcehead{display:flex;justify-content:space-between;gap:15px}
+  .sourcehead h4{margin:0;font-size:18px}
+  .score{font-family:Arial,sans-serif;font-size:11px;white-space:nowrap}
+  .take{display:grid;grid-template-columns:38px 1fr;gap:11px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:Arial,sans-serif;font-size:12px;font-weight:700}
+  .take h4{margin:0 0 2px}
+  .take p{margin:4px 0 0;line-height:1.38}
+  .take small{font-family:Arial,sans-serif;color:var(--muted)}
+  .timeline{border-left:2px solid var(--rule);margin-left:8px;padding-left:18px}
+  .event{position:relative;margin:0 0 18px}
+  .event:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--ink);left:-23px;top:4px}
+  .event time{font-family:Arial,sans-serif;font-size:10px;text-transform:uppercase;color:var(--muted)}
+  .event p{margin:2px 0}
+  .commentform textarea{width:100%;min-height:90px;background:rgba(255,255,255,.34);border:1px solid var(--rule);padding:10px;resize:vertical}
+  .mod-status{margin-top:8px;padding:8px 10px;font-family:Arial,sans-serif;font-size:12px;display:none}
+  .mod-status.show{display:block}
+  .mod-status.ok{background:#dde9df;color:var(--good)}
+  .mod-status.hold{background:#eee1c8;color:var(--warn)}
+  .mod-status.block{background:#ead3d3;color:var(--bad)}
+  .comment small{font-family:Arial,sans-serif;color:var(--muted)}
+  .lock{
+    border:1px dashed var(--rule);padding:28px;text-align:center;background:rgba(255,255,255,.25)
+  }
+
+  /* Modal */
+  .modal{
+    position:fixed;z-index:70;left:50%;top:50%;transform:translate(-50%,-45%) scale(.97);width:min(680px,92vw);
+    background:var(--paper);border:1px solid var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35);padding:24px;opacity:0;pointer-events:none;transition:.18s
+  }
+  .modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+  .modal h2{font-size:34px;margin:0 0 6px}
+  .modal p{line-height:1.4}
+  .formrow{display:flex;gap:8px}
+  .formrow input{flex:1;padding:10px;border:1px solid var(--rule);background:rgba(255,255,255,.35)}
+  .interest-grid{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
+  .interest-grid button{border:1px solid var(--rule);background:transparent;padding:7px 9px}
+  .interest-grid button.active{background:var(--ink);color:var(--paper)}
+
+  /* Admin */
+  .admin{display:none;padding:22px 0}
+  .admin.active{display:block}
+  .admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+  .admin-card{border:1px solid var(--rule);padding:14px;background:var(--panel)}
+  .admin-card b{font-size:30px;display:block}
+  table{width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:12px}
+  th,td{text-align:left;padding:9px 7px;border-bottom:1px solid var(--rule)}
+  th{text-transform:uppercase;font-size:10px;letter-spacing:.05em}
+  .admin-section{border:1px solid var(--rule);padding:16px;margin-top:14px;background:rgba(255,255,255,.18)}
+  .admin-section h3{margin-top:0}
+
+  @media(max-width:980px){
+    .masthead-inner{grid-template-columns:205px minmax(0,1fr) 155px;gap:16px}
+    .quote-text{font-size:15px}
+    .brand-seven-center{font-size:112px}
+    .takes-seal b{font-size:23px}
+    .frontgrid,.daily-brief{grid-template-columns:1fr}
+    .pillar-layout{grid-template-columns:1fr}
+    .top7-panel{border-left:0;padding-left:0}
+    .rail{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:18px}
+    .story-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .story-card:nth-child(n){border-right:0}
+    .story-card:nth-child(odd){border-right:1px solid var(--rule)}
+    .voices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .voice-card:nth-child(1){grid-column:span 2}
+    .sponsor-band{grid-template-columns:auto 1fr}
+    .sponsor-band .btn{grid-column:1/-1;justify-self:start}
+    .admin-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:650px){
+    .app{padding:12px 14px 40px}
+    .topline{align-items:flex-start}
+    .topline .right{gap:8px}
+    .masthead-inner{grid-template-columns:1fr;gap:10px;padding:12px 14px 9px}
+    .quote-box{min-height:auto;border-right:0;border-bottom:1px solid rgba(219,193,126,.28);padding:3px 5px 10px;text-align:center}
+    .quote-label{margin-bottom:5px}
+    .quote-text{font-size:13px}
+    .quote-source{margin-top:5px}
+    .takes-seal{display:none}
+    .brand-overline{font-size:6px;letter-spacing:.12em}
+    .brand-mark{gap:8px;align-items:flex-end}
+    .brand-seven-center{font-size:76px}
+    .brand-word{font-size:clamp(46px,15vw,67px)}
+    .brand-subline{font-size:7px;letter-spacing:.11em;margin-top:7px}
+    .tagline{font-size:12px;margin-top:5px}
+    .nav{gap:2px}
+    .nav .spacer{display:none}
+    .search{min-width:100%;order:3}
+    .story-grid{grid-template-columns:1fr}
+    .ranked-story{grid-template-columns:30px 1fr}
+    .ranked-story .mini-reactions{grid-column:2}
+    .pillar-block-title{font-size:28px}
+    .story-card:nth-child(n){border-right:0;margin-right:0;padding-right:0}
+    .hero-stats{grid-template-columns:repeat(2,1fr)}
+    .hero h1{font-size:43px}
+    .deck{font-size:18px}
+    .drawer-inner{padding:18px 18px 40px}
+    .drawer h1{font-size:34px}
+    .filters{align-items:flex-start}
+    .linked-story{grid-template-columns:1fr}
+    .linked-story .btn{justify-self:start}
+    .featured-comment-grid{grid-template-columns:1fr}
+    .featured-comment:nth-child(1){grid-column:auto}
+    .voices-grid{grid-template-columns:1fr}
+    .voice-card:nth-child(1){grid-column:span 1}
+    .sponsor-band{grid-template-columns:1fr}
+    .voices-title{font-size:27px}
+    .admin-grid{grid-template-columns:1fr 1fr}
+    .footer{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="topline">
+    <div id="dateLine">Friday, August 14, 2026 · 10:17 PM CDT</div>
+    <div class="right">
+      <span class="demo-pill">Live-Sourced Snapshot · POC</span>
+      <button class="linkbtn" id="locationBtn">Tulsa, Oklahoma</button>
+      <button class="linkbtn" id="interestBtn">My Interests</button>
+      <button class="linkbtn" id="accountBtn">Sign In</button>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <aside class="quote-box" aria-label="Thought for today">
+        <div class="quote-label">Thought for Today</div>
+        <blockquote class="quote-text" id="dailyQuote">“This is the day which the LORD hath made; we will rejoice and be glad in it.”</blockquote>
+        <div class="quote-source" id="dailyQuoteSource">The Bible · Psalm 118:24 (KJV)</div>
+      </aside>
+
+      <div class="brand-lockup">
+        <div class="brand-overline">Balanced News · Perspective · Community</div>
+        <div class="brand-mark">
+          <span class="brand-seven-center">7</span>
+          <span class="brand-word">TRIBUNES</span>
+        </div>
+        <div class="brand-subline">Filtering Bias From Facts.</div>
+        <p class="tagline">Today&#39;s Top 7&#39;s.</p>
+      </div>
+
+      <a class="takes-seal takes-link" href="#featuredTakes" aria-label="Jump to the 7 most-reacted community comments">
+        <small>OPINIONS ARE STUBBORN</small>
+        <b>7 TAKES</b>
+        <span>Freedom to Disagree</span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="nav" id="pillarNav">
+    <button class="active" data-pillar="All">Front Page</button>
+    <button data-pillar="Local News">1 Local</button>
+    <button data-pillar="State">2 State</button>
+    <button data-pillar="National">3 National</button>
+    <button data-pillar="Weather">4 Weather</button>
+    <button data-pillar="Sports">5 Sports</button>
+    <button data-pillar="Family Impact">6 Family</button>
+    <button data-pillar="Faith">7 Faith</button>
+    <span class="spacer"></span>
+    <div class="search">
+      <input id="searchInput" placeholder="Search stories, topics, people..." aria-label="Search">
+      <button id="searchBtn">⌕</button>
+    </div>
+    <button id="adminBtn">Admin</button>
+  </nav>
+
+  <div class="filters">
+    <div class="seg" id="timeSeg">
+      <span class="seg-label">Edition</span>
+      <button class="active" data-time="Today">Today</button>
+      <button data-time="Week">This Week</button>
+    </div>
+    <div class="faith-control">
+      <span>Faith preference</span>
+      <select id="faithPreference" aria-label="Faith preference">
+        <option value="All Faiths / Religion & Ethics">All Faiths / Religion & Ethics</option>
+        <option value="Christian">Christian</option>
+        <option value="Catholic">Catholic</option>
+        <option value="Protestant / Evangelical">Protestant / Evangelical</option>
+        <option value="Jewish">Jewish</option>
+        <option value="Muslim">Muslim</option>
+        <option value="Other / Interfaith">Other / Interfaith</option>
+      </select>
+    </div>
+    <div class="edition-note" id="editionNote">49 sourced story clusters · real links · ranked by POC impact</div>
+  </div>
+
+  <main id="newsView">
+    <div class="edition-note" style="padding:10px 0;border-bottom:1px solid var(--rule)">
+      <strong>LIVE-SOURCED SNAPSHOT · Aug. 14, 2026 · 10:17 PM CDT.</strong>
+      Real publisher/official-source links; 7 Tribunes impact rankings and neutral briefs are proof-of-concept editorial synthesis. Social Heat and article-level perspective scores are intentionally pending rather than guessed.
+    </div>
+    <section class="frontgrid" id="frontGrid">
+      <article class="hero" id="hero"></article>
+      <aside class="rail">
+        <h2>Top of the Brief</h2>
+        <div id="briefRail"></div>
+      </aside>
+    </section>
+
+    <section class="pillars">
+      <div class="section-head">
+        <h2 class="section-title" id="sectionTitle">The Seven Tribunes</h2>
+        <div class="edition-note" id="filterSummary">Today · All geographies</div>
+      </div>
+      <div class="pillar-stacks" id="storyGrid"></div>
+    </section>
+
+    <section class="local-voices" id="localVoices">
+      <div class="voices-head">
+        <div>
+          <span class="kicker">Local Voices · Tulsa Demo Market</span>
+          <h2 class="voices-title">The Local 7</h2>
+          <p class="voices-sub">Future module: the seven eligible local influencers generating the most verified reactions in the current edition window, subject to viewpoint-diversity, anti-manipulation and safety guardrails.</p>
+        </div>
+        <div class="balance-summary">
+          <span>≥3 Conservative</span>
+          <span>Balanced Remaining</span>
+          <span>≥1 Non-Political</span>
+          <span>Verified Reactions</span>
+        </div>
+      </div>
+      <div class="voices-grid" id="localVoicesGrid"></div>
+      <div class="voices-method">
+        Selection rule: rank eligible posts by total reactions after decency/violence screening; reserve at least 3 places for qualifying conservative commentators and at least 1 for a qualifying non-political local voice, then fill remaining places by reaction count while preserving reasonable viewpoint diversity. Political disagreement is not a moderation violation.
+      </div>
+
+      <div class="sponsor-band">
+        <div class="sponsor-label">Sponsored · Demo</div>
+        <div class="sponsor-copy">
+          <b>One restrained local sponsor placement.</b>
+          <span>Advertising is visually separated from editorial ranking and cannot purchase Top 7 placement, bias ratings, source selection, or Local 7 status.</span>
+        </div>
+        <button class="btn soft" onclick="showSponsorPolicy()">Why this ad?</button>
+      </div>
+    </section>
+
+    <section class="daily-brief">
+      <div class="brief-box">
+        <span class="kicker">Editorial Method</span>
+        <h3>Neutral brief first. Perspective second.</h3>
+        <p><strong>Every short take is built from the multi-source factual spine, not one publisher's wording.</strong> Loaded phrasing is removed while confirmed facts, material disputes and uncertainty are preserved. <strong>7 Tribunes separates reliability from ideology.</strong> Entertainment, celebrity and gossip items are treated as cross-cutting content and may appear inside any relevant Pillar when genuinely newsworthy and when they meet verification, privacy and decency guardrails. A source can lean left or right and still score highly for reporting quality. The platform first identifies what is confirmed, reported, disputed, unknown, or corrected—then compares how credible reporting frames the same story.</p>
+        <button class="btn soft" id="methodBtn">See the methodology</button>
+      </div>
+      <div class="brief-box premium" id="premiumCard">
+        <span class="kicker" style="color:#d6bb7d">7 Tribunes Member</span>
+        <h3>Compare more. Save more. Unlock all 7 Takes.</h3>
+        <p>The POC includes a simulated entitlement layer for full coverage comparison, the complete 7 Takes feature, saved stories, archive access and future premium dashboards.</p>
+        <button class="btn primary" id="upgradeBtn">Activate Demo Membership</button>
+      </div>
+    </section>
+  </main>
+
+  <section class="admin" id="adminView">
+    <div class="section-head">
+      <h2 class="section-title">Newsroom & Platform Administration</h2>
+      <button class="btn" id="closeAdmin">Return to Front Page</button>
+    </div>
+    <div class="admin-grid">
+      <div class="admin-card"><span class="kicker">Story Clusters</span><b>49</b><small>Live-sourced snapshot</small></div>
+      <div class="admin-card"><span class="kicker">Source Articles</span><b>57</b><small>Linked in this snapshot</small></div>
+      <div class="admin-card"><span class="kicker">Moderation Queue</span><b id="queueCount">3</b><small>Awaiting human review</small></div>
+      <div class="admin-card"><span class="kicker">System Confidence</span><b>88%</b><small>Weighted demo average</small></div>
+    </div>
+    <div class="admin-section">
+      <h3>Story Operations</h3>
+      <table>
+        <thead><tr><th>Cluster</th><th>Pillar</th><th>Scope</th><th>Significance</th><th>Sources</th><th>Status</th></tr></thead>
+        <tbody id="adminStories"></tbody>
+      </table>
+    </div>
+    <div class="admin-section">
+      <h3>Moderation Review Queue</h3>
+      <table>
+        <thead><tr><th>Reason</th><th>Automated Action</th><th>Confidence</th><th>Human Status</th></tr></thead>
+        <tbody>
+          <tr><td>Potential threat language</td><td>Hold</td><td>High</td><td>Review required</td></tr>
+          <tr><td>Possible targeted harassment</td><td>Hold</td><td>Medium</td><td>Review required</td></tr>
+          <tr><td>Repeated spam links</td><td>Block</td><td>High</td><td>Auto-action logged</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="admin-section">
+      <h3>Editorial Guardrails</h3>
+      <p>Editors may merge/split clusters, correct titles, change classification, override significance, revise perspective labels, replace recommended articles, and publish corrections. Every override is intended to create an audit log in production.</p>
+    </div>
+  </section>
+
+  <section class="featured-takes" id="featuredTakes">
+    <div class="featured-takes-head">
+      <div>
+        <span class="kicker">Community · Most Reacted</span>
+        <h2 class="featured-takes-title">7 Takes</h2>
+        <p class="featured-takes-sub">The seven eligible reader comments receiving the most reactions in the current edition window. Threats, doxxing, graphic abuse and targeted harassment are excluded. Political disagreement is not.</p>
+      </div>
+      <div class="balance-summary">
+        <span>Reactions drive rank</span>
+        <span>Safety guardrails first</span>
+        <span>Demo community data</span>
+      </div>
+    </div>
+    <div class="featured-comment-grid" id="featuredCommentGrid"></div>
+  </section>
+
+  <footer class="footer">
+    <div><strong>7 Tribunes Live-Sourced Proof of Concept.</strong> Story links and publisher names in this snapshot point to real reporting or official sources. Rankings and neutral briefs are 7 Tribunes proof-of-concept editorial synthesis, not publisher rankings.</div>
+    <div>This is a manually assembled snapshot, not an automated live newsroom. Social reaction counts and article-level political-orientation ratings are not fabricated when the required data/methodology is not connected. Production deployment requires licensed/authorized feeds, publisher agreements, moderation, security, legal/privacy review and independent methodology governance.</div>
+  </footer>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-inner">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">×</button>
+    <div id="drawerHeader"></div>
+    <div class="tabs" id="drawerTabs">
+      <button class="active" data-tab="summary">What We Know</button>
+      <button data-tab="coverage">Compare Coverage</button>
+      <button data-tab="takes">7 Takes</button>
+      <button data-tab="timeline">Timeline</button>
+      <button data-tab="discuss">Discuss</button>
+    </div>
+    <div id="tab-summary" class="tabpane active"></div>
+    <div id="tab-coverage" class="tabpane"></div>
+    <div id="tab-takes" class="tabpane"></div>
+    <div id="tab-timeline" class="tabpane"></div>
+    <div id="tab-discuss" class="tabpane"></div>
+  </div>
+</aside>
+
+<div class="modal" id="locationModal">
+  <span class="kicker">Local Edition</span>
+  <h2>Choose your location</h2>
+  <p>7 Tribunes can use your approximate location for local news, sports, crime and weather. Precise coordinates are not required for normal news personalization.</p>
+  <div class="formrow">
+    <input id="locationInput" value="Tulsa, Oklahoma" placeholder="City, state, ZIP or country">
+    <button class="btn primary" id="saveLocation">Use Location</button>
+  </div>
+  <div class="story-actions">
+    <button class="btn soft" id="geoLocate">Use My Device Location</button>
+    <button class="btn soft modalClose">Cancel</button>
+  </div>
+  <p class="edition-note" id="geoStatus"></p>
+</div>
+
+<div class="modal" id="interestModal">
+  <span class="kicker">Personalization</span>
+  <h2>My Interests</h2>
+  <p>Interests improve relevance, but they do not remove high-significance stories from your edition.</p>
+  <div class="interest-grid" id="interestGrid"></div>
+  <div class="story-actions">
+    <button class="btn primary modalClose">Save Interests</button>
+  </div>
+</div>
+
+<div class="modal" id="accountModal">
+  <span class="kicker">Account Demo</span>
+  <h2 id="accountTitle">7 Tribunes Membership</h2>
+  <p id="accountCopy">This POC simulates authentication and subscription entitlements. No payment information is collected.</p>
+  <div class="story-actions">
+    <button class="btn primary" id="demoSignIn">Sign In as Demo User</button>
+    <button class="btn soft" id="demoPremium">Activate Demo Membership</button>
+    <button class="btn soft modalClose">Close</button>
+  </div>
+</div>
+
+<div class="modal" id="methodModal">
+  <span class="kicker">7 Tribunes Method</span>
+  <h2>Balance without false equivalence</h2>
+  <p><strong>1. Establish the fact spine.</strong> Identify confirmed, reported, disputed, unknown and changed information using multiple independent sources.</p>
+  <p><strong>2. Score reporting quality separately.</strong> Reliability considers sourcing, evidence, headline accuracy, transparency, corrections and reporting-versus-opinion separation.</p>
+  <p><strong>3. Analyze perspective.</strong> Framing analysis considers language, emphasis, quoted authorities, contextual differences and ideological positioning. Ratings include confidence.</p>
+  <p><strong>4. Select credible comparisons.</strong> The app never chooses a low-quality article merely to create left/right symmetry.</p>
+  <p><strong>5. Explain the result.</strong> Users can see why a story or article was selected and where uncertainty remains.</p>
+  <button class="btn primary modalClose">Close</button>
+</div>
+
+<script>
+const PILLARS = ["Local News","State","National","Weather","Sports","Family Impact","Faith"];
+
+const DAILY_QUOTES = [
+  {text:"This is the day which the LORD hath made; we will rejoice and be glad in it.", source:"The Bible · Psalm 118:24 (KJV)"},
+  {text:"Do the next good thing well. Momentum has a funny way of introducing itself after that.", source:"7 Tribunes"},
+  {text:"A calm mind sees farther than a loud room.", source:"7 Tribunes"},
+  {text:"Progress counts even when it arrives wearing work clothes.", source:"7 Tribunes"},
+  {text:"Be serious about the mission, but not so serious that you forget to laugh.", source:"7 Tribunes"},
+  {text:"Good judgment improves when gratitude gets a seat at the table.", source:"7 Tribunes"},
+  {text:"Some days the win is simply refusing to let a bad five minutes rent the whole day.", source:"7 Tribunes"}
+];
+
+function setDailyQuote(){
+  const d = new Date();
+  const start = new Date(d.getFullYear(),0,0);
+  const day = Math.floor((d-start)/86400000);
+  const q = DAILY_QUOTES[day % DAILY_QUOTES.length];
+  const qt = document.querySelector("#dailyQuote");
+  const qs = document.querySelector("#dailyQuoteSource");
+  if(qt) qt.textContent = `“${q.text}”`;
+  if(qs){
+    qs.textContent = q.source || "7 Tribunes";
+    qs.style.display = "block";
+  }
+}
+
+
+const FEATURED_COMMENTS = [
+  {id:"c1",author:"TulsaReader",pillar:"Local",text:"The neutral brief is useful, but the best feature is being able to jump straight to the original reporting and compare sources.",reactions:1842},
+  {id:"c2",author:"SoonerVoice",pillar:"State",text:"Show me what actually changed in the law or policy first. Then show me what each side thinks about it.",reactions:1567},
+  {id:"c3",author:"GridironDad",pillar:"Sports",text:"Sports belongs here because it is a huge part of community life. Just keep the difference between reporting and fan opinion obvious.",reactions:1438},
+  {id:"c4",author:"FamilyFirstOK",pillar:"Family",text:"Family impact should translate big economic numbers into what they mean for groceries, utilities, school, health care and household decisions.",reactions:1324},
+  {id:"c5",author:"FreeToDisagree",pillar:"National",text:"Balance should mean I can read the strongest factual reporting and still disagree with the interpretation. That is healthier than pretending every argument is equal.",reactions:1288},
+  {id:"c6",author:"WeatherWatcher",pillar:"Weather",text:"When weather is dangerous, put the official warning first and politics nowhere near it. Safety information should be immediate.",reactions:1196},
+  {id:"c7",author:"FaithAndReason",pillar:"Faith",text:"Faith coverage works best when it is respectful, sourced and broad enough to cover service, culture and belief without turning everything into politics.",reactions:1089}
+];
+
+function renderFeaturedComments(){
+  const grid = document.querySelector("#featuredCommentGrid");
+  if(!grid) return;
+  const comments = [...FEATURED_COMMENTS].sort((a,b)=>b.reactions-a.reactions).slice(0,7);
+  grid.innerHTML = comments.map((c,i)=>`
+    <article class="featured-comment" data-comment-id="${c.id}">
+      <div class="featured-comment-top">
+        <span class="featured-comment-rank">#${i+1} · ${c.pillar}</span>
+        <span class="featured-comment-reactions">${c.reactions.toLocaleString()} reactions</span>
+      </div>
+      <blockquote>“${c.text}”</blockquote>
+      <div class="featured-comment-meta">
+        <span>${c.author} · Community comment</span>
+        <button class="reaction-btn" onclick="reactToFeatured('${c.id}')">+ React</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+window.reactToFeatured = function(id){
+  const item = FEATURED_COMMENTS.find(c=>c.id===id);
+  if(!item) return;
+  item.reactions += 1;
+  renderFeaturedComments();
+};
+
+const LIVE_SNAPSHOT_TIME = "Aug. 14, 2026 · 10:17 PM CDT";
+const pillarDescriptions = {
+  "Local News":"The most consequential stories for Tulsa and the surrounding community.",
+  "State":"Oklahoma government, elections, economy, public safety and statewide policy.",
+  "National":"The most consequential U.S. stories, ranked by broad public impact rather than partisan attention or clicks.",
+  "Weather":"Immediate local hazards plus major weather events with exceptional public impact.",
+  "Sports":"Local, collegiate and national sports, balancing local relevance with competitive and financial significance.",
+  "Family Impact":"Household finances, education, health, safety and everyday decisions that directly affect families.",
+  "Faith":"Faith, religion, ethics and service; the production feed will respect the user's explicit faith-news preference."
+};
+
+const stories = [
+  {
+    "id": "local-1",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 1,
+    "title": "Dangerous heat drives a third straight EMSA Medical Heat Alert",
+    "deck": "Tulsa-area emergency medical officials extended their heat alert as extreme heat continues to generate heat-related calls and transports. The immediate local issue is health risk: prolonged exposure can turn routine outdoor activity into an emergency.",
+    "significance": 94,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 3,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "EMSA issues Medical Heat Alert for third straight day",
+        "url": "https://www.kjrh.com/news/local-news/emsa-issues-medical-heat-alert-for-third-straight-day",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      },
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "Extreme Heat For Rest Of The Week",
+        "url": "https://www.kjrh.com/weather/extreme-heat-for-rest-of-the-week",
+        "published": "Aug. 14, 2026",
+        "type": "Weather Reporting",
+        "note": ""
+      },
+      {
+        "name": "National Weather Service Tulsa",
+        "headline": "Tulsa forecast, watches and warnings",
+        "url": "https://www.weather.gov/tsa/",
+        "published": "Current official weather source",
+        "type": "Primary Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "EMSA and local weather reporting identify dangerous heat as an active Tulsa-area health concern.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "local-2",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 2,
+    "title": "Operation SAFE cleanup bill becomes a Tulsa-state dispute",
+    "deck": "A dispute over who should pay for cleanup connected to Operation SAFE has become a local government issue, with Gov. Kevin Stitt saying the City of Tulsa should cover the bill. The practical question is which public entity ultimately bears the cost.",
+    "significance": 87,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "Who covers Operation SAFE cleanup bill? Stitt says City of Tulsa",
+        "url": "https://www.kjrh.com/news/local-news/who-covers-operation-safe-clean-up-bill-stitt-says-city-of-tulsa",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "Responsibility for the cleanup cost is contested; the linked report contains the parties' positions.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "local-3",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 3,
+    "title": "Tulsa bank-impersonation scam costs a local mother more than $1,000",
+    "deck": "A Tulsa consumer says scammers impersonating her bank persuaded her to take steps that resulted in a loss of more than $1,000. The story matters locally because bank-impersonation scams depend on urgency and trust in familiar institutions.",
+    "significance": 82,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "Tulsa mom loses $1K+ in bank impersonation scam",
+        "url": "https://www.kjrh.com/money/consumer/tulsa-mom-loses-1k-in-bank-impersonation-scam-they-took-everything-i-had",
+        "published": "Aug. 14, 2026",
+        "type": "Consumer Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "local-4",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 4,
+    "title": "Bixby responds to resident complaints about low water pressure",
+    "deck": "Bixby officials are addressing reports of low water pressure, an everyday service issue with direct household and fire-protection implications. The immediate concern is whether system conditions stabilize and how quickly residents receive reliable service.",
+    "significance": 78,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "City of Bixby addresses citizen complaints of low water pressure",
+        "url": "https://www.kjrh.com/news/local-news/city-of-bixby-addresses-citizen-complaints-of-low-water-pressure",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "local-5",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 5,
+    "title": "Catoosa developer builds an app aimed at helping Tulsa-area animal shelters",
+    "deck": "A Catoosa man created an application intended to help area animal shelters, highlighting a local technology response to shelter capacity and adoption challenges. Its significance depends on adoption by shelters and measurable results.",
+    "significance": 72,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "Catoosa man creates app to help Tulsa-area animal shelters",
+        "url": "https://www.kjrh.com/news/local-news/catoosa-man-creates-app-to-help-tulsa-area-animal-shelters",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "local-6",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 6,
+    "title": "Broken Arrow volunteer project brings handmade comfort to hospitalized children",
+    "deck": "A Broken Arrow woman is making pillowcases for hospitalized children, a smaller-impact but strongly local story centered on volunteer service and pediatric comfort.",
+    "significance": 67,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "BA woman spreads comfort to hospitalized children one pillowcase at a time",
+        "url": "https://www.kjrh.com/news/local-news/ba-woman-spreads-comfort-to-hospitalized-children-one-pillowcase-at-a-time",
+        "published": "Aug. 14, 2026",
+        "type": "Community Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "local-7",
+    "pillar": "Local News",
+    "scope": "Local",
+    "rank": 7,
+    "title": "Tulsa makes its Neighborhood Conditions Index program permanent",
+    "deck": "Tulsa has made a neighborhood-index initiative permanent, using neighborhood-level measures to guide investment while trying to avoid displacement and gentrification. It is less immediate than today's breaking stories but could have long-term local policy consequences.",
+    "significance": 65,
+    "published": "June 9, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Public Radio Tulsa",
+        "headline": "Tulsa makes Neighborhood Index program permanent, hopes to avoid gentrification",
+        "url": "https://www.publicradiotulsa.org/local-regional/2026-06-09/tulsa-makes-neighborhood-index-program-permanent-hopes-to-avoid-gentrification?_amp=true",
+        "published": "June 9, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within Local using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-1",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 1,
+    "title": "Proposed $4 billion Inola aluminum smelter reshapes Oklahoma governor's race",
+    "deck": "A proposed aluminum smelter in Inola has become a major issue in Oklahoma's Republican gubernatorial contest, combining industrial policy, environmental concerns, federal support and local opposition ahead of the Aug. 25 runoff.",
+    "significance": 93,
+    "published": "Aug. 7, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "'Build it in Mar-a-Lago!' Trump's aluminum smelter upends Oklahoma governor's race",
+        "url": "https://www.reuters.com/legal/litigation/build-it-mar-a-lago-trumps-aluminum-smelter-upends-oklahoma-governors-race-2026-08-07/",
+        "published": "Aug. 7, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "Supporters emphasize industrial capacity and jobs; opponents raise environmental, land-use and ownership concerns.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-2",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 2,
+    "title": "Oklahoma voters prepare to decide State Question 846",
+    "deck": "State Question 846 is scheduled for Oklahoma's Aug. 25 election. The useful reader question is not the campaign slogan but what the proposal actually changes and how the official ballot language compares with arguments around it.",
+    "significance": 89,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 2,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "What's on your ballot? Breaking down State Question 846",
+        "url": "https://www.kjrh.com/news/local-news/whats-on-your-ballot-breaking-down-state-question-846",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      },
+      {
+        "name": "Oklahoma State Election Board",
+        "headline": "State Question Information",
+        "url": "https://www.oklahoma.gov/elections/elections-results/state-question-info.html",
+        "published": "Official election information",
+        "type": "Primary Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-3",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 3,
+    "title": "New Oklahoma law creates a formal path for families to seek cold-case review",
+    "deck": "A new Oklahoma law gives cold-case families a defined process for requesting renewed investigative attention. Its long-term effect will depend on how agencies apply the new pathway and what cases qualify.",
+    "significance": 84,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "New Oklahoma law gives cold case families a formal pathway to reopen investigations",
+        "url": "https://www.kjrh.com/news/local-news/new-oklahoma-law-gives-cold-case-families-a-formal-pathway-to-reopen-investigations",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-4",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 4,
+    "title": "Oklahoma's school-day cellphone restrictions move into practical implementation",
+    "deck": "Oklahoma's 'Bell to Bell, No Cell' law restricts student cellphone use during the school day. As schools implement it, the family-level questions center on enforcement, emergency communication and classroom effects.",
+    "significance": 81,
+    "published": "2026 school year",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Office of the Governor of Oklahoma",
+        "headline": "Governor Stitt signs 'Bell to Bell, No Cell' bill into law",
+        "url": "https://oklahoma.gov/governor/newsroom/newsroom/2026/governor-stitt-signs-bell-to-bell-no-cell-bill-into-law.html",
+        "published": "2026",
+        "type": "Primary Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-5",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 5,
+    "title": "ODOT asks Oklahomans to weigh in on the future of public transportation",
+    "deck": "Oklahoma transportation officials are seeking public input on future transit planning. The eventual plan could influence mobility options, rural access and how state resources are prioritized.",
+    "significance": 77,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "ODOT wants Oklahomans to weigh in on future of public transportation",
+        "url": "https://www.kjrh.com/news/local-news/odot-wants-oklahomans-to-weigh-in-on-future-of-public-transportation",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-6",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 6,
+    "title": "USDA report raises animal-welfare questions in Okfuskee County",
+    "deck": "A USDA report describing inhumane conditions has prompted questions about local response in Okfuskee County. The core issue is what the documented findings show and whether corrective action follows.",
+    "significance": 74,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "No response from Okfuskee County despite USDA report on inhumane conditions",
+        "url": "https://www.kjrh.com/news/local-news/no-response-from-okfuskee-county-despite-usda-report-on-inhumane-conditions",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-7",
+    "pillar": "State",
+    "scope": "State",
+    "rank": 7,
+    "title": "Muskogee appoints Dale Boots to fill a City Council vacancy",
+    "deck": "Muskogee appointed Dale Boots to fill its Ward 2 City Council seat. It is a narrower state/local-government story but directly changes representation for residents in the ward.",
+    "significance": 63,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "Dale Boots appointed to fill Ward 2 seat on Muskogee City Council",
+        "url": "https://www.kjrh.com/news/local-news/dale-boots-appointed-to-fill-ward-2-seat-on-muskogee-city-council",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within State using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-1",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 1,
+    "title": "U.S.-Iran talks remain stalled as diplomacy widens and the Hormuz crisis persists",
+    "deck": "The U.S. is widening diplomatic outreach as negotiations with Iran remain stalled and tensions around the Strait of Hormuz continue to carry security and energy-market consequences. The core story is a search for an exit from a conflict whose effects extend beyond the region.",
+    "significance": 99,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 3,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "With US-Iran talks stalled, diplomatic efforts expand to unlikely European players",
+        "url": "https://apnews.com/article/047102d2bc170bd8e4b79b91827e1df4",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      },
+      {
+        "name": "Reuters",
+        "headline": "Trump reckons with a war that won't leave him alone",
+        "url": "https://www.reuters.com/world/us/trump-reckons-with-war-that-wont-leave-him-alone-2026-08-13/",
+        "published": "Aug. 13, 2026",
+        "type": "Analysis",
+        "note": ""
+      },
+      {
+        "name": "Associated Press",
+        "headline": "2 UAE tankers attacked while transiting Strait of Hormuz",
+        "url": "https://apnews.com/article/e8565c608ac5283ec8103c85df924b13",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Multiple current reports describe stalled diplomacy and continued instability around Iran and the Strait of Hormuz.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "Responsibility, motives and the path to a durable settlement remain contested among governments and analysts.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-2",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 2,
+    "title": "Attacks on two UAE tankers underscore continuing risk in the Strait of Hormuz",
+    "deck": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, reinforcing the shipping and energy risks surrounding the conflict. The event matters because the waterway is central to global oil flows.",
+    "significance": 96,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "2 UAE tankers attacked while transiting Strait of Hormuz",
+        "url": "https://apnews.com/article/e8565c608ac5283ec8103c85df924b13",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-3",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 3,
+    "title": "Trump shifts emphasis back toward sanctions as Iran diplomacy struggles",
+    "deck": "The administration is again emphasizing sanctions as negotiations with Iran remain difficult. The policy shift matters because economic pressure, military risk and diplomatic leverage are now interacting in the same crisis.",
+    "significance": 94,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Trump pivots back to sanctions for Iran as diplomacy struggles",
+        "url": "https://apnews.com/article/d96e3bf53eb4050097e6cab128db82cb",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-4",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 4,
+    "title": "Trump asks Supreme Court to let White House ballroom construction continue",
+    "deck": "The administration asked the Supreme Court to allow construction of the White House ballroom to continue while it appeals a lower-court order. The dispute combines presidential authority, congressional approval, historic preservation and the scope of judicial review.",
+    "significance": 90,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Trump asks Supreme Court to let White House ballroom construction continue during appeal",
+        "url": "https://apnews.com/article/84db62e26459e2206659d36cc5a749aa",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-5",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 5,
+    "title": "Wall Street slips as a weaker U.S. economic update tempers recent records",
+    "deck": "U.S. stocks pulled back after weaker economic data complicated the outlook for growth and interest rates. The immediate market move is less important than what the data may imply for consumers, businesses and Federal Reserve expectations.",
+    "significance": 88,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Wall Street slips from record following weak US economy update",
+        "url": "https://apnews.com/article/5d9870d6c5ae735f9b74bf4ceefaa3ec",
+        "published": "Aug. 14, 2026",
+        "type": "Business Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-6",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 6,
+    "title": "USS Abraham Lincoln's extended Iran-related deployment draws new presidential comments",
+    "deck": "President Trump commented on the length of the USS Abraham Lincoln's deployment during Iran operations, keeping attention on the human and operational burden of an extended military mission.",
+    "significance": 82,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Trump says USS Lincoln record time at sea during Iran operations was 'not nearly long enough'",
+        "url": "https://apnews.com/article/023413c38373d4a6ba033612a1f552c6",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-7",
+    "pillar": "National",
+    "scope": "US",
+    "rank": 7,
+    "title": "Three states move ahead with executions, renewing debate over capital punishment",
+    "deck": "Executions in multiple states are renewing national attention on capital punishment, due process and differences in state criminal-justice policy.",
+    "significance": 79,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Three states carry out or prepare for executions",
+        "url": "https://apnews.com/article/4fdce596339c31481eb61f25223c3775",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within National using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-1",
+    "pillar": "Weather",
+    "scope": "US",
+    "rank": 1,
+    "title": "Tropical Storm Lala threatens a rare hurricane landfall on Hawaii's Big Island",
+    "deck": "Lala is forecast to strengthen as it approaches Hawaii's Big Island, with hurricane-force conditions, heavy rain, flooding and mudslide risk possible. A direct hurricane landfall on the Big Island would be exceptionally rare.",
+    "significance": 98,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "A rare hurricane landfall threat for Hawaii's Big Island as strengthening Tropical Storm Lala nears",
+        "url": "https://apnews.com/article/98cb6de516ab6336afe50fad9cae412a",
+        "published": "Aug. 14, 2026",
+        "type": "Weather Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Forecasters issued hurricane warnings as Lala approached the Big Island.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-2",
+    "pillar": "Weather",
+    "scope": "Local",
+    "rank": 2,
+    "title": "Extreme heat remains the dominant Tulsa weather hazard",
+    "deck": "Tulsa-area temperatures near or above 100°F and dangerous heat-index values make heat exposure the main local weather risk. Forecasts also point to a weak front and some storm chances, but meaningful relief is limited.",
+    "significance": 95,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 2,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "Extreme Heat For Rest Of The Week",
+        "url": "https://www.kjrh.com/weather/extreme-heat-for-rest-of-the-week",
+        "published": "Aug. 14, 2026",
+        "type": "Weather Reporting",
+        "note": ""
+      },
+      {
+        "name": "National Weather Service Tulsa",
+        "headline": "Tulsa forecast, watches and warnings",
+        "url": "https://www.weather.gov/tsa/",
+        "published": "Official current source",
+        "type": "Primary Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-3",
+    "pillar": "Weather",
+    "scope": "World",
+    "rank": 3,
+    "title": "Record heat and wildfires force evacuations across Europe",
+    "deck": "A new wave of extreme heat is fueling multiple wildfires across Europe, forcing evacuations and straining emergency services. The story combines immediate fire danger with broader heat and drought conditions.",
+    "significance": 92,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 2,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "European countries battle multiple wildfires as record heat grips the continent",
+        "url": "https://apnews.com/article/bb9926465acf98a7790a7bf01294f604",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      },
+      {
+        "name": "Reuters",
+        "headline": "Hundreds evacuated from Croatian and Greek resorts as wildfires stretch across Europe",
+        "url": "https://www.reuters.com/business/environment/hundreds-evacuated-resorts-croatia-greece-wildfires-stretch-across-europe-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-4",
+    "pillar": "Weather",
+    "scope": "World",
+    "rank": 4,
+    "title": "Britain reports record wildfire levels during its latest heatwave",
+    "deck": "Fire chiefs say England and Wales have surpassed last year's wildfire total while drought and extreme heat stretch rescue resources. Homes have burned and authorities are warning that the wildfire season may remain active for months.",
+    "significance": 88,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Wildfires in Britain hit record levels after homes burn in intense heat",
+        "url": "https://www.reuters.com/business/environment/wildfires-britain-hit-record-levels-after-homes-burn-intense-heat-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-5",
+    "pillar": "Weather",
+    "scope": "US",
+    "rank": 5,
+    "title": "Contiguous U.S. sets a record for its hottest month",
+    "deck": "New temperature data show the contiguous United States has broken a monthly heat record, adding national context to the dangerous heat affecting many regions.",
+    "significance": 86,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Contiguous US breaks record for hottest month ever",
+        "url": "https://apnews.com/article/4a9d612281485356103631f0f09b61af",
+        "published": "Aug. 2026",
+        "type": "Climate / Weather Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-6",
+    "pillar": "Weather",
+    "scope": "Local",
+    "rank": 6,
+    "title": "EMSA heat-related calls show the health consequences behind the forecast",
+    "deck": "Local heat alerts are translating into medical calls and transports, turning temperature forecasts into a direct public-health issue for Tulsa-area residents.",
+    "significance": 83,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "EMSA issues Medical Heat Alert for third straight day",
+        "url": "https://www.kjrh.com/news/local-news/emsa-issues-medical-heat-alert-for-third-straight-day",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "weather-7",
+    "pillar": "Weather",
+    "scope": "Local",
+    "rank": 7,
+    "title": "NWS Tulsa remains the primary source for active warnings and forecast changes",
+    "deck": "For immediate safety decisions, the National Weather Service Tulsa office is the authoritative source for current warnings, watches, hazardous-weather outlooks and forecast updates.",
+    "significance": 80,
+    "published": "Current",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "National Weather Service Tulsa",
+        "headline": "Tulsa, Oklahoma forecast and hazard information",
+        "url": "https://www.weather.gov/tsa/",
+        "published": "Current",
+        "type": "Primary Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within Weather using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-1",
+    "pillar": "Sports",
+    "scope": "US",
+    "rank": 1,
+    "title": "Record Lakers sale highlights the accelerating value of major U.S. sports franchises",
+    "deck": "The Los Angeles Lakers' reported $12.5 billion sale is another major marker in the rise of professional-sports valuations. Media rights, scarcity and investor demand are pushing elite franchises into a new financial tier.",
+    "significance": 90,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "More, more, more: Lakers deal is the latest in sports gold rush",
+        "url": "https://www.reuters.com/legal/transactional/more-more-more-lakers-deal-is-latest-sports-gold-rush-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "Sports Business Analysis",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-2",
+    "pillar": "Sports",
+    "scope": "Local",
+    "rank": 2,
+    "title": "FC Tulsa heads to New Mexico United for an Aug. 15 matchup",
+    "deck": "FC Tulsa's next match sends the club to New Mexico United, giving Tulsa-area fans a direct local sports event on the immediate calendar.",
+    "significance": 84,
+    "published": "Aug. 15, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "ESPN",
+        "headline": "New Mexico United vs. FC Tulsa",
+        "url": "https://www.espn.com/soccer/match/_/gameId/401842108/fc-tulsa-new-mexico-united",
+        "published": "Aug. 15, 2026",
+        "type": "Schedule / Match Page",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-3",
+    "pillar": "Sports",
+    "scope": "US",
+    "rank": 3,
+    "title": "NFL preseason round: rookie quarterbacks and roster battles move into focus",
+    "deck": "NFL preseason games are producing early roster evidence, including a touchdown pass in Fernando Mendoza's debut. Preseason results matter less than health, role competition and how rookies handle live action.",
+    "significance": 82,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "NFL preseason roundup: Raiders' Fernando Mendoza throws TD pass in debut",
+        "url": "https://www.reuters.com/sports/nfl-preseason-roundup-raiders-fernando-mendoza-throws-td-pass-debut--flm-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-4",
+    "pillar": "Sports",
+    "scope": "US",
+    "rank": 4,
+    "title": "Alex Bregman's three-homer game headlines a busy MLB slate",
+    "deck": "Alex Bregman hit three home runs and drove in seven as the Cubs beat Washington, leading a full day of Major League Baseball results with playoff positioning increasingly important.",
+    "significance": 79,
+    "published": "Aug. 13, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "MLB roundup: Alex Bregman blasts 3 homers as Cubs crush Nationals",
+        "url": "https://www.reuters.com/sports/mlb-roundup-alex-bregman-blasts-3-homers-cubs-crush-nationals--flm-2026-08-13/",
+        "published": "Aug. 13, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-5",
+    "pillar": "Sports",
+    "scope": "US",
+    "rank": 5,
+    "title": "Falcons defensive end James Pearce Jr. receives an eight-game suspension",
+    "deck": "Atlanta will be without James Pearce Jr. for eight games, a personnel and discipline development with direct consequences for the Falcons' defensive rotation.",
+    "significance": 74,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Falcons DE James Pearce Jr. suspended eight games",
+        "url": "https://www.reuters.com/sports/falcons-de-james-pearce-jr-suspended-eight-games--flm-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-6",
+    "pillar": "Sports",
+    "scope": "US",
+    "rank": 6,
+    "title": "Cardinals rookie guard Chase Bisontis deals with a knee injury",
+    "deck": "Arizona is monitoring a knee injury to rookie guard Chase Bisontis, an example of how preseason health can alter depth-chart plans before games count.",
+    "significance": 70,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Cardinals rookie G Chase Bisontis nursing knee injury",
+        "url": "https://www.reuters.com/sports/cardinals-rookie-g-chase-bisontis-nursing-knee-injury--flm-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "sports-7",
+    "pillar": "Sports",
+    "scope": "Local",
+    "rank": 7,
+    "title": "Tulsa Golden Hurricane programs move into late-summer competition",
+    "deck": "The University of Tulsa athletics calendar is active with fall programs beginning competition and exhibitions. The official athletics site is the best first stop for schedules, results and team updates.",
+    "significance": 66,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "University of Tulsa Athletics",
+        "headline": "Tulsa Golden Hurricane official athletics site",
+        "url": "https://tulsahurricane.com/",
+        "published": "Current",
+        "type": "Primary Team Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within Sports using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-1",
+    "pillar": "Family Impact",
+    "scope": "US",
+    "rank": 1,
+    "title": "U.S. consumer sentiment deteriorates as households remain uneasy about the economy",
+    "deck": "Consumer sentiment weakened in August, signaling that many households remain cautious even as some inflation measures improve. Confidence matters because it can shape spending, saving and large household purchases.",
+    "significance": 93,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "US consumer sentiment deteriorates in August",
+        "url": "https://www.reuters.com/business/us-consumer-sentiment-deteriorates-august-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "Economic Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-2",
+    "pillar": "Family Impact",
+    "scope": "US",
+    "rank": 2,
+    "title": "U.S. retail sales post their first decline in nine months",
+    "deck": "Retail sales fell in July, suggesting households may be becoming more selective after months of resilient spending. The number is one signal—not a complete verdict—on family finances and economic momentum.",
+    "significance": 91,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "US retail sales post first decline in nine months in July",
+        "url": "https://www.reuters.com/business/us-retail-sales-unexpectedly-fall-july-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "Economic Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-3",
+    "pillar": "Family Impact",
+    "scope": "US",
+    "rank": 3,
+    "title": "Inflation slows, but many household prices remain elevated",
+    "deck": "Recent U.S. inflation data show a slower pace of price growth, but that does not mean prices have returned to earlier levels. For families, the distinction between lower inflation and lower prices remains critical.",
+    "significance": 90,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 2,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Inflation slows but prices remain elevated",
+        "url": "https://apnews.com/article/150e179a6c6b3182ba05cedf0188394b",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      },
+      {
+        "name": "Reuters",
+        "headline": "US consumer prices increase as expected in July",
+        "url": "https://www.reuters.com/business/us-consumer-prices-increase-expected-july-2026-08-12/",
+        "published": "Aug. 12, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-4",
+    "pillar": "Family Impact",
+    "scope": "US",
+    "rank": 4,
+    "title": "July consumer-price data keep attention on food, housing and service costs",
+    "deck": "The latest consumer-price report showed relatively mild monthly inflation, but families experience the economy through specific recurring bills rather than one headline number.",
+    "significance": 87,
+    "published": "Aug. 12, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "US consumer prices increase as expected in July",
+        "url": "https://www.reuters.com/business/us-consumer-prices-increase-expected-july-2026-08-12/",
+        "published": "Aug. 12, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-5",
+    "pillar": "Family Impact",
+    "scope": "US",
+    "rank": 5,
+    "title": "Wholesale inflation cools as gasoline and food costs ease",
+    "deck": "Producer-price data showed slower wholesale inflation, including relief in some food and energy costs. Whether that reaches household budgets depends on how quickly businesses pass changes through to retail prices.",
+    "significance": 84,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Wholesale price inflation slows as gas, food costs fall",
+        "url": "https://apnews.com/article/f9bf278f4550a956b1f350722817371d",
+        "published": "Aug. 2026",
+        "type": "Economic Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-6",
+    "pillar": "Family Impact",
+    "scope": "US",
+    "rank": 6,
+    "title": "Back-to-school shoppers start earlier as higher bills pressure family budgets",
+    "deck": "Retailers are seeing families hunt for bargains earlier in the back-to-school season as household expenses remain elevated. The story connects macroeconomic pressures to everyday purchasing decisions.",
+    "significance": 79,
+    "published": "July 6, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "US back-to-school bargain hunt starts early as higher bills pressure families",
+        "url": "https://www.reuters.com/business/retail-consumer/us-back-to-school-bargain-hunt-starts-early-higher-bills-pressure-families-2026-07-06/",
+        "published": "July 6, 2026",
+        "type": "Consumer Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "family-7",
+    "pillar": "Family Impact",
+    "scope": "State",
+    "rank": 7,
+    "title": "Oklahoma school cellphone rules change the school-day routine for families",
+    "deck": "The state's bell-to-bell cellphone restrictions affect how students use devices during school and how families plan for routine or emergency contact during the day.",
+    "significance": 76,
+    "published": "2026 school year",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Office of the Governor of Oklahoma",
+        "headline": "Governor Stitt signs 'Bell to Bell, No Cell' bill into law",
+        "url": "https://oklahoma.gov/governor/newsroom/newsroom/2026/governor-stitt-signs-bell-to-bell-no-cell-bill-into-law.html",
+        "published": "2026",
+        "type": "Primary Source",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within Family Impact using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-1",
+    "pillar": "Faith",
+    "scope": "World",
+    "rank": 1,
+    "title": "Christians in Israel describe rising harassment and look to faith and allies for support",
+    "deck": "Christians in Israel say harassment has increased, raising questions about religious freedom, minority security and how faith communities respond under political and social pressure.",
+    "significance": 92,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Israel's Christians rely on faith and allies as they fear rising harassment",
+        "url": "https://apnews.com/article/98c8f0b5aa9cc462f150332c2ef60b45",
+        "published": "Aug. 14, 2026",
+        "type": "Religion Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-2",
+    "pillar": "Faith",
+    "scope": "World",
+    "rank": 2,
+    "title": "Nigerian faith leaders sign a peace accord after months of religious and political tension",
+    "deck": "Faith leaders in Nigeria signed a peace accord aimed at reducing tensions, illustrating how religious institutions can function as civic mediators in a politically charged environment.",
+    "significance": 87,
+    "published": "Aug. 13, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Nigeria faith leaders sign peace accord months after Trump remarks",
+        "url": "https://www.reuters.com/world/africa/nigeria-faith-leaders-sign-peace-accord-months-after-trump-remarks-2026-08-13/",
+        "published": "Aug. 13, 2026",
+        "type": "Religion / World Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #2 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-3",
+    "pillar": "Faith",
+    "scope": "US",
+    "rank": 3,
+    "title": "Released Texas pastors say immigration agents threatened family separation",
+    "deck": "Texas pastors described their treatment by immigration agents after their release, placing questions of immigration enforcement, clergy ministry and family separation inside a faith-community context.",
+    "significance": 81,
+    "published": "July 27, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Religion News Service",
+        "headline": "Released Texas pastors say immigration agents threatened family separation",
+        "url": "https://religionnews.com/2026/07/27/released-texas-pastors-say-immigration-agents-threatened-family-separation/",
+        "published": "July 27, 2026",
+        "type": "Religion Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #3 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-4",
+    "pillar": "Faith",
+    "scope": "US",
+    "rank": 4,
+    "title": "Survey: half of Gen Z respondents say Trump support keeps them out of church",
+    "deck": "A recent report examines how political identification inside churches affects younger adults' willingness to participate. The finding is about reported attitudes, not a claim that all churches or all Gen Z adults respond the same way.",
+    "significance": 78,
+    "published": "July 20, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Religion News Service",
+        "headline": "Half of Gen Z says Trump support keeps them out of church",
+        "url": "https://religionnews.com/2026/07/20/half-of-gen-z-says-trump-support-keeps-them-out-of-church/?element=XFDNESWJ&form=donate",
+        "published": "July 20, 2026",
+        "type": "Religion Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #4 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-5",
+    "pillar": "Faith",
+    "scope": "US",
+    "rank": 5,
+    "title": "Church-state separation debate gets a historical look from Augustine to Jefferson",
+    "deck": "A Religion News Service analysis traces religious and secular roots of church-state separation, offering historical context for a debate that often gets compressed into current partisan arguments.",
+    "significance": 73,
+    "published": "July 7, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Religion News Service",
+        "headline": "From Augustine to Jefferson, the idea of separating church and state has deep religious and secular roots",
+        "url": "https://religionnews.com/2026/07/07/from-augustine-to-jefferson-the-idea-of-separating-church-and-state-has-deep-religious-and-secular-roots/",
+        "published": "July 7, 2026",
+        "type": "Analysis",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-6",
+    "pillar": "Faith",
+    "scope": "World",
+    "rank": 6,
+    "title": "Pope Leo frames Christian life as a response to the age of AI",
+    "deck": "A recent faith analysis examines Pope Leo's emphasis on Eucharistic and communal Christian life in a period of rapid AI adoption, connecting technology questions with vocation, attention and human relationships.",
+    "significance": 70,
+    "published": "July 22, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Religion News Service",
+        "headline": "Pope Leo's Eucharistic answer to the age of AI",
+        "url": "https://religionnews.com/2026/07/22/in-response-to-ai-pope-leo-proposes-a-sober-and-demanding-program-of-christian-life/",
+        "published": "July 22, 2026",
+        "type": "Religion Analysis",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-7",
+    "pillar": "Faith",
+    "scope": "US",
+    "rank": 7,
+    "title": "Pope Leo links liberty with life, immigrants and faith as the U.S. marks 250 years",
+    "deck": "Pope Leo's message around the U.S. 250th anniversary connected religious liberty with questions of human dignity, immigration and public faith.",
+    "significance": 68,
+    "published": "July 3, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Religion News Service",
+        "headline": "As US turns 250, Pope Leo says liberty is represented through life, immigrants and faith",
+        "url": "https://religionnews.com/2026/07/03/as-us-turns-250-pope-leo-says-liberty-is-represented-through-life-immigrants-and-faith/",
+        "published": "July 3, 2026",
+        "type": "Religion Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #7 within Faith using a proof-of-concept impact score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "reactions": null,
+    "live": true
+  }
+];
+
+let state={
+  pillar:"All", geo:"All", time:"Today", search:"",
+  location:localStorage.getItem("sevenPillarsLocation") || "Tulsa, Oklahoma",
+  signedIn:localStorage.getItem("sevenPillarsSignedIn")==="1",
+  premium:localStorage.getItem("sevenPillarsPremium")==="1",
+  interests:JSON.parse(localStorage.getItem("sevenPillarsInterests")||'["Family Impact","Local News","National"]'),
+  faithPreference:localStorage.getItem("sevenPillarsFaithPreference") || "All Faiths / Religion & Ethics",
+  currentStory:null
+};
+
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+$("#locationBtn").textContent=state.location;
+$("#accountBtn").textContent=state.premium?"Member":"Sign In";
+
+$("#faithPreference").value=state.faithPreference;
+$("#faithPreference").addEventListener("change",e=>{
+  state.faithPreference=e.target.value;
+  localStorage.setItem("sevenPillarsFaithPreference",state.faithPreference);
+  render();
+});
+
+
+function filteredStories(){
+  let arr=stories.filter(s=>{
+    if(state.pillar!=="All" && s.pillar!==state.pillar) return false;
+    if(state.search && !(s.title+" "+s.deck+" "+s.pillar+" "+s.scope).toLowerCase().includes(state.search.toLowerCase())) return false;
+    return true;
+  });
+  if(state.time==="Week"){
+    return [...arr].sort((a,b)=> (b.significance + (b.rank%3)*3) - (a.significance + (a.rank%3)*3));
+  }
+  return [...arr].sort((a,b)=>b.significance-a.significance);
+}
+
+function render(){
+  const arr=filteredStories();
+  const hero=arr[0] || stories[0];
+  const total = state.pillar==="All" && !state.search ? 49 : arr.length;
+  $("#editionNote").textContent=`${total} sourced story cluster${total===1?"":"s"} · real publisher links · impact ranked`;
+  $("#filterSummary").textContent=`${state.time==="Today"?"Snapshot Edition":"7-Day View"} · ${LIVE_SNAPSHOT_TIME} ${state.search?"· Search: "+state.search:""}`;
+  $("#sectionTitle").textContent=state.pillar==="All"?"The Seven Tribunes":state.pillar;
+
+  if(arr.length===0){
+    $("#hero").innerHTML='<span class="kicker">No matching stories</span><h1>Try a broader filter.</h1><p class="deck">No sourced story clusters match the current pillar and search terms.</p>';
+    $("#briefRail").innerHTML="";
+    $("#storyGrid").innerHTML="";
+    return;
+  }
+
+  $("#hero").innerHTML=`
+    <span class="kicker">Biggest Impact Story · ${hero.pillar} · #${hero.rank} in pillar</span>
+    <h1>${hero.title}</h1>
+    <p class="deck">${hero.deck}</p>
+    <div class="meta">Impact ${hero.significance}/100 · ${hero.sources} linked source${hero.sources===1?"":"s"} · published ${hero.published}</div>
+    <div class="story-actions">
+      <button class="btn primary" onclick="openStory('${hero.id}','summary')">What We Know</button>
+      <button class="btn" onclick="openStory('${hero.id}','coverage')">Source Coverage</button>
+      <button class="btn" onclick="openStory('${hero.id}','takes')">7 Takes</button>
+      <a class="btn soft" target="_blank" rel="noopener noreferrer" href="${hero.sourcesDetail[0].url}">Read Primary Link ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>${hero.significance}</b><span>POC Impact Score</span></div>
+      <div class="stat"><b>Pending</b><span>Social Heat</span></div>
+      <div class="stat"><b>${hero.sources}</b><span>Linked Sources</span></div>
+      <div class="stat"><b>Live</b><span>Source Links</span></div>
+    </div>
+  `;
+
+  const topOther = PILLARS
+    .filter(p=>p!==hero.pillar)
+    .map(p=>stories.filter(s=>s.pillar===p).sort((a,b)=>b.significance-a.significance)[0])
+    .filter(Boolean)
+    .sort((a,b)=>b.significance-a.significance)
+    .slice(0,5);
+
+  $("#briefRail").innerHTML=topOther.map((s,i)=>`
+    <article class="rail-item">
+      <span class="num">${i+2}</span>
+      <span class="kicker">${s.pillar}</span>
+      <h3>${s.title}</h3>
+      <div class="meta">Impact ${s.significance} · ${s.sources} source${s.sources===1?"":"s"}</div>
+      <button class="linkbtn" onclick="openStory('${s.id}','summary')">Read the cluster</button>
+    </article>`).join("");
+
+  const visiblePillars = state.pillar==="All" ? PILLARS : [state.pillar];
+  $("#storyGrid").innerHTML = visiblePillars.map((pillar)=>{
+    const pillarStories = arr.filter(s=>s.pillar===pillar).sort((a,b)=>b.significance-a.significance);
+    if(!pillarStories.length) return "";
+    return `
+      <section class="pillar-block">
+        <div class="pillar-block-head">
+          <div>
+            <h3 class="pillar-block-title"><span class="pillar-number">${PILLARS.indexOf(pillar)+1}</span>${pillar==="Family Impact"?"Family":pillar==="Local News"?"Local":pillar}</h3>
+            <p class="pillar-description">${pillarDescriptions[pillar]}${pillar==="Faith" ? ` <strong>Current preference: ${state.faithPreference}.</strong>` : ""}</p>
+          </div>
+          <button class="btn soft" onclick="focusPillar('${pillar.replace(/'/g,"&#39;")}')">Open ${pillar}</button>
+        </div>
+        <div class="pillar-layout">
+          <article class="reaction-feature">
+            <div class="reaction-label"><span>Social Heat</span><span>Engagement ≠ truth or impact</span></div>
+            <span class="kicker">Most Reacted Story</span>
+            <h3>Awaiting verified platform reaction data</h3>
+            <p>This live-sourced snapshot does not invent likes, shares or reaction totals. Production will rank eligible social stories only after direct platform/API data, bot filtering and reputable-source verification are connected.</p>
+            <div class="reaction-count">Pending<small>Verified cross-platform metrics</small></div>
+          </article>
+          <div class="top7-panel">
+            <div class="top7-heading"><span>Top 7 by Impact</span><span>Real source links</span></div>
+            ${pillarStories.slice(0,7).map((s,i)=>`
+              <article class="ranked-story ${i===0?"is-one":""}">
+                <div class="rnum">${i+1}</div>
+                <div>
+                  <h4><button class="linkbtn" onclick="openStory('${s.id}','summary')">${s.title}</button></h4>
+                  <div class="rmeta">Impact ${s.significance}/100 · ${s.sources} linked source${s.sources===1?"":"s"} · ${s.published}</div>
+                </div>
+                <div class="mini-reactions"><a href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      </section>`;
+  }).join("");
+
+  renderAdmin();
+  renderLocalVoices();
+}
+function scopeLabel(s){return s==="US"?"U.S.":s==="State"?"Oklahoma":s}
+
+function openStory(id,tab="summary"){
+  const s=stories.find(x=>x.id===id); if(!s)return;
+  state.currentStory=s;
+  $("#drawerHeader").innerHTML=`
+    <span class="kicker">${s.pillar} · ${scopeLabel(s.scope)} · Live-Sourced Snapshot</span>
+    <h1>${s.title}</h1>
+    <p class="deck" style="font-size:18px">${s.deck}</p>
+    <div class="meta">Published ${s.published} · ${s.sources} linked source${s.sources===1?"":"s"} · POC impact ${s.significance}/100 · Social Heat pending</div>
+    <div class="badges"><span class="badge reliable">Real publisher/source links</span><span class="badge">Neutral brief: POC synthesis</span><span class="badge demo">Perspective scoring pending</span></div>
+  `;
+
+  $("#tab-summary").innerHTML=`
+    <h2>What We Know</h2>
+    <div class="factrow"><b>Confirmed</b><p>${s.facts[0]}</p></div>
+    <div class="factrow"><b>Source</b><p>${s.facts[1]}</p></div>
+    <div class="factrow"><b>Disputed</b><p>${s.facts[2]}</p></div>
+    <div class="factrow"><b>Unknown</b><p>${s.facts[3]}</p></div>
+    <h2 style="margin-top:24px">Why It Matters</h2>
+    <p>${s.why}</p>
+
+    <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
+    <p>The neutral brief is only the entry point. Open one source or several underlying reports and read the journalism directly.</p>
+    <div class="linked-reporting">
+      ${s.sourcesDetail.map((src,i)=>`
+        <article class="linked-story">
+          <div>
+            <span class="kicker">${src.type}</span>
+            <h4>${src.name}</h4>
+            <p>${src.headline}</p>
+            <div class="meta">${src.published}${src.note ? " · "+src.note : ""}</div>
+          </div>
+          <a class="btn soft" href="${src.url}" target="_blank" rel="noopener noreferrer">Read Source ↗</a>
+        </article>
+      `).join("")}
+    </div>
+    <p class="edition-note">7 Tribunes does not reproduce the full article. Source links preserve the publisher relationship and any publisher paywall.</p>
+  `;
+
+  $("#tab-coverage").innerHTML=coverageHTML(s);
+  $("#tab-takes").innerHTML=takesHTML(s);
+  $("#tab-timeline").innerHTML=`
+    <h2>Snapshot Provenance</h2>
+    <div class="timeline">
+      <div class="event"><time>Source discovery</time><p>Public reporting and official sources were identified for this manual proof-of-concept snapshot.</p></div>
+      <div class="event"><time>Story clustering</time><p>Related reports are grouped when they describe the same underlying event; unrelated stories are not treated as corroboration.</p></div>
+      <div class="event"><time>Neutral brief</time><p>The short take is written to preserve material facts and uncertainty while removing loaded framing.</p></div>
+      <div class="event"><time>Production next step</time><p>Automated ingestion, direct social metrics, article-level perspective scoring and continuous refresh are not yet connected.</p></div>
+    </div>
+  `;
+  $("#tab-discuss").innerHTML=discussionHTML(s);
+  switchTab(tab);
+  $("#overlay").classList.add("open"); $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden","false");
+}
+window.openStory=openStory;
+
+window.focusPillar=function(pillar){
+  state.pillar=pillar;
+  state.search="";
+  $("#searchInput").value="";
+  $$("#pillarNav [data-pillar]").forEach(b=>b.classList.toggle("active",b.dataset.pillar===pillar));
+  render();
+  document.querySelector(".pillars").scrollIntoView({behavior:"smooth",block:"start"});
+};
+
+
+function coverageHTML(s){
+  const cards=s.sourcesDetail.map((src,i)=>`
+    <div class="sourcecard">
+      <div class="sourcehead">
+        <h4>${src.name}</h4>
+        <span class="score">${src.type}</span>
+      </div>
+      <p><strong>${src.headline}</strong></p>
+      <div class="meta">${src.published}</div>
+      <p>${src.note || (s.sourcesDetail.length>1 ? "One of the linked sources in this story cluster." : "The linked source currently attached to this snapshot story.")}</p>
+      <a class="btn soft" href="${src.url}" target="_blank" rel="noopener noreferrer">Open Publisher ↗</a>
+    </div>`).join("");
+  return `
+    <h2>Source Coverage</h2>
+    <p><strong>This live snapshot does not fabricate political-orientation or reliability numbers.</strong> The production version will score individual articles only after the 7 Tribunes methodology is operational and auditable. For now, read the original source material directly.</p>
+    ${s.sourcesDetail.length===1 ? '<div class="lock"><strong>One linked source in this snapshot.</strong><p>A production cluster would continue discovery for independent corroboration or competing coverage when available.</p></div>' : ''}
+    ${cards}
+  `;
+}
+function takesHTML(s){
+  if(!state.premium){
+    return `
+      <h2>7 Takes</h2>
+      <p><strong>Commentary feed not yet connected.</strong> The profiles below remain a UI demonstration of how sourced commentary will be separated from news reporting.</p>
+      ${takeRow(takesProfiles[0],0,s)}
+      ${takeRow(takesProfiles[1],1,s)}
+      <div class="lock">
+        <h3>5 additional Takes are part of the Member demonstration.</h3>
+        <p>This simulates the paywall/entitlement boundary. No payment is required in the POC.</p>
+        <button class="btn primary" onclick="activatePremium()">Activate Demo Membership</button>
+      </div>`;
+  }
+  return `<h2>7 Takes</h2><p><strong>Commentary feed not yet connected.</strong> These fictional profiles demonstrate the future 7 Takes layout; production Takes will link to real attributable commentary.</p>`+
+    takesProfiles.map((p,i)=>takeRow(p,i,s)).join("");
+}
+function takeRow(p,i,s){
+  return `<div class="take">
+    <div class="avatar">${p[0].split(" ").map(x=>x[0]).join("")}</div>
+    <div><h4>${i+1}. ${p[0]}</h4><small>${p[1]} · ${p[2]} perspective</small><p>${p[3]} On this ${s.pillar.toLowerCase()} story, the commentary would link back to the original published analysis rather than replacing it.</p></div>
+  </div>`;
+}
+
+function discussionHTML(s){
+  return `
+    <h2>Community Discussion</h2>
+    <p>Disagreement is allowed. Threats, doxxing, graphic abuse and targeted harassment are not. Automated decisions are triage signals, not ideological moderation.</p>
+    <div class="commentform">
+      <textarea id="commentText" placeholder="Add a thoughtful comment..."></textarea>
+      <div class="story-actions"><button class="btn primary" onclick="moderateComment()">Post Comment</button></div>
+      <div class="mod-status" id="modStatus"></div>
+    </div>
+    <div id="postedComments">
+      <div class="comment"><strong>DemoReader42</strong> <small>· 14 minutes ago</small><p>I appreciate seeing the reporting-quality score separately from the political framing. I would also like to see the primary documents used for the factual spine.</p></div>
+      <div class="comment"><strong>LocalSubscriber</strong> <small>· 32 minutes ago</small><p>The “unknown” section is useful. Breaking stories often sound more certain than they really are.</p></div>
+    </div>`;
+}
+window.moderateComment=function(){
+  const text=$("#commentText").value.trim(); const box=$("#modStatus");
+  if(!text){box.className="mod-status show hold";box.textContent="Write a comment before posting.";return}
+  const low=text.toLowerCase();
+  const severe=["kill you","shoot you","bomb your","find your address","doxx","murder you"];
+  const abusive=["idiot","moron","stupid loser","shut up"];
+  if(severe.some(x=>low.includes(x))){
+    box.className="mod-status show block";
+    box.textContent="BLOCKED / ESCALATED: Potential threat or doxxing language detected. In production this would be held from public display and routed for human review.";
+    return;
+  }
+  if(abusive.some(x=>low.includes(x))){
+    box.className="mod-status show hold";
+    box.textContent="HELD FOR REVIEW: Possible targeted harassment. Political disagreement itself is permitted.";
+    return;
+  }
+  box.className="mod-status show ok";box.textContent="ALLOWED: Comment passed the demonstration moderation checks.";
+  const c=document.createElement("div"); c.className="comment";
+  c.innerHTML=`<strong>Demo User</strong> <small>· just now</small><p>${escapeHTML(text)}</p>`;
+  $("#postedComments").prepend(c); $("#commentText").value="";
+}
+function escapeHTML(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+
+window.demoExternal=function(sourceName){
+  alert(`POC Demo${sourceName ? " · "+sourceName : ""}: the production version would open the actual publisher article in a new tab. Readers could choose one source or open several reports to compare coverage. Publisher attribution and paywalls would be preserved.`);
+}
+window.activatePremium=function(){
+  state.premium=true;localStorage.setItem("sevenPillarsPremium","1");$("#accountBtn").textContent="Member";
+  if(state.currentStory) $("#tab-takes").innerHTML=takesHTML(state.currentStory);
+  $("#premiumCard").innerHTML='<span class="kicker" style="color:#d6bb7d">Demo Membership Active</span><h3>Full comparison mode is unlocked.</h3><p>You can now see all 7 Takes in this proof of concept.</p><button class="btn" onclick="openAccount()">Membership Settings</button>';
+}
+
+function switchTab(tab){
+  $$("#drawerTabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+  $$(".tabpane").forEach(p=>p.classList.toggle("active",p.id==="tab-"+tab));
+}
+$("#drawerTabs").addEventListener("click",e=>{if(e.target.dataset.tab)switchTab(e.target.dataset.tab)});
+function closeDrawer(){$("#overlay").classList.remove("open");$("#drawer").classList.remove("open");$("#drawer").setAttribute("aria-hidden","true")}
+$("#drawerClose").onclick=closeDrawer; $("#overlay").onclick=()=>{closeDrawer();closeModals()};
+
+$("#pillarNav").addEventListener("click",e=>{
+  const p=e.target.dataset.pillar;
+  if(!p)return;
+  state.pillar=p;state.search="";$("#searchInput").value="";
+  $$("#pillarNav [data-pillar]").forEach(b=>b.classList.toggle("active",b.dataset.pillar===p));
+  render();
+});
+$("#timeSeg").onclick=e=>{if(!e.target.dataset.time)return;state.time=e.target.dataset.time;$$('#timeSeg button').forEach(b=>b.classList.toggle("active",b.dataset.time===state.time));render()}
+function doSearch(){state.search=$("#searchInput").value.trim();render()}
+$("#searchBtn").onclick=doSearch;$("#searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")doSearch()});
+
+function openModal(id){$("#overlay").classList.add("open");$("#"+id).classList.add("open")}
+function closeModals(){$$(".modal").forEach(m=>m.classList.remove("open")); if(!$("#drawer").classList.contains("open"))$("#overlay").classList.remove("open")}
+$$(".modalClose").forEach(b=>b.onclick=closeModals);
+$("#locationBtn").onclick=()=>openModal("locationModal");
+$("#interestBtn").onclick=()=>{renderInterests();openModal("interestModal")};
+$("#accountBtn").onclick=()=>openModal("accountModal");
+window.openAccount=()=>openModal("accountModal");
+$("#methodBtn").onclick=()=>openModal("methodModal");
+$("#upgradeBtn").onclick=()=>{openModal("accountModal")};
+
+$("#saveLocation").onclick=()=>{
+  const v=$("#locationInput").value.trim();if(!v)return;
+  state.location=v;localStorage.setItem("sevenPillarsLocation",v);$("#locationBtn").textContent=v;closeModals()
+}
+$("#geoLocate").onclick=()=>{
+  const st=$("#geoStatus");
+  if(!navigator.geolocation){st.textContent="This browser does not expose geolocation.";return}
+  st.textContent="Requesting browser permission…";
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const lat=pos.coords.latitude.toFixed(2),lon=pos.coords.longitude.toFixed(2);
+    $("#locationInput").value=`Approx. ${lat}, ${lon}`;
+    st.textContent="POC: coordinates captured locally. Production would convert them to an approximate city/region and avoid retaining unnecessary precision.";
+  },()=>st.textContent="Location permission was not granted. You can enter a city or ZIP instead.");
+};
+
+const interestOptions=["Faith","Family & Parenting","Household Finances","Education","Health","Local Government","Public Safety","Oklahoma","National Affairs","Severe Weather","Movies","Streaming","Music","NFL","NCAA","NBA","MLB","High School Sports"];
+function renderInterests(){
+  $("#interestGrid").innerHTML=interestOptions.map(x=>`<button data-interest="${x}" class="${state.interests.includes(x)?"active":""}">${x}</button>`).join("");
+}
+$("#interestGrid").onclick=e=>{
+  const x=e.target.dataset.interest;if(!x)return;
+  if(state.interests.includes(x))state.interests=state.interests.filter(y=>y!==x);else state.interests.push(x);
+  localStorage.setItem("sevenPillarsInterests",JSON.stringify(state.interests));renderInterests()
+};
+
+$("#demoSignIn").onclick=()=>{
+  state.signedIn=true;localStorage.setItem("sevenPillarsSignedIn","1");$("#accountBtn").textContent=state.premium?"Member":"Demo User";
+  $("#accountTitle").textContent="Signed in as Demo User";$("#accountCopy").textContent="Your selected location and interests can now be treated as account preferences in the POC."; 
+}
+$("#demoPremium").onclick=()=>{activatePremium();closeModals()};
+
+$("#adminBtn").onclick=()=>{$("#newsView").style.display="none";$("#adminView").classList.add("active");window.scrollTo({top:0,behavior:"smooth"})}
+$("#closeAdmin").onclick=()=>{$("#newsView").style.display="block";$("#adminView").classList.remove("active");window.scrollTo({top:0,behavior:"smooth"})}
+
+function renderAdmin(){
+  $("#adminStories").innerHTML=stories.slice(0,9).map(s=>`<tr><td>${s.title}</td><td>${s.pillar}</td><td>${scopeLabel(s.scope)}</td><td>${s.significance}</td><td>${s.sources}</td><td>Sourced Snapshot</td></tr>`).join("");
+}
+
+setDailyQuote();
+renderFeaturedComments();
+render();
+if(state.premium) activatePremium();
+</script>
+</body>
+</html>

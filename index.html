@@ -247,30 +247,6 @@
     font-family:Arial,sans-serif;font-size:10px
   }
   .reaction-btn:hover{background:var(--ink);color:var(--paper)}
-  .mast-categories{
-    border-top:1px solid rgba(219,193,126,.26);
-    background:rgba(0,0,0,.11);
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    padding:0 16px;
-  }
-  .mast-categories span{
-    padding:8px 5px 7px;
-    text-align:center;
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:.10em;
-    color:#d9d0bd;
-    border-right:1px solid rgba(219,193,126,.14);
-  }
-  .mast-categories span:last-child{border-right:0}
-  .mast-categories span:before{
-    content:attr(data-n);
-    color:#dfc47a;
-    font-weight:800;
-    margin-right:5px;
-  }
   .nav{
     display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:4px double var(--ink);border-bottom:1px solid var(--ink);
     padding:9px 0;margin-top:10px
@@ -617,8 +593,6 @@
     .brand-word{font-size:clamp(46px,15vw,67px)}
     .brand-subline{font-size:7px;letter-spacing:.11em;margin-top:7px}
     .tagline{font-size:12px;margin-top:5px}
-    .mast-categories{grid-template-columns:repeat(4,1fr);padding:0 6px}
-    .mast-categories span{font-size:7px;padding:6px 3px}
     .nav{gap:2px}
     .nav .spacer{display:none}
     .search{min-width:100%;order:3}
@@ -663,7 +637,7 @@
       <aside class="quote-box" aria-label="Thought for today">
         <div class="quote-label">Thought for Today</div>
         <blockquote class="quote-text" id="dailyQuote">“This is the day which the LORD hath made; we will rejoice and be glad in it.”</blockquote>
-        <div class="quote-source" id="dailyQuoteSource">Psalm 118:24 · KJV</div>
+        <div class="quote-source" id="dailyQuoteSource">The Bible · Psalm 118:24 (KJV)</div>
       </aside>
 
       <div class="brand-lockup">
@@ -681,15 +655,6 @@
         <b>7 TAKES</b>
         <span>Freedom to Disagree</span>
       </a>
-    </div>
-    <div class="mast-categories" aria-label="The seven pillars">
-      <span data-n="1">Local</span>
-      <span data-n="2">State</span>
-      <span data-n="3">National</span>
-      <span data-n="4">Weather</span>
-      <span data-n="5">Sports</span>
-      <span data-n="6">Family</span>
-      <span data-n="7">Faith</span>
     </div>
   </header>
 
@@ -926,13 +891,13 @@
 const PILLARS = ["Local News","State","National","Weather","Sports","Family Impact","Faith"];
 
 const DAILY_QUOTES = [
-  {text:"This is the day which the LORD hath made; we will rejoice and be glad in it.", source:"Psalm 118:24 · KJV"},
-  {text:"Do the next good thing well. Momentum has a funny way of introducing itself after that.", source:""},
-  {text:"A calm mind sees farther than a loud room.", source:""},
-  {text:"Progress counts even when it arrives wearing work clothes.", source:""},
-  {text:"Be serious about the mission, but not so serious that you forget to laugh.", source:""},
-  {text:"Good judgment improves when gratitude gets a seat at the table.", source:""},
-  {text:"Some days the win is simply refusing to let a bad five minutes rent the whole day.", source:""}
+  {text:"This is the day which the LORD hath made; we will rejoice and be glad in it.", source:"The Bible · Psalm 118:24 (KJV)"},
+  {text:"Do the next good thing well. Momentum has a funny way of introducing itself after that.", source:"7 Tribunes"},
+  {text:"A calm mind sees farther than a loud room.", source:"7 Tribunes"},
+  {text:"Progress counts even when it arrives wearing work clothes.", source:"7 Tribunes"},
+  {text:"Be serious about the mission, but not so serious that you forget to laugh.", source:"7 Tribunes"},
+  {text:"Good judgment improves when gratitude gets a seat at the table.", source:"7 Tribunes"},
+  {text:"Some days the win is simply refusing to let a bad five minutes rent the whole day.", source:"7 Tribunes"}
 ];
 
 function setDailyQuote(){
@@ -944,8 +909,8 @@ function setDailyQuote(){
   const qs = document.querySelector("#dailyQuoteSource");
   if(qt) qt.textContent = `“${q.text}”`;
   if(qs){
-    qs.textContent = q.source || "";
-    qs.style.display = q.source ? "block" : "none";
+    qs.textContent = q.source || "7 Tribunes";
+    qs.style.display = "block";
   }
 }
 

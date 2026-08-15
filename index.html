@@ -107,23 +107,28 @@
   }
   .brand-lockup{min-width:0;text-align:center}
   .brand-overline{display:none}
+  .brand-mark-wrap{width:min(100%,620px);margin:0 auto}
   .brand-mark{display:flex;justify-content:center;align-items:center;gap:12px;line-height:.78}
   .brand-seven-stack{display:contents}
   .brand-seven-center{
     font-size:clamp(58px,5.4vw,78px);line-height:.66;font-weight:900;letter-spacing:-.08em;color:#cb1f1f;position:relative;z-index:2;margin-bottom:-2px;
   }
-  .brand-pillar-icon{width:28px;height:42px;display:block;position:relative;margin:0 2px;flex:0 0 auto}
+  .brand-pillar-row{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    width:100%;padding:0 10px;margin:-1px auto 0;
+  }
+  .brand-pillar-icon{width:24px;height:22px;display:block;position:relative;flex:0 0 auto}
   .brand-pillar-icon:before{
-    content:"";position:absolute;left:0;right:0;top:0;height:6px;background:#11284e;clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);
+    content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#11284e;clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);
   }
   .brand-pillar-icon:after{
-    content:"";position:absolute;left:3px;right:3px;bottom:0;top:9px;background:repeating-linear-gradient(to right,#11284e 0 4px,transparent 4px 8px);border-bottom:5px solid #11284e;
+    content:"";position:absolute;left:3px;right:3px;bottom:0;top:6px;background:repeating-linear-gradient(to right,#11284e 0 3px,transparent 3px 6px);border-bottom:3px solid #11284e;
   }
   .brand-word{
     display:block;font-size:clamp(54px,5.4vw,78px);line-height:.83;letter-spacing:-.055em;font-weight:900;color:#11284e;text-shadow:none;
   }
   .brand-subline{
-    margin:4px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;color:#2d3144;letter-spacing:.01em;
+    margin:2px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;color:#2d3144;letter-spacing:.01em;
   }
   .brand-subline:before,.brand-subline:after{content:"";width:44px;border-top:1px solid #d65248;transform:translateY(2px)}
   .tagline{margin:4px 0 0;font-size:18px;font-style:italic;color:#c02822}
@@ -131,28 +136,30 @@
     min-height:58px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border:1px solid rgba(35,34,31,.14);border-radius:11px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);background:rgba(255,255,255,.38);padding:6px 9px;text-align:left;position:relative;
   }
   .takes-seal:before{content:"";position:absolute;inset:5px;border:1px solid rgba(35,34,31,.12);border-radius:8px;pointer-events:none}
-  .takes-seal small{
-    display:block;font-family:Arial,Helvetica,sans-serif;font-size:6px;text-transform:uppercase;letter-spacing:.11em;color:#202940;font-weight:800;order:2;margin-top:5px;
-  }
-  .takes-seal b{display:block;font-size:17px;color:#c02822;margin:0;line-height:1;order:1}
-  .takes-seal span{font-size:8px;line-height:1.18;color:#202940;margin-top:5px;order:4}
-  .takes-seal:after{content:"";width:68px;border-top:1px solid #d65248;margin-top:5px;order:3}
+  .takes-seal small{display:none}
+  .takes-seal b{display:block;font-size:18px;color:#c02822;margin:0;line-height:1;order:1}
+  .takes-seal span{font-size:8px;line-height:1.18;color:#202940;margin-top:5px;order:3}
+  .takes-seal:after{content:"";width:68px;border-top:1px solid #d65248;margin-top:5px;order:2}
   .takes-link{text-decoration:none;color:inherit;transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease}
   .takes-link:hover,.takes-link:focus{
     transform:translateY(-2px);background:rgba(255,255,255,.62);border-color:#d4beb0;box-shadow:0 8px 18px rgba(32,41,64,.08), inset 0 0 0 3px rgba(255,255,255,.6);outline:none;
   }
 
-  .masthead-right{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .masthead-right{display:flex;flex-direction:column;gap:3px;min-width:0;padding-right:10px}
   .edition-weather{
-    border-top:1px solid rgba(17,40,78,.15);padding:4px 1px 0;
+    border-top:1px solid rgba(17,40,78,.15);padding:4px 5px 0 2px;margin-right:5px;
     font-family:Arial,Helvetica,sans-serif;color:#11284e;
   }
-  .edition-weather-top{display:flex;justify-content:space-between;gap:6px;align-items:baseline;font-size:6px;text-transform:uppercase;letter-spacing:.07em;color:#697386}
-  .edition-weather-top strong{font-size:7px;color:#11284e;letter-spacing:.02em}
-  .weather-mini{display:flex;align-items:center;gap:5px;margin-top:2px;min-height:20px}
-  .weather-icon{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#eef2f7;color:#c02822;font-size:13px;line-height:1}
-  .weather-copy{display:flex;align-items:baseline;gap:4px;min-width:0}
-  .weather-copy b{font-size:12px;line-height:1;color:#11284e}
+  .edition-weather-top{display:flex;justify-content:space-between;gap:7px;align-items:baseline;font-size:6px;text-transform:uppercase;letter-spacing:.07em;color:#697386}
+  .edition-weather-top strong{font-size:9px;color:#11284e;letter-spacing:.01em;font-weight:800}
+  .weather-mini{display:flex;align-items:center;gap:6px;margin-top:3px;min-height:24px}
+  .weather-icon{
+    display:grid;place-items:center;width:25px;height:25px;border-radius:8px;
+    background:#eef2f7;color:#c02822;font-size:17px;line-height:1;
+    box-shadow:inset 0 0 0 1px rgba(17,40,78,.08);
+  }
+  .weather-copy{display:flex;align-items:center;gap:5px;min-width:0}
+  .weather-copy b{font-size:15px;line-height:1;color:#11284e}
   .weather-copy small{font-size:7px;line-height:1.1;color:#5f6877;white-space:normal}
 
   .featured-takes{
@@ -549,8 +556,11 @@
     .masthead-right{width:100%}
     .takes-seal{display:flex;align-items:flex-start;min-height:auto}
     .edition-weather{max-width:280px}
-    .brand-mark{gap:10px;align-items:flex-end}
+    .brand-mark{gap:10px;align-items:center}
     .brand-seven-stack{transform:none}
+    .brand-mark-wrap{width:min(100%,360px)}
+    .brand-pillar-row{padding:0 4px}
+    .brand-pillar-icon{width:18px;height:17px}
     .brand-seven-center{font-size:76px}
     .brand-word{font-size:clamp(46px,15vw,67px)}
     .brand-subline{font-size:18px;letter-spacing:.01em;margin-top:9px}
@@ -784,24 +794,27 @@
       </aside>
 
       <div class="brand-lockup">
-        <div class="brand-mark">
-          <span class="brand-pillar-icon brand-pillar-left" aria-hidden="true"></span>
-          <span class="brand-seven-center">7</span>
-          <span class="brand-word">TRIBUNES</span>
-          <span class="brand-pillar-icon brand-pillar-right" aria-hidden="true"></span>
+        <div class="brand-mark-wrap">
+          <div class="brand-mark">
+            <span class="brand-seven-center">7</span>
+            <span class="brand-word">TRIBUNES</span>
+          </div>
+          <div class="brand-pillar-row" aria-hidden="true">
+            <span class="brand-pillar-icon brand-pillar-left"></span>
+            <span class="brand-pillar-icon brand-pillar-right"></span>
+          </div>
         </div>
-        <div class="brand-subline">Filtering For Facts</div>
+        <div class="brand-subline">The Truth Is Stubborn</div>
         <p class="tagline">Current Top 7&#39;s.</p>
       </div>
 
       <div class="masthead-right">
         <a class="takes-seal takes-link" href="#featuredTakes" aria-label="Jump to the 7 most-reacted community comments">
-          <small>OPINIONS ARE STUBBORN</small>
           <b>7 TAKES</b>
           <span>Freedom to Disagree</span>
         </a>
         <div class="edition-weather" aria-label="Edition and current local weather">
-          <div class="edition-weather-top"><span>Edition</span><strong>Aug. 15, 2026</strong></div>
+          <div class="edition-weather-top"><span>Edition</span><strong id="editionDateDisplay">Aug. 15, 2026</strong></div>
           <div class="weather-mini" id="editionWeather">
             <span class="weather-icon" id="weatherIcon" aria-hidden="true">◐</span>
             <span class="weather-copy"><b id="weatherTemp">--°</b><small id="weatherCondition">Loading NWS weather…</small></span>
@@ -861,10 +874,7 @@
     </div>
     <div class="edition-note" id="editionNote">49 sourced story clusters · real links · ranked by Impact Score</div>
   </div>
-
-
-  <div class="conversation-promise"><strong>7 pillars. 7 essential stories each.</strong> Catch up on what matters so you can walk into an intelligent dinner, work or community conversation with a solid general understanding of the day.</div>
-  <main id="newsView">
+<main id="newsView">
     <section class="frontgrid" id="frontGrid">
       <article class="hero" id="hero"></article>
       <aside class="rail">
@@ -3318,13 +3328,14 @@ const DEMO_WEATHER_POINTS={
 };
 function weatherGlyph(text=""){
   const t=text.toLowerCase();
-  if(/thunder|storm/.test(t)) return "⚡";
-  if(/snow|sleet|ice/.test(t)) return "❄";
-  if(/rain|shower|drizzle/.test(t)) return "☂";
-  if(/fog|mist|haze/.test(t)) return "≋";
-  if(/cloud|overcast/.test(t)) return "☁";
-  if(/sun|clear|fair/.test(t)) return "☀";
-  return "◐";
+  if(/thunder|storm/.test(t)) return "⛈️";
+  if(/snow|sleet|ice/.test(t)) return "❄️";
+  if(/rain|shower|drizzle/.test(t)) return "🌧️";
+  if(/fog|mist|haze/.test(t)) return "🌫️";
+  if(/partly|mostly sunny|few clouds/.test(t)) return "🌤️";
+  if(/cloud|overcast/.test(t)) return "☁️";
+  if(/sun|clear|fair/.test(t)) return "☀️";
+  return "🌤️";
 }
 async function updateEditionWeather(location){
   const temp=document.getElementById("weatherTemp");
@@ -3332,7 +3343,7 @@ async function updateEditionWeather(location){
   const icon=document.getElementById("weatherIcon");
   if(!temp||!cond||!icon) return;
   const coords=DEMO_WEATHER_POINTS[location];
-  if(!coords){temp.textContent="--°";cond.textContent="NWS weather: select a listed demo city";icon.textContent="◐";return;}
+  if(!coords){temp.textContent="--°";cond.textContent="NWS weather: select a listed demo city";icon.textContent="🌤️";return;}
   cond.textContent="Loading NWS weather…";
   try{
     const point=await fetch(`https://api.weather.gov/points/${coords[0]},${coords[1]}`,{headers:{Accept:"application/geo+json"}}).then(r=>{if(!r.ok)throw new Error("point");return r.json()});
@@ -3356,9 +3367,18 @@ async function updateEditionWeather(location){
       temp.textContent=`${Math.round(now.temperature)}°`;
       cond.textContent=now.shortForecast || "NWS forecast";
       icon.textContent=weatherGlyph(now.shortForecast || "");
-    }catch(_){temp.textContent="--°";cond.textContent="NWS weather unavailable";icon.textContent="◐";}
+    }catch(_){temp.textContent="--°";cond.textContent="NWS weather unavailable";icon.textContent="🌤️";}
   }
 }
+
+
+function updateEditionDate(){
+  const el=document.getElementById("editionDateDisplay");
+  if(!el) return;
+  const now=new Date();
+  el.textContent=now.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+}
+updateEditionDate();
 
 </script>
 

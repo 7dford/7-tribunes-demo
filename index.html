@@ -2856,7 +2856,7 @@ function render(){
   }
 
   $("#hero").innerHTML=`
-    <span class="kicker">Biggest Impact Story · ${hero.pillar} · #${hero.rank} in pillar</span>
+    <span class="kicker">Biggest Impact Story · ${storyRankLabel(hero)}</span>
     <h1><a class="story-title-link" href="${hero.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${hero.title}</a></h1>
     <p class="deck">${hero.deck}</p>
     <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score ${hero.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${hero.sources})">${hero.sources} linked source${hero.sources===1?"":"s"}</button> · published ${hero.published}</div>
@@ -2888,7 +2888,7 @@ function render(){
   $("#briefRail").innerHTML=topOther.map((s,i)=>`
     <article class="rail-item">
       <span class="num">${i+2}</span>
-      <span class="kicker">${s.pillar}</span>
+      <span class="kicker">${storyRankLabel(s)}</span>
       <h3><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">${s.title}</a></h3>
       <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} source${s.sources===1?"":"s"}</button></div>
       <button class="linkbtn" onclick="openStory('${s.id}','summary')">Read the cluster</button>
@@ -2929,7 +2929,7 @@ function render(){
                 <div class="rnum">${i+1}</div>
                 <div>
                   <h4><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${s.title}</a></h4>
-                  <div class="rmeta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · ${s.published}</div>
+                  <div class="rmeta"><strong>${storyRankLabel(s)}</strong> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · ${s.published}</div>
                   <div class="bias-row">
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
@@ -2948,11 +2948,20 @@ function render(){
 }
 function scopeLabel(s){return s==="US"?"U.S.":s==="State"?"Oklahoma":s}
 
+function storyRankInPillar(s){
+  const ranked = sortPillarStories(stories.filter(x=>x.pillar===s.pillar), s.pillar);
+  const idx = ranked.findIndex(x=>x.id===s.id);
+  return idx >= 0 ? idx + 1 : s.rank;
+}
+function storyRankLabel(s){
+  return `#${storyRankInPillar(s)} in ${s.pillar}`;
+}
+
 function openStory(id,tab="summary"){
   const s=stories.find(x=>x.id===id); if(!s)return;
   state.currentStory=s;
   $("#drawerHeader").innerHTML=`
-    <span class="kicker">${s.pillar} · ${scopeLabel(s.scope)} · Live-Sourced Snapshot</span>
+    <span class="kicker">${storyRankLabel(s)} · ${scopeLabel(s.scope)} · Live-Sourced Snapshot</span>
     <h1>${s.title}</h1>
     <p class="deck" style="font-size:18px">${s.deck}</p>
     <div class="meta">Published ${s.published} · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal('social')">Social Heat: Pending</button></div>

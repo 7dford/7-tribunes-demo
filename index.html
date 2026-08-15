@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>7 Tribunes — Filtering Bias From Facts</title>
+<title>7 Tribunes — Filtering For Facts</title>
 <style>
   :root{
     --paper:#faf8f2;
@@ -108,16 +108,16 @@
   .brand-lockup{min-width:0;text-align:center}
   .brand-overline{display:none}
   .brand-mark{display:flex;justify-content:center;align-items:center;gap:12px;line-height:.78}
-  .brand-seven-stack{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transform:none}
+  .brand-seven-stack{display:contents}
   .brand-seven-center{
     font-size:clamp(58px,5.4vw,78px);line-height:.66;font-weight:900;letter-spacing:-.08em;color:#cb1f1f;position:relative;z-index:2;margin-bottom:-2px;
   }
-  .brand-pillar-icon{width:34px;height:27px;display:block;position:relative;margin-top:0}
+  .brand-pillar-icon{width:28px;height:42px;display:block;position:relative;margin:0 2px;flex:0 0 auto}
   .brand-pillar-icon:before{
-    content:"";position:absolute;left:0;right:0;top:0;height:5px;background:#11284e;clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);
+    content:"";position:absolute;left:0;right:0;top:0;height:6px;background:#11284e;clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);
   }
   .brand-pillar-icon:after{
-    content:"";position:absolute;left:3px;right:3px;bottom:0;top:7px;background:repeating-linear-gradient(to right,#11284e 0 4px,transparent 4px 8px);border-bottom:4px solid #11284e;
+    content:"";position:absolute;left:3px;right:3px;bottom:0;top:9px;background:repeating-linear-gradient(to right,#11284e 0 4px,transparent 4px 8px);border-bottom:5px solid #11284e;
   }
   .brand-word{
     display:block;font-size:clamp(54px,5.4vw,78px);line-height:.83;letter-spacing:-.055em;font-weight:900;color:#11284e;text-shadow:none;
@@ -741,6 +741,26 @@
     text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px
   }
 
+
+  .conversation-promise{
+    margin:10px 0 0;padding:9px 13px;border-left:4px solid #c02822;background:rgba(17,40,78,.045);
+    font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.4;color:#26324a;
+  }
+  .entertainment-prefs{
+    margin-top:10px;padding:10px 11px;border:1px solid var(--rule);background:rgba(255,255,255,.28);
+    font-family:Arial,Helvetica,sans-serif;
+  }
+  .entertainment-prefs-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:7px}
+  .entertainment-prefs strong{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#11284e}
+  .entertainment-prefs small{font-size:9px;color:var(--muted)}
+  .entertainment-chips{display:flex;gap:5px;flex-wrap:wrap}
+  .entertainment-chip{
+    border:1px solid #aeb8c8;background:transparent;color:#26324a;border-radius:999px;padding:5px 8px;
+    font:700 10px Arial,Helvetica,sans-serif;
+  }
+  .entertainment-chip.active{background:#11284e;color:white;border-color:#11284e}
+  .entertainment-chip:hover{border-color:#c02822}
+
 </style>
 </head>
 <body>
@@ -765,10 +785,12 @@
 
       <div class="brand-lockup">
         <div class="brand-mark">
-          <span class="brand-seven-stack"><span class="brand-seven-center">7</span><span class="brand-pillar-icon" aria-hidden="true"></span></span>
+          <span class="brand-pillar-icon brand-pillar-left" aria-hidden="true"></span>
+          <span class="brand-seven-center">7</span>
           <span class="brand-word">TRIBUNES</span>
+          <span class="brand-pillar-icon brand-pillar-right" aria-hidden="true"></span>
         </div>
-        <div class="brand-subline">Filtering Bias From Facts.</div>
+        <div class="brand-subline">Filtering For Facts</div>
         <p class="tagline">Current Top 7&#39;s.</p>
       </div>
 
@@ -779,7 +801,7 @@
           <span>Freedom to Disagree</span>
         </a>
         <div class="edition-weather" aria-label="Edition and current local weather">
-          <div class="edition-weather-top"><span>Edition</span><strong>Aug. 14, 2026</strong></div>
+          <div class="edition-weather-top"><span>Edition</span><strong>Aug. 15, 2026</strong></div>
           <div class="weather-mini" id="editionWeather">
             <span class="weather-icon" id="weatherIcon" aria-hidden="true">◐</span>
             <span class="weather-copy"><b id="weatherTemp">--°</b><small id="weatherCondition">Loading NWS weather…</small></span>
@@ -791,13 +813,13 @@
 
   <nav class="nav" id="pillarNav">
     <button class="active" data-pillar="All">Front Page</button>
-    <button data-pillar="Local News">1 Local</button>
-    <button data-pillar="State">2 State</button>
-    <button data-pillar="National">3 National</button>
-    <button data-pillar="Weather">4 Weather</button>
-    <button data-pillar="Sports">5 Sports</button>
-    <button data-pillar="Family Impact">6 Family</button>
-    <button data-pillar="Faith">7 Faith</button>
+    <button data-pillar="Local">1 Local</button>
+    <button data-pillar="State & National">2 State &amp; National</button>
+    <button data-pillar="World & Nature">3 World &amp; Nature</button>
+    <button data-pillar="Sports">4 Sports</button>
+    <button data-pillar="Entertainment">5 Entertainment</button>
+    <button data-pillar="Business & Tech">6 Business &amp; Tech</button>
+    <button data-pillar="Faith & Family">7 Faith &amp; Family</button>
     <span class="spacer"></span>
     <div class="search">
       <input id="searchInput" placeholder="Search stories, topics, people..." aria-label="Search">
@@ -840,6 +862,8 @@
     <div class="edition-note" id="editionNote">49 sourced story clusters · real links · ranked by Impact Score</div>
   </div>
 
+
+  <div class="conversation-promise"><strong>7 pillars. 7 essential stories each.</strong> Catch up on what matters so you can walk into an intelligent dinner, work or community conversation with a solid general understanding of the day.</div>
   <main id="newsView">
     <section class="frontgrid" id="frontGrid">
       <article class="hero" id="hero"></article>
@@ -1028,7 +1052,7 @@
 </div>
 
 <script>
-const PILLARS = ["Local News","State","National","Weather","Sports","Family Impact","Faith"];
+const PILLARS = ["Local", "State & National", "World & Nature", "Sports", "Entertainment", "Business & Tech", "Faith & Family"];
 
 const DAILY_QUOTES = [
   {text:"This is the day which the LORD hath made; we will rejoice and be glad in it.", source:"The Bible · Psalm 118:24 (KJV)"},
@@ -1057,12 +1081,12 @@ function setDailyQuote(){
 
 const FEATURED_COMMENTS = [
   {id:"c1",author:"TulsaReader",pillar:"Local",text:"The neutral brief is useful, but the best feature is being able to jump straight to the original reporting and compare sources.",reactions:1842},
-  {id:"c2",author:"SoonerVoice",pillar:"State",text:"Show me what actually changed in the law or policy first. Then show me what each side thinks about it.",reactions:1567},
+  {id:"c2",author:"SoonerVoice",pillar:"State & National",text:"Show me what actually changed in the law or policy first. Then show me what each side thinks about it.",reactions:1567},
   {id:"c3",author:"GridironDad",pillar:"Sports",text:"Sports belongs here because it is a huge part of community life. Just keep the difference between reporting and fan opinion obvious.",reactions:1438},
-  {id:"c4",author:"FamilyFirstOK",pillar:"Family",text:"Family impact should translate big economic numbers into what they mean for groceries, utilities, school, health care and household decisions.",reactions:1324},
-  {id:"c5",author:"FreeToDisagree",pillar:"National",text:"Balance should mean I can read the strongest factual reporting and still disagree with the interpretation. That is healthier than pretending every argument is equal.",reactions:1288},
-  {id:"c6",author:"WeatherWatcher",pillar:"Weather",text:"When weather is dangerous, put the official warning first and politics nowhere near it. Safety information should be immediate.",reactions:1196},
-  {id:"c7",author:"FaithAndReason",pillar:"Faith",text:"Faith coverage works best when it is respectful, sourced and broad enough to cover service, culture and belief without turning everything into politics.",reactions:1089}
+  {id:"c4",author:"FamilyFirstOK",pillar:"Faith & Family",text:"Family impact should translate big economic numbers into what they mean for groceries, utilities, school, health care and household decisions.",reactions:1324},
+  {id:"c5",author:"FreeToDisagree",pillar:"State & National",text:"Balance should mean I can read the strongest factual reporting and still disagree with the interpretation. That is healthier than pretending every argument is equal.",reactions:1288},
+  {id:"c6",author:"WeatherWatcher",pillar:"World & Nature",text:"When weather is dangerous, put the official warning first and politics nowhere near it. Safety information should be immediate.",reactions:1196},
+  {id:"c7",author:"FaithAndReason",pillar:"Faith & Family",text:"Faith coverage works best when it is respectful, sourced and broad enough to cover service, culture and belief without turning everything into politics.",reactions:1089}
 ];
 
 function renderFeaturedComments(){
@@ -1091,21 +1115,21 @@ window.reactToFeatured = function(id){
   renderFeaturedComments();
 };
 
-const LIVE_SNAPSHOT_TIME = "Aug. 14, 2026 · 10:17 PM CDT";
+const LIVE_SNAPSHOT_TIME = "Aug. 15, 2026 · 2:58 PM CDT";
 const pillarDescriptions = {
-  "Local News":"The most consequential stories for Tulsa and the surrounding community.",
-  "State":"Oklahoma government, elections, economy, public safety and statewide policy.",
-  "National":"The most consequential U.S. stories, ranked by broad public impact rather than partisan attention or clicks.",
-  "Weather":"Immediate local hazards plus major weather events with exceptional public impact.",
-  "Sports":"Local, collegiate and national sports, balancing local relevance with competitive and financial significance.",
-  "Family Impact":"Household finances, education, health, safety and everyday decisions that directly affect families.",
-  "Faith":"Faith, religion, ethics and service; the production feed will respect the user's explicit faith-news preference."
+  "Local":"The seven local developments most worth knowing for your community, county and region.",
+  "State & National":"The Oklahoma and U.S. developments most likely to matter in public life, policy and everyday conversation.",
+  "World & Nature":"Major world events plus consequential weather, climate, science and natural-world developments.",
+  "Sports":"The sports stories with the strongest competitive, cultural, local or business significance.",
+  "Entertainment":"The film, television, music, art, books, theater and gaming stories most worth knowing — with your interests used to prioritize, not hide, major culture news.",
+  "Business & Tech":"Markets, companies, technology, AI, consumer economics and innovations shaping work and daily life.",
+  "Faith & Family":"Faith, belief, ethics, family life, education and household issues that shape values and everyday decisions."
 };
 
 const stories = [
   {
     "id": "local-1",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 1,
     "title": "Dangerous heat drives a third straight EMSA Medical Heat Alert",
@@ -1146,13 +1170,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "local-2",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 2,
     "title": "Operation SAFE cleanup bill becomes a Tulsa-state dispute",
@@ -1177,13 +1201,13 @@ const stories = [
       "Responsibility for the cleanup cost is contested; the linked report contains the parties' positions.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "local-3",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 3,
     "title": "Tulsa bank-impersonation scam costs a local mother more than $1,000",
@@ -1208,13 +1232,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "local-4",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 4,
     "title": "Bixby responds to resident complaints about low water pressure",
@@ -1239,13 +1263,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "local-5",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 5,
     "title": "Catoosa developer builds an app aimed at helping Tulsa-area animal shelters",
@@ -1270,13 +1294,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "local-6",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 6,
     "title": "Broken Arrow volunteer project brings handmade comfort to hospitalized children",
@@ -1301,13 +1325,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "local-7",
-    "pillar": "Local News",
+    "pillar": "Local",
     "scope": "Local",
     "rank": 7,
     "title": "Tulsa makes its Neighborhood Conditions Index program permanent",
@@ -1332,238 +1356,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Local using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-1",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 1,
-    "title": "Proposed $4 billion Inola aluminum smelter reshapes Oklahoma governor's race",
-    "deck": "A proposed aluminum smelter in Inola has become a major issue in Oklahoma's Republican gubernatorial contest, combining industrial policy, environmental concerns, federal support and local opposition ahead of the Aug. 25 runoff.",
-    "significance": 93,
-    "published": "Aug. 7, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Reuters",
-        "headline": "'Build it in Mar-a-Lago!' Trump's aluminum smelter upends Oklahoma governor's race",
-        "url": "https://www.reuters.com/legal/litigation/build-it-mar-a-lago-trumps-aluminum-smelter-upends-oklahoma-governors-race-2026-08-07/",
-        "published": "Aug. 7, 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "Supporters emphasize industrial capacity and jobs; opponents raise environmental, land-use and ownership concerns.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #1 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-2",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 2,
-    "title": "Oklahoma voters prepare to decide State Question 846",
-    "deck": "State Question 846 is scheduled for Oklahoma's Aug. 25 election. The useful reader question is not the campaign slogan but what the proposal actually changes and how the official ballot language compares with arguments around it.",
-    "significance": 89,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 2,
-    "sourcesDetail": [
-      {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "What's on your ballot? Breaking down State Question 846",
-        "url": "https://www.kjrh.com/news/local-news/whats-on-your-ballot-breaking-down-state-question-846",
-        "published": "Aug. 14, 2026",
-        "type": "News Reporting",
-        "note": ""
-      },
-      {
-        "name": "Oklahoma State Election Board",
-        "headline": "State Question Information",
-        "url": "https://www.oklahoma.gov/elections/elections-results/state-question-info.html",
-        "published": "Official election information",
-        "type": "Primary Source",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #2 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-3",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 3,
-    "title": "New Oklahoma law creates a formal path for families to seek cold-case review",
-    "deck": "A new Oklahoma law gives cold-case families a defined process for requesting renewed investigative attention. Its long-term effect will depend on how agencies apply the new pathway and what cases qualify.",
-    "significance": 84,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "New Oklahoma law gives cold case families a formal pathway to reopen investigations",
-        "url": "https://www.kjrh.com/news/local-news/new-oklahoma-law-gives-cold-case-families-a-formal-pathway-to-reopen-investigations",
-        "published": "Aug. 14, 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #3 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-4",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 4,
-    "title": "Oklahoma's school-day cellphone restrictions move into practical implementation",
-    "deck": "Oklahoma's 'Bell to Bell, No Cell' law restricts student cellphone use during the school day. As schools implement it, the family-level questions center on enforcement, emergency communication and classroom effects.",
-    "significance": 81,
-    "published": "2026 school year",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Office of the Governor of Oklahoma",
-        "headline": "Governor Stitt signs 'Bell to Bell, No Cell' bill into law",
-        "url": "https://oklahoma.gov/governor/newsroom/newsroom/2026/governor-stitt-signs-bell-to-bell-no-cell-bill-into-law.html",
-        "published": "2026",
-        "type": "Primary Source",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #4 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-5",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 5,
-    "title": "ODOT asks Oklahomans to weigh in on the future of public transportation",
-    "deck": "Oklahoma transportation officials are seeking public input on future transit planning. The eventual plan could influence mobility options, rural access and how state resources are prioritized.",
-    "significance": 77,
-    "published": "Aug. 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "ODOT wants Oklahomans to weigh in on future of public transportation",
-        "url": "https://www.kjrh.com/news/local-news/odot-wants-oklahomans-to-weigh-in-on-future-of-public-transportation",
-        "published": "Aug. 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #5 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-6",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 6,
-    "title": "USDA report raises animal-welfare questions in Okfuskee County",
-    "deck": "A USDA report describing inhumane conditions has prompted questions about local response in Okfuskee County. The core issue is what the documented findings show and whether corrective action follows.",
-    "significance": 74,
-    "published": "Aug. 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "No response from Okfuskee County despite USDA report on inhumane conditions",
-        "url": "https://www.kjrh.com/news/local-news/no-response-from-okfuskee-county-despite-usda-report-on-inhumane-conditions",
-        "published": "Aug. 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #6 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "state-7",
-    "pillar": "State",
-    "scope": "State",
-    "rank": 7,
-    "title": "Muskogee appoints Dale Boots to fill a City Council vacancy",
-    "deck": "Muskogee appointed Dale Boots to fill its Ward 2 City Council seat. It is a narrower state/local-government story but directly changes representation for residents in the ward.",
-    "significance": 63,
-    "published": "Aug. 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "Dale Boots appointed to fill Ward 2 seat on Muskogee City Council",
-        "url": "https://www.kjrh.com/news/local-news/dale-boots-appointed-to-fill-ward-2-seat-on-muskogee-city-council",
-        "published": "Aug. 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #7 within State using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "national-1",
-    "pillar": "National",
+    "pillar": "State & National",
     "scope": "US",
     "rank": 1,
     "title": "U.S.-Iran talks remain stalled as diplomacy widens and the Hormuz crisis persists",
@@ -1604,27 +1403,27 @@ const stories = [
       "Responsibility, motives and the path to a durable settlement remain contested among governments and analysts.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "national-2",
-    "pillar": "National",
-    "scope": "US",
+    "id": "state-1",
+    "pillar": "State & National",
+    "scope": "State",
     "rank": 2,
-    "title": "Attacks on two UAE tankers underscore continuing risk in the Strait of Hormuz",
-    "deck": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, reinforcing the shipping and energy risks surrounding the conflict. The event matters because the waterway is central to global oil flows.",
-    "significance": 96,
-    "published": "Aug. 14, 2026",
+    "title": "Proposed $4 billion Inola aluminum smelter reshapes Oklahoma governor's race",
+    "deck": "A proposed aluminum smelter in Inola has become a major issue in Oklahoma's Republican gubernatorial contest, combining industrial policy, environmental concerns, federal support and local opposition ahead of the Aug. 25 runoff.",
+    "significance": 93,
+    "published": "Aug. 7, 2026",
     "confidence": "Source-backed snapshot",
     "sources": 1,
     "sourcesDetail": [
       {
-        "name": "Associated Press",
-        "headline": "2 UAE tankers attacked while transiting Strait of Hormuz",
-        "url": "https://apnews.com/article/e8565c608ac5283ec8103c85df924b13",
-        "published": "Aug. 14, 2026",
+        "name": "Reuters",
+        "headline": "'Build it in Mar-a-Lago!' Trump's aluminum smelter upends Oklahoma governor's race",
+        "url": "https://www.reuters.com/legal/litigation/build-it-mar-a-lago-trumps-aluminum-smelter-upends-oklahoma-governors-race-2026-08-07/",
+        "published": "Aug. 7, 2026",
         "type": "News Reporting",
         "note": ""
       }
@@ -1632,49 +1431,18 @@ const stories = [
     "facts": [
       "The linked reporting supports the core event described in this brief.",
       "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Supporters emphasize industrial capacity and jobs; opponents raise environmental, land-use and ownership concerns.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "national-3",
-    "pillar": "National",
-    "scope": "US",
-    "rank": 3,
-    "title": "Trump shifts emphasis back toward sanctions as Iran diplomacy struggles",
-    "deck": "The administration is again emphasizing sanctions as negotiations with Iran remain difficult. The policy shift matters because economic pressure, military risk and diplomatic leverage are now interacting in the same crisis.",
-    "significance": 94,
-    "published": "Aug. 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Associated Press",
-        "headline": "Trump pivots back to sanctions for Iran as diplomacy struggles",
-        "url": "https://apnews.com/article/d96e3bf53eb4050097e6cab128db82cb",
-        "published": "Aug. 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #3 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "national-4",
-    "pillar": "National",
+    "pillar": "State & National",
     "scope": "US",
-    "rank": 4,
+    "rank": 3,
     "title": "Trump asks Supreme Court to let White House ballroom construction continue",
     "deck": "The administration asked the Supreme Court to allow construction of the White House ballroom to continue while it appeals a lower-court order. The dispute combines presidential authority, congressional approval, historic preservation and the scope of judicial review.",
     "significance": 90,
@@ -1697,28 +1465,36 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "national-5",
-    "pillar": "National",
-    "scope": "US",
-    "rank": 5,
-    "title": "Wall Street slips as a weaker U.S. economic update tempers recent records",
-    "deck": "U.S. stocks pulled back after weaker economic data complicated the outlook for growth and interest rates. The immediate market move is less important than what the data may imply for consumers, businesses and Federal Reserve expectations.",
-    "significance": 88,
+    "id": "state-2",
+    "pillar": "State & National",
+    "scope": "State",
+    "rank": 4,
+    "title": "Oklahoma voters prepare to decide State Question 846",
+    "deck": "State Question 846 is scheduled for Oklahoma's Aug. 25 election. The useful reader question is not the campaign slogan but what the proposal actually changes and how the official ballot language compares with arguments around it.",
+    "significance": 89,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
-    "sources": 1,
+    "sources": 2,
     "sourcesDetail": [
       {
-        "name": "Associated Press",
-        "headline": "Wall Street slips from record following weak US economy update",
-        "url": "https://apnews.com/article/5d9870d6c5ae735f9b74bf4ceefaa3ec",
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "What's on your ballot? Breaking down State Question 846",
+        "url": "https://www.kjrh.com/news/local-news/whats-on-your-ballot-breaking-down-state-question-846",
         "published": "Aug. 14, 2026",
-        "type": "Business Reporting",
+        "type": "News Reporting",
+        "note": ""
+      },
+      {
+        "name": "Oklahoma State Election Board",
+        "headline": "State Question Information",
+        "url": "https://www.oklahoma.gov/elections/elections-results/state-question-info.html",
+        "published": "Official election information",
+        "type": "Primary Source",
         "note": ""
       }
     ],
@@ -1728,13 +1504,44 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "state-3",
+    "pillar": "State & National",
+    "scope": "State",
+    "rank": 5,
+    "title": "New Oklahoma law creates a formal path for families to seek cold-case review",
+    "deck": "A new Oklahoma law gives cold-case families a defined process for requesting renewed investigative attention. Its long-term effect will depend on how agencies apply the new pathway and what cases qualify.",
+    "significance": 84,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "2 News Oklahoma / KJRH",
+        "headline": "New Oklahoma law gives cold case families a formal pathway to reopen investigations",
+        "url": "https://www.kjrh.com/news/local-news/new-oklahoma-law-gives-cold-case-families-a-formal-pathway-to-reopen-investigations",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #5 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "national-6",
-    "pillar": "National",
+    "pillar": "State & National",
     "scope": "US",
     "rank": 6,
     "title": "USS Abraham Lincoln's extended Iran-related deployment draws new presidential comments",
@@ -1759,13 +1566,13 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "national-7",
-    "pillar": "National",
+    "pillar": "State & National",
     "scope": "US",
     "rank": 7,
     "title": "Three states move ahead with executions, renewing debate over capital punishment",
@@ -1790,18 +1597,142 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within National using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "national-2",
+    "pillar": "World & Nature",
+    "scope": "US",
+    "rank": 1,
+    "title": "Attacks on two UAE tankers underscore continuing risk in the Strait of Hormuz",
+    "deck": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, reinforcing the shipping and energy risks surrounding the conflict. The event matters because the waterway is central to global oil flows.",
+    "significance": 97,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "2 UAE tankers attacked while transiting Strait of Hormuz",
+        "url": "https://apnews.com/article/e8565c608ac5283ec8103c85df924b13",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #1 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "worldnature-2",
+    "pillar": "World & Nature",
+    "scope": "World",
+    "rank": 2,
+    "title": "Wildfires force evacuations across European tourist regions as extreme heat persists",
+    "deck": "Fires across Croatia, Greece, France, Germany and other parts of Europe have forced evacuations and caused deaths and injuries during peak travel season. The larger issue is a widening combination of heat, drought, public-safety risk and economic disruption.",
+    "significance": 95,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Hundreds evacuated from Croatian and Greek resorts as wildfires stretch across Europe",
+        "url": "https://www.reuters.com/business/environment/hundreds-evacuated-resorts-croatia-greece-wildfires-stretch-across-europe-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters reports major evacuations and casualties as wildfires spread across several European countries.",
+      "European heat and drought have created conditions favorable to rapid fire growth, according to officials and climate monitoring cited by Reuters.",
+      "Exact losses and final fire footprints remain subject to change while incidents are active.",
+      "Verified social reaction totals are not connected in the current POC."
+    ],
+    "why": "7 Tribunes ranks this #2 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "worldnature-3",
+    "pillar": "World & Nature",
+    "scope": "World",
+    "rank": 3,
+    "title": "Huge oil slick reaches Oman's shoreline and threatens a marine nature reserve",
+    "deck": "Crude leaking from the grounded Caroline Bezengi has spread over a vast area and begun reaching the Omani coast. The spill threatens protected marine habitat and illustrates how war, sanctions and weak insurance coverage can complicate environmental response.",
+    "significance": 94,
+    "published": "Aug. 12, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Huge oil slick hitting Oman's shoreline as agencies warn of disaster",
+        "url": "https://www.reuters.com/business/energy/oil-tanker-grounded-off-oman-has-started-reaching-mainland-un-agency-says-2026-08-12/",
+        "published": "Aug. 12, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters reports the oil slick covered more than 2,000 square kilometers in satellite analysis and had begun reaching the Omani mainland.",
+      "The grounded tanker is near a marine nature reserve that includes habitat for endangered wildlife.",
+      "The ultimate volume released and long-term ecological damage remain uncertain.",
+      "Cleanup and compensation are complicated by sanctions, insurance issues and treatment of the incident as war-related."
+    ],
+    "why": "7 Tribunes ranks this #3 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "worldnature-4",
+    "pillar": "World & Nature",
+    "scope": "World",
+    "rank": 4,
+    "title": "WMO says extreme heat is becoming more frequent, intense and long-lasting",
+    "deck": "The World Meteorological Organization says modern heat events cover wider areas, last longer and reach greater intensity than in cooler decades. The finding provides context for the repeated heatwaves, drought and fire emergencies seen across several regions this summer.",
+    "significance": 92,
+    "published": "Aug. 11, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Extreme heat becoming more frequent and intense, UN agency says",
+        "url": "https://www.reuters.com/sustainability/cop/extreme-heat-becoming-more-frequent-intense-un-agency-says-2026-08-11/",
+        "published": "Aug. 11, 2026",
+        "type": "Primary-source-backed Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The World Meteorological Organization told reporters that extreme heat is becoming more frequent, intense, longer-lasting and geographically extensive.",
+      "Reuters reports unusually warm seas and dry soils are amplifying European heat conditions this summer.",
+      "The contribution of individual weather patterns varies by region and event.",
+      "The broader warming trend is distinct from day-to-day weather variability."
+    ],
+    "why": "7 Tribunes ranks this #4 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true
   },
   {
     "id": "weather-1",
-    "pillar": "Weather",
+    "pillar": "World & Nature",
     "scope": "US",
-    "rank": 1,
+    "rank": 5,
     "title": "Tropical Storm Lala threatens a rare hurricane landfall on Hawaii's Big Island",
     "deck": "Lala is forecast to strengthen as it approaches Hawaii's Big Island, with hurricane-force conditions, heavy rain, flooding and mudslide risk possible. A direct hurricane landfall on the Big Island would be exceptionally rare.",
-    "significance": 98,
+    "significance": 91,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
     "sources": 1,
@@ -1821,209 +1752,69 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "weather-2",
-    "pillar": "Weather",
-    "scope": "Local",
-    "rank": 2,
-    "title": "Extreme heat remains the dominant Tulsa weather hazard",
-    "deck": "Tulsa-area temperatures near or above 100°F and dangerous heat-index values make heat exposure the main local weather risk. Forecasts also point to a weak front and some storm chances, but meaningful relief is limited.",
-    "significance": 95,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 2,
-    "sourcesDetail": [
-      {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "Extreme Heat For Rest Of The Week",
-        "url": "https://www.kjrh.com/weather/extreme-heat-for-rest-of-the-week",
-        "published": "Aug. 14, 2026",
-        "type": "Weather Reporting",
-        "note": ""
-      },
-      {
-        "name": "National Weather Service Tulsa",
-        "headline": "Tulsa forecast, watches and warnings",
-        "url": "https://www.weather.gov/tsa/",
-        "published": "Official current source",
-        "type": "Primary Source",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #2 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "weather-3",
-    "pillar": "Weather",
+    "id": "worldnature-6",
+    "pillar": "World & Nature",
     "scope": "World",
-    "rank": 3,
-    "title": "Record heat and wildfires force evacuations across Europe",
-    "deck": "A new wave of extreme heat is fueling multiple wildfires across Europe, forcing evacuations and straining emergency services. The story combines immediate fire danger with broader heat and drought conditions.",
-    "significance": 92,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 2,
-    "sourcesDetail": [
-      {
-        "name": "Associated Press",
-        "headline": "European countries battle multiple wildfires as record heat grips the continent",
-        "url": "https://apnews.com/article/bb9926465acf98a7790a7bf01294f604",
-        "published": "Aug. 14, 2026",
-        "type": "News Reporting",
-        "note": ""
-      },
-      {
-        "name": "Reuters",
-        "headline": "Hundreds evacuated from Croatian and Greek resorts as wildfires stretch across Europe",
-        "url": "https://www.reuters.com/business/environment/hundreds-evacuated-resorts-croatia-greece-wildfires-stretch-across-europe-2026-08-14/",
-        "published": "Aug. 14, 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #3 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "weather-4",
-    "pillar": "Weather",
-    "scope": "World",
-    "rank": 4,
-    "title": "Britain reports record wildfire levels during its latest heatwave",
-    "deck": "Fire chiefs say England and Wales have surpassed last year's wildfire total while drought and extreme heat stretch rescue resources. Homes have burned and authorities are warning that the wildfire season may remain active for months.",
-    "significance": 88,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Reuters",
-        "headline": "Wildfires in Britain hit record levels after homes burn in intense heat",
-        "url": "https://www.reuters.com/business/environment/wildfires-britain-hit-record-levels-after-homes-burn-intense-heat-2026-08-14/",
-        "published": "Aug. 14, 2026",
-        "type": "News Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #4 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "weather-5",
-    "pillar": "Weather",
-    "scope": "US",
-    "rank": 5,
-    "title": "Contiguous U.S. sets a record for its hottest month",
-    "deck": "New temperature data show the contiguous United States has broken a monthly heat record, adding national context to the dangerous heat affecting many regions.",
-    "significance": 86,
-    "published": "Aug. 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Associated Press",
-        "headline": "Contiguous US breaks record for hottest month ever",
-        "url": "https://apnews.com/article/4a9d612281485356103631f0f09b61af",
-        "published": "Aug. 2026",
-        "type": "Climate / Weather Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #5 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "weather-6",
-    "pillar": "Weather",
-    "scope": "Local",
     "rank": 6,
-    "title": "EMSA heat-related calls show the health consequences behind the forecast",
-    "deck": "Local heat alerts are translating into medical calls and transports, turning temperature forecasts into a direct public-health issue for Tulsa-area residents.",
-    "significance": 83,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
+    "title": "Millions watch Western Europe's first total solar eclipse in 27 years",
+    "deck": "A rare total eclipse swept across Iceland and northern Spain, drawing millions of spectators and large public-safety operations. Beyond the spectacle, the event became a major tourism, science and emergency-management moment during peak wildfire season.",
+    "significance": 86,
+    "published": "Aug. 12, 2026",
+    "confidence": "Source-backed current edition",
     "sources": 1,
     "sourcesDetail": [
       {
-        "name": "2 News Oklahoma / KJRH",
-        "headline": "EMSA issues Medical Heat Alert for third straight day",
-        "url": "https://www.kjrh.com/news/local-news/emsa-issues-medical-heat-alert-for-third-straight-day",
-        "published": "Aug. 14, 2026",
+        "name": "Reuters",
+        "headline": "Total darkness, then sunset as full eclipse wows spectators in Spain",
+        "url": "https://www.reuters.com/science/eclipse-craze-grips-spain-iceland-millions-get-set-event-century-2026-08-12/",
+        "published": "Aug. 12, 2026",
         "type": "News Reporting",
         "note": ""
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Millions gathered across Spain and Iceland for Western Europe’s first total solar eclipse in 27 years.",
+      "Spain deployed extensive police and aviation resources because viewing crowds coincided with high wildfire risk.",
+      "Cloud cover limited viewing in some areas, including parts of Iceland.",
+      "Spain is scheduled to see another total eclipse in 2027 and an annular eclipse in 2028."
     ],
-    "why": "7 Tribunes ranks this #6 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "weather-7",
-    "pillar": "Weather",
-    "scope": "Local",
+    "id": "worldnature-7",
+    "pillar": "World & Nature",
+    "scope": "World",
     "rank": 7,
-    "title": "NWS Tulsa remains the primary source for active warnings and forecast changes",
-    "deck": "For immediate safety decisions, the National Weather Service Tulsa office is the authoritative source for current warnings, watches, hazardous-weather outlooks and forecast updates.",
-    "significance": 80,
-    "published": "Current",
-    "confidence": "Source-backed snapshot",
+    "title": "Scientists watch a strengthening El Niño as global heat risks build",
+    "deck": "Scientists say 2026 is already experiencing severe heat and record ocean temperatures, while a strengthening El Niño could add more warming later. The broader implication is that climate-driven extremes may remain a major global story beyond this summer.",
+    "significance": 84,
+    "published": "Aug. 4, 2026",
+    "confidence": "Source-backed current edition",
     "sources": 1,
     "sourcesDetail": [
       {
-        "name": "National Weather Service Tulsa",
-        "headline": "Tulsa, Oklahoma forecast and hazard information",
-        "url": "https://www.weather.gov/tsa/",
-        "published": "Current",
-        "type": "Primary Source",
+        "name": "Associated Press",
+        "headline": "This summer isn't breaking heat records - yet. Wait until El Nino kicks in, scientists say",
+        "url": "https://apnews.com/article/ffd31dd358a894667c63f4c0a21cd677",
+        "published": "Aug. 4, 2026",
+        "type": "News Reporting",
         "note": ""
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "AP reports 2026 has brought widespread heat, fires and unusually warm oceans even before the full warming influence of El Niño is expected.",
+      "Scientists cited by AP say greenhouse-gas-driven climate change remains the principal background driver of the long-term warming trend.",
+      "Forecasts for whether 2026 ultimately becomes the hottest year can change as observations accumulate.",
+      "El Niño impacts vary by region and typically emerge with a delay."
     ],
-    "why": "7 Tribunes ranks this #7 within Weather using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true
   },
@@ -2054,7 +1845,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
@@ -2085,7 +1876,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
@@ -2116,38 +1907,38 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "sports-4",
+    "id": "sports-4-current",
     "pillar": "Sports",
     "scope": "US",
     "rank": 4,
-    "title": "Alex Bregman's three-homer game headlines a busy MLB slate",
-    "deck": "Alex Bregman hit three home runs and drove in seven as the Cubs beat Washington, leading a full day of Major League Baseball results with playoff positioning increasingly important.",
-    "significance": 79,
-    "published": "Aug. 13, 2026",
-    "confidence": "Source-backed snapshot",
+    "title": "Astros stun Mariners in extra innings as the MLB playoff picture keeps moving",
+    "deck": "Houston rallied past Seattle in the 10th inning as a full Friday slate reshaped several late-summer baseball races. The result is part of the daily scoreboard context an informed sports reader should know as the postseason push intensifies.",
+    "significance": 80,
+    "published": "Aug. 15, 2026",
+    "confidence": "Source-backed current edition",
     "sources": 1,
     "sourcesDetail": [
       {
         "name": "Reuters",
-        "headline": "MLB roundup: Alex Bregman blasts 3 homers as Cubs crush Nationals",
-        "url": "https://www.reuters.com/sports/mlb-roundup-alex-bregman-blasts-3-homers-cubs-crush-nationals--flm-2026-08-13/",
-        "published": "Aug. 13, 2026",
+        "headline": "MLB roundup: Christian Walker, Astros stun M’s with 10th-inning rally",
+        "url": "https://www.reuters.com/sports/mlb-roundup-christian-walker-astros-stun-ms-with-10th-inning-rally--flm-2026-08-15/",
+        "published": "Aug. 15, 2026",
         "type": "News Reporting",
         "note": ""
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Reuters reports Houston rallied to beat Seattle in 10 innings as part of the Aug. 15 MLB roundup.",
+      "The roundup covers multiple games affecting divisional and wild-card races.",
+      "Standings and playoff implications can change daily as the regular season continues.",
+      "Verified cross-platform reaction totals are not connected in this POC."
     ],
-    "why": "7 Tribunes ranks this #4 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Sports using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true
   },
@@ -2178,7 +1969,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
@@ -2209,7 +2000,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #6 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
@@ -2240,51 +2031,266 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Sports using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "family-1",
-    "pillar": "Family Impact",
-    "scope": "US",
+    "id": "ent-1",
+    "pillar": "Entertainment",
+    "scope": "World",
     "rank": 1,
-    "title": "U.S. consumer sentiment deteriorates as households remain uneasy about the economy",
-    "deck": "Consumer sentiment weakened in August, signaling that many households remain cautious even as some inflation measures improve. Confidence matters because it can shape spending, saving and large household purchases.",
+    "title": "‘Spider-Man: Brand New Day’ becomes a billion-dollar hit in near-record time",
+    "deck": "The newest Spider-Man film crossed $1 billion globally after only six days, making it one of the fastest movies ever to reach the milestone. Its performance is a major cultural and business signal for theaters, Marvel and the wider blockbuster economy.",
     "significance": 93,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
+    "published": "Aug. 5, 2026",
+    "confidence": "Source-backed current edition",
     "sources": 1,
     "sourcesDetail": [
       {
-        "name": "Reuters",
-        "headline": "US consumer sentiment deteriorates in August",
-        "url": "https://www.reuters.com/business/us-consumer-sentiment-deteriorates-august-2026-08-14/",
-        "published": "Aug. 14, 2026",
-        "type": "Economic Reporting",
+        "name": "Variety",
+        "headline": "‘Spider-Man: Brand New Day’ Crosses $1 Billion in Six Days, Second-Fastest Movie to Hit Milestone",
+        "url": "https://au.variety.com/2026/film/news/spider-man-brand-new-day-billion-dollars-six-days-39137/",
+        "published": "Aug. 5, 2026",
+        "type": "Entertainment Trade Reporting",
         "note": ""
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Variety reports the film crossed $1 billion worldwide after six days of release.",
+      "It became the second-fastest movie to reach that benchmark, behind Avengers: Endgame.",
+      "Final theatrical grosses remain unknown while the movie is still in release.",
+      "The record is a box-office performance measure, not a critical-quality judgment."
     ],
-    "why": "7 Tribunes ranks this #1 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "entertainmentTags": [
+      "Movies"
+    ]
   },
   {
-    "id": "family-2",
-    "pillar": "Family Impact",
-    "scope": "US",
+    "id": "ent-2",
+    "pillar": "Entertainment",
+    "scope": "World",
     "rank": 2,
-    "title": "U.S. retail sales post their first decline in nine months",
-    "deck": "Retail sales fell in July, suggesting households may be becoming more selective after months of resilient spending. The number is one signal—not a complete verdict—on family finances and economic momentum.",
+    "title": "‘The Odyssey’ becomes Christopher Nolan’s highest-grossing film and sets an Imax record",
+    "deck": "Christopher Nolan’s adaptation of Homer’s epic reached $1.1 billion worldwide and became Imax’s highest-grossing release. The result makes a classical literary adaptation one of the year’s biggest mass-culture events.",
     "significance": 91,
+    "published": "Aug. 10, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Variety",
+        "headline": "‘The Odyssey’ Is Christopher Nolan’s Highest-Grossing Movie Ever With $1.1 Billion and Imax’s Biggest Release of All Time With $289 Million",
+        "url": "https://au.variety.com/2026/film/news/the-odyssey-christopher-nolan-biggest-movie-imax-record-39268/",
+        "published": "Aug. 10, 2026",
+        "type": "Entertainment Trade Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Variety reports The Odyssey reached $1.1 billion worldwide and surpassed The Dark Knight Rises as Nolan’s highest-grossing film.",
+      "The film also became Imax’s highest-grossing release to date.",
+      "Its final box-office total remains unknown while the theatrical run continues.",
+      "The milestones are commercial records and do not by themselves measure artistic merit."
+    ],
+    "why": "7 Tribunes ranks this #2 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true,
+    "entertainmentTags": [
+      "Movies",
+      "Art & Culture"
+    ]
+  },
+  {
+    "id": "ent-3",
+    "pillar": "Entertainment",
+    "scope": "US",
+    "rank": 3,
+    "title": "‘Outer Banks’ final season leads a packed new streaming week",
+    "deck": "The final season of Netflix’s Outer Banks arrives alongside Anne Hathaway’s Mother Mary, new music from Anthony Hopkins, Weezer and Sam Smith, and a major game release. This is the week’s broad “what people will be talking about” entertainment briefing.",
+    "significance": 86,
     "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "What to Stream: 'Outer Banks,' Anthony Hopkins' classical album and Anne Hathaway's 1st 2026 movie",
+        "url": "https://apnews.com/article/95a063ef2d8e2acd11ad645e58aee6e5",
+        "published": "Aug. 14, 2026",
+        "type": "Entertainment Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "AP’s weekly streaming guide identifies the final season of Outer Banks among the highest-profile new releases for Aug. 17–23.",
+      "The same release window includes Mother Mary, new albums and The Sinking City 2 game.",
+      "Availability can vary by streaming platform and territory.",
+      "This item is a curated entertainment guide, not a factual controversy."
+    ],
+    "why": "7 Tribunes ranks this #3 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true,
+    "entertainmentTags": [
+      "Television",
+      "Movies",
+      "Music",
+      "Gaming",
+      "Art & Culture"
+    ]
+  },
+  {
+    "id": "ent-4",
+    "pillar": "Entertainment",
+    "scope": "World",
+    "rank": 4,
+    "title": "‘The Walking Dead’ universe gets a $500 million Netflix and AMC+ streaming deal",
+    "deck": "A five-year licensing agreement will put the original Walking Dead series and six spinoffs across Netflix and AMC+ beginning in 2027. The deal shows how valuable large franchise libraries remain in the streaming wars.",
+    "significance": 84,
+    "published": "Jul. 31, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Variety",
+        "headline": "‘The Walking Dead’ Franchise to Stream on Both Netflix and AMC+ Beginning in 2027 Under New $500 Million Deal",
+        "url": "https://au.variety.com/2026/tv/news/the-walking-dead-stream-netflix-amc-plus-500-million-deal-39013/",
+        "published": "Jul. 31, 2026",
+        "type": "Entertainment Trade Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Variety reports a five-year, $500 million co-exclusive licensing deal between Netflix and AMC Global Media.",
+      "The agreement covers the original series and six spinoffs totaling hundreds of episodes.",
+      "Rollout dates vary by territory as existing licenses expire.",
+      "The deal is a distribution agreement and does not imply new episodes for every included series."
+    ],
+    "why": "7 Tribunes ranks this #4 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true,
+    "entertainmentTags": [
+      "Television",
+      "Business"
+    ]
+  },
+  {
+    "id": "ent-5",
+    "pillar": "Entertainment",
+    "scope": "World",
+    "rank": 5,
+    "title": "Ariana Grande’s ‘Petal’ marks one of the biggest stylistic turns of her career",
+    "deck": "Grande’s eighth album moves toward darker, more experimental pop and blunt lyrical themes. Because she is one of the world’s most visible pop artists, the release is already a major music and culture conversation.",
+    "significance": 80,
+    "published": "Jul. 31, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Variety",
+        "headline": "Ariana Grande’s ‘Petal’ Introduces an Angry and Angular Ari: Album Review",
+        "url": "https://au.variety.com/2026/music/album-reviews/ariana-grande-petal-angry-ari-album-review-39046/",
+        "published": "Jul. 31, 2026",
+        "type": "Review / Analysis",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Variety describes Petal as a darker and more experimental departure from Grande’s previous album.",
+      "Grande again worked with longtime collaborators including Ilya Salmanzadeh and Max Martin.",
+      "Critical judgments in the linked article are opinion and analysis rather than factual measurements.",
+      "Audience reaction totals are not connected in this POC."
+    ],
+    "why": "7 Tribunes ranks this #5 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true,
+    "entertainmentTags": [
+      "Music"
+    ]
+  },
+  {
+    "id": "ent-6",
+    "pillar": "Entertainment",
+    "scope": "US",
+    "rank": 6,
+    "title": "John Oliver extends his HBO deal through the end of 2027",
+    "deck": "HBO confirmed that Last Week Tonight host John Oliver will remain with the network through 2027. The unusually short extension comes amid broader ownership uncertainty and keeps one of television’s most prominent political-comedy programs in place.",
+    "significance": 76,
+    "published": "Aug. 1, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Variety",
+        "headline": "John Oliver Extends His HBO Contract to Continue 'Last Week Tonight' Through 2027",
+        "url": "https://au.variety.com/2026/tv/news/john-oliver-hbo-contract-last-week-tonight-through-2027-39064/",
+        "published": "Aug. 1, 2026",
+        "type": "Entertainment Trade Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Variety reports Oliver extended his HBO contract through the end of 2027.",
+      "The extension is for one year rather than the program’s more typical multi-year renewal.",
+      "Broader corporate ownership developments could still change the business context around HBO.",
+      "The program’s political comedy is commentary; the contract itself is a reported business fact."
+    ],
+    "why": "7 Tribunes ranks this #6 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true,
+    "entertainmentTags": [
+      "Television"
+    ]
+  },
+  {
+    "id": "ent-7",
+    "pillar": "Entertainment",
+    "scope": "US",
+    "rank": 7,
+    "title": "A ‘Clueless’ sequel series with Alicia Silverstone is ordered at Paramount+",
+    "deck": "Alicia Silverstone is set to reprise Cher Horowitz in a six-episode sequel series planned for Paramount+. The project brings a 1990s cultural touchstone back as a contemporary story about business, motherhood and parenting a teenager.",
+    "significance": 72,
+    "published": "Jul. 31, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Variety",
+        "headline": "‘Clueless’ Sequel Series With Alicia Silverstone Ordered at Paramount+",
+        "url": "https://au.variety.com/2026/tv/global/clueless-sequel-series-alicia-silverstone-paramount-plus-39019/",
+        "published": "Jul. 31, 2026",
+        "type": "Entertainment Trade Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Variety reports Paramount+ ordered a six-episode Clueless sequel series with Alicia Silverstone returning as Cher Horowitz.",
+      "Production is planned in Los Angeles in 2027.",
+      "Casting, production timing and release details can still change before filming and launch.",
+      "The project links a current streaming strategy to a longstanding pop-culture property."
+    ],
+    "why": "7 Tribunes ranks this #7 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true,
+    "entertainmentTags": [
+      "Television",
+      "Movies",
+      "Art & Culture"
+    ]
+  },
+  {
+    "id": "biztech-1",
+    "pillar": "Business & Tech",
+    "scope": "US",
+    "rank": 1,
+    "title": "U.S. retail sales post their first decline in nine months",
+    "deck": "Retail sales fell unexpectedly in July, suggesting consumer spending slowed after months of resilience. Because household demand drives a large share of the U.S. economy, the report matters for growth expectations, corporate earnings and Federal Reserve policy.",
+    "significance": 94,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed current edition",
     "sources": 1,
     "sourcesDetail": [
       {
@@ -2292,7 +2298,224 @@ const stories = [
         "headline": "US retail sales post first decline in nine months in July",
         "url": "https://www.reuters.com/business/us-retail-sales-unexpectedly-fall-july-2026-08-14/",
         "published": "Aug. 14, 2026",
-        "type": "Economic Reporting",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters reports U.S. retail sales fell 0.6% in July, the first decline in nine months.",
+      "Core measures used in GDP calculations also weakened, prompting some economists to trim third-quarter growth estimates.",
+      "One month of retail data does not by itself establish a recession or lasting consumer downturn.",
+      "Future inflation, jobs and spending data could materially change the economic outlook."
+    ],
+    "why": "7 Tribunes ranks this #1 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "biztech-2",
+    "pillar": "Business & Tech",
+    "scope": "US",
+    "rank": 2,
+    "title": "AI investment and earnings remain central to the stock market’s next move",
+    "deck": "Investors are relying heavily on technology earnings and extraordinary AI-infrastructure spending to support elevated stock valuations while the Federal Reserve remains cautious. The story connects the AI boom directly to capital spending, market concentration and broader economic expectations.",
+    "significance": 92,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Wall St Week Ahead: With Fed mum on next move, investors look to earnings to keep stocks afloat",
+        "url": "https://www.reuters.com/legal/transactional/wall-st-week-ahead-with-fed-mum-next-move-investors-look-earnings-keep-stocks-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters reports strong corporate earnings and massive AI-related capital spending have been key supports for U.S. equities.",
+      "Investors are also watching Federal Reserve signals and upcoming retail earnings.",
+      "Market forecasts are inherently uncertain and can change quickly with economic or geopolitical news.",
+      "High AI-related valuations increase sensitivity to earnings disappointments."
+    ],
+    "why": "7 Tribunes ranks this #2 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "biztech-3",
+    "pillar": "Business & Tech",
+    "scope": "US",
+    "rank": 3,
+    "title": "S&P 500 slips from a record as investors weigh weaker data and Middle East risk",
+    "deck": "Stocks ended slightly lower after a record, with weaker retail data, high AI expectations and Strait of Hormuz tensions pulling in different directions. The mix shows how consumer demand, technology valuations and geopolitics are converging in markets.",
+    "significance": 90,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "S&P 500 ends lower as investors weigh data, Middle East tensions",
+        "url": "https://www.reuters.com/business/wall-st-futures-muted-higher-oil-prices-temper-risk-appetite-after-sp-record-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters reports the S&P 500 closed modestly lower after reaching a record high.",
+      "Applied Materials and other chip stocks fell as investors demanded more from AI-linked companies.",
+      "Energy shares rose with oil prices amid continued Middle East shipping risk.",
+      "Daily market moves should not be treated as reliable predictions of longer-term returns."
+    ],
+    "why": "7 Tribunes ranks this #3 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "biztech-4",
+    "pillar": "Business & Tech",
+    "scope": "US",
+    "rank": 4,
+    "title": "U.S. consumer sentiment deteriorates as households grow less confident",
+    "deck": "Consumer confidence weakened in August, adding another caution signal to the economic picture. Sentiment does not always translate directly into spending, but it can reveal how households perceive inflation, jobs and the direction of the economy.",
+    "significance": 88,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "US consumer sentiment deteriorates in August",
+        "url": "https://www.reuters.com/business/us-consumer-sentiment-deteriorates-august-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters reports U.S. consumer sentiment declined in August.",
+      "Survey measures reflect household attitudes and expectations rather than actual spending totals.",
+      "Political affiliation can influence sentiment responses, so economists compare surveys with hard economic data.",
+      "The outlook can change with inflation, employment, energy prices and financial markets."
+    ],
+    "why": "7 Tribunes ranks this #4 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "biztech-5",
+    "pillar": "Business & Tech",
+    "scope": "US",
+    "rank": 5,
+    "title": "Zuckerberg lays out Meta’s vision for world-changing open AI technology",
+    "deck": "Mark Zuckerberg is arguing for a future in which advanced AI is widely available rather than controlled by a small number of closed systems. Meta’s position matters because it combines technical competition, open-source strategy, enormous capital investment and questions about safety.",
+    "significance": 85,
+    "published": "Aug. 10, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Zuckerberg outlines Meta's ambitions for world-changing AI technology",
+        "url": "https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+        "published": "Aug. 10, 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "AP reports Zuckerberg published an extended vision for Meta’s AI strategy and the role of open models.",
+      "Meta is positioning openness as a competitive and societal advantage in advanced AI.",
+      "Claims about future AI capability and social benefit are forecasts, not established outcomes.",
+      "Safety, cost, intellectual-property and governance questions remain contested across the industry."
+    ],
+    "why": "7 Tribunes ranks this #5 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "biztech-6",
+    "pillar": "Business & Tech",
+    "scope": "US",
+    "rank": 6,
+    "title": "AI-linked earnings keep technology stocks near the center of the market rally",
+    "deck": "Strong results from AI-related companies have helped push major U.S. indexes near records, reinforcing how concentrated the market has become around a small group of technology and infrastructure winners.",
+    "significance": 82,
+    "published": "Aug. 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Wall Street rises near a record as AI stocks climb and worries about inflation ease a bit",
+        "url": "https://apnews.com/article/stocks-markets-rates-trump-iran-chips-db541ced9f928f993bd3a17958a3deaa",
+        "published": "Aug. 2026",
+        "type": "News Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "AP reports AI-linked companies were important contributors to a market advance near record levels.",
+      "Technology earnings and expectations for AI spending remain major drivers of investor sentiment.",
+      "Stock performance does not establish whether current valuations are sustainable.",
+      "Interest rates, inflation and geopolitical events remain material counterweights."
+    ],
+    "why": "7 Tribunes ranks this #6 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "biztech-7",
+    "pillar": "Business & Tech",
+    "scope": "World",
+    "rank": 7,
+    "title": "Food inflation risk returns to the global market agenda as El Niño strengthens",
+    "deck": "Investors are watching whether El Niño, energy costs and geopolitical disruptions could push food prices higher again. The issue connects global commodity markets directly to grocery bills, central-bank policy and household purchasing power.",
+    "significance": 80,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed current edition",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Take Five: The heat is on",
+        "url": "https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-08-14/",
+        "published": "Aug. 14, 2026",
+        "type": "Markets Analysis",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "Reuters identifies food inflation as a major market theme as El Niño strengthens and conflict disrupts energy and trade.",
+      "JPMorgan estimates cited by Reuters suggest a strong El Niño could add to global food inflation at its peak.",
+      "The size and timing of any price effect remain uncertain and depend on weather, crops, energy and trade flows.",
+      "The article is forward-looking market analysis rather than a guarantee of future inflation."
+    ],
+    "why": "7 Tribunes ranks this #7 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-1",
+    "pillar": "Faith & Family",
+    "scope": "World",
+    "rank": 1,
+    "title": "Christians in Israel describe rising harassment and look to faith and allies for support",
+    "deck": "Christians in Israel say harassment has increased, raising questions about religious freedom, minority security and how faith communities respond under political and social pressure.",
+    "significance": 92,
+    "published": "Aug. 14, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Israel's Christians rely on faith and allies as they fear rising harassment",
+        "url": "https://apnews.com/article/98c8f0b5aa9cc462f150332c2ef60b45",
+        "published": "Aug. 14, 2026",
+        "type": "Religion Reporting",
         "note": ""
       }
     ],
@@ -2302,15 +2525,15 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #1 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "family-3",
-    "pillar": "Family Impact",
+    "pillar": "Faith & Family",
     "scope": "US",
-    "rank": 3,
+    "rank": 2,
     "title": "Inflation slows, but many household prices remain elevated",
     "deck": "Recent U.S. inflation data show a slower pace of price growth, but that does not mean prices have returned to earlier levels. For families, the distinction between lower inflation and lower prices remains critical.",
     "significance": 90,
@@ -2341,28 +2564,28 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #2 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "family-4",
-    "pillar": "Family Impact",
-    "scope": "US",
-    "rank": 4,
-    "title": "July consumer-price data keep attention on food, housing and service costs",
-    "deck": "The latest consumer-price report showed relatively mild monthly inflation, but families experience the economy through specific recurring bills rather than one headline number.",
+    "id": "faith-2",
+    "pillar": "Faith & Family",
+    "scope": "World",
+    "rank": 3,
+    "title": "Nigerian faith leaders sign a peace accord after months of religious and political tension",
+    "deck": "Faith leaders in Nigeria signed a peace accord aimed at reducing tensions, illustrating how religious institutions can function as civic mediators in a politically charged environment.",
     "significance": 87,
-    "published": "Aug. 12, 2026",
+    "published": "Aug. 13, 2026",
     "confidence": "Source-backed snapshot",
     "sources": 1,
     "sourcesDetail": [
       {
         "name": "Reuters",
-        "headline": "US consumer prices increase as expected in July",
-        "url": "https://www.reuters.com/business/us-consumer-prices-increase-expected-july-2026-08-12/",
-        "published": "Aug. 12, 2026",
-        "type": "News Reporting",
+        "headline": "Nigeria faith leaders sign peace accord months after Trump remarks",
+        "url": "https://www.reuters.com/world/africa/nigeria-faith-leaders-sign-peace-accord-months-after-trump-remarks-2026-08-13/",
+        "published": "Aug. 13, 2026",
+        "type": "Religion / World Reporting",
         "note": ""
       }
     ],
@@ -2372,28 +2595,28 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #3 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
-    "id": "family-5",
-    "pillar": "Family Impact",
+    "id": "faith-3",
+    "pillar": "Faith & Family",
     "scope": "US",
-    "rank": 5,
-    "title": "Wholesale inflation cools as gasoline and food costs ease",
-    "deck": "Producer-price data showed slower wholesale inflation, including relief in some food and energy costs. Whether that reaches household budgets depends on how quickly businesses pass changes through to retail prices.",
-    "significance": 84,
-    "published": "Aug. 2026",
+    "rank": 4,
+    "title": "Released Texas pastors say immigration agents threatened family separation",
+    "deck": "Texas pastors described their treatment by immigration agents after their release, placing questions of immigration enforcement, clergy ministry and family separation inside a faith-community context.",
+    "significance": 81,
+    "published": "July 27, 2026",
     "confidence": "Source-backed snapshot",
     "sources": 1,
     "sourcesDetail": [
       {
-        "name": "Associated Press",
-        "headline": "Wholesale price inflation slows as gas, food costs fall",
-        "url": "https://apnews.com/article/f9bf278f4550a956b1f350722817371d",
-        "published": "Aug. 2026",
-        "type": "Economic Reporting",
+        "name": "Religion News Service",
+        "headline": "Released Texas pastors say immigration agents threatened family separation",
+        "url": "https://religionnews.com/2026/07/27/released-texas-pastors-say-immigration-agents-threatened-family-separation/",
+        "published": "July 27, 2026",
+        "type": "Religion Reporting",
         "note": ""
       }
     ],
@@ -2403,15 +2626,15 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #4 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "family-6",
-    "pillar": "Family Impact",
+    "pillar": "Faith & Family",
     "scope": "US",
-    "rank": 6,
+    "rank": 5,
     "title": "Back-to-school shoppers start earlier as higher bills pressure family budgets",
     "deck": "Retailers are seeing families hunt for bargains earlier in the back-to-school season as household expenses remain elevated. The story connects macroeconomic pressures to everyday purchasing decisions.",
     "significance": 79,
@@ -2434,13 +2657,44 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #5 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "reactions": null,
+    "live": true
+  },
+  {
+    "id": "faith-4",
+    "pillar": "Faith & Family",
+    "scope": "US",
+    "rank": 6,
+    "title": "Survey: half of Gen Z respondents say Trump support keeps them out of church",
+    "deck": "A recent report examines how political identification inside churches affects younger adults' willingness to participate. The finding is about reported attitudes, not a claim that all churches or all Gen Z adults respond the same way.",
+    "significance": 78,
+    "published": "July 20, 2026",
+    "confidence": "Source-backed snapshot",
+    "sources": 1,
+    "sourcesDetail": [
+      {
+        "name": "Religion News Service",
+        "headline": "Half of Gen Z says Trump support keeps them out of church",
+        "url": "https://religionnews.com/2026/07/20/half-of-gen-z-says-trump-support-keeps-them-out-of-church/?element=XFDNESWJ&form=donate",
+        "published": "July 20, 2026",
+        "type": "Religion Reporting",
+        "note": ""
+      }
+    ],
+    "facts": [
+      "The linked reporting supports the core event described in this brief.",
+      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
+      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
+      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+    ],
+    "why": "7 Tribunes ranks this #6 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   },
   {
     "id": "family-7",
-    "pillar": "Family Impact",
+    "pillar": "Faith & Family",
     "scope": "State",
     "rank": 7,
     "title": "Oklahoma school cellphone rules change the school-day routine for families",
@@ -2465,224 +2719,7 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Family Impact using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-1",
-    "pillar": "Faith",
-    "scope": "World",
-    "rank": 1,
-    "title": "Christians in Israel describe rising harassment and look to faith and allies for support",
-    "deck": "Christians in Israel say harassment has increased, raising questions about religious freedom, minority security and how faith communities respond under political and social pressure.",
-    "significance": 92,
-    "published": "Aug. 14, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Associated Press",
-        "headline": "Israel's Christians rely on faith and allies as they fear rising harassment",
-        "url": "https://apnews.com/article/98c8f0b5aa9cc462f150332c2ef60b45",
-        "published": "Aug. 14, 2026",
-        "type": "Religion Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #1 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-2",
-    "pillar": "Faith",
-    "scope": "World",
-    "rank": 2,
-    "title": "Nigerian faith leaders sign a peace accord after months of religious and political tension",
-    "deck": "Faith leaders in Nigeria signed a peace accord aimed at reducing tensions, illustrating how religious institutions can function as civic mediators in a politically charged environment.",
-    "significance": 87,
-    "published": "Aug. 13, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Reuters",
-        "headline": "Nigeria faith leaders sign peace accord months after Trump remarks",
-        "url": "https://www.reuters.com/world/africa/nigeria-faith-leaders-sign-peace-accord-months-after-trump-remarks-2026-08-13/",
-        "published": "Aug. 13, 2026",
-        "type": "Religion / World Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #2 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-3",
-    "pillar": "Faith",
-    "scope": "US",
-    "rank": 3,
-    "title": "Released Texas pastors say immigration agents threatened family separation",
-    "deck": "Texas pastors described their treatment by immigration agents after their release, placing questions of immigration enforcement, clergy ministry and family separation inside a faith-community context.",
-    "significance": 81,
-    "published": "July 27, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Religion News Service",
-        "headline": "Released Texas pastors say immigration agents threatened family separation",
-        "url": "https://religionnews.com/2026/07/27/released-texas-pastors-say-immigration-agents-threatened-family-separation/",
-        "published": "July 27, 2026",
-        "type": "Religion Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #3 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-4",
-    "pillar": "Faith",
-    "scope": "US",
-    "rank": 4,
-    "title": "Survey: half of Gen Z respondents say Trump support keeps them out of church",
-    "deck": "A recent report examines how political identification inside churches affects younger adults' willingness to participate. The finding is about reported attitudes, not a claim that all churches or all Gen Z adults respond the same way.",
-    "significance": 78,
-    "published": "July 20, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Religion News Service",
-        "headline": "Half of Gen Z says Trump support keeps them out of church",
-        "url": "https://religionnews.com/2026/07/20/half-of-gen-z-says-trump-support-keeps-them-out-of-church/?element=XFDNESWJ&form=donate",
-        "published": "July 20, 2026",
-        "type": "Religion Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #4 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-5",
-    "pillar": "Faith",
-    "scope": "US",
-    "rank": 5,
-    "title": "Church-state separation debate gets a historical look from Augustine to Jefferson",
-    "deck": "A Religion News Service analysis traces religious and secular roots of church-state separation, offering historical context for a debate that often gets compressed into current partisan arguments.",
-    "significance": 73,
-    "published": "July 7, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Religion News Service",
-        "headline": "From Augustine to Jefferson, the idea of separating church and state has deep religious and secular roots",
-        "url": "https://religionnews.com/2026/07/07/from-augustine-to-jefferson-the-idea-of-separating-church-and-state-has-deep-religious-and-secular-roots/",
-        "published": "July 7, 2026",
-        "type": "Analysis",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #5 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-6",
-    "pillar": "Faith",
-    "scope": "World",
-    "rank": 6,
-    "title": "Pope Leo frames Christian life as a response to the age of AI",
-    "deck": "A recent faith analysis examines Pope Leo's emphasis on Eucharistic and communal Christian life in a period of rapid AI adoption, connecting technology questions with vocation, attention and human relationships.",
-    "significance": 70,
-    "published": "July 22, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Religion News Service",
-        "headline": "Pope Leo's Eucharistic answer to the age of AI",
-        "url": "https://religionnews.com/2026/07/22/in-response-to-ai-pope-leo-proposes-a-sober-and-demanding-program-of-christian-life/",
-        "published": "July 22, 2026",
-        "type": "Religion Analysis",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #6 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
-    "reactions": null,
-    "live": true
-  },
-  {
-    "id": "faith-7",
-    "pillar": "Faith",
-    "scope": "US",
-    "rank": 7,
-    "title": "Pope Leo links liberty with life, immigrants and faith as the U.S. marks 250 years",
-    "deck": "Pope Leo's message around the U.S. 250th anniversary connected religious liberty with questions of human dignity, immigration and public faith.",
-    "significance": 68,
-    "published": "July 3, 2026",
-    "confidence": "Source-backed snapshot",
-    "sources": 1,
-    "sourcesDetail": [
-      {
-        "name": "Religion News Service",
-        "headline": "As US turns 250, Pope Leo says liberty is represented through life, immigrants and faith",
-        "url": "https://religionnews.com/2026/07/03/as-us-turns-250-pope-leo-says-liberty-is-represented-through-life-immigrants-and-faith/",
-        "published": "July 3, 2026",
-        "type": "Religion Reporting",
-        "note": ""
-      }
-    ],
-    "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
-    ],
-    "why": "7 Tribunes ranks this #7 within Faith using a 7 Tribunes Impact Score based on public consequence, geographic relevance, recency, source quality, breadth of impact, safety/economic significance and persistence. Social popularity is not used as a substitute for impact.",
+    "why": "7 Tribunes ranks this #7 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true
   }
@@ -2693,8 +2730,9 @@ let state={
   location:localStorage.getItem("sevenPillarsLocation") || "Tulsa, Oklahoma",
   signedIn:localStorage.getItem("sevenPillarsSignedIn")==="1",
   premium:localStorage.getItem("sevenPillarsPremium")==="1",
-  interests:JSON.parse(localStorage.getItem("sevenPillarsInterests")||'["Family Impact","Local News","National"]'),
+  interests:JSON.parse(localStorage.getItem("sevenPillarsInterests")||'["Faith & Family","Local","State & National"]'),
   faithPreference:localStorage.getItem("sevenPillarsFaithPreference") || "All Faiths / Religion & Ethics",
+  entertainmentPreferences:JSON.parse(localStorage.getItem("sevenTribunesEntertainmentPreferences") || '["Movies","Television","Music","Art & Culture"]'),
   currentStory:null
 };
 
@@ -2710,6 +2748,26 @@ function updateFaithPreference(value){
 }
 
 
+
+const ENTERTAINMENT_INTERESTS=["Movies","Television","Music","Art & Culture","Books","Theater","Gaming"];
+function toggleEntertainmentPreference(tag){
+  const list=state.entertainmentPreferences || [];
+  state.entertainmentPreferences=list.includes(tag)?list.filter(x=>x!==tag):[...list,tag];
+  localStorage.setItem("sevenTribunesEntertainmentPreferences",JSON.stringify(state.entertainmentPreferences));
+  render();
+}
+window.toggleEntertainmentPreference=toggleEntertainmentPreference;
+function entertainmentPreferenceScore(story){
+  if(story.pillar!=="Entertainment") return story.significance;
+  const tags=story.entertainmentTags||[];
+  const matches=tags.filter(t=>(state.entertainmentPreferences||[]).includes(t)).length;
+  return story.significance + Math.min(matches,2)*3;
+}
+function sortPillarStories(items,pillar){
+  if(pillar!=="Entertainment") return [...items].sort((a,b)=>b.significance-a.significance);
+  return [...items].sort((a,b)=>entertainmentPreferenceScore(b)-entertainmentPreferenceScore(a) || b.significance-a.significance);
+}
+
 function filteredStories(){
   let arr=stories.filter(s=>{
     if(state.pillar!=="All" && s.pillar!==state.pillar) return false;
@@ -2719,6 +2777,7 @@ function filteredStories(){
   if(state.time==="Week"){
     return [...arr].sort((a,b)=> (b.significance + (b.rank%3)*3) - (a.significance + (a.rank%3)*3));
   }
+  if(state.pillar==="Entertainment") return sortPillarStories(arr,"Entertainment");
   return [...arr].sort((a,b)=>b.significance-a.significance);
 }
 
@@ -2726,9 +2785,9 @@ function render(){
   const arr=filteredStories();
   const hero=arr[0] || stories[0];
   const total = state.pillar==="All" && !state.search ? 49 : arr.length;
-  $("#editionNote").textContent=`${total} sourced story cluster${total===1?"":"s"} · real publisher links · impact ranked`;
+  $("#editionNote").textContent=`${total} sourced story cluster${total===1?"":"s"} · real publisher links · Impact + verified-reaction aware`;
   $("#filterSummary").textContent=`${state.time==="Today"?"Snapshot Edition":"7-Day View"} · ${LIVE_SNAPSHOT_TIME} ${state.search?"· Search: "+state.search:""}`;
-  $("#sectionTitle").textContent=state.pillar==="All"?"The Seven Tribunes":state.pillar;
+  $("#sectionTitle").textContent=state.pillar==="All"?"The Seven Pillars":state.pillar;
 
   if(arr.length===0){
     $("#hero").innerHTML='<span class="kicker">No matching stories</span><h1>Try a broader filter.</h1><p class="deck">No sourced story clusters match the current pillar and search terms.</p>';
@@ -2765,7 +2824,7 @@ function render(){
     .map(p=>stories.filter(s=>s.pillar===p).sort((a,b)=>b.significance-a.significance)[0])
     .filter(Boolean)
     .sort((a,b)=>b.significance-a.significance)
-    .slice(0,5);
+    .slice(0,6);
 
   $("#briefRail").innerHTML=topOther.map((s,i)=>`
     <article class="rail-item">
@@ -2778,17 +2837,21 @@ function render(){
 
   const visiblePillars = state.pillar==="All" ? PILLARS : [state.pillar];
   $("#storyGrid").innerHTML = visiblePillars.map((pillar)=>{
-    const pillarStories = arr.filter(s=>s.pillar===pillar).sort((a,b)=>b.significance-a.significance);
+    const pillarStories = sortPillarStories(arr.filter(s=>s.pillar===pillar),pillar);
     if(!pillarStories.length) return "";
     return `
       <section class="pillar-block">
         <div class="pillar-block-head">
           <div>
-            <h3 class="pillar-block-title"><span class="pillar-number">${PILLARS.indexOf(pillar)+1}</span>${pillar==="Family Impact"?"Family":pillar==="Local News"?"Local":pillar}</h3>
+            <h3 class="pillar-block-title"><span class="pillar-number">${PILLARS.indexOf(pillar)+1}</span>${pillar}</h3>
             <p class="pillar-description">${pillarDescriptions[pillar]}</p>
-            ${pillar==="Faith" ? `<div class="faith-control faith-control-section"><span>Faith preference</span><select aria-label="Faith preference" onchange="updateFaithPreference(this.value)">
+            ${pillar==="Faith & Family" ? `<div class="faith-control faith-control-section"><span>Faith preference</span><select aria-label="Faith preference" onchange="updateFaithPreference(this.value)">
               ${["All Faiths / Religion & Ethics","Christian","Catholic","Protestant / Evangelical","Jewish","Muslim","Other / Interfaith"].map(v=>`<option value="${v}" ${state.faithPreference===v?"selected":""}>${v}</option>`).join("")}
             </select></div>` : ""}
+            ${pillar==="Entertainment" ? `<div class="entertainment-prefs">
+              <div class="entertainment-prefs-head"><strong>Entertainment interests</strong><small>Preferences prioritize your interests; major culture stories still appear.</small></div>
+              <div class="entertainment-chips">${ENTERTAINMENT_INTERESTS.map(tag=>`<button type="button" class="entertainment-chip ${(state.entertainmentPreferences||[]).includes(tag)?"active":""}" onclick="toggleEntertainmentPreference('${tag.replace(/'/g,"\'")}')">${tag}</button>`).join("")}</div>
+            </div>` : ""}
           </div>
           <button class="btn soft" onclick="focusPillar('${pillar.replace(/'/g,"&#39;")}')">Open ${pillar}</button>
         </div>
@@ -2801,7 +2864,7 @@ function render(){
             <div class="reaction-count">Pending<small>Verified cross-platform metrics</small></div>
           </article>
           <div class="top7-panel">
-            <div class="top7-heading"><span>Top 7 by Impact</span><span>Real source links</span></div>
+            <div class="top7-heading"><span>Top 7 by Impact + Reaction</span><span>Verified reaction data only</span></div>
             ${pillarStories.slice(0,7).map((s,i)=>`
               <article class="ranked-story ${i===0?"is-one":""}">
                 <div class="rnum">${i+1}</div>
@@ -3041,7 +3104,7 @@ $("#geoLocate").onclick=()=>{
   },()=>st.textContent="Location permission was not granted. You can enter a city or ZIP instead.");
 };
 
-const interestOptions=["Faith","Family & Parenting","Household Finances","Education","Health","Local Government","Public Safety","Oklahoma","National Affairs","Severe Weather","Movies","Streaming","Music","NFL","NCAA","NBA","MLB","High School Sports"];
+const interestOptions=["Local","Oklahoma","National Affairs","World Affairs","Nature & Climate","Sports","Movies","Television","Music","Art & Culture","Books","Theater","Gaming","Business","Technology & AI","Faith","Family & Parenting","Education","Household Finances"];
 function renderInterests(){
   $("#interestGrid").innerHTML=interestOptions.map(x=>`<button data-interest="${x}" class="${state.interests.includes(x)?"active":""}">${x}</button>`).join("");
 }
@@ -3113,7 +3176,7 @@ function openMetricModal(type,count){
         <li><strong>Geographic relevance:</strong> whether engagement is concentrated in the community affected by the story.</li>
         <li><strong>Manipulation discount:</strong> suspected bots, purchased engagement and coordinated activity reduce the signal.</li>
       </ul>
-      <p><strong>Important:</strong> Social Heat never authenticates a story and does not automatically place it in the Top 7. High engagement tells 7 Tribunes what deserves investigation; reputable journalism or authoritative primary evidence must still support the story.</p>
+      <p><strong>Important:</strong> Social Heat never authenticates a story and does not automatically place it in the Top 7. High engagement tells 7 Tribunes what deserves investigation and can influence rank after verification; reputable journalism or authoritative primary evidence must still support the story.</p>
       <p class="metric-modal-note">The live demo shows Pending because direct social-platform metrics are not yet connected.</p>`
     },
     sources:{

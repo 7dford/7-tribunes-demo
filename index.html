@@ -37,7 +37,7 @@
   button,input,select,textarea{font:inherit}
   button{cursor:pointer}
   a{color:inherit}
-  .app{max-width:1500px;margin:auto;padding:18px 22px 56px}
+  .app{width:min(100%,1800px);margin:auto;padding:14px clamp(12px,1.4vw,24px) 56px}
   .topline{
     display:flex;justify-content:space-between;align-items:center;gap:14px;
     font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
@@ -223,38 +223,16 @@
   }
   .reaction-btn:hover{background:var(--ink);color:var(--paper)}
   .nav{
-    display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #d6ccbc;border-bottom:1px solid #d6ccbc;
-    padding:16px 18px;margin:0;background:rgba(255,255,255,.56);box-shadow:0 8px 22px rgba(28,24,17,.05)
+    position:sticky;top:0;z-index:45;display:grid;grid-template-columns:1fr;gap:7px;border-top:1px solid #d6ccbc;border-bottom:1px solid #d6ccbc;padding:8px;margin:0;background:rgba(250,248,242,.97);box-shadow:0 8px 22px rgba(28,24,17,.08);backdrop-filter:blur(10px)
   }
-  .nav button,.seg button,.chip{
-    background:rgba(255,255,255,.86);
-    border:1px solid #c9d1dc;
-    padding:8px 12px;
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    text-transform:none;
-    letter-spacing:.01em;
-    color:#11284e;
-    position:relative;
-    font-weight:800;
-    border-radius:8px;
-    box-shadow:0 1px 0 rgba(17,40,78,.05);
-    transition:background .15s ease,border-color .15s ease,color .15s ease,transform .15s ease;
-  }
+  .section-nav-buttons{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;width:100%}
+  .nav-tools{display:flex;gap:7px;align-items:center;justify-content:flex-end}
+  .nav button,.seg button,.chip{background:rgba(255,255,255,.90);border:1px solid #c9d1dc;padding:8px 9px;font-family:Arial,sans-serif;font-size:10px;text-transform:none;letter-spacing:.01em;color:#11284e;position:relative;font-weight:800;border-radius:8px;box-shadow:0 1px 0 rgba(17,40,78,.05);transition:background .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
+  .section-nav-buttons button{width:100%;min-width:0;min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15}
   .nav button:not(.active):not(#adminBtn):after{display:none}
-  .nav button:hover{
-    background:#eef2f7;
-    border-color:#9eabbc;
-    color:#11284e;
-    transform:translateY(-1px);
-  }
-  .nav button.active,.seg button.active,.chip.active{
-    background:#11284e;
-    border-color:#11284e;
-    color:#fff;
-  }
+  .nav button:hover{background:#eef2f7;border-color:#9eabbc;color:#11284e;transform:translateY(-1px)}
+  .nav button.active,.seg button.active,.chip.active{background:#11284e;border-color:#11284e;color:#fff}
   .nav button.active:before{display:none}
-  .nav .spacer{flex:1}
   .search{display:flex;align-items:center;border:1px solid var(--rule);background:rgba(255,255,255,.72);min-width:245px;border-radius:3px}
   .search input{border:0;background:transparent;outline:0;padding:7px 9px;width:100%;font-family:Arial,sans-serif;font-size:13px;color:var(--ink)}
   .search button{border:0;background:transparent;padding:6px 9px;color:var(--accent)}
@@ -346,7 +324,7 @@
     border-bottom:2px solid var(--ink);padding-bottom:7px;margin-bottom:2px
   }
   .ranked-story{
-    display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:start;
+    display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:start;
     border-bottom:1px solid var(--rule);padding:10px 0
   }
   .ranked-story .rnum{
@@ -433,9 +411,6 @@
   }
   .reaction{font-weight:800;color:var(--ink)}
   .safe-tag{font-size:8px;text-transform:uppercase;letter-spacing:.05em;border:1px solid #8eaa94;color:var(--good);padding:3px 4px}
-  .voices-method{
-    margin-top:10px;font-family:Arial,sans-serif;font-size:10px;color:var(--muted);line-height:1.45
-  }
   .sponsor-band{
     margin:18px 0 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
     padding:11px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
@@ -449,9 +424,13 @@
   .sponsor-copy span{font-size:10px;color:var(--muted)}
   .sponsor-band .btn{white-space:nowrap}
 
-  .daily-brief{
-    margin:26px 0 0;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;border-top:4px double var(--ink);padding-top:18px
-  }
+  .daily-brief{margin:26px 0 0;display:grid;grid-template-columns:1fr;gap:18px;border-top:4px double var(--ink);padding-top:18px}
+  .membership-strip .brief-box{max-width:760px}
+  .footer-method{flex:0 0 auto}
+  .story-engagement-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--rule);background:rgba(255,255,255,.25);margin-bottom:12px}
+  .story-engagement-bar small{display:block;color:var(--muted);font:10px/1.3 Arial,sans-serif;margin-top:2px}
+  .featured-story-take h3{font-size:20px;margin:10px 0 4px;line-height:1.12}
+  .take-actions{display:flex;gap:5px;flex-wrap:wrap}
   .brief-box{border:1px solid var(--rule);padding:18px;background:var(--panel);box-shadow:var(--shadow)}
   .brief-box h3{margin:0 0 8px;font-size:25px}
   .brief-box p{line-height:1.48}
@@ -560,6 +539,8 @@
 
   @media(max-width:980px){
     .masthead-inner{grid-template-columns:120px minmax(0,1fr) 125px;gap:14px;padding:7px 30px}
+    .section-nav-buttons{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .nav-tools{width:100%}
     .quote-text{font-size:9px}
     .brand-seven-center{font-size:58px}
     .brand-word{font-size:58px}
@@ -596,19 +577,21 @@
     .brand-mark{gap:10px;align-items:center}
     .brand-seven-stack{transform:none}
     .brand-mark-wrap{width:min(100%,360px)}
-    .brand-seven-center{font-size:76px}
-    .brand-word{font-size:clamp(46px,15vw,67px)}
+    .brand-seven-center{font-size:clamp(54px,17vw,76px)}
+    .brand-word{font-size:clamp(42px,14vw,67px)}
     .brand-subline{font-size:18px;letter-spacing:.01em;margin-top:9px}
     .brand-subline:before,.brand-subline:after{width:28px}
     .tagline{font-size:22px;margin-top:10px}
-    .nav{gap:10px;padding:14px}
-    .nav .spacer{display:none}
+    .nav{gap:6px;padding:6px;top:0}
+    .section-nav-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+    .section-nav-buttons button{min-height:36px;font-size:9px;padding:6px 5px}
+    .nav-tools{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto}
+    .search{min-width:0;width:100%}
     .nav-meta{width:100%;justify-content:space-between;gap:12px}
     .location-picker-inline{width:100%;flex-wrap:wrap}
     .location-picker-inline input{min-width:0;width:100%}
     .story-grid{grid-template-columns:1fr}
     .ranked-story{grid-template-columns:30px 1fr}
-    .ranked-story .mini-reactions{grid-column:2}
     .pillar-block-title{font-size:28px}
     .story-card:nth-child(n){border-right:0;margin-right:0;padding-right:0}
     .hero-stats{grid-template-columns:repeat(2,1fr)}
@@ -864,7 +847,7 @@
       </div>
 
       <div class="masthead-right">
-        <a class="takes-seal takes-link" href="#featuredTakes" aria-label="Jump to the 7 most-reacted community comments">
+        <a class="takes-seal takes-link" href="#featuredTakes" aria-label="Jump to the 7 most-engaged stories on 7Tribunes">
           <b>7 TAKES</b>
           <span>Freedom to Disagree</span>
         </a>
@@ -885,21 +868,24 @@
     </div>
   </header>
 
-  <nav class="nav" id="pillarNav">
-    <button class="active" data-pillar="All">Front Page</button>
-    <button data-pillar="Local">Local</button>
-    <button data-pillar="State & National">State &amp; National</button>
-    <button data-pillar="World & Nature">Word &amp; Nature</button>
-    <button data-pillar="Sports">Sports</button>
-    <button data-pillar="Entertainment">Entertainment</button>
-    <button data-pillar="Business & Tech">Business &amp; Tech</button>
-    <button data-pillar="Faith & Family">Faith &amp; Family</button>
-    <span class="spacer"></span>
-    <div class="search">
-      <input id="searchInput" placeholder="Search stories, topics, people..." aria-label="Search">
-      <button id="searchBtn">⌕</button>
+  <nav class="nav" id="pillarNav" aria-label="7Tribunes sections">
+    <div class="section-nav-buttons">
+      <button class="active" data-pillar="All">Front Page</button>
+      <button data-pillar="Local">Local</button>
+      <button data-pillar="State & National">State &amp; National</button>
+      <button data-pillar="World & Nature">World &amp; Nature</button>
+      <button data-pillar="Sports">Sports</button>
+      <button data-pillar="Entertainment">Entertainment</button>
+      <button data-pillar="Business & Tech">Business &amp; Tech</button>
+      <button data-pillar="Faith & Family">Faith &amp; Family</button>
     </div>
-    <button id="adminBtn">Admin</button>
+    <div class="nav-tools">
+      <div class="search">
+        <input id="searchInput" placeholder="Search stories, topics, people..." aria-label="Search">
+        <button id="searchBtn">⌕</button>
+      </div>
+      <button id="adminBtn">Admin</button>
+    </div>
   </nav>
 <div class="filters">
     <div class="location-picker">
@@ -945,10 +931,6 @@
     </section>
 
     <section class="pillars">
-      <div class="section-head">
-        <h2 class="section-title" id="sectionTitle">The Seven Tribunes</h2>
-        <div class="edition-note" id="filterSummary">Today · All geographies</div>
-      </div>
       <div class="pillar-stacks" id="storyGrid"></div>
     </section>
 
@@ -957,19 +939,10 @@
         <div>
           <span class="kicker">Local Voices · Tulsa Demo Market</span>
           <h2 class="voices-title">The Local 7</h2>
-          <p class="voices-sub">Future module: the seven eligible local influencers generating the most verified reactions in the current edition window, subject to viewpoint-diversity, anti-manipulation and safety guardrails.</p>
-        </div>
-        <div class="balance-summary">
-          <span>≥3 Conservative</span>
-          <span>Balanced Remaining</span>
-          <span>≥1 Non-Political</span>
-          <span>Verified Reactions</span>
+          <p class="voices-sub">The seven local influencer posts with the strongest verified views and reactions during the past 24 hours.</p>
         </div>
       </div>
       <div class="voices-grid" id="localVoicesGrid"></div>
-      <div class="voices-method">
-        Selection rule: rank eligible posts by total reactions after decency/violence screening; reserve at least 3 places for qualifying conservative commentators and at least 1 for a qualifying non-political local voice, then fill remaining places by reaction count while preserving reasonable viewpoint diversity. Political disagreement is not a moderation violation.
-      </div>
 
       <div class="sponsor-band">
         <div class="sponsor-label">Sponsored · Demo</div>
@@ -980,19 +953,11 @@
         <button class="btn soft" onclick="showSponsorPolicy()">Why this ad?</button>
       </div>
     </section>
-
-    <section class="daily-brief">
-      <div class="brief-box">
-        <span class="kicker">Editorial Method</span>
-        <h3>7Tribunes Brief first. Facts before framing.</h3>
-        <p><strong>Every 7Tribunes Brief is fewer than 75 words and built only from facts and attributed statements contained in the linked reporting.</strong> Where the reporting establishes them, the brief answers the journalistic basics: <strong>who did what, to whom or what, when, where, how, and why.</strong> Loaded phrasing is removed while material disputes, attribution and uncertainty are preserved. If a source does not establish one of those facts, 7Tribunes leaves it unknown rather than inferring an answer. <strong>Shorter, not altered.</strong></p>
-<p><strong>Actor-action-target rule:</strong> When the reporting identifies who did what to whom or what, the 7Tribunes Brief must state it. If responsibility is alleged rather than independently established, the attribution stays attached. If the actor is unknown, the Brief says so explicitly.</p>
-        <button class="btn soft" id="methodBtn">See the methodology</button>
-      </div>
+    <section class="daily-brief membership-strip">
       <div class="brief-box premium" id="premiumCard">
         <span class="kicker" style="color:#c6a35d">7Tribunes Member</span>
-        <h3>Compare more. Save more. Unlock all 7 Takes.</h3>
-        <p>The POC includes a simulated entitlement layer for full coverage comparison, the complete 7 Takes feature, saved stories, archive access and future premium dashboards.</p>
+        <h3>Compare more. Save more.</h3>
+        <p>The POC includes a simulated entitlement layer for saved stories, archive access and future premium dashboards.</p>
         <button class="btn primary" id="upgradeBtn">Activate Demo Membership</button>
       </div>
     </section>
@@ -1029,27 +994,23 @@
     </div>
     <div class="admin-section">
       <h3>Editorial Guardrails</h3>
-      <p>Editors may merge/split clusters, correct titles, change classification, override significance, revise perspective labels, replace recommended articles, and publish corrections. Every override is intended to create an audit log in production.</p>
+      <p>Editors may merge/split clusters, correct titles, change classification, override significance, revise perspective labels, replace recommended articles, and publish corrections. Every override is intended to create an audit log in production. Local 7 internal mix target: two conservative-or-neutral, two liberal-or-neutral, two sports-or-entertainment, and one positive local restaurant/business review among high-engagement eligible posts from the past 24 hours.</p>
     </div>
   </section>
 
   <section class="featured-takes" id="featuredTakes">
     <div class="featured-takes-head">
       <div>
-        <span class="kicker">Community · Most Reacted</span>
+        <span class="kicker">Community · Most Engaged</span>
         <h2 class="featured-takes-title">7 Takes</h2>
-        <p class="featured-takes-sub">The seven eligible reader comments receiving the most reactions in the current edition window. Threats, doxxing, graphic abuse and targeted harassment are excluded. Political disagreement is not.</p>
-      </div>
-      <div class="balance-summary">
-        <span>Reactions drive rank</span>
-        <span>Safety guardrails first</span>
-        <span>Demo community data</span>
+        <p class="featured-takes-sub">The seven 7Tribunes stories receiving the most reader reactions on our site. Each Take shows the story, its section rank, and the most-engaged eligible community comment when one is available.</p>
       </div>
     </div>
     <div class="featured-comment-grid" id="featuredCommentGrid"></div>
   </section>
 
   <footer class="footer">
+    <div class="footer-method"><button class="btn soft" id="footerMethodBtn">Methodology</button></div>
     <div><strong>7Tribunes Live-Sourced Proof of Concept.</strong> Story links and publisher names in this snapshot point to real reporting or official sources. Rankings and 7Tribunes Briefs are proof-of-concept editorial synthesis, not publisher rankings.</div>
     <div>This is a manually assembled snapshot, not an automated live newsroom. In production, a story may occupy a Top 7 slot for no more than 24 hours; a materially new development becomes a new update and is re-ranked. Social reaction counts and article-level political-orientation ratings are not fabricated when the required data/methodology is not connected. Production deployment requires licensed/authorized feeds, publisher agreements, moderation, security, legal/privacy review and independent methodology governance.</div>
   </footer>
@@ -1062,15 +1023,12 @@
     <button class="drawer-close" id="drawerClose" aria-label="Close">×</button>
     <div id="drawerHeader"></div>
     <div class="tabs" id="drawerTabs">
-      <button class="active" data-tab="summary">Open 7Tribunes Brief</button>
       <button data-tab="coverage">Compare Coverage</button>
-      <button data-tab="takes">7 Takes</button>
       <button data-tab="timeline">Timeline</button>
       <button data-tab="discuss">Discuss</button>
     </div>
     <div id="tab-summary" class="tabpane active"></div>
     <div id="tab-coverage" class="tabpane"></div>
-    <div id="tab-takes" class="tabpane"></div>
     <div id="tab-timeline" class="tabpane"></div>
     <div id="tab-discuss" class="tabpane"></div>
   </div>
@@ -1114,7 +1072,7 @@
 
 <div class="modal" id="methodModal">
   <span class="kicker">7Tribunes Method</span>
-  <h2>Balance without false equivalence</h2>
+  <h2>How 7Tribunes builds a Brief</h2>
   <p><strong>1. Establish the fact spine.</strong> Identify confirmed, reported, disputed, unknown and changed information using multiple independent sources.</p>
   <p><strong>2. Score reporting quality separately.</strong> Reliability considers sourcing, evidence, headline accuracy, transparency, corrections and reporting-versus-opinion separation.</p>
   <p><strong>3. Analyze perspective.</strong> Framing analysis considers language, emphasis, quoted authorities, contextual differences and ideological positioning. Ratings include confidence.</p>
@@ -1151,41 +1109,26 @@ function setDailyQuote(){
 }
 
 
-const FEATURED_COMMENTS = [
-  {id:"c1",author:"TulsaReader",pillar:"Local",text:"The 7Tribunes Brief is useful, but the best feature is being able to jump to the original reporting and compare sources.",reactions:1842},
-  {id:"c2",author:"SoonerVoice",pillar:"State & National",text:"Show me what actually changed in the law or policy first. Then show me what each side thinks about it.",reactions:1567},
-  {id:"c3",author:"GridironDad",pillar:"Sports",text:"Sports belongs here because it is a huge part of community life. Just keep the difference between reporting and fan opinion obvious.",reactions:1438},
-  {id:"c4",author:"FamilyFirstOK",pillar:"Faith & Family",text:"Family impact should translate big economic numbers into what they mean for groceries, utilities, school, health care and household decisions.",reactions:1324},
-  {id:"c5",author:"FreeToDisagree",pillar:"State & National",text:"Balance should mean I can read the strongest factual reporting and still disagree with the interpretation. That is healthier than pretending every argument is equal.",reactions:1288},
-  {id:"c6",author:"WeatherWatcher",pillar:"World & Nature",text:"When weather is dangerous, put the official warning first and politics nowhere near it. Safety information should be immediate.",reactions:1196},
-  {id:"c7",author:"FaithAndReason",pillar:"Faith & Family",text:"Faith coverage works best when it is respectful, sourced and broad enough to cover service, culture and belief without turning everything into politics.",reactions:1089}
-];
-
+const SITE_REACTION_KEY = "sevenTribunesStoryReactions";
+const SITE_COMMENT_KEY = "sevenTribunesStoryComments";
+let storyReactions = JSON.parse(localStorage.getItem(SITE_REACTION_KEY)||"{}");
+let storyComments = JSON.parse(localStorage.getItem(SITE_COMMENT_KEY)||"{}");
+function reactionCount(id){return Number(storyReactions[id]||0)}
+function saveSiteEngagement(){localStorage.setItem(SITE_REACTION_KEY,JSON.stringify(storyReactions));localStorage.setItem(SITE_COMMENT_KEY,JSON.stringify(storyComments))}
+function topCommentForStory(id){const arr=(storyComments[id]||[]).filter(c=>c&&c.text);return [...arr].sort((a,b)=>(b.reactions||0)-(a.reactions||0))[0]||null}
+function siteEngagementScore(s){return reactionCount(s.id)+(storyComments[s.id]||[]).reduce((sum,c)=>sum+Number(c.reactions||0),0)}
 function renderFeaturedComments(){
-  const grid = document.querySelector("#featuredCommentGrid");
-  if(!grid) return;
-  const comments = [...FEATURED_COMMENTS].sort((a,b)=>b.reactions-a.reactions).slice(0,7);
-  grid.innerHTML = comments.map((c,i)=>`
-    <article class="featured-comment" data-comment-id="${c.id}">
-      <div class="featured-comment-top">
-        <span class="featured-comment-rank">#${i+1} · ${c.pillar}</span>
-        <span class="featured-comment-reactions">${c.reactions.toLocaleString()} reactions</span>
-      </div>
-      <blockquote>“${c.text}”</blockquote>
-      <div class="featured-comment-meta">
-        <span>${c.author} · Community comment</span>
-        <button class="reaction-btn" onclick="reactToFeatured('${c.id}')">+ React</button>
-      </div>
-    </article>
-  `).join("");
+  const grid=document.querySelector("#featuredCommentGrid");if(!grid)return;
+  const ranked=[...stories].sort((a,b)=>siteEngagementScore(b)-siteEngagementScore(a)||b.significance-a.significance).slice(0,7);
+  grid.innerHTML=ranked.map((s,i)=>{const comment=topCommentForStory(s.id),engagement=siteEngagementScore(s);return `<article class="featured-comment featured-story-take">
+    <div class="featured-comment-top"><span class="featured-comment-rank">#${i+1} in 7 Takes · ${storyRankLabel(s)}</span><span class="featured-comment-reactions">${engagement.toLocaleString()} site reaction${engagement===1?"":"s"}</span></div>
+    <h3><button class="story-title-link story-title-button" type="button" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')">${s.title}</button></h3>
+    <blockquote>${comment?`“${comment.text}”`:"No community quote yet. Open Discuss to add the first eligible comment."}</blockquote>
+    <div class="featured-comment-meta"><span>${comment?`${comment.author||"Reader"} · ${comment.reactions||0} comment reactions`:`${s.pillar} · ${storyRankLabel(s)}`}</span><div class="take-actions"><button class="reaction-btn" onclick="reactToStory('${s.id}')">+ React</button><button class="reaction-btn" onclick="openStory('${s.id}','discuss')">Discuss</button></div></div>
+  </article>`}).join("");
 }
-
-window.reactToFeatured = function(id){
-  const item = FEATURED_COMMENTS.find(c=>c.id===id);
-  if(!item) return;
-  item.reactions += 1;
-  renderFeaturedComments();
-};
+window.reactToStory=function(id){storyReactions[id]=reactionCount(id)+1;saveSiteEngagement();renderFeaturedComments();const counter=document.getElementById(`storyReaction-${id}`);if(counter)counter.textContent=reactionCount(id).toLocaleString()};
+window.reactToSiteComment=function(storyId,commentId){const c=(storyComments[storyId]||[]).find(x=>x.id===commentId);if(!c)return;c.reactions=Number(c.reactions||0)+1;saveSiteEngagement();renderFeaturedComments();if(state.currentStory && state.currentStory.id===storyId)renderDiscussion(storyId)};
 
 const TOP7_MAX_TENURE_HOURS = 24;
 const LIVE_SNAPSHOT_TIME = "Aug. 15, 2026 · 2:58 PM CDT";
@@ -2936,16 +2879,22 @@ function filteredStories(){
 }
 
 
+const LOCAL7_SLOT_POLICY = [
+  "conservative-or-neutral","conservative-or-neutral",
+  "liberal-or-neutral","liberal-or-neutral",
+  "sports-or-entertainment","sports-or-entertainment",
+  "positive-local-business-review"
+];
 function renderLocalVoices(){
   const grid = document.getElementById("localVoicesGrid");
   if(!grid) return;
-  grid.innerHTML = `
-    <article class="voice-card" style="grid-column:1/-1">
-      <span class="kicker">Local 7 · Pending Live Data</span>
-      <div class="voice-post">Verified local influencer and reaction data are not connected in this proof of concept.</div>
-      <p>Production will rank eligible local posts only after direct platform/API data, manipulation filtering, viewpoint-diversity rules and safety screening are operational.</p>
+  grid.innerHTML = LOCAL7_SLOT_POLICY.map((slot,i)=>`
+    <article class="voice-card local7-pending">
+      <span class="kicker">Local 7 · #${i+1}</span>
+      <div class="voice-post">Awaiting verified local social-platform data</div>
+      <div class="voice-meta"><span>Past 24 hours</span><span class="safe-tag">No fabricated metrics</span></div>
     </article>
-  `;
+  `).join("");
 }
 
 function render(){
@@ -2953,8 +2902,6 @@ function render(){
   const hero=arr[0] || stories[0];
   const total = state.pillar==="All" && !state.search ? 49 : arr.length;
   $("#editionNote").textContent=`${total} sourced story cluster${total===1?"":"s"} · real publisher links · Impact + verified-reaction aware`;
-  $("#filterSummary").textContent=`${state.time==="Today"?"Snapshot Edition":"7-Day View"} · ${LIVE_SNAPSHOT_TIME} ${state.search?"· Search: "+state.search:""}`;
-  $("#sectionTitle").textContent=state.pillar==="All"?"Seven Sections":state.pillar;
 
   if(arr.length===0){
     $("#hero").innerHTML='<span class="kicker">No matching stories</span><h1>Try a broader filter.</h1><p class="deck">No sourced story clusters match the current pillar and search terms.</p>';
@@ -2975,7 +2922,7 @@ function render(){
     <div class="story-actions">
       <button class="btn primary" onclick="openStory('${hero.id}','summary')">What We Know</button>
       <button class="btn" onclick="openStory('${hero.id}','coverage')">Source Coverage</button>
-      <button class="btn" onclick="openStory('${hero.id}','takes')">7 Takes</button>
+      <button class="btn" onclick="openStory('${hero.id}','discuss')">Discuss</button>
       <a class="btn soft" target="_blank" rel="noopener noreferrer" href="${hero.sourcesDetail[0].url}">Read Original Story ↗</a>
     </div>
     <div class="hero-stats">
@@ -2999,7 +2946,6 @@ function render(){
       <span class="kicker">${storyRankLabel(s)}</span>
       <h3><button class="story-title-link story-title-button" type="button" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h3>
       <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} source${s.sources===1?"":"s"}</button></div>
-      <button class="linkbtn" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')">7Tribunes Brief</button>
     </article>`).join("");
 
   const visiblePillars = state.pillar==="All" ? PILLARS : [state.pillar];
@@ -3020,7 +2966,7 @@ function render(){
               <div class="entertainment-chips">${ENTERTAINMENT_INTERESTS.map(tag=>`<button type="button" class="entertainment-chip ${(state.entertainmentPreferences||[]).includes(tag)?"active":""}" onclick="toggleEntertainmentPreference('${tag.replace(/'/g,"\'")}')">${tag}</button>`).join("")}</div>
             </div>` : ""}
           </div>
-          <button class="btn soft" onclick="focusPillar('${pillar.replace(/'/g,"&#39;")}')">Open ${pillar}</button>
+          ${state.pillar==="All" ? `<button class="btn soft" onclick="focusPillar('${pillar.replace(/'/g,"&#39;")}')">Open ${pillar}</button>` : ""}
         </div>
         <div class="pillar-layout">
           <article class="reaction-feature">
@@ -3043,7 +2989,6 @@ function render(){
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
                   </div>
                 </div>
-                <div class="mini-reactions"><button class="linkbtn" type="button" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')">Brief →</button></div>
               </article>
             `).join("")}
           </div>
@@ -3101,7 +3046,7 @@ function openStory(id,tab="summary"){
     <p>${s.why}</p>
 
     <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
-    <p>The 7Tribunes Brief is a consolidation of statements from other articles. We do not intend to replace original reporting. For the full story, open one source or several underlying reports and read the journalism directly.</p>
+    <p>7Tribunes Briefs are short overviews of statements from multiple published articles. Links to original reporting are provided.</p>
     <div class="linked-reporting">
       ${s.sourcesDetail.map((src,i)=>`
         <article class="linked-story">
@@ -3130,7 +3075,6 @@ function openStory(id,tab="summary"){
   $("#drawer").setAttribute("aria-hidden","false");
 
   $("#tab-coverage").innerHTML=coverageHTML(s);
-  $("#tab-takes").innerHTML=takesHTML(s);
   $("#tab-timeline").innerHTML=`
     <h2>Snapshot Provenance</h2>
     <div class="timeline">
@@ -3181,47 +3125,15 @@ function coverageHTML(s){
     ${cards}
   `;
 }
-function takesHTML(s){
-  const comments = [...FEATURED_COMMENTS]
-    .sort((a,b)=>b.reactions-a.reactions)
-    .slice(0,7);
-
-  return `
-    <h2>7 Takes</h2>
-    <p><strong>The seven most-reacted eligible community comments in this demonstration.</strong> Political disagreement is allowed; threats, doxxing, graphic abuse and targeted harassment are excluded before ranking.</p>
-    <div class="featured-comment-grid" style="grid-template-columns:1fr">
-      ${comments.map((c,i)=>`
-        <article class="featured-comment" data-comment-id="${c.id}">
-          <div class="featured-comment-top">
-            <span class="featured-comment-rank">#${i+1} · ${c.pillar}</span>
-            <span class="featured-comment-reactions">${c.reactions.toLocaleString()} reactions</span>
-          </div>
-          <blockquote>“${c.text}”</blockquote>
-          <div class="featured-comment-meta">
-            <span>${c.author} · Demo community comment</span>
-            <button class="reaction-btn" onclick="reactToFeatured('${c.id}')">+ React</button>
-          </div>
-        </article>
-      `).join("")}
-    </div>
-    <p class="edition-note">Production 7 Takes will use authenticated users, persistent reactions and moderation before comments are eligible for ranking.</p>
-  `;
-}
-
 function discussionHTML(s){
-  return `
-    <h2>Community Discussion</h2>
-    <p>Disagreement is allowed. Threats, doxxing, graphic abuse and targeted harassment are not. Automated decisions are triage signals, not ideological moderation.</p>
-    <div class="commentform">
-      <textarea id="commentText" placeholder="Add a thoughtful comment..."></textarea>
-      <div class="story-actions"><button class="btn primary" onclick="moderateComment()">Post Comment</button></div>
-      <div class="mod-status" id="modStatus"></div>
-    </div>
-    <div id="postedComments">
-      <div class="comment"><strong>DemoReader42</strong> <small>· 14 minutes ago</small><p>I appreciate seeing the reporting-quality score separately from the political framing. I would also like to see the primary documents used for the factual spine.</p></div>
-      <div class="comment"><strong>LocalSubscriber</strong> <small>· 32 minutes ago</small><p>The “unknown” section is useful. Breaking stories often sound more certain than they really are.</p></div>
-    </div>`;
+  const comments=storyComments[s.id]||[];
+  return `<h2>Discuss this Brief</h2>
+    <div class="story-engagement-bar"><div><strong><span id="storyReaction-${s.id}">${reactionCount(s.id).toLocaleString()}</span> story reactions</strong><small>Reader engagement on 7Tribunes only</small></div><button class="btn soft" onclick="reactToStory('${s.id}')">+ React to Story</button></div>
+    <p>Discuss the facts and the Brief. Political disagreement is allowed. Threats, doxxing, graphic abuse and targeted harassment are not.</p>
+    <div class="commentform"><textarea id="commentText" placeholder="Add a thoughtful comment..."></textarea><div class="story-actions"><button class="btn primary" onclick="moderateComment()">Post Comment</button></div><div class="mod-status" id="modStatus"></div></div>
+    <div id="postedComments">${comments.length?[...comments].sort((a,b)=>(b.reactions||0)-(a.reactions||0)).map(c=>`<div class="comment" data-comment-id="${c.id}"><strong>${c.author||"Reader"}</strong><small> · ${Number(c.reactions||0).toLocaleString()} reactions</small><p>${c.text}</p><button class="reaction-btn" onclick="reactToSiteComment('${s.id}','${c.id}')">+ React</button></div>`).join(""):'<div class="comment"><strong>No comments yet.</strong><p>Be the first reader to discuss this 7Tribunes Brief.</p></div>'}</div>`;
 }
+function renderDiscussion(storyId){const s=stories.find(x=>x.id===storyId);if(s)$("#tab-discuss").innerHTML=discussionHTML(s)}
 window.moderateComment=function(){
   const text=$("#commentText").value.trim(); const box=$("#modStatus");
   if(!text){box.className="mod-status show hold";box.textContent="Write a comment before posting.";return}
@@ -3239,9 +3151,8 @@ window.moderateComment=function(){
     return;
   }
   box.className="mod-status show ok";box.textContent="ALLOWED: Comment passed the demonstration moderation checks.";
-  const c=document.createElement("div"); c.className="comment";
-  c.innerHTML=`<strong>Demo User</strong> <small>· just now</small><p>${escapeHTML(text)}</p>`;
-  $("#postedComments").prepend(c); $("#commentText").value="";
+  const sid=state.currentStory && state.currentStory.id;
+  if(sid){const arr=storyComments[sid]||[];arr.push({id:`comment-${Date.now()}`,author:"Demo User",text:escapeHTML(text),reactions:0,createdAt:new Date().toISOString()});storyComments[sid]=arr;saveSiteEngagement();renderDiscussion(sid);renderFeaturedComments()}
 }
 function escapeHTML(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 
@@ -3250,8 +3161,7 @@ window.demoExternal=function(sourceName){
 }
 window.activatePremium=function(){
   state.premium=true;localStorage.setItem("sevenPillarsPremium","1");$("#accountBtn").textContent="Member";
-  if(state.currentStory) $("#tab-takes").innerHTML=takesHTML(state.currentStory);
-  $("#premiumCard").innerHTML='<span class="kicker" style="color:#c6a35d">Demo Membership Active</span><h3>Full comparison mode is unlocked.</h3><p>You can now see all 7 Takes in this proof of concept.</p><button class="btn" onclick="openAccount()">Membership Settings</button>';
+  $("#premiumCard").innerHTML='<span class="kicker" style="color:#c6a35d">Demo Membership Active</span><h3>Member tools are unlocked.</h3><p>Saved stories, archive access and future premium dashboards are represented in this proof of concept.</p><button class="btn" onclick="openAccount()">Membership Settings</button>';
 }
 
 function switchTab(tab){
@@ -3280,7 +3190,7 @@ $("#locationBtn").onclick=()=>openModal("locationModal");
 $("#interestBtn").onclick=()=>{renderInterests();openModal("interestModal")};
 $("#accountBtn").onclick=()=>openModal("accountModal");
 window.openAccount=()=>openModal("accountModal");
-$("#methodBtn").onclick=()=>openModal("methodModal");
+const footerMethodBtn=$("#footerMethodBtn");if(footerMethodBtn)footerMethodBtn.onclick=()=>openModal("methodModal");
 $("#upgradeBtn").onclick=()=>{openModal("accountModal")};
 
 $("#saveLocation").onclick=()=>{

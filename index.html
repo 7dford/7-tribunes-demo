@@ -986,6 +986,7 @@
         <span class="kicker">Editorial Method</span>
         <h3>7Tribunes Brief first. Facts before framing.</h3>
         <p><strong>Every 7Tribunes Brief is fewer than 75 words and built only from facts and attributed statements contained in the linked reporting.</strong> Where the reporting establishes them, the brief answers the journalistic basics: <strong>who did what, to whom or what, when, where, how, and why.</strong> Loaded phrasing is removed while material disputes, attribution and uncertainty are preserved. If a source does not establish one of those facts, 7Tribunes leaves it unknown rather than inferring an answer. <strong>Shorter, not altered.</strong></p>
+<p><strong>Actor-action-target rule:</strong> When the reporting identifies who did what to whom or what, the 7Tribunes Brief must state it. If responsibility is alleged rather than independently established, the attribution stays attached. If the actor is unknown, the Brief says so explicitly.</p>
         <button class="btn soft" id="methodBtn">See the methodology</button>
       </div>
       <div class="brief-box premium" id="premiumCard">
@@ -1205,7 +1206,7 @@ const stories = [
     "scope": "Local",
     "rank": 1,
     "title": "Dangerous heat drives a third straight EMSA Medical Heat Alert",
-    "deck": "EMSA issued a Medical Heat Alert for a third straight day as dangerous temperatures continued across the Tulsa area. Local weather reporting and official forecasts warned that prolonged outdoor exposure could cause heat illness, while emergency crews were responding to heat-related calls and transports. Residents were urged to limit strenuous activity, hydrate and check on people especially vulnerable to extreme heat.",
+    "deck": "EMSA issued a third consecutive Medical Heat Alert in Tulsa on Aug. 14 after responding to at least five suspected heat-related illness calls within 24 hours. By 8:45 p.m., EMSA had handled nine such calls that day and 175 since May 1. The alert reflects emergency-medical demand during dangerous heat; the linked reports do not identify a single cause beyond heat exposure.",
     "significance": 94,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1237,15 +1238,15 @@ const stories = [
       }
     ],
     "facts": [
-      "EMSA and local weather reporting identify dangerous heat as an active Tulsa-area health concern.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: EMSA issued its third consecutive Medical Heat Alert on Aug. 14.",
+      "Confirmed: EMSA's alert threshold is at least five suspected heat-related illness calls within 24 hours.",
+      "Reported: EMSA had handled nine heat-related calls by 8:45 p.m. that day and 175 since May 1.",
+      "Unknown: the reporting does not attribute the calls to one event, location or cause beyond heat exposure."
     ],
     "why": "7Tribunes ranks this #1 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "EMSA issued a Medical Heat Alert for a third straight day as dangerous temperatures continued across the Tulsa area. Local weather reporting and official forecasts warned that prolonged outdoor exposure could cause heat illness, while emergency crews were responding to heat-related calls and transports. Residents were urged to limit strenuous activity, hydrate and check on people especially vulnerable to extreme heat."
+    "brief": "EMSA issued a third consecutive Medical Heat Alert in Tulsa on Aug. 14 after responding to at least five suspected heat-related illness calls within 24 hours. By 8:45 p.m., EMSA had handled nine such calls that day and 175 since May 1. The alert reflects emergency-medical demand during dangerous heat; the linked reports do not identify a single cause beyond heat exposure."
   },
   {
     "id": "local-2",
@@ -1253,7 +1254,7 @@ const stories = [
     "scope": "Local",
     "rank": 2,
     "title": "Operation SAFE cleanup bill becomes a Tulsa-state dispute",
-    "deck": "A dispute has developed over who should pay costs tied to Oklahoma’s Operation SAFE homeless-camp cleanup in Tulsa. State records previously showed a cleanup contractor billed more than $545,000 for two weeks of work. Gov. Kevin Stitt has said Tulsa should bear the cost, while city leaders have criticized the state-led operation and questioned parts of its approach and financial responsibility.",
+    "deck": "Gov. Kevin Stitt said Tulsa should pay costs from the state-led Operation SAFE homeless-camp cleanup, while Tulsa leaders disputed the state's approach and financial responsibility. A state contractor billed $545,680 for two weeks of cleanup, including about $93,286 in travel, after crews cleared 64 sites and nearly 1.97 million pounds of debris. Who ultimately pays remained unresolved in the linked reporting.",
     "significance": 87,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1269,15 +1270,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "Responsibility for the cleanup cost is contested; the linked report contains the parties' positions.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: a contractor billed $545,680 for two weeks of Operation SAFE cleanup work in Tulsa.",
+      "Reported: the invoice included about $93,286 in travel costs; crews cleared 64 sites and nearly 1.97 million pounds of debris.",
+      "Attributed claim: Gov. Kevin Stitt said the City of Tulsa should pay the cleanup bill.",
+      "Disputed / unresolved: Tulsa leaders challenged the state-led approach and financial responsibility; the linked report did not establish who would ultimately pay."
     ],
     "why": "7Tribunes ranks this #2 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A dispute has developed over who should pay costs tied to Oklahoma’s Operation SAFE homeless-camp cleanup in Tulsa. State records previously showed a cleanup contractor billed more than $545,000 for two weeks of work. Gov. Kevin Stitt has said Tulsa should bear the cost, while city leaders have criticized the state-led operation and questioned parts of its approach and financial responsibility."
+    "brief": "Gov. Kevin Stitt said Tulsa should pay costs from the state-led Operation SAFE homeless-camp cleanup, while Tulsa leaders disputed the state's approach and financial responsibility. A state contractor billed $545,680 for two weeks of cleanup, including about $93,286 in travel, after crews cleared 64 sites and nearly 1.97 million pounds of debris. Who ultimately pays remained unresolved in the linked reporting."
   },
   {
     "id": "local-3",
@@ -1285,7 +1286,7 @@ const stories = [
     "scope": "Local",
     "rank": 3,
     "title": "Tulsa bank-impersonation scam costs a local mother more than $1,000",
-    "deck": "A Tulsa mother says scammers posing as representatives of her bank convinced her to take actions that cost her more than $1,000. The scheme relied on the appearance of a trusted institution and a sense of urgency. The report illustrates how bank-impersonation scams can bypass normal caution even when victims believe they are communicating with their own financial institution.",
+    "deck": "A Tulsa mother told KJRH that people impersonating representatives of her bank deceived her in a scam that cost her more than $1,000. The attackers' identities were not established in the linked report. The story identifies the scheme as bank impersonation, but 7Tribunes does not add details about the scammers' location, motive or method beyond what the source reports.",
     "significance": 82,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1301,15 +1302,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Reported: a Tulsa mother told KJRH she lost more than $1,000 in a bank-impersonation scam.",
+      "Reported: the people contacting her presented themselves as representatives of her bank.",
+      "Unknown: the linked report did not establish the scammers' identities or location.",
+      "Unknown: 7Tribunes does not infer a motive or technical method beyond the source's description of bank impersonation."
     ],
     "why": "7Tribunes ranks this #3 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A Tulsa mother says scammers posing as representatives of her bank convinced her to take actions that cost her more than $1,000. The scheme relied on the appearance of a trusted institution and a sense of urgency. The report illustrates how bank-impersonation scams can bypass normal caution even when victims believe they are communicating with their own financial institution."
+    "brief": "A Tulsa mother told KJRH that people impersonating representatives of her bank deceived her in a scam that cost her more than $1,000. The attackers' identities were not established in the linked report. The story identifies the scheme as bank impersonation, but 7Tribunes does not add details about the scammers' location, motive or method beyond what the source reports."
   },
   {
     "id": "local-4",
@@ -1317,7 +1318,7 @@ const stories = [
     "scope": "Local",
     "rank": 4,
     "title": "Bixby responds to resident complaints about low water pressure",
-    "deck": "Bixby officials are responding to resident complaints about low water pressure. The problem affects ordinary household use and can also raise concerns about water availability for fire protection. City officials said they were addressing the system issue, while residents reported inconsistent pressure. The immediate question is whether pressure returns to normal and whether additional infrastructure work or operational changes are required.",
+    "deck": "Bixby officials said hydrant flushing begun to stabilize chloramine levels and reduce water turnover contributed to low water pressure affecting roughly 80 residents. City crews were working around the clock to restore normal system hydraulics, with officials hoping pressure would normalize early the following week. Residents had reported weak or inconsistent service; the linked report did not identify a broader water-supply shortage.",
     "significance": 78,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1333,23 +1334,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed by Bixby officials: roughly 80 residents were affected by low water pressure.",
+      "Reported cause: hydrant flushing used to stabilize chloramine levels and reduce water turnover contributed to the pressure problem.",
+      "Confirmed: city crews were working to restore normal system hydraulics.",
+      "Unknown: the linked report did not identify a broader shortage of Bixby's water supply."
     ],
     "why": "7Tribunes ranks this #4 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Bixby officials are responding to resident complaints about low water pressure. The problem affects ordinary household use and can also raise concerns about water availability for fire protection. City officials said they were addressing the system issue, while residents reported inconsistent pressure. The immediate question is whether pressure returns to normal and whether additional infrastructure work or operational changes are required."
+    "brief": "Bixby officials said hydrant flushing begun to stabilize chloramine levels and reduce water turnover contributed to low water pressure affecting roughly 80 residents. City crews were working around the clock to restore normal system hydraulics, with officials hoping pressure would normalize early the following week. Residents had reported weak or inconsistent service; the linked report did not identify a broader water-supply shortage."
   },
   {
     "id": "local-5",
     "pillar": "Local",
     "scope": "Local",
     "rank": 5,
-    "title": "Catoosa developer builds an app aimed at helping Tulsa-area animal shelters",
-    "deck": "A Catoosa developer created an app intended to help Tulsa-area animal shelters connect animals with potential adopters and improve shelter support. The project is a local technology response to continuing shelter-capacity and adoption challenges. Its practical value will depend on whether shelters and residents use it consistently and whether the tool measurably improves placements, visibility or coordination among participating organizations.",
+    "title": "TREAT app sends player-earned supplies to Friends of Glenpool Animal Shelter",
+    "deck": "Friends of Glenpool Animal Shelter is receiving food, vaccines and other supplies through the TREAT app, which lets users play games to earn donations for participating shelters. Volunteer Jessi Taylor said the shelter receives four to five boxes a week, including 44-pound bags of dog food, and no longer spends money on food. The program currently focuses on dogs and plans to expand to cats.",
     "significance": 72,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1357,23 +1358,23 @@ const stories = [
     "sourcesDetail": [
       {
         "name": "2 News Oklahoma / KJRH",
-        "headline": "Catoosa man creates app to help Tulsa-area animal shelters",
-        "url": "https://www.kjrh.com/news/local-news/catoosa-man-creates-app-to-help-tulsa-area-animal-shelters",
-        "published": "Aug. 14, 2026",
+        "headline": "'Help where you can': Green Country animal shelters benefit from app",
+        "url": "https://www.kjrh.com/news/local-news/help-where-you-can-mobile-app-lets-users-earn-donations-for-animal-shelters",
+        "published": "Aug. 2026",
         "type": "News Reporting",
-        "note": ""
+        "note": "Primary linked reporting on the TREAT app and Friends of Glenpool Animal Shelter."
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Friends of Glenpool Animal Shelter participates in the TREAT app program.",
+      "Reported: users play games through the app to earn donated supplies such as food and vaccines for shelters.",
+      "Reported by volunteer Jessi Taylor: the shelter receives four to five boxes weekly, including 44-pound bags of dog food, and no longer spends money on food.",
+      "Confirmed in the report: the program currently caters to dogs and plans to expand to cats."
     ],
     "why": "7Tribunes ranks this #5 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A Catoosa developer created an app intended to help Tulsa-area animal shelters connect animals with potential adopters and improve shelter support. The project is a local technology response to continuing shelter-capacity and adoption challenges. Its practical value will depend on whether shelters and residents use it consistently and whether the tool measurably improves placements, visibility or coordination among participating organizations."
+    "brief": "Friends of Glenpool Animal Shelter is receiving food, vaccines and other supplies through the TREAT app, which lets users play games to earn donations for participating shelters. Volunteer Jessi Taylor said the shelter receives four to five boxes a week, including 44-pound bags of dog food, and no longer spends money on food. The program currently focuses on dogs and plans to expand to cats."
   },
   {
     "id": "local-6",
@@ -1381,7 +1382,7 @@ const stories = [
     "scope": "Local",
     "rank": 6,
     "title": "Broken Arrow volunteer project brings handmade comfort to hospitalized children",
-    "deck": "A Broken Arrow woman is making handmade pillowcases for children receiving hospital care, using a volunteer project to provide comfort during treatment. The effort is smaller in public impact than the day’s major local stories, but it documents a direct community-service project centered on hospitalized children. The linked report focuses on the volunteer, the pillowcases and the families receiving them.",
+    "deck": "A Broken Arrow woman featured by KJRH is sewing handmade pillowcases for hospitalized children as a volunteer comfort project. The pillowcases are intended to give children something personal during medical care. The linked report identifies the volunteer effort and its recipients; 7Tribunes does not infer how many children or hospitals have participated, how long the project has operated, or its total cost.",
     "significance": 67,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1397,15 +1398,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Reported: a Broken Arrow woman is making handmade pillowcases for hospitalized children.",
+      "Reported purpose: the volunteer project is intended to provide comfort to children receiving medical care.",
+      "Unknown: the linked report does not establish a total number of children or hospitals served in the 7Tribunes source record.",
+      "Unknown: 7Tribunes does not infer project duration or cost when those figures are not established by the source."
     ],
     "why": "7Tribunes ranks this #6 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A Broken Arrow woman is making handmade pillowcases for children receiving hospital care, using a volunteer project to provide comfort during treatment. The effort is smaller in public impact than the day’s major local stories, but it documents a direct community-service project centered on hospitalized children. The linked report focuses on the volunteer, the pillowcases and the families receiving them."
+    "brief": "A Broken Arrow woman featured by KJRH is sewing handmade pillowcases for hospitalized children as a volunteer comfort project. The pillowcases are intended to give children something personal during medical care. The linked report identifies the volunteer effort and its recipients; 7Tribunes does not infer how many children or hospitals have participated, how long the project has operated, or its total cost."
   },
   {
     "id": "local-7",
@@ -1413,7 +1414,7 @@ const stories = [
     "scope": "Local",
     "rank": 7,
     "title": "Tulsa makes its Neighborhood Conditions Index program permanent",
-    "deck": "Tulsa made its Neighborhood Conditions Index initiative permanent after launching it as a pilot in 2025. The program evaluates neighborhoods across nine categories, including housing, transportation, parks, economic development and public services. City officials say the goal is to guide improvements without displacing existing residents. Pilot results included traffic changes, cleanup events and free spay-and-neuter clinics.",
+    "deck": "Tulsa made its Neighborhood Conditions Index pilot permanent as the NCI Collaborative after launching it in 2025. The city evaluates neighborhood well-being across nine categories and works with selected neighborhoods on targeted improvements. Pilot results included traffic signs, speed humps, cleanup events and spay-neuter clinics. Mayor Monroe Nichols said the goal is to reduce blight without gentrifying neighborhoods or pricing residents out.",
     "significance": 65,
     "published": "June 9, 2026",
     "confidence": "Source-backed snapshot",
@@ -1429,15 +1430,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Tulsa made the Neighborhood Conditions Index pilot permanent after launching it in 2025.",
+      "Confirmed: the index evaluates neighborhood conditions across nine categories.",
+      "Reported pilot actions included traffic signs, speed humps, cleanup events and spay-neuter clinics.",
+      "Attributed goal: Mayor Monroe Nichols said the program should address blight without gentrifying neighborhoods or pricing residents out."
     ],
     "why": "7Tribunes ranks this #7 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Tulsa made its Neighborhood Conditions Index initiative permanent after launching it as a pilot in 2025. The program evaluates neighborhoods across nine categories, including housing, transportation, parks, economic development and public services. City officials say the goal is to guide improvements without displacing existing residents. Pilot results included traffic changes, cleanup events and free spay-and-neuter clinics."
+    "brief": "Tulsa made its Neighborhood Conditions Index pilot permanent as the NCI Collaborative after launching it in 2025. The city evaluates neighborhood well-being across nine categories and works with selected neighborhoods on targeted improvements. Pilot results included traffic signs, speed humps, cleanup events and spay-neuter clinics. Mayor Monroe Nichols said the goal is to reduce blight without gentrifying neighborhoods or pricing residents out."
   },
   {
     "id": "national-1",
@@ -1445,7 +1446,7 @@ const stories = [
     "scope": "US",
     "rank": 1,
     "title": "U.S.-Iran talks remain stalled as diplomacy widens and the Hormuz crisis persists",
-    "deck": "U.S.-Iran negotiations remain stalled while diplomatic contacts continue and tensions around the Strait of Hormuz affect regional security and energy markets. U.S. officials are seeking a path toward an agreement, while unresolved disputes with Iran continue to block progress. The situation remains fluid because military activity, shipping risk and diplomacy are unfolding at the same time, with no final settlement announced.",
+    "deck": "The Trump administration broadened diplomatic outreach to Austria and Greece as direct U.S.-Iran negotiations remained stalled. Traditional channels through Oman, Pakistan, Turkey and Qatar also continued unevenly. The State Department said Secretary Marco Rubio did not ask Austria or Greece to mediate or carry messages. U.S. officials described reopening the Strait of Hormuz and keeping energy costs down as immediate priorities.",
     "significance": 99,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1477,15 +1478,15 @@ const stories = [
       }
     ],
     "facts": [
-      "Multiple current reports describe stalled diplomacy and continued instability around Iran and the Strait of Hormuz.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "Responsibility, motives and the path to a durable settlement remain contested among governments and analysts.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: direct U.S.-Iran negotiations remained stalled while U.S. diplomatic outreach widened.",
+      "Reported: Austria and Greece were among newer European contacts alongside channels involving Oman, Pakistan, Turkey and Qatar.",
+      "State Department position: Secretary Marco Rubio did not ask Austria or Greece to mediate or carry messages to Iran.",
+      "U.S. stated priorities included reopening the Strait of Hormuz and limiting energy-cost pressure."
     ],
     "why": "7Tribunes ranks this #1 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "U.S.-Iran negotiations remain stalled while diplomatic contacts continue and tensions around the Strait of Hormuz affect regional security and energy markets. U.S. officials are seeking a path toward an agreement, while unresolved disputes with Iran continue to block progress. The situation remains fluid because military activity, shipping risk and diplomacy are unfolding at the same time, with no final settlement announced."
+    "brief": "The Trump administration broadened diplomatic outreach to Austria and Greece as direct U.S.-Iran negotiations remained stalled. Traditional channels through Oman, Pakistan, Turkey and Qatar also continued unevenly. The State Department said Secretary Marco Rubio did not ask Austria or Greece to mediate or carry messages. U.S. officials described reopening the Strait of Hormuz and keeping energy costs down as immediate priorities."
   },
   {
     "id": "state-1",
@@ -1493,7 +1494,7 @@ const stories = [
     "scope": "State",
     "rank": 2,
     "title": "Proposed $4 billion Inola aluminum smelter reshapes Oklahoma governor's race",
-    "deck": "A proposed $4 billion aluminum smelter in Inola has become a major issue in Oklahoma’s Republican governor runoff. Supporters, including President Trump and Gov. Kevin Stitt, describe the project as important for domestic aluminum production and jobs. Attorney General Gentner Drummond is trying to block it, citing environmental and farmland concerns. The companies say they will meet environmental standards.",
+    "deck": "Century Aluminum and Emirates Global Aluminium proposed a roughly $4 billion aluminum smelter near Inola, making the project an issue in Oklahoma's Republican governor race. Gov. Kevin Stitt supports the project as an industrial and jobs investment. Attorney General and gubernatorial candidate Gentner Drummond sued to block it, citing environmental and farmland concerns. The companies say the project will comply with environmental requirements.",
     "significance": 93,
     "published": "Aug. 7, 2026",
     "confidence": "Source-backed snapshot",
@@ -1509,15 +1510,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "Supporters emphasize industrial capacity and jobs; opponents raise environmental, land-use and ownership concerns.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Century Aluminum and Emirates Global Aluminium proposed a roughly $4 billion smelter near Inola.",
+      "Attributed position: Gov. Kevin Stitt supports the project and emphasizes investment, domestic production and jobs.",
+      "Confirmed legal action: Attorney General and gubernatorial candidate Gentner Drummond sued to block the project, citing environmental and farmland concerns.",
+      "Company position: project developers say the facility will comply with environmental requirements."
     ],
     "why": "7Tribunes ranks this #2 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A proposed $4 billion aluminum smelter in Inola has become a major issue in Oklahoma’s Republican governor runoff. Supporters, including President Trump and Gov. Kevin Stitt, describe the project as important for domestic aluminum production and jobs. Attorney General Gentner Drummond is trying to block it, citing environmental and farmland concerns. The companies say they will meet environmental standards."
+    "brief": "Century Aluminum and Emirates Global Aluminium proposed a roughly $4 billion aluminum smelter near Inola, making the project an issue in Oklahoma's Republican governor race. Gov. Kevin Stitt supports the project as an industrial and jobs investment. Attorney General and gubernatorial candidate Gentner Drummond sued to block it, citing environmental and farmland concerns. The companies say the project will comply with environmental requirements."
   },
   {
     "id": "national-4",
@@ -1525,7 +1526,7 @@ const stories = [
     "scope": "US",
     "rank": 3,
     "title": "Trump asks Supreme Court to let White House ballroom construction continue",
-    "deck": "The Trump administration asked the Supreme Court to allow construction of a $400 million White House ballroom to continue while it appeals a lower-court ruling. An appeals court said Congress must approve the project. The administration argues the president has authority over White House construction and cites security needs; preservation groups argue the project requires congressional authorization and historic-preservation review.",
+    "deck": "The Trump administration asked the U.S. Supreme Court on Aug. 14 to let construction continue on a roughly $400 million White House ballroom while litigation proceeds. A federal appeals court had halted the project, saying congressional approval was required. The administration argues the work is within presidential authority and tied to security needs; the National Trust for Historic Preservation argues Congress must authorize it.",
     "significance": 90,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1541,23 +1542,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: the administration asked the Supreme Court to allow White House ballroom construction to continue during litigation.",
+      "Reported cost: the project is roughly $400 million.",
+      "Court position: a federal appeals court halted the project on the ground that congressional approval was required.",
+      "Disputed: the administration says presidential authority and security needs permit the work; the National Trust for Historic Preservation says Congress must authorize it."
     ],
     "why": "7Tribunes ranks this #3 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "The Trump administration asked the Supreme Court to allow construction of a $400 million White House ballroom to continue while it appeals a lower-court ruling. An appeals court said Congress must approve the project. The administration argues the president has authority over White House construction and cites security needs; preservation groups argue the project requires congressional authorization and historic-preservation review."
+    "brief": "The Trump administration asked the U.S. Supreme Court on Aug. 14 to let construction continue on a roughly $400 million White House ballroom while litigation proceeds. A federal appeals court had halted the project, saying congressional approval was required. The administration argues the work is within presidential authority and tied to security needs; the National Trust for Historic Preservation argues Congress must authorize it."
   },
   {
     "id": "state-2",
     "pillar": "State & National",
     "scope": "State",
     "rank": 4,
-    "title": "Oklahoma voters prepare to decide State Question 846",
-    "deck": "Oklahoma voters are scheduled to decide State Question 846 on Aug. 25. The proposal would move Medicaid expansion, known as SoonerCare expansion, out of the state constitution and into state statute, returning more control over the program to the Legislature. Supporters favor legislative flexibility; opponents argue constitutional protection gives voters stronger assurance that expansion cannot be changed without another statewide vote.",
+    "title": "Oklahoma voters will decide voter-identification State Question 846 on Aug. 25",
+    "deck": "Oklahoma voters will decide State Question 846 statewide on Aug. 25. The proposed constitutional amendment would require proof of identity for every voting method authorized by state law and would direct the Legislature to specify what proof is required. The official ballot title says the measure would add Section 6 to Article 3 of the Oklahoma Constitution and would have no fiscal impact.",
     "significance": 89,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1581,15 +1582,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: State Question 846 is on Oklahoma's Aug. 25, 2026 statewide ballot.",
+      "Confirmed: the proposal would require proof of identity for each voting method authorized by state law.",
+      "Confirmed: the Legislature would specify what proof of identity is required.",
+      "Official ballot statement: the measure would add Section 6 to Article 3 of the Oklahoma Constitution and have no fiscal impact."
     ],
     "why": "7Tribunes ranks this #4 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Oklahoma voters are scheduled to decide State Question 846 on Aug. 25. The proposal would move Medicaid expansion, known as SoonerCare expansion, out of the state constitution and into state statute, returning more control over the program to the Legislature. Supporters favor legislative flexibility; opponents argue constitutional protection gives voters stronger assurance that expansion cannot be changed without another statewide vote."
+    "brief": "Oklahoma voters will decide State Question 846 statewide on Aug. 25. The proposed constitutional amendment would require proof of identity for every voting method authorized by state law and would direct the Legislature to specify what proof is required. The official ballot title says the measure would add Section 6 to Article 3 of the Oklahoma Constitution and would have no fiscal impact."
   },
   {
     "id": "state-3",
@@ -1597,7 +1598,7 @@ const stories = [
     "scope": "State",
     "rank": 5,
     "title": "New Oklahoma law creates a formal path for families to seek cold-case review",
-    "deck": "A new Oklahoma law creates a formal process for families to request renewed review of cold criminal cases. The law gives relatives a defined pathway to ask law-enforcement agencies to reconsider investigations that have gone unresolved. It does not guarantee that a case will be reopened or solved; agencies still must evaluate whether the request meets the law’s requirements and whether new investigative work is warranted.",
+    "deck": "Oklahoma's SB 1636, signed May 7 and effective Nov. 1, creates a process for designated relatives to request review of qualifying cold cases. An investigator who did not work the original case must conduct the review, with written acknowledgment due within 30 days and review generally within six months. A review does not guarantee reopening; agencies decide whether further investigation is warranted.",
     "significance": 84,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1613,15 +1614,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Oklahoma SB 1636 was signed May 7 and takes effect Nov. 1.",
+      "Confirmed: designated relatives can request review of qualifying cold cases.",
+      "Confirmed: an investigator who did not work the original case must conduct the review; written acknowledgment is due within 30 days and review generally within six months.",
+      "Important limit: a review does not automatically reopen the case; the agency decides whether further investigation is warranted."
     ],
     "why": "7Tribunes ranks this #5 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A new Oklahoma law creates a formal process for families to request renewed review of cold criminal cases. The law gives relatives a defined pathway to ask law-enforcement agencies to reconsider investigations that have gone unresolved. It does not guarantee that a case will be reopened or solved; agencies still must evaluate whether the request meets the law’s requirements and whether new investigative work is warranted."
+    "brief": "Oklahoma's SB 1636, signed May 7 and effective Nov. 1, creates a process for designated relatives to request review of qualifying cold cases. An investigator who did not work the original case must conduct the review, with written acknowledgment due within 30 days and review generally within six months. A review does not guarantee reopening; agencies decide whether further investigation is warranted."
   },
   {
     "id": "national-6",
@@ -1629,7 +1630,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "USS Abraham Lincoln's extended Iran-related deployment draws new presidential comments",
-    "deck": "President Trump commented on the extended deployment of the USS Abraham Lincoln during operations connected to Iran. The carrier’s prolonged mission has kept attention on the operational demands of the conflict and the time sailors have remained deployed. The linked reporting focuses on the president’s remarks and the duration of the mission rather than announcing a new military operation or a confirmed return date.",
+    "deck": "President Donald Trump said the USS Abraham Lincoln's deployment of more than 260 days was 'not nearly long enough' as the carrier continued operations tied to the Iran conflict. About 5,000 sailors and Marines were aboard, and the ship had gone more than 200 days without a port visit. Families and lawmakers raised welfare concerns; Defense Secretary Pete Hegseth defended the Navy's handling. Trump said replacement was coming soon.",
     "significance": 82,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1645,28 +1646,36 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: USS Abraham Lincoln had been deployed more than 260 days in operations tied to the Iran conflict.",
+      "Reported: about 5,000 sailors and Marines were aboard and the carrier had gone more than 200 days without a port visit.",
+      "Attributed: President Trump said the deployment was 'not nearly long enough' and said a replacement was coming soon.",
+      "Competing positions: families and lawmakers raised crew-welfare concerns; Defense Secretary Pete Hegseth defended the Navy's handling."
     ],
     "why": "7Tribunes ranks this #6 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "President Trump commented on the extended deployment of the USS Abraham Lincoln during operations connected to Iran. The carrier’s prolonged mission has kept attention on the operational demands of the conflict and the time sailors have remained deployed. The linked reporting focuses on the president’s remarks and the duration of the mission rather than announcing a new military operation or a confirmed return date."
+    "brief": "President Donald Trump said the USS Abraham Lincoln's deployment of more than 260 days was 'not nearly long enough' as the carrier continued operations tied to the Iran conflict. About 5,000 sailors and Marines were aboard, and the ship had gone more than 200 days without a port visit. Families and lawmakers raised welfare concerns; Defense Secretary Pete Hegseth defended the Navy's handling. Trump said replacement was coming soon."
   },
   {
     "id": "national-7",
     "pillar": "State & National",
     "scope": "US",
     "rank": 7,
-    "title": "Three states move ahead with executions, renewing debate over capital punishment",
-    "deck": "Three states are moving forward with executions, putting capital punishment back in the national spotlight. The cases reflect different state laws, court histories and execution procedures. Supporters of the death penalty emphasize punishment for serious crimes and finality for victims’ families; opponents raise concerns about due process, wrongful convictions, execution methods and whether government should retain the power to impose death sentences.",
+    "title": "Tennessee, Oklahoma and Alabama carry out three executions in one day",
+    "deck": "Tennessee, Oklahoma and Alabama executed three men by lethal injection on Aug. 13, the first time three U.S. state executions occurred on one day since 2010. Tennessee executed Anthony Darrell Hines for a 1985 murder, Oklahoma executed Carlos Cuesta-Rodriguez for killing his girlfriend in 2003, and Alabama executed Jeremy Williams for the 2021 rape and murder of a 5-year-old girl.",
     "significance": 79,
-    "published": "Aug. 2026",
+    "published": "Aug. 13, 2026",
     "confidence": "Source-backed snapshot",
-    "sources": 1,
+    "sources": 2,
     "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Alabama man put to death for the murder of a 5-year-old girl in last of three US executions in a day",
+        "url": "https://apnews.com/article/062c601ee0ff9a5f6d7b79045a0cc6b5",
+        "published": "Aug. 13, 2026",
+        "type": "News Reporting",
+        "note": "Outcome report confirming all three executions occurred and identifying the cases."
+      },
       {
         "name": "Associated Press",
         "headline": "Three states carry out or prepare for executions",
@@ -1677,27 +1686,27 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Tennessee, Oklahoma and Alabama carried out executions by lethal injection on Aug. 13.",
+      "Reported historical context: it was the first day with three U.S. state executions since 2010.",
+      "Confirmed: Tennessee executed Anthony Darrell Hines for a 1985 murder and Oklahoma executed Carlos Cuesta-Rodriguez for killing his girlfriend in 2003.",
+      "Confirmed: Alabama executed Jeremy Williams for the 2021 rape and murder of a 5-year-old girl."
     ],
     "why": "7Tribunes ranks this #7 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Three states are moving forward with executions, putting capital punishment back in the national spotlight. The cases reflect different state laws, court histories and execution procedures. Supporters of the death penalty emphasize punishment for serious crimes and finality for victims’ families; opponents raise concerns about due process, wrongful convictions, execution methods and whether government should retain the power to impose death sentences."
+    "brief": "Tennessee, Oklahoma and Alabama executed three men by lethal injection on Aug. 13, the first time three U.S. state executions occurred on one day since 2010. Tennessee executed Anthony Darrell Hines for a 1985 murder, Oklahoma executed Carlos Cuesta-Rodriguez for killing his girlfriend in 2003, and Alabama executed Jeremy Williams for the 2021 rape and murder of a 5-year-old girl."
   },
   {
     "id": "national-2",
     "pillar": "World & Nature",
     "scope": "US",
     "rank": 1,
-    "title": "Attacks on two UAE tankers underscore continuing risk in the Strait of Hormuz",
-    "deck": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, adding to security concerns in one of the world’s most important oil-shipping routes. The incidents reinforce risks to commercial vessels and energy markets as regional tensions continue. Authorities and shipping operators are monitoring the waterway, where any sustained disruption could affect oil flows, insurance costs and global transportation.",
+    "title": "UAE blames Iran for drone attacks on two ADNOC tankers in Strait of Hormuz",
+    "deck": "The United Arab Emirates blamed Iran for drone attacks Thursday evening on two oil tankers owned by state-run ADNOC as they transited the Strait of Hormuz. UKMTO separately reported two vessels suffered minor drone damage in what appeared to be the same incident. ADNOC said no one was injured and the situation was controlled. The UAE called the attacks piracy; Iran had not immediately responded.",
     "significance": 97,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
-    "sources": 1,
+    "sources": 2,
     "sourcesDetail": [
       {
         "name": "Associated Press",
@@ -1705,19 +1714,27 @@ const stories = [
         "url": "https://apnews.com/article/e8565c608ac5283ec8103c85df924b13",
         "published": "Aug. 14, 2026",
         "type": "News Reporting",
-        "note": ""
+        "note": "Primary linked reporting. AP says the UAE blamed Iran; Iran had not immediately responded."
+      },
+      {
+        "name": "Reuters",
+        "headline": "UAE says Iran attacked two ADNOC vessels in Strait of Hormuz; no injuries",
+        "url": "https://www.reuters.com/world/middle-east/uae-says-iran-attacked-two-adnoc-vessels-strait-hormuz-no-injuries-2026-08-13/",
+        "published": "Aug. 13, 2026",
+        "type": "News Reporting",
+        "note": "Corroborating reporting preserving the UAE attribution and noting no immediate Iranian response."
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed by ADNOC: two company-owned tankers were attacked Thursday evening in the Strait of Hormuz; no injuries were reported and the situation was controlled.",
+      "Reported by UKMTO: two vessels suffered minor drone damage in incidents appearing to describe the same attacks.",
+      "Attributed claim: the UAE Foreign Ministry blamed Iran and described the attacks as piracy by Iran's Revolutionary Guard Corps.",
+      "Unknown / disputed: AP and Reuters reported no immediate Iranian response; the linked reporting did not independently establish Iranian responsibility."
     ],
     "why": "7Tribunes ranks this #1 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, adding to security concerns in one of the world’s most important oil-shipping routes. The incidents reinforce risks to commercial vessels and energy markets as regional tensions continue. Authorities and shipping operators are monitoring the waterway, where any sustained disruption could affect oil flows, insurance costs and global transportation."
+    "brief": "The United Arab Emirates blamed Iran for drone attacks Thursday evening on two oil tankers owned by state-run ADNOC as they transited the Strait of Hormuz. UKMTO separately reported two vessels suffered minor drone damage in what appeared to be the same incident. ADNOC said no one was injured and the situation was controlled. The UAE called the attacks piracy; Iran had not immediately responded."
   },
   {
     "id": "worldnature-2",
@@ -1725,7 +1742,7 @@ const stories = [
     "scope": "World",
     "rank": 2,
     "title": "Wildfires force evacuations across European tourist regions as extreme heat persists",
-    "deck": "Wildfires across parts of Europe forced evacuations in tourist areas during a period of extreme heat and dry conditions. Reporting identified fires in countries including Croatia, Greece, France and Germany, with deaths and injuries reported in the broader outbreak. Emergency crews were fighting multiple fires while authorities moved residents and visitors from threatened areas during the peak summer travel season.",
+    "deck": "Authorities evacuated residents and tourists as wildfires burned in Croatia, Greece, Germany and France during another stretch of extreme European heat. Reuters reported roughly 1,000 people evacuated near Omiš, Croatia, with 14 hospitalized, while other fires forced additional evacuations elsewhere. Fire crews fought the blazes amid hot, dry conditions. The linked reporting did not establish one common ignition source for the separate fires.",
     "significance": 95,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -1741,15 +1758,15 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports major evacuations and casualties as wildfires spread across several European countries.",
-      "European heat and drought have created conditions favorable to rapid fire growth, according to officials and climate monitoring cited by Reuters.",
-      "Exact losses and final fire footprints remain subject to change while incidents are active.",
-      "Verified social reaction totals are not connected in the current POC."
+      "Confirmed: wildfires prompted evacuations in multiple European countries, including Croatia, Greece, Germany and France.",
+      "Reported: roughly 1,000 people were evacuated near Omiš, Croatia, and 14 people were hospitalized there.",
+      "Confirmed context: fire crews were operating during extreme heat and dry conditions across affected regions.",
+      "Unknown: the linked report did not establish one common ignition source or actor for the separate fires."
     ],
     "why": "7Tribunes ranks this #2 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Wildfires across parts of Europe forced evacuations in tourist areas during a period of extreme heat and dry conditions. Reporting identified fires in countries including Croatia, Greece, France and Germany, with deaths and injuries reported in the broader outbreak. Emergency crews were fighting multiple fires while authorities moved residents and visitors from threatened areas during the peak summer travel season."
+    "brief": "Authorities evacuated residents and tourists as wildfires burned in Croatia, Greece, Germany and France during another stretch of extreme European heat. Reuters reported roughly 1,000 people evacuated near Omiš, Croatia, with 14 hospitalized, while other fires forced additional evacuations elsewhere. Fire crews fought the blazes amid hot, dry conditions. The linked reporting did not establish one common ignition source for the separate fires."
   },
   {
     "id": "worldnature-3",
@@ -1757,7 +1774,7 @@ const stories = [
     "scope": "World",
     "rank": 3,
     "title": "Huge oil slick reaches Oman's shoreline and threatens a marine nature reserve",
-    "deck": "Oil leaking from the grounded tanker Caroline Bezengi spread across a large area off Oman and began reaching the mainland coast. The spill threatens marine habitat, including a nearby nature reserve. Response efforts are complicated by the size of the slick and questions surrounding the vessel’s insurance and operating circumstances. Environmental authorities are assessing shoreline contamination and risks to protected ecosystems.",
+    "deck": "Oil from the tanker Caroline Bezengi reached Oman's coast after the sanctioned vessel, carrying an estimated 800,000 barrels of Russian oil, ran aground June 30. Reuters reported the ship had earlier encountered trouble off Yemen after what maritime sources said appeared to be a blast. No party claimed an attack, and the cause was not established. Spill-size estimates varied as cleanup and damage assessment continued.",
     "significance": 94,
     "published": "Aug. 12, 2026",
     "confidence": "Source-backed current edition",
@@ -1773,15 +1790,15 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports the oil slick covered more than 2,000 square kilometers in satellite analysis and had begun reaching the Omani mainland.",
-      "The grounded tanker is near a marine nature reserve that includes habitat for endangered wildlife.",
-      "The ultimate volume released and long-term ecological damage remain uncertain.",
-      "Cleanup and compensation are complicated by sanctions, insurance issues and treatment of the incident as war-related."
+      "Confirmed: oil from the tanker Caroline Bezengi reached Oman's coast after the vessel ran aground June 30.",
+      "Reported cargo: the sanctioned tanker was carrying an estimated 800,000 barrels of Russian oil.",
+      "Reported but unconfirmed cause context: maritime sources said the vessel had earlier suffered what appeared to be a blast off Yemen.",
+      "Unknown / disputed: no party claimed an attack and the linked reporting did not establish who or what caused the earlier incident; estimates of the spill's area varied."
     ],
     "why": "7Tribunes ranks this #3 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Oil leaking from the grounded tanker Caroline Bezengi spread across a large area off Oman and began reaching the mainland coast. The spill threatens marine habitat, including a nearby nature reserve. Response efforts are complicated by the size of the slick and questions surrounding the vessel’s insurance and operating circumstances. Environmental authorities are assessing shoreline contamination and risks to protected ecosystems."
+    "brief": "Oil from the tanker Caroline Bezengi reached Oman's coast after the sanctioned vessel, carrying an estimated 800,000 barrels of Russian oil, ran aground June 30. Reuters reported the ship had earlier encountered trouble off Yemen after what maritime sources said appeared to be a blast. No party claimed an attack, and the cause was not established. Spill-size estimates varied as cleanup and damage assessment continued."
   },
   {
     "id": "worldnature-4",
@@ -1789,7 +1806,7 @@ const stories = [
     "scope": "World",
     "rank": 4,
     "title": "WMO says extreme heat is becoming more frequent, intense and long-lasting",
-    "deck": "The World Meteorological Organization says extreme-heat events are becoming more frequent, more intense, longer-lasting and broader in geographic reach. The assessment comes as multiple regions face heatwaves, drought and wildfire conditions. The agency’s findings describe a long-term pattern rather than a single event and provide context for the repeated temperature records and heat-related emergencies occurring during the current summer.",
+    "deck": "The World Meteorological Organization said human-driven climate change is making extreme heat more frequent, intense, longer-lasting and geographically widespread. Reuters reported Europe was enduring a fifth heatwave, with persistent high pressure interacting with a warmer climate; unusually warm seas and dry soils can amplify heat. WMO said El Niño was not driving Europe's current heat because Pacific conditions were neutral there.",
     "significance": 92,
     "published": "Aug. 11, 2026",
     "confidence": "Source-backed current edition",
@@ -1805,28 +1822,36 @@ const stories = [
       }
     ],
     "facts": [
-      "The World Meteorological Organization told reporters that extreme heat is becoming more frequent, intense, longer-lasting and geographically extensive.",
-      "Reuters reports unusually warm seas and dry soils are amplifying European heat conditions this summer.",
-      "The contribution of individual weather patterns varies by region and event.",
-      "The broader warming trend is distinct from day-to-day weather variability."
+      "Confirmed: WMO said extreme heat is becoming more frequent, intense, long-lasting and widespread as the climate warms.",
+      "Reported: Europe was experiencing a fifth heatwave during the Reuters report.",
+      "Scientific explanation cited: persistent high pressure interacting with a warmer climate, warm seas and dry soils can amplify heat.",
+      "Clarification: WMO said El Niño was not contributing to Europe's current heat; Pacific conditions affecting Europe were neutral."
     ],
     "why": "7Tribunes ranks this #4 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "The World Meteorological Organization says extreme-heat events are becoming more frequent, more intense, longer-lasting and broader in geographic reach. The assessment comes as multiple regions face heatwaves, drought and wildfire conditions. The agency’s findings describe a long-term pattern rather than a single event and provide context for the repeated temperature records and heat-related emergencies occurring during the current summer."
+    "brief": "The World Meteorological Organization said human-driven climate change is making extreme heat more frequent, intense, longer-lasting and geographically widespread. Reuters reported Europe was enduring a fifth heatwave, with persistent high pressure interacting with a warmer climate; unusually warm seas and dry soils can amplify heat. WMO said El Niño was not driving Europe's current heat because Pacific conditions were neutral there."
   },
   {
     "id": "weather-1",
     "pillar": "World & Nature",
     "scope": "US",
     "rank": 5,
-    "title": "Tropical Storm Lala threatens a rare hurricane landfall on Hawaii's Big Island",
-    "deck": "Tropical Storm Lala is forecast to strengthen as it approaches Hawaii’s Big Island, bringing the possibility of hurricane-force conditions, heavy rain, flooding and mudslides. Emergency officials are monitoring the storm’s track and intensity because a direct hurricane landfall on the Big Island would be rare. Forecast changes remain possible, so local warnings and official updates are the key source for immediate risk.",
+    "title": "Lala skirts Hawaii without landfall but brings damaging wind, rain and outages",
+    "deck": "Tropical Storm Lala skirted Hawaii's Big Island without making landfall after weakening from a hurricane, but heavy rain and wind still caused flooding, roof damage and widespread outages. AP reported more than 130,000 households without power Sunday morning, three hospitals using generators and one traffic death. Search-and-rescue crews responded after flash floods swept some homes from their foundations.",
     "significance": 91,
-    "published": "Aug. 14, 2026",
+    "published": "Aug. 16, 2026",
     "confidence": "Source-backed snapshot",
-    "sources": 1,
+    "sources": 2,
     "sourcesDetail": [
+      {
+        "name": "Associated Press",
+        "headline": "Hurricane Lala skirts Hawaii's Big Island without making landfall as heavy wind, rain lash region",
+        "url": "https://apnews.com/article/a9fafe9ffc24572c671d1b43414c0ac2",
+        "published": "Aug. 16, 2026",
+        "type": "News Reporting",
+        "note": "Latest linked update on Lala impacts after the storm passed without landfall."
+      },
       {
         "name": "Associated Press",
         "headline": "A rare hurricane landfall threat for Hawaii's Big Island as strengthening Tropical Storm Lala nears",
@@ -1837,15 +1862,15 @@ const stories = [
       }
     ],
     "facts": [
-      "Forecasters issued hurricane warnings as Lala approached the Big Island.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Lala passed Hawaii's Big Island without making landfall and weakened to a tropical storm.",
+      "Reported impacts: heavy rain, damaging wind, flooding and roof damage affected the island.",
+      "Reported Sunday morning: more than 130,000 households were without power and three hospitals were using generators.",
+      "Reported: one traffic death occurred and search-and-rescue crews responded after flash floods swept some homes from their foundations."
     ],
     "why": "7Tribunes ranks this #5 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Tropical Storm Lala is forecast to strengthen as it approaches Hawaii’s Big Island, bringing the possibility of hurricane-force conditions, heavy rain, flooding and mudslides. Emergency officials are monitoring the storm’s track and intensity because a direct hurricane landfall on the Big Island would be rare. Forecast changes remain possible, so local warnings and official updates are the key source for immediate risk."
+    "brief": "Tropical Storm Lala skirted Hawaii's Big Island without making landfall after weakening from a hurricane, but heavy rain and wind still caused flooding, roof damage and widespread outages. AP reported more than 130,000 households without power Sunday morning, three hospitals using generators and one traffic death. Search-and-rescue crews responded after flash floods swept some homes from their foundations."
   },
   {
     "id": "worldnature-6",
@@ -1853,7 +1878,7 @@ const stories = [
     "scope": "World",
     "rank": 6,
     "title": "Millions watch Western Europe's first total solar eclipse in 27 years",
-    "deck": "A total solar eclipse crossed parts of Iceland and northern Spain, giving Western Europe its first total eclipse in 27 years. Millions of residents and visitors gathered along the path of totality, prompting major tourism and public-safety preparations. The event also gave scientists observation opportunities while emergency officials managed crowds, transportation and wildfire-related concerns during the busy summer travel period.",
+    "deck": "A total solar eclipse crossed Iceland and northern Spain on Aug. 12, giving Western Europe its first total eclipse in 27 years. In Buitrago de Lozoya, Spain, totality began just after 8:30 p.m. and lasted barely a minute; western Iceland saw up to 2 minutes, 13 seconds. Spain deployed 25,000 police and nearly 100 aircraft and helicopters for crowd and wildfire safety.",
     "significance": 86,
     "published": "Aug. 12, 2026",
     "confidence": "Source-backed current edition",
@@ -1869,15 +1894,15 @@ const stories = [
       }
     ],
     "facts": [
-      "Millions gathered across Spain and Iceland for Western Europe’s first total solar eclipse in 27 years.",
-      "Spain deployed extensive police and aviation resources because viewing crowds coincided with high wildfire risk.",
-      "Cloud cover limited viewing in some areas, including parts of Iceland.",
-      "Spain is scheduled to see another total eclipse in 2027 and an annular eclipse in 2028."
+      "Confirmed: the Aug. 12 total solar eclipse crossed Iceland and northern Spain, Western Europe's first total eclipse in 27 years.",
+      "Confirmed: totality near Buitrago de Lozoya, Spain, began just after 8:30 p.m. and lasted barely a minute.",
+      "Confirmed: western Iceland experienced totality for up to 2 minutes and 13 seconds.",
+      "Reported: Spain deployed 25,000 police officers and nearly 100 planes and helicopters for safety operations amid wildfire concerns."
     ],
     "why": "7Tribunes ranks this #6 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "A total solar eclipse crossed parts of Iceland and northern Spain, giving Western Europe its first total eclipse in 27 years. Millions of residents and visitors gathered along the path of totality, prompting major tourism and public-safety preparations. The event also gave scientists observation opportunities while emergency officials managed crowds, transportation and wildfire-related concerns during the busy summer travel period."
+    "brief": "A total solar eclipse crossed Iceland and northern Spain on Aug. 12, giving Western Europe its first total eclipse in 27 years. In Buitrago de Lozoya, Spain, totality began just after 8:30 p.m. and lasted barely a minute; western Iceland saw up to 2 minutes, 13 seconds. Spain deployed 25,000 police and nearly 100 aircraft and helicopters for crowd and wildfire safety."
   },
   {
     "id": "worldnature-7",
@@ -1885,7 +1910,7 @@ const stories = [
     "scope": "World",
     "rank": 7,
     "title": "Scientists watch a strengthening El Niño as global heat risks build",
-    "deck": "Scientists are monitoring a strengthening El Niño while 2026 is already experiencing severe heat and unusually warm ocean conditions. El Niño can add additional warming to the climate system and alter weather patterns around the world. Researchers are watching its development because its strength and timing could influence temperatures, rainfall, drought and storm patterns later in the year and into the next season.",
+    "deck": "Scientists are monitoring a strong El Niño as unusually warm Pacific waters alter weather patterns into 2027. AP reported a key equatorial Pacific region had reached its warmest, most intense level on record for 15 weeks, with the pattern expected to last through spring 2027. El Niño is natural, but WMO warns it can intensify heat, drought and heavy rainfall on top of human-caused warming.",
     "significance": 84,
     "published": "Aug. 4, 2026",
     "confidence": "Source-backed current edition",
@@ -1901,23 +1926,23 @@ const stories = [
       }
     ],
     "facts": [
-      "AP reports 2026 has brought widespread heat, fires and unusually warm oceans even before the full warming influence of El Niño is expected.",
-      "Scientists cited by AP say greenhouse-gas-driven climate change remains the principal background driver of the long-term warming trend.",
-      "Forecasts for whether 2026 ultimately becomes the hottest year can change as observations accumulate.",
-      "El Niño impacts vary by region and typically emerge with a delay."
+      "Confirmed: a strengthening El Niño was present in the tropical Pacific in the linked AP report.",
+      "Reported: a key Pacific region had reached its warmest, most intense level on record for 15 weeks.",
+      "Forecast: the event was expected to persist through spring 2027.",
+      "Scientific context: El Niño is a natural climate pattern; WMO warns it can amplify heat, drought and heavy rainfall while human-caused warming raises the baseline temperature."
     ],
     "why": "7Tribunes ranks this #7 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Scientists are monitoring a strengthening El Niño while 2026 is already experiencing severe heat and unusually warm ocean conditions. El Niño can add additional warming to the climate system and alter weather patterns around the world. Researchers are watching its development because its strength and timing could influence temperatures, rainfall, drought and storm patterns later in the year and into the next season."
+    "brief": "Scientists are monitoring a strong El Niño as unusually warm Pacific waters alter weather patterns into 2027. AP reported a key equatorial Pacific region had reached its warmest, most intense level on record for 15 weeks, with the pattern expected to last through spring 2027. El Niño is natural, but WMO warns it can intensify heat, drought and heavy rainfall on top of human-caused warming."
   },
   {
     "id": "sports-1",
     "pillar": "Sports",
     "scope": "US",
     "rank": 1,
-    "title": "Record Lakers sale highlights the accelerating value of major U.S. sports franchises",
-    "deck": "The reported $12.5 billion sale of the Los Angeles Lakers would place the franchise among the most valuable sports properties ever sold. The transaction reflects rising values across major U.S. professional teams, driven by scarce ownership opportunities, media rights and investor demand. The deal is also another sign that elite sports franchises are increasingly being valued more like global entertainment and media assets.",
+    "title": "Joshua Kushner and Bob Iger agree to buy Lakers in record $12.5 billion deal",
+    "deck": "Venture capitalist Joshua Kushner and former Disney CEO Bob Iger are set to buy the Los Angeles Lakers in a deal valuing the team at a record $12.5 billion, pending NBA Board of Governors approval. The valuation is 25% above the $10 billion figure from Mark Walter's majority-stake purchase 14 months earlier. Reuters links the rise to scarce franchises, live audiences and expanding media-rights value.",
     "significance": 90,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1933,23 +1958,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Joshua Kushner and Bob Iger are set to purchase the Los Angeles Lakers.",
+      "Reported valuation: $12.5 billion, a record for the deal, pending NBA Board of Governors approval.",
+      "Confirmed comparison: the valuation is 25% above the $10 billion valuation in Mark Walter's deal 14 months earlier.",
+      "Reuters context: rising media-rights values, live audiences and scarce major franchises are among forces cited for escalating sports valuations."
     ],
     "why": "7Tribunes ranks this #1 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "The reported $12.5 billion sale of the Los Angeles Lakers would place the franchise among the most valuable sports properties ever sold. The transaction reflects rising values across major U.S. professional teams, driven by scarce ownership opportunities, media rights and investor demand. The deal is also another sign that elite sports franchises are increasingly being valued more like global entertainment and media assets."
+    "brief": "Venture capitalist Joshua Kushner and former Disney CEO Bob Iger are set to buy the Los Angeles Lakers in a deal valuing the team at a record $12.5 billion, pending NBA Board of Governors approval. The valuation is 25% above the $10 billion figure from Mark Walter's majority-stake purchase 14 months earlier. Reuters links the rise to scarce franchises, live audiences and expanding media-rights value."
   },
   {
     "id": "sports-2",
     "pillar": "Sports",
     "scope": "Local",
     "rank": 2,
-    "title": "FC Tulsa heads to New Mexico United for an Aug. 15 matchup",
-    "deck": "FC Tulsa travels to face New Mexico United on Aug. 15 in a match directly relevant to Tulsa-area soccer fans. The game adds another result to the clubs’ current season and provides a near-term local sports event for the 7Tribunes briefing. Match details, lineups, score and standings implications are best followed through the linked game page and official club updates once play begins.",
+    "title": "FC Tulsa visits New Mexico United in Aug. 15 USL Championship match",
+    "deck": "FC Tulsa was scheduled to visit New Mexico United on Aug. 15 in USL Championship play at Rio Grande Credit Union Field at Isotopes Park in Albuquerque. The matchup followed Tulsa's 3-0 win over New Mexico in the 2025 Western Conference Final. The linked ESPN page available to this demo does not show a verified 2026 final score, so 7Tribunes does not invent one.",
     "significance": 84,
     "published": "Aug. 15, 2026",
     "confidence": "Source-backed snapshot",
@@ -1965,23 +1990,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed schedule: New Mexico United hosted FC Tulsa on Aug. 15 in USL Championship play.",
+      "Confirmed venue: Rio Grande Credit Union Field at Isotopes Park in Albuquerque.",
+      "Historical context: FC Tulsa beat New Mexico United 3-0 in the 2025 Western Conference Final.",
+      "Unknown in the linked demo source: a verified final score for the Aug. 15, 2026 match is not displayed, so 7Tribunes does not report one."
     ],
     "why": "7Tribunes ranks this #2 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "FC Tulsa travels to face New Mexico United on Aug. 15 in a match directly relevant to Tulsa-area soccer fans. The game adds another result to the clubs’ current season and provides a near-term local sports event for the 7Tribunes briefing. Match details, lineups, score and standings implications are best followed through the linked game page and official club updates once play begins."
+    "brief": "FC Tulsa was scheduled to visit New Mexico United on Aug. 15 in USL Championship play at Rio Grande Credit Union Field at Isotopes Park in Albuquerque. The matchup followed Tulsa's 3-0 win over New Mexico in the 2025 Western Conference Final. The linked ESPN page available to this demo does not show a verified 2026 final score, so 7Tribunes does not invent one."
   },
   {
     "id": "sports-3",
     "pillar": "Sports",
     "scope": "US",
     "rank": 3,
-    "title": "NFL preseason round: rookie quarterbacks and roster battles move into focus",
-    "deck": "NFL preseason games are giving teams their first extended look at rookies, backup quarterbacks and players competing for roster spots. Fernando Mendoza threw a touchdown pass in his debut, one of several performances drawing attention. Preseason scores are secondary to player evaluation, injuries and role competition, as coaches use live game action to make decisions before regular-season rosters are finalized.",
+    "title": "Raiders rookie Fernando Mendoza throws touchdown in preseason loss to Cardinals",
+    "deck": "Las Vegas Raiders rookie quarterback Fernando Mendoza completed 10 of 16 passes for 97 yards and a 6-yard touchdown to Jack Bech in his preseason debut, but Arizona beat Las Vegas 27-14. Veteran Kirk Cousins went 5-for-6 for 50 yards and a touchdown on his lone drive. Reuters said the performances were part of the Raiders' competition for the Week 1 starting job.",
     "significance": 82,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1997,23 +2022,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Arizona beat Las Vegas 27-14 in the preseason game.",
+      "Confirmed: Raiders rookie Fernando Mendoza completed 10 of 16 passes for 97 yards and a 6-yard touchdown to Jack Bech.",
+      "Confirmed: Kirk Cousins completed 5 of 6 passes for 50 yards and a touchdown on one drive.",
+      "Reported context: Reuters described the quarterback performances as part of the Raiders' Week 1 starting competition."
     ],
     "why": "7Tribunes ranks this #3 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "NFL preseason games are giving teams their first extended look at rookies, backup quarterbacks and players competing for roster spots. Fernando Mendoza threw a touchdown pass in his debut, one of several performances drawing attention. Preseason scores are secondary to player evaluation, injuries and role competition, as coaches use live game action to make decisions before regular-season rosters are finalized."
+    "brief": "Las Vegas Raiders rookie quarterback Fernando Mendoza completed 10 of 16 passes for 97 yards and a 6-yard touchdown to Jack Bech in his preseason debut, but Arizona beat Las Vegas 27-14. Veteran Kirk Cousins went 5-for-6 for 50 yards and a touchdown on his lone drive. Reuters said the performances were part of the Raiders' competition for the Week 1 starting job."
   },
   {
     "id": "sports-4-current",
     "pillar": "Sports",
     "scope": "US",
     "rank": 4,
-    "title": "Astros stun Mariners in extra innings as the MLB playoff picture keeps moving",
-    "deck": "Houston rallied to beat Seattle in the 10th inning, adding another result to a late-summer Major League Baseball schedule in which playoff races are tightening. The Astros-Mariners game was part of a broader Friday slate affecting division and wild-card positioning. With the postseason approaching, individual games increasingly change standings, tiebreaker pressure and the margin for teams still competing for playoff spots.",
+    "title": "Christian Walker's walk-off homer caps Astros' five-run 10th to beat Mariners 10-7",
+    "deck": "Christian Walker hit a three-run, 405-foot walk-off homer in the bottom of the 10th inning as Houston rallied past Seattle 10-7. The Mariners had scored three runs in the top of the inning, but the Astros answered with five, including RBI singles by Isaac Paredes and Daulton Varsho. Yordan Alvarez also hit his American League-leading 36th homer for Houston.",
     "significance": 80,
     "published": "Aug. 15, 2026",
     "confidence": "Source-backed current edition",
@@ -2029,15 +2054,15 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports Houston rallied to beat Seattle in 10 innings as part of the Aug. 15 MLB roundup.",
-      "The roundup covers multiple games affecting divisional and wild-card races.",
-      "Standings and playoff implications can change daily as the regular season continues.",
-      "Verified cross-platform reaction totals are not connected in this POC."
+      "Confirmed: Houston beat Seattle 10-7 in 10 innings.",
+      "Confirmed: Christian Walker hit a three-run, 405-foot walk-off home run, his 23rd homer of the season.",
+      "Confirmed: Seattle scored three runs in the top of the 10th; Houston answered with five, including RBI singles by Isaac Paredes and Daulton Varsho.",
+      "Confirmed: Yordan Alvarez hit his American League-leading 36th home run."
     ],
     "why": "7Tribunes ranks this #4 within Sports using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Houston rallied to beat Seattle in the 10th inning, adding another result to a late-summer Major League Baseball schedule in which playoff races are tightening. The Astros-Mariners game was part of a broader Friday slate affecting division and wild-card positioning. With the postseason approaching, individual games increasingly change standings, tiebreaker pressure and the margin for teams still competing for playoff spots."
+    "brief": "Christian Walker hit a three-run, 405-foot walk-off homer in the bottom of the 10th inning as Houston rallied past Seattle 10-7. The Mariners had scored three runs in the top of the inning, but the Astros answered with five, including RBI singles by Isaac Paredes and Daulton Varsho. Yordan Alvarez also hit his American League-leading 36th homer for Houston."
   },
   {
     "id": "sports-5",
@@ -2045,7 +2070,7 @@ const stories = [
     "scope": "US",
     "rank": 5,
     "title": "Falcons defensive end James Pearce Jr. receives an eight-game suspension",
-    "deck": "Atlanta Falcons defensive end James Pearce Jr. received an eight-game suspension, removing him from the lineup for a significant portion of the season. The suspension directly affects Atlanta’s defensive depth and rotation planning. The linked report focuses on the league discipline and its length; the practical football impact will depend on how the Falcons replace his snaps and how the defense performs during his absence.",
+    "deck": "The NFL suspended Atlanta Falcons defensive end James Pearce Jr. for eight games under its personal-conduct policy after a February incident in South Florida. Police alleged Pearce blocked former girlfriend and WNBA player Rickea Jackson, pursued her, intentionally struck her vehicle and fled officers. Pearce entered a plea/diversion arrangement and declined an appeal. His suspension begins Aug. 30; he is eligible Nov. 2.",
     "significance": 74,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -2061,28 +2086,36 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: the NFL suspended Falcons defensive end James Pearce Jr. for eight games under the personal-conduct policy.",
+      "Police allegation: Pearce blocked former girlfriend Rickea Jackson, pursued her, intentionally struck her vehicle and fled officers during a Feb. 7 incident in South Florida.",
+      "Reported legal status: Pearce entered a plea/diversion arrangement and declined to appeal the NFL suspension.",
+      "Confirmed timetable: the suspension begins Aug. 30 and Pearce is eligible to return Nov. 2."
     ],
     "why": "7Tribunes ranks this #5 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Atlanta Falcons defensive end James Pearce Jr. received an eight-game suspension, removing him from the lineup for a significant portion of the season. The suspension directly affects Atlanta’s defensive depth and rotation planning. The linked report focuses on the league discipline and its length; the practical football impact will depend on how the Falcons replace his snaps and how the defense performs during his absence."
+    "brief": "The NFL suspended Atlanta Falcons defensive end James Pearce Jr. for eight games under its personal-conduct policy after a February incident in South Florida. Police alleged Pearce blocked former girlfriend and WNBA player Rickea Jackson, pursued her, intentionally struck her vehicle and fled officers. Pearce entered a plea/diversion arrangement and declined an appeal. His suspension begins Aug. 30; he is eligible Nov. 2."
   },
   {
     "id": "sports-6",
     "pillar": "Sports",
     "scope": "US",
     "rank": 6,
-    "title": "Cardinals rookie guard Chase Bisontis deals with a knee injury",
-    "deck": "Arizona Cardinals rookie guard Chase Bisontis is dealing with a knee injury during the preseason. The injury introduces uncertainty into Arizona’s offensive-line depth chart before the regular season begins. Team medical updates will determine how much time he misses and whether the injury changes roster or starting-lineup plans. The current report identifies the injury but does not establish a final recovery timetable.",
+    "title": "Cardinals place rookie guard Chase Bisontis on injured reserve after torn MCL",
+    "deck": "Arizona Cardinals rookie guard Chase Bisontis is headed to injured reserve after tearing the MCL in his left knee during Arizona's 27-14 preseason win over Las Vegas. Reuters reported Raiders defensive lineman Brandon Cleveland fell on Bisontis' knee during the play. Coach Mike LaFleur said Bisontis would miss a 'good amount of time, if not the whole year.'",
     "significance": 70,
-    "published": "Aug. 14, 2026",
+    "published": "Aug. 15, 2026",
     "confidence": "Source-backed snapshot",
-    "sources": 1,
+    "sources": 2,
     "sourcesDetail": [
+      {
+        "name": "Reuters",
+        "headline": "Cards RB Jeremiyah Love (ankle) out at least one week",
+        "url": "https://www.reuters.com/sports/cards-rb-jeremiyah-love-ankle-out-least-one-week--flm-2026-08-15/",
+        "published": "Aug. 15, 2026",
+        "type": "News Reporting",
+        "note": "Reuters update also reports Chase Bisontis will head to injured reserve after tearing his MCL."
+      },
       {
         "name": "Reuters",
         "headline": "Cardinals rookie G Chase Bisontis nursing knee injury",
@@ -2093,23 +2126,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: Cardinals rookie guard Chase Bisontis tore the MCL in his left knee and is headed to injured reserve.",
+      "Reported mechanism: Raiders defensive lineman Brandon Cleveland fell on Bisontis' knee during Arizona's 27-14 preseason win.",
+      "Attributed prognosis: coach Mike LaFleur said Bisontis would miss a 'good amount of time, if not the whole year.'",
+      "Unknown: the linked report did not establish a definitive return date."
     ],
     "why": "7Tribunes ranks this #6 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Arizona Cardinals rookie guard Chase Bisontis is dealing with a knee injury during the preseason. The injury introduces uncertainty into Arizona’s offensive-line depth chart before the regular season begins. Team medical updates will determine how much time he misses and whether the injury changes roster or starting-lineup plans. The current report identifies the injury but does not establish a final recovery timetable."
+    "brief": "Arizona Cardinals rookie guard Chase Bisontis is headed to injured reserve after tearing the MCL in his left knee during Arizona's 27-14 preseason win over Las Vegas. Reuters reported Raiders defensive lineman Brandon Cleveland fell on Bisontis' knee during the play. Coach Mike LaFleur said Bisontis would miss a 'good amount of time, if not the whole year.'"
   },
   {
     "id": "sports-7",
     "pillar": "Sports",
     "scope": "Local",
     "rank": 7,
-    "title": "Tulsa Golden Hurricane programs move into late-summer competition",
-    "deck": "University of Tulsa athletic programs are moving into late-summer competition, exhibitions and preseason preparation as fall sports begin. The official Golden Hurricane athletics site provides the current schedules, results, rosters and team updates. This briefing item serves as the local college-sports check-in rather than a single breaking event, with individual team developments changing as competitions begin across the university’s fall calendar.",
+    "title": "Tulsa athletics opens late-summer slate with soccer and volleyball exhibitions",
+    "deck": "University of Tulsa teams moved into late-summer competition with men's soccer playing an exhibition at SMU on Aug. 14 and volleyball hosting Little Rock in an Aug. 15 exhibition at the Reynolds Center. Tulsa scheduled a championship-banner and ring ceremony with the volleyball event. Men's soccer was then set to open its regular-season home schedule Aug. 20 against UIC.",
     "significance": 66,
     "published": "Aug. 2026",
     "confidence": "Source-backed snapshot",
@@ -2125,15 +2158,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed by Tulsa athletics: men's soccer scheduled an exhibition at SMU on Aug. 14.",
+      "Confirmed: volleyball scheduled an Aug. 15 exhibition against Little Rock at the Reynolds Center.",
+      "Confirmed: Tulsa planned a championship-banner and ring ceremony with the volleyball event.",
+      "Confirmed: men's soccer was scheduled to open its regular-season home slate Aug. 20 against UIC."
     ],
     "why": "7Tribunes ranks this #7 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "University of Tulsa athletic programs are moving into late-summer competition, exhibitions and preseason preparation as fall sports begin. The official Golden Hurricane athletics site provides the current schedules, results, rosters and team updates. This briefing item serves as the local college-sports check-in rather than a single breaking event, with individual team developments changing as competitions begin across the university’s fall calendar."
+    "brief": "University of Tulsa teams moved into late-summer competition with men's soccer playing an exhibition at SMU on Aug. 14 and volleyball hosting Little Rock in an Aug. 15 exhibition at the Reynolds Center. Tulsa scheduled a championship-banner and ring ceremony with the volleyball event. Men's soccer was then set to open its regular-season home schedule Aug. 20 against UIC."
   },
   {
     "id": "ent-1",
@@ -2141,7 +2174,7 @@ const stories = [
     "scope": "World",
     "rank": 1,
     "title": "‘Spider-Man: Brand New Day’ becomes a billion-dollar hit in near-record time",
-    "deck": "‘Spider-Man: Brand New Day’ crossed $1 billion in worldwide box-office revenue after six days, placing it among the fastest films ever to reach that level. The result is a major commercial milestone for the movie, Marvel and theatrical exhibitors. Its performance also demonstrates continued global demand for large franchise releases at a time when studios are closely watching which films can still generate blockbuster-scale audiences.",
+    "deck": "'Spider-Man: Brand New Day' crossed $1 billion at the worldwide box office six days after release, making it the second-fastest film to reach that milestone, according to Variety. The movie's rapid global ticket sales put it among the year's biggest theatrical releases. The linked report establishes the box-office milestone; it does not establish whether the film's eventual final gross will set a longer-term record.",
     "significance": 93,
     "published": "Aug. 5, 2026",
     "confidence": "Source-backed current edition",
@@ -2157,10 +2190,10 @@ const stories = [
       }
     ],
     "facts": [
-      "Variety reports the film crossed $1 billion worldwide after six days of release.",
-      "It became the second-fastest movie to reach that benchmark, behind Avengers: Endgame.",
-      "Final theatrical grosses remain unknown while the movie is still in release.",
-      "The record is a box-office performance measure, not a critical-quality judgment."
+      "Reported by Variety: 'Spider-Man: Brand New Day' crossed $1 billion in worldwide box office six days after release.",
+      "Reported ranking: Variety described it as the second-fastest movie to reach the $1 billion milestone.",
+      "Confirmed scope: the figure is worldwide theatrical box office, not profit.",
+      "Unknown: the linked report could not establish the film's final lifetime gross because its theatrical run was continuing."
     ],
     "why": "7Tribunes ranks this #1 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2168,7 +2201,7 @@ const stories = [
     "entertainmentTags": [
       "Movies"
     ],
-    "brief": "‘Spider-Man: Brand New Day’ crossed $1 billion in worldwide box-office revenue after six days, placing it among the fastest films ever to reach that level. The result is a major commercial milestone for the movie, Marvel and theatrical exhibitors. Its performance also demonstrates continued global demand for large franchise releases at a time when studios are closely watching which films can still generate blockbuster-scale audiences."
+    "brief": "'Spider-Man: Brand New Day' crossed $1 billion at the worldwide box office six days after release, making it the second-fastest film to reach that milestone, according to Variety. The movie's rapid global ticket sales put it among the year's biggest theatrical releases. The linked report establishes the box-office milestone; it does not establish whether the film's eventual final gross will set a longer-term record."
   },
   {
     "id": "ent-2",
@@ -2176,7 +2209,7 @@ const stories = [
     "scope": "World",
     "rank": 2,
     "title": "‘The Odyssey’ becomes Christopher Nolan’s highest-grossing film and sets an Imax record",
-    "deck": "Christopher Nolan’s ‘The Odyssey’ reached about $1.1 billion worldwide, becoming the director’s highest-grossing film and setting a new Imax box-office record. The adaptation of Homer’s epic has performed as both a major commercial release and a high-profile literary adaptation. Its results add to evidence that large-format theatrical releases can still attract mass audiences when paired with established filmmakers and event-style marketing.",
+    "deck": "Christopher Nolan's 'The Odyssey' reached $1.1 billion worldwide, passing 'The Dark Knight Rises' to become his highest-grossing film without adjusting for inflation. Variety reported $461 million domestic and $643 million international. The film also became Imax's highest-grossing release at $289 million and the first feature shot entirely with Imax cameras. Its theatrical run was still continuing.",
     "significance": 91,
     "published": "Aug. 10, 2026",
     "confidence": "Source-backed current edition",
@@ -2192,10 +2225,10 @@ const stories = [
       }
     ],
     "facts": [
-      "Variety reports The Odyssey reached $1.1 billion worldwide and surpassed The Dark Knight Rises as Nolan’s highest-grossing film.",
-      "The film also became Imax’s highest-grossing release to date.",
-      "Its final box-office total remains unknown while the theatrical run continues.",
-      "The milestones are commercial records and do not by themselves measure artistic merit."
+      "Confirmed: 'The Odyssey' reached $1.1 billion worldwide in the Variety report.",
+      "Confirmed: it passed 'The Dark Knight Rises' as Christopher Nolan's highest-grossing movie, not adjusted for inflation.",
+      "Reported totals: $461 million domestic and $643 million international.",
+      "Confirmed: the film became Imax's highest-grossing release at $289 million and is the first feature shot entirely with Imax cameras."
     ],
     "why": "7Tribunes ranks this #2 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2204,7 +2237,7 @@ const stories = [
       "Movies",
       "Art & Culture"
     ],
-    "brief": "Christopher Nolan’s ‘The Odyssey’ reached about $1.1 billion worldwide, becoming the director’s highest-grossing film and setting a new Imax box-office record. The adaptation of Homer’s epic has performed as both a major commercial release and a high-profile literary adaptation. Its results add to evidence that large-format theatrical releases can still attract mass audiences when paired with established filmmakers and event-style marketing."
+    "brief": "Christopher Nolan's 'The Odyssey' reached $1.1 billion worldwide, passing 'The Dark Knight Rises' to become his highest-grossing film without adjusting for inflation. Variety reported $461 million domestic and $643 million international. The film also became Imax's highest-grossing release at $289 million and the first feature shot entirely with Imax cameras. Its theatrical run was still continuing."
   },
   {
     "id": "ent-3",
@@ -2212,7 +2245,7 @@ const stories = [
     "scope": "US",
     "rank": 3,
     "title": "‘Outer Banks’ final season leads a packed new streaming week",
-    "deck": "The final season of Netflix’s ‘Outer Banks’ headlines a busy week of new entertainment releases. The same release window includes the film ‘Mother Mary’ starring Anne Hathaway, new music from artists including Weezer and Sam Smith, and a major video-game release. The story is a practical roundup of the television, film, music and gaming titles entering the cultural conversation this week.",
+    "deck": "AP's weekly streaming guide identified the fifth and final season of Netflix's 'Outer Banks' as a major new release beginning Thursday, Aug. 20. The season returns to the Pogues after the death of one of their group, with the characters pursuing treasure and revenge. The AP article is a release roundup, not a review, and also highlights other new film and music offerings.",
     "significance": 86,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2228,10 +2261,10 @@ const stories = [
       }
     ],
     "facts": [
-      "AP’s weekly streaming guide identifies the final season of Outer Banks among the highest-profile new releases for Aug. 17–23.",
-      "The same release window includes Mother Mary, new albums and The Sinking City 2 game.",
-      "Availability can vary by streaming platform and territory.",
-      "This item is a curated entertainment guide, not a factual controversy."
+      "Confirmed by AP's streaming guide: the fifth and final season of 'Outer Banks' begins Aug. 20 on Netflix.",
+      "Reported premise: the Pogues return after the death of one of their group and pursue treasure and revenge.",
+      "Classification: the linked AP story is a weekly release roundup rather than a review of the season.",
+      "Confirmed: the article also covers other streaming, film and music releases for the week."
     ],
     "why": "7Tribunes ranks this #3 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2243,7 +2276,7 @@ const stories = [
       "Gaming",
       "Art & Culture"
     ],
-    "brief": "The final season of Netflix’s ‘Outer Banks’ headlines a busy week of new entertainment releases. The same release window includes the film ‘Mother Mary’ starring Anne Hathaway, new music from artists including Weezer and Sam Smith, and a major video-game release. The story is a practical roundup of the television, film, music and gaming titles entering the cultural conversation this week."
+    "brief": "AP's weekly streaming guide identified the fifth and final season of Netflix's 'Outer Banks' as a major new release beginning Thursday, Aug. 20. The season returns to the Pogues after the death of one of their group, with the characters pursuing treasure and revenge. The AP article is a release roundup, not a review, and also highlights other new film and music offerings."
   },
   {
     "id": "ent-4",
@@ -2251,7 +2284,7 @@ const stories = [
     "scope": "World",
     "rank": 4,
     "title": "‘The Walking Dead’ universe gets a $500 million Netflix and AMC+ streaming deal",
-    "deck": "Netflix and AMC+ reached a five-year licensing agreement valued at about $500 million for ‘The Walking Dead’ franchise. Beginning in 2027, the original series and six spinoffs are expected to be available across the two services under the deal. The agreement shows the continuing financial value of established television libraries as streaming companies compete for recognizable franchises and long-term viewer engagement.",
+    "deck": "Netflix and AMC Networks agreed to a five-year, $500 million co-exclusive licensing deal for 'The Walking Dead' franchise beginning in 2027, according to Variety. The arrangement covers the original series and six spinoffs, totaling 371 episodes, with availability varying by territory. AMC+ remains part of the distribution plan. The deal concerns streaming rights; it does not transfer ownership of the franchise.",
     "significance": 84,
     "published": "Jul. 31, 2026",
     "confidence": "Source-backed current edition",
@@ -2267,10 +2300,10 @@ const stories = [
       }
     ],
     "facts": [
-      "Variety reports a five-year, $500 million co-exclusive licensing deal between Netflix and AMC Global Media.",
-      "The agreement covers the original series and six spinoffs totaling hundreds of episodes.",
-      "Rollout dates vary by territory as existing licenses expire.",
-      "The deal is a distribution agreement and does not imply new episodes for every included series."
+      "Confirmed by Variety: Netflix and AMC Networks reached a five-year, $500 million co-exclusive licensing deal.",
+      "Confirmed scope: the agreement covers the original 'Walking Dead' series and six spinoffs, totaling 371 episodes.",
+      "Confirmed timing: rollout begins in 2027 and varies by territory.",
+      "Clarification: the transaction is a streaming-licensing agreement; the linked report does not describe a sale of franchise ownership."
     ],
     "why": "7Tribunes ranks this #4 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2279,15 +2312,15 @@ const stories = [
       "Television",
       "Business"
     ],
-    "brief": "Netflix and AMC+ reached a five-year licensing agreement valued at about $500 million for ‘The Walking Dead’ franchise. Beginning in 2027, the original series and six spinoffs are expected to be available across the two services under the deal. The agreement shows the continuing financial value of established television libraries as streaming companies compete for recognizable franchises and long-term viewer engagement."
+    "brief": "Netflix and AMC Networks agreed to a five-year, $500 million co-exclusive licensing deal for 'The Walking Dead' franchise beginning in 2027, according to Variety. The arrangement covers the original series and six spinoffs, totaling 371 episodes, with availability varying by territory. AMC+ remains part of the distribution plan. The deal concerns streaming rights; it does not transfer ownership of the franchise."
   },
   {
     "id": "ent-5",
     "pillar": "Entertainment",
     "scope": "World",
     "rank": 5,
-    "title": "Ariana Grande’s ‘Petal’ marks one of the biggest stylistic turns of her career",
-    "deck": "Ariana Grande released ‘Petal,’ her eighth studio album, with music critics describing it as a darker and more experimental turn in her pop sound. The album also uses more direct lyrical themes than some of her earlier work. Because Grande remains one of the world’s most visible recording artists, the release is drawing significant attention across music, entertainment and fan communities.",
+    "title": "Ariana Grande releases 'Petal,' made with Ilya Salmanzadeh and Max Martin",
+    "deck": "Ariana Grande released 'Petal,' an album she wrote, performed and produced with Ilya Salmanzadeh and Max Martin. Grande described the project as 'experimental and different' and said she wrote from 'unfiltered rage.' Salmanzadeh executive-produced the album with Grande, while Martin contributed to three songs. Variety's linked article is a review, so its descriptions of the music's mood and quality are opinion, not fact.",
     "significance": 80,
     "published": "Jul. 31, 2026",
     "confidence": "Source-backed current edition",
@@ -2303,10 +2336,10 @@ const stories = [
       }
     ],
     "facts": [
-      "Variety describes Petal as a darker and more experimental departure from Grande’s previous album.",
-      "Grande again worked with longtime collaborators including Ilya Salmanzadeh and Max Martin.",
-      "Critical judgments in the linked article are opinion and analysis rather than factual measurements.",
-      "Audience reaction totals are not connected in this POC."
+      "Confirmed: Ariana Grande made 'Petal' with Ilya Salmanzadeh and Max Martin and is credited as a writer, performer and producer.",
+      "Attributed to Grande: she described the album as 'experimental and different' and said she wrote from 'unfiltered rage.'",
+      "Confirmed: Salmanzadeh executive-produced with Grande; Martin contributed to three songs.",
+      "Source classification: Variety's article is an album review; evaluative descriptions in it are the reviewer's opinion and are not presented by 7Tribunes as fact."
     ],
     "why": "7Tribunes ranks this #5 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2314,7 +2347,7 @@ const stories = [
     "entertainmentTags": [
       "Music"
     ],
-    "brief": "Ariana Grande released ‘Petal,’ her eighth studio album, with music critics describing it as a darker and more experimental turn in her pop sound. The album also uses more direct lyrical themes than some of her earlier work. Because Grande remains one of the world’s most visible recording artists, the release is drawing significant attention across music, entertainment and fan communities."
+    "brief": "Ariana Grande released 'Petal,' an album she wrote, performed and produced with Ilya Salmanzadeh and Max Martin. Grande described the project as 'experimental and different' and said she wrote from 'unfiltered rage.' Salmanzadeh executive-produced the album with Grande, while Martin contributed to three songs. Variety's linked article is a review, so its descriptions of the music's mood and quality are opinion, not fact."
   },
   {
     "id": "ent-6",
@@ -2322,7 +2355,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "John Oliver extends his HBO deal through the end of 2027",
-    "deck": "HBO extended John Oliver’s contract for ‘Last Week Tonight’ through the end of 2027. The deal keeps the host and his weekly political-comedy program at the network for another year beyond the prior agreement. The relatively short extension comes during broader uncertainty around media ownership and strategy, but the immediate fact is that HBO has chosen to keep the long-running program in place.",
+    "deck": "John Oliver extended his HBO contract through the end of 2027, keeping 'Last Week Tonight' on the network for another year, Variety confirmed. The show began in 2014, is in its 13th season and has won 28 Emmys. Variety noted the extension is shorter than the show's usual three-year renewals, but its suggestion that ownership uncertainty may explain the one-year term is speculation, not an established reason.",
     "significance": 76,
     "published": "Aug. 1, 2026",
     "confidence": "Source-backed current edition",
@@ -2338,10 +2371,10 @@ const stories = [
       }
     ],
     "facts": [
-      "Variety reports Oliver extended his HBO contract through the end of 2027.",
-      "The extension is for one year rather than the program’s more typical multi-year renewal.",
-      "Broader corporate ownership developments could still change the business context around HBO.",
-      "The program’s political comedy is commentary; the contract itself is a reported business fact."
+      "Confirmed by Variety: John Oliver extended his HBO contract through the end of 2027.",
+      "Confirmed: 'Last Week Tonight' began in 2014 and is in its 13th season.",
+      "Reported awards record: the program has won 28 Emmys.",
+      "Unknown: Variety suggested ownership uncertainty may relate to the one-year extension, but the linked report did not establish that as the reason."
     ],
     "why": "7Tribunes ranks this #6 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2349,7 +2382,7 @@ const stories = [
     "entertainmentTags": [
       "Television"
     ],
-    "brief": "HBO extended John Oliver’s contract for ‘Last Week Tonight’ through the end of 2027. The deal keeps the host and his weekly political-comedy program at the network for another year beyond the prior agreement. The relatively short extension comes during broader uncertainty around media ownership and strategy, but the immediate fact is that HBO has chosen to keep the long-running program in place."
+    "brief": "John Oliver extended his HBO contract through the end of 2027, keeping 'Last Week Tonight' on the network for another year, Variety confirmed. The show began in 2014, is in its 13th season and has won 28 Emmys. Variety noted the extension is shorter than the show's usual three-year renewals, but its suggestion that ownership uncertainty may explain the one-year term is speculation, not an established reason."
   },
   {
     "id": "ent-7",
@@ -2357,7 +2390,7 @@ const stories = [
     "scope": "US",
     "rank": 7,
     "title": "A ‘Clueless’ sequel series with Alicia Silverstone is ordered at Paramount+",
-    "deck": "Paramount+ ordered a six-episode ‘Clueless’ sequel series with Alicia Silverstone returning as Cher Horowitz. The project revisits the character from the 1995 film in a new stage of life involving work, motherhood and parenting a teenager. The series joins a broader television trend of reviving established film and television properties for audiences already familiar with the original characters and settings.",
+    "deck": "Paramount+ greenlit a 'Clueless' sequel series with Alicia Silverstone returning as Cher Horowitz and serving as an executive producer. Variety reported sources said the streamer ordered six episodes, with production planned in Los Angeles in 2027. The present-day story follows Cher as a successful businesswoman and mother navigating her daughter's high-school years. CBS Studios will produce the series.",
     "significance": 72,
     "published": "Jul. 31, 2026",
     "confidence": "Source-backed current edition",
@@ -2373,10 +2406,10 @@ const stories = [
       }
     ],
     "facts": [
-      "Variety reports Paramount+ ordered a six-episode Clueless sequel series with Alicia Silverstone returning as Cher Horowitz.",
-      "Production is planned in Los Angeles in 2027.",
-      "Casting, production timing and release details can still change before filming and launch.",
-      "The project links a current streaming strategy to a longstanding pop-culture property."
+      "Confirmed: Paramount+ greenlit a 'Clueless' sequel series with Alicia Silverstone returning as Cher Horowitz.",
+      "Reported by Variety sources: Paramount+ ordered six episodes and production is planned in Los Angeles in 2027.",
+      "Confirmed logline: the present-day story follows Cher as a businesswoman and mother whose daughter enters high school.",
+      "Confirmed: Silverstone is an executive producer and CBS Studios will produce."
     ],
     "why": "7Tribunes ranks this #7 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
@@ -2386,15 +2419,15 @@ const stories = [
       "Movies",
       "Art & Culture"
     ],
-    "brief": "Paramount+ ordered a six-episode ‘Clueless’ sequel series with Alicia Silverstone returning as Cher Horowitz. The project revisits the character from the 1995 film in a new stage of life involving work, motherhood and parenting a teenager. The series joins a broader television trend of reviving established film and television properties for audiences already familiar with the original characters and settings."
+    "brief": "Paramount+ greenlit a 'Clueless' sequel series with Alicia Silverstone returning as Cher Horowitz and serving as an executive producer. Variety reported sources said the streamer ordered six episodes, with production planned in Los Angeles in 2027. The present-day story follows Cher as a successful businesswoman and mother navigating her daughter's high-school years. CBS Studios will produce the series."
   },
   {
     "id": "biztech-1",
     "pillar": "Business & Tech",
     "scope": "US",
     "rank": 1,
-    "title": "U.S. retail sales post their first decline in nine months",
-    "deck": "U.S. retail sales unexpectedly declined in July, marking the first monthly drop in nine months. The report suggests consumer spending lost some momentum after a long period of resilience. Because household consumption is a major part of the U.S. economy, economists and investors are watching whether the decline is temporary or the beginning of a broader slowdown in discretionary spending.",
+    "title": "U.S. retail sales fall 0.6% in July, first decline in nine months",
+    "deck": "U.S. retail sales fell 0.6% in July, the first decline in nine months, the Commerce Department reported. Core retail sales fell 0.4%, contrary to economists' expectations for a 0.3% gain. Reuters attributed part of the pullback to fading tax-refund spending, Amazon moving Prime Day to June and lower gasoline receipts. The report suggests slower consumer spending; it does not by itself establish a recession.",
     "significance": 94,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2410,23 +2443,23 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports U.S. retail sales fell 0.6% in July, the first decline in nine months.",
-      "Core measures used in GDP calculations also weakened, prompting some economists to trim third-quarter growth estimates.",
-      "One month of retail data does not by itself establish a recession or lasting consumer downturn.",
-      "Future inflation, jobs and spending data could materially change the economic outlook."
+      "Confirmed by the Commerce Department: U.S. retail sales fell 0.6% in July, the first decline in nine months.",
+      "Confirmed: core retail sales fell 0.4%; economists polled by Reuters had expected a 0.3% gain.",
+      "Reuters explanation: fading tax-refund spending, the shift of Amazon Prime Day to June and lower gasoline receipts contributed to the decline.",
+      "Clarification: one monthly retail-sales report does not by itself establish a recession."
     ],
     "why": "7Tribunes ranks this #1 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "U.S. retail sales unexpectedly declined in July, marking the first monthly drop in nine months. The report suggests consumer spending lost some momentum after a long period of resilience. Because household consumption is a major part of the U.S. economy, economists and investors are watching whether the decline is temporary or the beginning of a broader slowdown in discretionary spending."
+    "brief": "U.S. retail sales fell 0.6% in July, the first decline in nine months, the Commerce Department reported. Core retail sales fell 0.4%, contrary to economists' expectations for a 0.3% gain. Reuters attributed part of the pullback to fading tax-refund spending, Amazon moving Prime Day to June and lower gasoline receipts. The report suggests slower consumer spending; it does not by itself establish a recession."
   },
   {
     "id": "biztech-2",
     "pillar": "Business & Tech",
     "scope": "US",
     "rank": 2,
-    "title": "AI investment and earnings remain central to the stock market’s next move",
-    "deck": "Investors are relying heavily on technology-company earnings and large artificial-intelligence infrastructure spending to support elevated stock valuations. At the same time, the Federal Reserve has remained cautious about its next policy move. The market debate centers on whether AI-related revenue and capital spending can continue growing fast enough to justify current prices and offset weaker signals elsewhere in the economy.",
+    "title": "Investors look to earnings while Fed signals remain limited, Reuters analysis says",
+    "deck": "Reuters' week-ahead analysis said investors were looking to corporate earnings for direction while Federal Reserve officials provided limited guidance on the next rate move. About 85% of S&P 500 companies that had reported beat earnings estimates, and Reuters said AI-related capital spending was expected to exceed $700 billion this year. Jackson Hole, Aug. 27-29, was identified as the next major opportunity for Fed guidance.",
     "significance": 92,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2442,23 +2475,23 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports strong corporate earnings and massive AI-related capital spending have been key supports for U.S. equities.",
-      "Investors are also watching Federal Reserve signals and upcoming retail earnings.",
-      "Market forecasts are inherently uncertain and can change quickly with economic or geopolitical news.",
-      "High AI-related valuations increase sensitivity to earnings disappointments."
+      "Source classification: this is Reuters week-ahead market analysis, not a prediction of a guaranteed market move.",
+      "Reported: about 85% of S&P 500 companies that had reported results beat earnings estimates.",
+      "Reported estimate: AI-related capital spending was expected to exceed $700 billion in 2026, versus about $400 billion in 2025.",
+      "Confirmed calendar: the Aug. 27-29 Jackson Hole gathering was identified as the next major opportunity for Federal Reserve guidance."
     ],
     "why": "7Tribunes ranks this #2 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Investors are relying heavily on technology-company earnings and large artificial-intelligence infrastructure spending to support elevated stock valuations. At the same time, the Federal Reserve has remained cautious about its next policy move. The market debate centers on whether AI-related revenue and capital spending can continue growing fast enough to justify current prices and offset weaker signals elsewhere in the economy."
+    "brief": "Reuters' week-ahead analysis said investors were looking to corporate earnings for direction while Federal Reserve officials provided limited guidance on the next rate move. About 85% of S&P 500 companies that had reported beat earnings estimates, and Reuters said AI-related capital spending was expected to exceed $700 billion this year. Jackson Hole, Aug. 27-29, was identified as the next major opportunity for Fed guidance."
   },
   {
     "id": "biztech-3",
     "pillar": "Business & Tech",
     "scope": "US",
     "rank": 3,
-    "title": "S&P 500 slips from a record as investors weigh weaker data and Middle East risk",
-    "deck": "The S&P 500 slipped from a record as investors weighed weaker U.S. retail data, high expectations for artificial-intelligence companies and continuing risk around the Strait of Hormuz. None of those forces is moving markets alone: softer consumer data can hurt growth expectations, strong technology earnings can support valuations, and geopolitical tension can raise energy and risk costs at the same time.",
+    "title": "S&P 500 falls 0.2% as weak retail data and higher oil temper risk appetite",
+    "deck": "The S&P 500 fell 0.2% on Aug. 14 after setting a record, while the Dow lost about 107 points and the Nasdaq slipped 0.3%. Investors weighed a 0.6% July drop in U.S. retail sales and higher oil prices amid Middle East uncertainty. Despite the daily decline, the S&P 500 finished a third consecutive weekly gain. Individual technology stocks moved sharply on company news.",
     "significance": 90,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2474,23 +2507,23 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports the S&P 500 closed modestly lower after reaching a record high.",
-      "Applied Materials and other chip stocks fell as investors demanded more from AI-linked companies.",
-      "Energy shares rose with oil prices amid continued Middle East shipping risk.",
-      "Daily market moves should not be treated as reliable predictions of longer-term returns."
+      "Confirmed market close: the S&P 500 fell 0.2%, the Dow lost about 107 points and the Nasdaq fell 0.3% on Aug. 14.",
+      "Confirmed data: July U.S. retail sales fell 0.6%.",
+      "Reported market context: oil prices rose amid Middle East uncertainty while investors assessed weaker consumer data.",
+      "Confirmed: despite the day's decline, the S&P 500 posted a third consecutive weekly gain."
     ],
     "why": "7Tribunes ranks this #3 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "The S&P 500 slipped from a record as investors weighed weaker U.S. retail data, high expectations for artificial-intelligence companies and continuing risk around the Strait of Hormuz. None of those forces is moving markets alone: softer consumer data can hurt growth expectations, strong technology earnings can support valuations, and geopolitical tension can raise energy and risk costs at the same time."
+    "brief": "The S&P 500 fell 0.2% on Aug. 14 after setting a record, while the Dow lost about 107 points and the Nasdaq slipped 0.3%. Investors weighed a 0.6% July drop in U.S. retail sales and higher oil prices amid Middle East uncertainty. Despite the daily decline, the S&P 500 finished a third consecutive weekly gain. Individual technology stocks moved sharply on company news."
   },
   {
     "id": "biztech-4",
     "pillar": "Business & Tech",
     "scope": "US",
     "rank": 4,
-    "title": "U.S. consumer sentiment deteriorates as households grow less confident",
-    "deck": "U.S. consumer sentiment weakened in August, showing that households became less confident about economic conditions. Sentiment surveys do not measure actual spending directly, but they indicate how consumers view inflation, jobs, personal finances and the broader economy. Economists will compare the weaker confidence reading with retail sales, employment and inflation data to determine whether attitudes are translating into changes in household behavior.",
+    "title": "U.S. consumer sentiment falls to 51.0 in preliminary August reading",
+    "deck": "The University of Michigan's preliminary August consumer-sentiment index fell to 51.0 from 55.2 in July, below economists' 54.5 forecast. Reuters reported declines across political groups, with especially large drops among Republicans, older adults, lower-income households and people without college degrees. One-year inflation expectations rose to 4.3% from 4.2%, while five-year expectations held at 3.3%.",
     "significance": 88,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2506,23 +2539,23 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters reports U.S. consumer sentiment declined in August.",
-      "Survey measures reflect household attitudes and expectations rather than actual spending totals.",
-      "Political affiliation can influence sentiment responses, so economists compare surveys with hard economic data.",
-      "The outlook can change with inflation, employment, energy prices and financial markets."
+      "Confirmed: preliminary University of Michigan consumer sentiment fell to 51.0 in August from 55.2 in July.",
+      "Reuters poll: economists had expected a reading of 54.5.",
+      "Reported: sentiment declined across political groups, with larger drops among Republicans, older adults, lower-income households and non-college respondents.",
+      "Confirmed survey expectations: one-year inflation expectations rose to 4.3%; five-year expectations remained 3.3%."
     ],
     "why": "7Tribunes ranks this #4 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "U.S. consumer sentiment weakened in August, showing that households became less confident about economic conditions. Sentiment surveys do not measure actual spending directly, but they indicate how consumers view inflation, jobs, personal finances and the broader economy. Economists will compare the weaker confidence reading with retail sales, employment and inflation data to determine whether attitudes are translating into changes in household behavior."
+    "brief": "The University of Michigan's preliminary August consumer-sentiment index fell to 51.0 from 55.2 in July, below economists' 54.5 forecast. Reuters reported declines across political groups, with especially large drops among Republicans, older adults, lower-income households and people without college degrees. One-year inflation expectations rose to 4.3% from 4.2%, while five-year expectations held at 3.3%."
   },
   {
     "id": "biztech-5",
     "pillar": "Business & Tech",
     "scope": "US",
     "rank": 5,
-    "title": "Zuckerberg lays out Meta’s vision for world-changing open AI technology",
-    "deck": "Meta CEO Mark Zuckerberg is promoting a strategy in which increasingly capable artificial-intelligence systems remain broadly available rather than being controlled only through closed platforms. Meta is pairing that position with large investments in AI infrastructure and model development. The debate involves competition, open technology, safety and control: supporters emphasize broad access and innovation, while critics question how powerful systems should be governed and secured.",
+    "title": "Mark Zuckerberg outlines Meta plan for personalized, open-source AI agents",
+    "deck": "Meta CEO Mark Zuckerberg published a 6,500-word essay describing a future in which people use individualized AI agents for tutoring, business and everyday tasks. He argued for open-source development and warned against concentrating powerful AI in a few institutions. Meta also released its Muse Glimmer model for local PCs. Critics cited by AP said the essay did not adequately address risks from increasingly capable AI systems.",
     "significance": 85,
     "published": "Aug. 10, 2026",
     "confidence": "Source-backed current edition",
@@ -2538,23 +2571,23 @@ const stories = [
       }
     ],
     "facts": [
-      "AP reports Zuckerberg published an extended vision for Meta’s AI strategy and the role of open models.",
-      "Meta is positioning openness as a competitive and societal advantage in advanced AI.",
-      "Claims about future AI capability and social benefit are forecasts, not established outcomes.",
-      "Safety, cost, intellectual-property and governance questions remain contested across the industry."
+      "Confirmed: Mark Zuckerberg published a 6,500-word essay outlining Meta's AI vision.",
+      "Attributed to Zuckerberg: he favors individualized AI agents and open-source development and warns against concentration of AI power.",
+      "Confirmed: Meta released the Muse Glimmer model for local PC use and planned broader developer access to related models.",
+      "Competing view: critics cited by AP said Zuckerberg's vision did not adequately address safety risks from advanced AI."
     ],
     "why": "7Tribunes ranks this #5 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Meta CEO Mark Zuckerberg is promoting a strategy in which increasingly capable artificial-intelligence systems remain broadly available rather than being controlled only through closed platforms. Meta is pairing that position with large investments in AI infrastructure and model development. The debate involves competition, open technology, safety and control: supporters emphasize broad access and innovation, while critics question how powerful systems should be governed and secured."
+    "brief": "Meta CEO Mark Zuckerberg published a 6,500-word essay describing a future in which people use individualized AI agents for tutoring, business and everyday tasks. He argued for open-source development and warned against concentrating powerful AI in a few institutions. Meta also released its Muse Glimmer model for local PCs. Critics cited by AP said the essay did not adequately address risks from increasingly capable AI systems."
   },
   {
     "id": "biztech-6",
     "pillar": "Business & Tech",
     "scope": "US",
     "rank": 6,
-    "title": "AI-linked earnings keep technology stocks near the center of the market rally",
-    "deck": "Strong earnings from companies tied to artificial intelligence have helped keep major U.S. stock indexes near record levels. The gains show how much recent market performance depends on a relatively small group of technology, semiconductor and infrastructure companies. Investors are watching whether earnings growth broadens to more industries or whether the rally remains concentrated in businesses benefiting most directly from AI spending.",
+    "title": "AI-linked stocks lift Wall Street as Super Micro and CoreWeave surge",
+    "deck": "AI-linked stocks helped lift U.S. markets in the AP report: the S&P 500 rose 0.3% and the Nasdaq 0.5%, while the Dow slipped 21 points. Super Micro jumped about 19% after earnings per share beat analysts' expectations by 84%, CoreWeave gained 19.3% and Nvidia rose 3%. Investors also weighed inflation data and interest-rate expectations.",
     "significance": 82,
     "published": "Aug. 2026",
     "confidence": "Source-backed current edition",
@@ -2570,23 +2603,23 @@ const stories = [
       }
     ],
     "facts": [
-      "AP reports AI-linked companies were important contributors to a market advance near record levels.",
-      "Technology earnings and expectations for AI spending remain major drivers of investor sentiment.",
-      "Stock performance does not establish whether current valuations are sustainable.",
-      "Interest rates, inflation and geopolitical events remain material counterweights."
+      "Confirmed in the AP market report: the S&P 500 rose 0.3%, the Nasdaq 0.5% and the Dow slipped 21 points.",
+      "Confirmed: Super Micro gained about 19% after reported earnings per share exceeded analysts' expectations by 84%.",
+      "Confirmed: CoreWeave rose 19.3% and Nvidia gained 3%.",
+      "Reported market context: investors were also evaluating inflation data and its implications for interest rates."
     ],
     "why": "7Tribunes ranks this #6 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Strong earnings from companies tied to artificial intelligence have helped keep major U.S. stock indexes near record levels. The gains show how much recent market performance depends on a relatively small group of technology, semiconductor and infrastructure companies. Investors are watching whether earnings growth broadens to more industries or whether the rally remains concentrated in businesses benefiting most directly from AI spending."
+    "brief": "AI-linked stocks helped lift U.S. markets in the AP report: the S&P 500 rose 0.3% and the Nasdaq 0.5%, while the Dow slipped 21 points. Super Micro jumped about 19% after earnings per share beat analysts' expectations by 84%, CoreWeave gained 19.3% and Nvidia rose 3%. Investors also weighed inflation data and interest-rate expectations."
   },
   {
     "id": "biztech-7",
     "pillar": "Business & Tech",
     "scope": "World",
     "rank": 7,
-    "title": "Food inflation risk returns to the global market agenda as El Niño strengthens",
-    "deck": "Global investors are again watching food-price risk as El Niño strengthens alongside high energy costs and geopolitical disruptions. Changes in weather can affect crop yields and commodity supply, while fuel and transportation costs influence how much food costs to produce and move. The concern is whether those pressures combine to push food inflation higher after households and central banks spent several years dealing with elevated prices.",
+    "title": "Reuters analysis flags food-inflation risks from El Niño, energy and supply disruptions",
+    "deck": "Reuters' 'Take Five' analysis said a strong El Niño, higher energy costs, fertilizer shortages tied to Middle East disruption and Ukraine-related grain risks could renew food-price pressure. JPMorgan estimated a strong El Niño could add about 0.7 percentage point to global food inflation at its peak. The figure is a forecast, not an observed increase, and the timing and size depend on weather, crops, energy and trade.",
     "significance": 80,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2602,23 +2635,23 @@ const stories = [
       }
     ],
     "facts": [
-      "Reuters identifies food inflation as a major market theme as El Niño strengthens and conflict disrupts energy and trade.",
-      "JPMorgan estimates cited by Reuters suggest a strong El Niño could add to global food inflation at its peak.",
-      "The size and timing of any price effect remain uncertain and depend on weather, crops, energy and trade flows.",
-      "The article is forward-looking market analysis rather than a guarantee of future inflation."
+      "Source classification: Reuters 'Take Five' is forward-looking market analysis.",
+      "Reported risk factors: strong El Niño, higher energy costs, fertilizer shortages tied to Middle East disruption and Ukraine-related grain risks.",
+      "Forecast cited: JPMorgan estimated a strong El Niño could add about 0.7 percentage point to global food inflation at its peak.",
+      "Unknown: the actual size and timing of any food-price effect depend on future weather, crop, energy and trade conditions."
     ],
     "why": "7Tribunes ranks this #7 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
-    "brief": "Global investors are again watching food-price risk as El Niño strengthens alongside high energy costs and geopolitical disruptions. Changes in weather can affect crop yields and commodity supply, while fuel and transportation costs influence how much food costs to produce and move. The concern is whether those pressures combine to push food inflation higher after households and central banks spent several years dealing with elevated prices."
+    "brief": "Reuters' 'Take Five' analysis said a strong El Niño, higher energy costs, fertilizer shortages tied to Middle East disruption and Ukraine-related grain risks could renew food-price pressure. JPMorgan estimated a strong El Niño could add about 0.7 percentage point to global food inflation at its peak. The figure is a forecast, not an observed increase, and the timing and size depend on weather, crops, energy and trade."
   },
   {
     "id": "faith-1",
     "pillar": "Faith & Family",
     "scope": "World",
     "rank": 1,
-    "title": "Christians in Israel describe rising harassment and look to faith and allies for support",
-    "deck": "Christians in Israel told the Associated Press they are experiencing increased harassment, raising concerns about religious freedom and minority security. The report describes incidents and the response of Christian communities seeking support from religious and civic allies. Israeli authorities and other groups may dispute how widespread or representative individual incidents are, making documentation, enforcement responses and broader trend data important to evaluating the scale of the problem.",
+    "title": "Christians in Israel report harassment as authorities and Jewish allies respond",
+    "deck": "Christians in Israel told AP they are experiencing increased harassment, including spitting, vandalism and physical attacks, with incidents often attributed to religious-nationalist or ultra-Orthodox Jewish extremists. Christians make up less than 2% of Israel's population. Israeli authorities have taken steps including stronger penalties, policing and a new envoy, while Jewish volunteers have accompanied clergy and supported Christian communities. The scale of underreported incidents remains uncertain.",
     "significance": 92,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -2634,23 +2667,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Reported by AP: Christians described incidents including spitting, vandalism and physical assault.",
+      "Context: Christians make up less than 2% of Israel's population.",
+      "Reported attribution: the harassment described was often linked to religious-nationalist or ultra-Orthodox Jewish extremists, not Jews generally.",
+      "Confirmed response: Israeli authorities and Jewish allies have taken steps including policing, penalties, an envoy and accompaniment of clergy; the full scale of unreported incidents is uncertain."
     ],
     "why": "7Tribunes ranks this #1 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Christians in Israel told the Associated Press they are experiencing increased harassment, raising concerns about religious freedom and minority security. The report describes incidents and the response of Christian communities seeking support from religious and civic allies. Israeli authorities and other groups may dispute how widespread or representative individual incidents are, making documentation, enforcement responses and broader trend data important to evaluating the scale of the problem."
+    "brief": "Christians in Israel told AP they are experiencing increased harassment, including spitting, vandalism and physical attacks, with incidents often attributed to religious-nationalist or ultra-Orthodox Jewish extremists. Christians make up less than 2% of Israel's population. Israeli authorities have taken steps including stronger penalties, policing and a new envoy, while Jewish volunteers have accompanied clergy and supported Christian communities. The scale of underreported incidents remains uncertain."
   },
   {
     "id": "family-3",
     "pillar": "Faith & Family",
     "scope": "US",
     "rank": 2,
-    "title": "Inflation slows, but many household prices remain elevated",
-    "deck": "U.S. inflation has slowed from earlier peaks, but many prices paid by households remain well above their previous levels. Lower inflation means prices are rising more slowly; it does not mean prices have returned to where they were before the inflation surge. Families therefore can experience continuing pressure on groceries, housing, services and other expenses even while official inflation measures show improvement.",
+    "title": "U.S. inflation slows to 3.4% in July while household prices remain elevated",
+    "deck": "U.S. consumer prices rose 3.4% in July from a year earlier, down from 3.5% in June, while monthly inflation was 0.1%. Core inflation was 2.5%. Gasoline and grocery prices eased on the month, but gasoline remained about 25% higher than a year earlier and groceries 2.7% higher. Slower inflation means prices are rising more slowly, not that prior price increases have reversed.",
     "significance": 90,
     "published": "Aug. 2026",
     "confidence": "Source-backed snapshot",
@@ -2674,23 +2707,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: July CPI inflation was 3.4% year over year, down from 3.5% in June, and 0.1% month over month.",
+      "Confirmed: core inflation was 2.5% year over year.",
+      "Reported: gasoline and grocery prices eased on the month; gasoline remained about 25% higher year over year and groceries about 2.7% higher.",
+      "Clarification: a lower inflation rate means prices are increasing more slowly; it does not mean the overall price level returned to earlier levels."
     ],
     "why": "7Tribunes ranks this #2 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "U.S. inflation has slowed from earlier peaks, but many prices paid by households remain well above their previous levels. Lower inflation means prices are rising more slowly; it does not mean prices have returned to where they were before the inflation surge. Families therefore can experience continuing pressure on groceries, housing, services and other expenses even while official inflation measures show improvement."
+    "brief": "U.S. consumer prices rose 3.4% in July from a year earlier, down from 3.5% in June, while monthly inflation was 0.1%. Core inflation was 2.5%. Gasoline and grocery prices eased on the month, but gasoline remained about 25% higher than a year earlier and groceries 2.7% higher. Slower inflation means prices are rising more slowly, not that prior price increases have reversed."
   },
   {
     "id": "faith-2",
     "pillar": "Faith & Family",
     "scope": "World",
     "rank": 3,
-    "title": "Nigerian faith leaders sign a peace accord after months of religious and political tension",
-    "deck": "Religious leaders in Nigeria signed a peace accord intended to reduce tensions after months of political and religious strain. The agreement reflects an effort by faith leaders to act as mediators and encourage restraint across communities. Its effectiveness will depend on whether political actors, religious groups and local communities follow through, and whether the accord reduces violence or mistrust beyond the ceremony where it was signed.",
+    "title": "More than 50 Nigerian Muslim and Christian leaders sign peace accord in Abuja",
+    "deck": "More than 50 Muslim and Christian leaders signed a peace accord in Abuja organized by the Saudi-based Muslim World League. Signers pledged to reject hate speech, religious insults and labeling one another as infidels, and to cooperate across faith lines. The accord follows sectarian and extremist violence in Nigeria; rights groups and analysts cited by Reuters say Muslims have made up the majority of Boko Haram and ISWAP victims, though Christians also have been killed.",
     "significance": 87,
     "published": "Aug. 13, 2026",
     "confidence": "Source-backed snapshot",
@@ -2706,23 +2739,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: more than 50 Muslim and Christian leaders signed the accord in Abuja.",
+      "Confirmed organizer: the Saudi-based Muslim World League organized the initiative.",
+      "Confirmed commitments: signers pledged against hate speech, religious insults and labeling others infidels, while supporting interfaith cooperation.",
+      "Context from Reuters: Christians and Muslims have both been killed in extremist violence; rights groups and analysts say Muslims comprise the majority of Boko Haram and ISWAP victims."
     ],
     "why": "7Tribunes ranks this #3 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Religious leaders in Nigeria signed a peace accord intended to reduce tensions after months of political and religious strain. The agreement reflects an effort by faith leaders to act as mediators and encourage restraint across communities. Its effectiveness will depend on whether political actors, religious groups and local communities follow through, and whether the accord reduces violence or mistrust beyond the ceremony where it was signed."
+    "brief": "More than 50 Muslim and Christian leaders signed a peace accord in Abuja organized by the Saudi-based Muslim World League. Signers pledged to reject hate speech, religious insults and labeling one another as infidels, and to cooperate across faith lines. The accord follows sectarian and extremist violence in Nigeria; rights groups and analysts cited by Reuters say Muslims have made up the majority of Boko Haram and ISWAP victims, though Christians also have been killed."
   },
   {
     "id": "faith-3",
     "pillar": "Faith & Family",
     "scope": "US",
     "rank": 4,
-    "title": "Released Texas pastors say immigration agents threatened family separation",
-    "deck": "Texas pastors who were released after encounters with immigration authorities said agents threatened family separation during their detention. Their account places immigration enforcement, clergy activity and family treatment at the center of the dispute. The pastors are describing their experience; immigration authorities’ account and any official records are necessary for a complete assessment of what agents said, what legal authority was used and how the encounter unfolded.",
+    "title": "Released Texas pastors allege immigration agents coerced them; DHS denies coercion",
+    "deck": "Married assistant pastors Nepthali Zozaya Saucedo and Cinthia Sarai Cardona Otero said immigration agents threatened family separation and deportation to third countries while pressuring them to accept voluntary departure after they were detained en route to a Billy Graham retreat. DHS called the coercion allegation 'categorically false' and said their visas expired in 2022; supporters say they held valid R-1 religious-worker visas. An immigration judge will consider their case.",
     "significance": 81,
     "published": "July 27, 2026",
     "confidence": "Source-backed snapshot",
@@ -2738,23 +2771,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed: the married assistant pastors were detained while traveling to a Billy Graham retreat and later released.",
+      "Pastors' allegation: agents threatened family separation, third-country deportation and prolonged detention while pressing them to accept voluntary departure.",
+      "DHS response: the agency called the coercion allegation 'categorically false' and said their visas expired in 2022.",
+      "Disputed status: supporters say the couple held valid R-1 religious-worker visas; their immigration case remains subject to judicial review."
     ],
     "why": "7Tribunes ranks this #4 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Texas pastors who were released after encounters with immigration authorities said agents threatened family separation during their detention. Their account places immigration enforcement, clergy activity and family treatment at the center of the dispute. The pastors are describing their experience; immigration authorities’ account and any official records are necessary for a complete assessment of what agents said, what legal authority was used and how the encounter unfolded."
+    "brief": "Married assistant pastors Nepthali Zozaya Saucedo and Cinthia Sarai Cardona Otero said immigration agents threatened family separation and deportation to third countries while pressuring them to accept voluntary departure after they were detained en route to a Billy Graham retreat. DHS called the coercion allegation 'categorically false' and said their visas expired in 2022; supporters say they held valid R-1 religious-worker visas. An immigration judge will consider their case."
   },
   {
     "id": "family-6",
     "pillar": "Faith & Family",
     "scope": "US",
     "rank": 5,
-    "title": "Back-to-school shoppers start earlier as higher bills pressure family budgets",
-    "deck": "Families began back-to-school shopping earlier as higher household bills increased pressure to find discounts and spread purchases over more time. Retailers reported stronger bargain hunting as parents compared prices on clothing, supplies and other school needs. The pattern connects broader inflation and household-cost pressures with everyday purchasing decisions, even as families still must buy many required items before the school year begins.",
+    "title": "Back-to-school families shop early as 47% expect to spend more than last year",
+    "deck": "U.S. families started back-to-school shopping earlier as higher household bills increased pressure to find discounts. Reuters reported average expected spending of about $922 and said 47% of families expected to spend more than in 2025; that figure does not mean spending was projected to rise 47%. The survey also found 61% of households let children add social-media finds to shopping carts while parents searched for bargains.",
     "significance": 79,
     "published": "July 6, 2026",
     "confidence": "Source-backed snapshot",
@@ -2770,23 +2803,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Reported expected average: U.S. families planned to spend about $922 on back-to-school purchases.",
+      "Corrected meaning: 47% of families expected to spend more than in 2025; Reuters did not report a 47% increase in spending amount.",
+      "Reported: 61% of households let children add items discovered on social media to shopping carts.",
+      "Context: families were shopping earlier and comparing promotions as food, energy and other household costs pressured budgets."
     ],
     "why": "7Tribunes ranks this #5 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Families began back-to-school shopping earlier as higher household bills increased pressure to find discounts and spread purchases over more time. Retailers reported stronger bargain hunting as parents compared prices on clothing, supplies and other school needs. The pattern connects broader inflation and household-cost pressures with everyday purchasing decisions, even as families still must buy many required items before the school year begins."
+    "brief": "U.S. families started back-to-school shopping earlier as higher household bills increased pressure to find discounts. Reuters reported average expected spending of about $922 and said 47% of families expected to spend more than in 2025; that figure does not mean spending was projected to rise 47%. The survey also found 61% of households let children add social-media finds to shopping carts while parents searched for bargains."
   },
   {
     "id": "faith-4",
     "pillar": "Faith & Family",
     "scope": "US",
     "rank": 6,
-    "title": "Survey: half of Gen Z respondents say Trump support keeps them out of church",
-    "deck": "A survey reported that about half of Gen Z respondents said support for Donald Trump within churches makes them less willing to attend. The finding measures the attitudes of surveyed respondents, not all young adults or all congregations. The report adds to a broader discussion about whether partisan political identity inside religious communities affects participation, especially among younger people who may separate personal faith from institutional affiliation.",
+    "title": "Survey: 48% of Gen Z respondents say Christian support for Trump makes them less likely to attend church",
+    "deck": "A NORC AmeriSpeak survey of 2,365 U.S. adults ages 18-28, fielded in 2024 and discussed in Religion News Service commentary, found 48% agreed that Christians' support for Donald Trump made them less likely to go to church; 21% strongly agreed and 21% strongly disagreed. The authors caution the survey cannot show that politics is the primary or sole reason respondents do not attend church.",
     "significance": 78,
     "published": "July 20, 2026",
     "confidence": "Source-backed snapshot",
@@ -2802,23 +2835,23 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed survey sample: 2,365 U.S. adults ages 18-28 in the NORC AmeriSpeak panel.",
+      "Important timing: the survey was fielded Aug. 9-Sept. 26, 2024, although the RNS commentary was published in 2026.",
+      "Reported result: 48% agreed Christian support for Donald Trump made them less likely to attend church; 21% strongly agreed and 21% strongly disagreed.",
+      "Causality limit: the authors explicitly caution that the survey cannot establish politics as the primary or only reason for church nonattendance."
     ],
     "why": "7Tribunes ranks this #6 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "A survey reported that about half of Gen Z respondents said support for Donald Trump within churches makes them less willing to attend. The finding measures the attitudes of surveyed respondents, not all young adults or all congregations. The report adds to a broader discussion about whether partisan political identity inside religious communities affects participation, especially among younger people who may separate personal faith from institutional affiliation."
+    "brief": "A NORC AmeriSpeak survey of 2,365 U.S. adults ages 18-28, fielded in 2024 and discussed in Religion News Service commentary, found 48% agreed that Christians' support for Donald Trump made them less likely to go to church; 21% strongly agreed and 21% strongly disagreed. The authors caution the survey cannot show that politics is the primary or sole reason respondents do not attend church."
   },
   {
     "id": "family-7",
     "pillar": "Faith & Family",
     "scope": "State",
     "rank": 7,
-    "title": "Oklahoma school cellphone rules change the school-day routine for families",
-    "deck": "Oklahoma’s bell-to-bell school cellphone restrictions change when students can use personal devices during the school day. The rule affects classroom routines and how families plan ordinary or emergency communication with students while school is in session. Supporters argue fewer phones can reduce distraction; families and schools still must establish practical ways to handle urgent contact, exceptions and enforcement during the day.",
+    "title": "Oklahoma makes 'Bell to Bell, No Cell' school cellphone restriction permanent",
+    "deck": "Oklahoma enacted a permanent statewide 'Bell to Bell, No Cell' rule requiring school districts to prohibit students from using personal cellphones during the school day on campus. The law includes exceptions for emergencies and documented medical needs. Schools are responsible for implementing and enforcing local procedures. The policy changes how families contact students during class time but does not prohibit authorized emergency or medical use.",
     "significance": 76,
     "published": "2026 school year",
     "confidence": "Source-backed snapshot",
@@ -2834,15 +2867,15 @@ const stories = [
       }
     ],
     "facts": [
-      "The linked reporting supports the core event described in this brief.",
-      "The publisher date and original source link are preserved so the reader can inspect the underlying reporting.",
-      "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
-      "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
+      "Confirmed by the governor's office: Oklahoma enacted a permanent statewide 'Bell to Bell, No Cell' school cellphone restriction.",
+      "Confirmed: districts must prohibit student cellphone use during the school day on campus.",
+      "Confirmed exceptions include emergencies and documented medical needs.",
+      "Implementation: school districts establish procedures for enforcement and family communication within the statewide requirement."
     ],
     "why": "7Tribunes ranks this #7 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
     "live": true,
-    "brief": "Oklahoma’s bell-to-bell school cellphone restrictions change when students can use personal devices during the school day. The rule affects classroom routines and how families plan ordinary or emergency communication with students while school is in session. Supporters argue fewer phones can reduce distraction; families and schools still must establish practical ways to handle urgent contact, exceptions and enforcement during the day."
+    "brief": "Oklahoma enacted a permanent statewide 'Bell to Bell, No Cell' rule requiring school districts to prohibit students from using personal cellphones during the school day on campus. The law includes exceptions for emergencies and documented medical needs. Schools are responsible for implementing and enforcing local procedures. The policy changes how families contact students during class time but does not prohibit authorized emergency or medical use."
   }
 ];
 

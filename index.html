@@ -907,6 +907,64 @@
   }
 }
 
+
+  .collapsible-brief-section{padding-top:2px}
+  .brief-disclosure{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:var(--ink);
+    font:inherit;
+    font-weight:800;
+    text-align:left;
+    cursor:pointer;
+  }
+  .brief-disclosure:hover span:first-child{text-decoration:underline}
+  .brief-disclosure-inline{
+    margin-top:2px;
+    padding:2px 0;
+  }
+  .brief-disclosure-icon{
+    flex:0 0 auto;
+    width:22px;
+    height:22px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--rule);
+    border-radius:50%;
+    font-family:Arial,sans-serif;
+    font-size:15px;
+    line-height:1;
+    color:var(--deep);
+    background:#fff;
+  }
+  .brief-disclosure-body{
+    margin-top:8px;
+  }
+  .brief-disclosure-body[hidden]{display:none !important}
+
+
+  .section-home-btn{
+    border:1px solid #c9d1dc;
+    background:#fff;
+    color:#11284e;
+    border-radius:8px;
+    padding:6px 10px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10px;
+    font-weight:800;
+    cursor:pointer;
+  }
+  .section-home-btn:hover{
+    background:#eef2f7;
+    border-color:#9eabbc;
+  }
+
 </style>
 </head>
 <body>
@@ -3142,7 +3200,12 @@ function openStory(id,tab="summary"){
     <p>${s.why}</p>
 
     <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
-    <p>7Tribunes Briefs are short overviews of statements from multiple published articles. Links to original reporting are provided.</p>
+    <button class="brief-disclosure brief-disclosure-inline" type="button" aria-expanded="false" onclick="toggleBriefDisclosure(this)">
+        <span>Linked Reporting</span><span class="brief-disclosure-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="brief-disclosure-body" hidden>
+        <p>7Tribunes Briefs are short overviews of statements from multiple published articles. Links to original reporting are provided.</p>
+      </div>
     <div class="linked-reporting">
       ${s.sourcesDetail.map((src,i)=>`
         <article class="linked-story">
@@ -3582,6 +3645,17 @@ function handleStoryBriefClick(event){
 document.addEventListener("click",handleStoryBriefClick);
 
 
+
+
+function toggleBriefDisclosure(button){
+  const body = button.nextElementSibling;
+  if(!body) return;
+  const isOpen = button.getAttribute("aria-expanded") === "true";
+  button.setAttribute("aria-expanded", String(!isOpen));
+  body.hidden = isOpen;
+  const icon = button.querySelector(".brief-disclosure-icon");
+  if(icon) icon.textContent = isOpen ? "+" : "−";
+}
 
 </script>
 

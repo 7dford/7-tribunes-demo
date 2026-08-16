@@ -965,6 +965,46 @@
     border-color:#9eabbc;
   }
 
+
+  .brief-details{
+    border-top:1px solid var(--rule);
+    padding-top:10px;
+  }
+  .brief-details summary{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    color:var(--ink);
+    font-weight:800;
+    cursor:pointer;
+    user-select:none;
+  }
+  .brief-details summary::-webkit-details-marker{display:none}
+  .brief-details summary:after{
+    content:"+";
+    flex:0 0 auto;
+    width:22px;
+    height:22px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--rule);
+    border-radius:50%;
+    font-family:Arial,sans-serif;
+    font-size:15px;
+    line-height:1;
+    background:#fff;
+    color:var(--deep);
+  }
+  .brief-details[open] summary:after{content:"−"}
+  .brief-details-body{
+    margin-top:8px;
+  }
+  .brief-details-body p{
+    margin:0;
+  }
+
 </style>
 </head>
 <body>
@@ -3198,22 +3238,19 @@ function openStory(id,tab="summary"){
     <div class="factrow"><b>Source</b><p>${s.facts[1]}</p></div>
     <div class="factrow"><b>Disputed</b><p>${s.facts[2]}</p></div>
     <div class="factrow"><b>Unknown</b><p>${s.facts[3]}</p></div>
-    <div class="collapsible-brief-section" style="margin-top:24px">
-      <button class="brief-disclosure" type="button" aria-expanded="false" onclick="toggleBriefDisclosure(this)">
-        <span>Why It Matters</span><span class="brief-disclosure-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="brief-disclosure-body" hidden>
+    <details class="brief-details" style="margin-top:24px">
+      <summary>Why It Matters</summary>
+      <div class="brief-details-body">
         <p>${s.why}</p>
       </div>
-    </div>
+    </details>
 
-    <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
-    <button class="brief-disclosure brief-disclosure-inline" type="button" aria-expanded="false" onclick="toggleBriefDisclosure(this)">
-        <span>Linked Reporting</span><span class="brief-disclosure-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="brief-disclosure-body" hidden>
+    <details class="brief-details" style="margin-top:24px">
+      <summary>Dig Deeper · Linked Reporting</summary>
+      <div class="brief-details-body">
         <p>7Tribunes Briefs are short overviews of statements from multiple published articles. Links to original reporting are provided.</p>
       </div>
+    </details>
     <div class="linked-reporting">
       ${s.sourcesDetail.map((src,i)=>`
         <article class="linked-story">

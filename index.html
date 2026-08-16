@@ -984,8 +984,8 @@
     <section class="daily-brief">
       <div class="brief-box">
         <span class="kicker">Editorial Method</span>
-        <h3>7Tribunes Brief first. Perspective second.</h3>
-        <p><strong>Every 7Tribunes Brief is fewer than 75 words and built from the factual spine of the linked reporting, not one publisher's loaded wording.</strong> Loaded phrasing is removed while confirmed facts, material disputes and uncertainty are preserved. <strong>7Tribunes separates reliability from ideology.</strong> Entertainment, celebrity and gossip items are treated as cross-cutting content and may appear inside any relevant section when genuinely newsworthy and when they meet verification, privacy and decency guardrails. A source can lean left or right and still score highly for reporting quality. The platform first identifies what is confirmed, reported, disputed, unknown, or corrected—then compares how credible reporting frames the same story.</p>
+        <h3>7Tribunes Brief first. Facts before framing.</h3>
+        <p><strong>Every 7Tribunes Brief is fewer than 75 words and built only from facts and attributed statements contained in the linked reporting.</strong> Where the reporting establishes them, the brief answers the journalistic basics: <strong>who did what, to whom or what, when, where, how, and why.</strong> Loaded phrasing is removed while material disputes, attribution and uncertainty are preserved. If a source does not establish one of those facts, 7Tribunes leaves it unknown rather than inferring an answer. <strong>Shorter, not altered.</strong></p>
         <button class="btn soft" id="methodBtn">See the methodology</button>
       </div>
       <div class="brief-box premium" id="premiumCard">
@@ -3059,6 +3059,7 @@ function openStory(id,tab="summary"){
     <p class="brief-expanded">${s.brief || s.deck}</p>
     <a class="btn primary" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">Read Original Story ↗</a>
     <h2 style="margin-top:24px">What We Know</h2>
+    <p class="edition-note"><strong>Journalistic basics:</strong> who did what, to whom or what, when, where, how and why—when the linked reporting establishes those facts. Details that do not fit inside the 75-word Brief belong here; missing facts remain unknown.</p>
     <div class="factrow"><b>Confirmed</b><p>${s.facts[0]}</p></div>
     <div class="factrow"><b>Source</b><p>${s.facts[1]}</p></div>
     <div class="factrow"><b>Disputed</b><p>${s.facts[2]}</p></div>
@@ -3067,7 +3068,7 @@ function openStory(id,tab="summary"){
     <p>${s.why}</p>
 
     <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
-    <p>The 7Tribunes Brief is the entry point. Open one source or several underlying reports and read the journalism directly.</p>
+    <p>The 7Tribunes Brief is a consolidation of statements from other articles. We do not intend to replace original reporting. For the full story, open one source or several underlying reports and read the journalism directly.</p>
     <div class="linked-reporting">
       ${s.sourcesDetail.map((src,i)=>`
         <article class="linked-story">

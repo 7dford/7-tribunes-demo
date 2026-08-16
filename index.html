@@ -814,44 +814,96 @@
   .brief-expanded{font-size:18px;line-height:1.48;margin:0 0 14px;max-width:900px}
 
 
-@media (max-width: 640px){
-  #pillarNav{
-    display:flex !important;
-    flex-wrap:nowrap !important;
-    gap:7px !important;
-    overflow-x:auto;
-    overflow-y:hidden;
-    -webkit-overflow-scrolling:touch;
-    scroll-behavior:smooth;
-    scrollbar-width:none;
-    overscroll-behavior-x:contain;
-    padding:7px 10px 8px !important;
-    scroll-padding-inline:16px;
-    align-items:center;
+
+
+@media (max-width: 650px){
+  /* Phone navigation: normal page content, not sticky. */
+  .nav{
+    position:static !important;
+    top:auto !important;
+    box-shadow:none;
+    backdrop-filter:none;
+    overflow:visible;
   }
-  #pillarNav::-webkit-scrollbar{display:none}
-  #pillarNav button{
-    flex:0 0 138px !important;
-    width:138px !important;
-    min-width:138px !important;
-    max-width:138px !important;
-    height:38px;
-    min-height:38px;
-    padding:6px 9px !important;
-    font-size:10px !important;
-    line-height:1.08;
+  .section-nav-buttons{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:5px !important;
+    width:100% !important;
+    min-width:0 !important;
+  }
+  .section-nav-buttons button{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    min-height:36px;
+    height:auto;
+    padding:7px 6px !important;
+    font-size:9px !important;
+    line-height:1.12;
     white-space:normal;
-    text-align:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:8px;
   }
-  #pillarNav button[data-pillar="All"]{
-    flex-basis:116px !important;
-    width:116px !important;
-    min-width:116px !important;
-    max-width:116px !important;
+  .nav-tools{
+    width:100% !important;
+    min-width:0 !important;
+  }
+}
+
+/* Portrait phones: force the news feed/cards to use the full available width. */
+@media (max-width: 480px) and (orientation: portrait){
+  html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  .app{
+    width:100% !important;
+    max-width:none !important;
+    padding-left:10px !important;
+    padding-right:10px !important;
+    overflow-x:hidden;
+  }
+  #newsView,
+  .frontgrid,
+  .hero,
+  .rail,
+  .pillars,
+  .pillar-stacks,
+  .pillar-block,
+  .pillar-layout,
+  .reaction-feature,
+  .top7-panel,
+  .story-grid,
+  .story-card,
+  .ranked-story{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+  }
+  .story-grid,
+  .pillar-layout,
+  .frontgrid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  .story-card{
+    margin-right:0 !important;
+    padding-right:0 !important;
+  }
+  .ranked-story{
+    grid-template-columns:30px minmax(0,1fr) !important;
+  }
+  .ranked-story > *,
+  .story-card > *,
+  .hero > *,
+  .rail > *{
+    min-width:0;
+    max-width:100%;
+  }
+  .story-title-button,
+  .story-card h3,
+  .ranked-story h4{
+    max-width:100%;
+    overflow-wrap:anywhere;
   }
 }
 
@@ -2940,15 +2992,6 @@ function renderLocalVoices(){
 }
 
 
-function centerActiveSectionButton(){
-  const nav=document.getElementById("pillarNav");
-  if(!nav || window.innerWidth>640) return;
-  const active=nav.querySelector("button.active");
-  if(!active) return;
-  requestAnimationFrame(()=>{
-    active.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
-  });
-}
 
 function render(){
   const arr=filteredStories();
@@ -3051,7 +3094,6 @@ function render(){
 
   renderAdmin();
   if(typeof renderLocalVoices === "function") renderLocalVoices();
-  centerActiveSectionButton();
 }
 function scopeLabel(s){return s==="US"?"U.S.":s==="State"?"Oklahoma":s}
 
@@ -3540,8 +3582,6 @@ function handleStoryBriefClick(event){
 document.addEventListener("click",handleStoryBriefClick);
 
 
-window.addEventListener("resize",centerActiveSectionButton);
-window.addEventListener("orientationchange",()=>setTimeout(centerActiveSectionButton,120));
 
 </script>
 

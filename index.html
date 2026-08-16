@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>7 Tribunes — Filtering For Facts</title>
+<title>7Tribunes — The Truth Is Stubborn</title>
 <style>
   :root{
     --paper:#faf8f2;
@@ -818,12 +818,24 @@
     color:#fff;
   }
 
+
+  .story-title-button{
+    appearance:none;border:0;background:transparent;padding:0;margin:0;text-align:left;
+    font:inherit;color:inherit;cursor:pointer;
+  }
+  .brief-label{
+    display:inline-block;margin:5px 0 7px;padding:3px 7px;border:1px solid #c9d1dc;
+    border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:800;
+    letter-spacing:.06em;text-transform:uppercase;color:#11284e;background:#f8fafc;
+  }
+  .brief-expanded{font-size:18px;line-height:1.48;margin:0 0 14px;max-width:900px}
+
 </style>
 </head>
 <body>
 <div class="app" id="app">
   <div class="topline">
-    <div id="dateLine">7 Tribunes · Live-Sourced Snapshot</div>
+    <div id="dateLine">7Tribunes · Live-Sourced Snapshot</div>
     <div class="right">
       <span class="demo-pill">Live-Sourced Snapshot · POC</span>
       <button class="linkbtn" id="locationBtn">Tulsa, Oklahoma</button>
@@ -972,12 +984,12 @@
     <section class="daily-brief">
       <div class="brief-box">
         <span class="kicker">Editorial Method</span>
-        <h3>Neutral brief first. Perspective second.</h3>
-        <p><strong>Every short take is built from the multi-source factual spine, not one publisher's wording.</strong> Loaded phrasing is removed while confirmed facts, material disputes and uncertainty are preserved. <strong>7 Tribunes separates reliability from ideology.</strong> Entertainment, celebrity and gossip items are treated as cross-cutting content and may appear inside any relevant Pillar when genuinely newsworthy and when they meet verification, privacy and decency guardrails. A source can lean left or right and still score highly for reporting quality. The platform first identifies what is confirmed, reported, disputed, unknown, or corrected—then compares how credible reporting frames the same story.</p>
+        <h3>7Tribunes Brief first. Perspective second.</h3>
+        <p><strong>Every 7Tribunes Brief is fewer than 75 words and built from the factual spine of the linked reporting, not one publisher's loaded wording.</strong> Loaded phrasing is removed while confirmed facts, material disputes and uncertainty are preserved. <strong>7Tribunes separates reliability from ideology.</strong> Entertainment, celebrity and gossip items are treated as cross-cutting content and may appear inside any relevant section when genuinely newsworthy and when they meet verification, privacy and decency guardrails. A source can lean left or right and still score highly for reporting quality. The platform first identifies what is confirmed, reported, disputed, unknown, or corrected—then compares how credible reporting frames the same story.</p>
         <button class="btn soft" id="methodBtn">See the methodology</button>
       </div>
       <div class="brief-box premium" id="premiumCard">
-        <span class="kicker" style="color:#c6a35d">7 Tribunes Member</span>
+        <span class="kicker" style="color:#c6a35d">7Tribunes Member</span>
         <h3>Compare more. Save more. Unlock all 7 Takes.</h3>
         <p>The POC includes a simulated entitlement layer for full coverage comparison, the complete 7 Takes feature, saved stories, archive access and future premium dashboards.</p>
         <button class="btn primary" id="upgradeBtn">Activate Demo Membership</button>
@@ -999,7 +1011,7 @@
     <div class="admin-section">
       <h3>Story Operations</h3>
       <table>
-        <thead><tr><th>Cluster</th><th>Pillar</th><th>Scope</th><th>Significance</th><th>Sources</th><th>Status</th></tr></thead>
+        <thead><tr><th>Cluster</th><th>Section</th><th>Scope</th><th>Significance</th><th>Sources</th><th>Status</th></tr></thead>
         <tbody id="adminStories"></tbody>
       </table>
     </div>
@@ -1037,8 +1049,8 @@
   </section>
 
   <footer class="footer">
-    <div><strong>7 Tribunes Live-Sourced Proof of Concept.</strong> Story links and publisher names in this snapshot point to real reporting or official sources. Rankings and neutral briefs are 7 Tribunes proof-of-concept editorial synthesis, not publisher rankings.</div>
-    <div>This is a manually assembled snapshot, not an automated live newsroom. Social reaction counts and article-level political-orientation ratings are not fabricated when the required data/methodology is not connected. Production deployment requires licensed/authorized feeds, publisher agreements, moderation, security, legal/privacy review and independent methodology governance.</div>
+    <div><strong>7Tribunes Live-Sourced Proof of Concept.</strong> Story links and publisher names in this snapshot point to real reporting or official sources. Rankings and 7Tribunes Briefs are proof-of-concept editorial synthesis, not publisher rankings.</div>
+    <div>This is a manually assembled snapshot, not an automated live newsroom. In production, a story may occupy a Top 7 slot for no more than 24 hours; a materially new development becomes a new update and is re-ranked. Social reaction counts and article-level political-orientation ratings are not fabricated when the required data/methodology is not connected. Production deployment requires licensed/authorized feeds, publisher agreements, moderation, security, legal/privacy review and independent methodology governance.</div>
   </footer>
 </div>
 
@@ -1049,7 +1061,7 @@
     <button class="drawer-close" id="drawerClose" aria-label="Close">×</button>
     <div id="drawerHeader"></div>
     <div class="tabs" id="drawerTabs">
-      <button class="active" data-tab="summary">What We Know</button>
+      <button class="active" data-tab="summary">Open 7Tribunes Brief</button>
       <button data-tab="coverage">Compare Coverage</button>
       <button data-tab="takes">7 Takes</button>
       <button data-tab="timeline">Timeline</button>
@@ -1066,7 +1078,7 @@
 <div class="modal" id="locationModal">
   <span class="kicker">Local Edition</span>
   <h2>Choose your location</h2>
-  <p>7 Tribunes can use your approximate location for local news, sports, crime and weather. Precise coordinates are not required for normal news personalization.</p>
+  <p>7Tribunes can use your approximate location for local news, sports, crime and weather. Precise coordinates are not required for normal news personalization.</p>
   <div class="formrow">
     <input id="locationInput" value="Tulsa, Oklahoma" placeholder="City, state, ZIP or country">
     <button class="btn primary" id="saveLocation">Use Location</button>
@@ -1090,7 +1102,7 @@
 
 <div class="modal" id="accountModal">
   <span class="kicker">Account Demo</span>
-  <h2 id="accountTitle">7 Tribunes Membership</h2>
+  <h2 id="accountTitle">7Tribunes Membership</h2>
   <p id="accountCopy">This POC simulates authentication and subscription entitlements. No payment information is collected.</p>
   <div class="story-actions">
     <button class="btn primary" id="demoSignIn">Sign In as Demo User</button>
@@ -1100,7 +1112,7 @@
 </div>
 
 <div class="modal" id="methodModal">
-  <span class="kicker">7 Tribunes Method</span>
+  <span class="kicker">7Tribunes Method</span>
   <h2>Balance without false equivalence</h2>
   <p><strong>1. Establish the fact spine.</strong> Identify confirmed, reported, disputed, unknown and changed information using multiple independent sources.</p>
   <p><strong>2. Score reporting quality separately.</strong> Reliability considers sourcing, evidence, headline accuracy, transparency, corrections and reporting-versus-opinion separation.</p>
@@ -1139,7 +1151,7 @@ function setDailyQuote(){
 
 
 const FEATURED_COMMENTS = [
-  {id:"c1",author:"TulsaReader",pillar:"Local",text:"The neutral brief is useful, but the best feature is being able to jump straight to the original reporting and compare sources.",reactions:1842},
+  {id:"c1",author:"TulsaReader",pillar:"Local",text:"The 7Tribunes Brief is useful, but the best feature is being able to jump to the original reporting and compare sources.",reactions:1842},
   {id:"c2",author:"SoonerVoice",pillar:"State & National",text:"Show me what actually changed in the law or policy first. Then show me what each side thinks about it.",reactions:1567},
   {id:"c3",author:"GridironDad",pillar:"Sports",text:"Sports belongs here because it is a huge part of community life. Just keep the difference between reporting and fan opinion obvious.",reactions:1438},
   {id:"c4",author:"FamilyFirstOK",pillar:"Faith & Family",text:"Family impact should translate big economic numbers into what they mean for groceries, utilities, school, health care and household decisions.",reactions:1324},
@@ -1174,6 +1186,7 @@ window.reactToFeatured = function(id){
   renderFeaturedComments();
 };
 
+const TOP7_MAX_TENURE_HOURS = 24;
 const LIVE_SNAPSHOT_TIME = "Aug. 15, 2026 · 2:58 PM CDT";
 const pillarDescriptions = {
   "Local":"The seven local developments most worth knowing for your community, county and region.",
@@ -1192,7 +1205,7 @@ const stories = [
     "scope": "Local",
     "rank": 1,
     "title": "Dangerous heat drives a third straight EMSA Medical Heat Alert",
-    "deck": "Tulsa-area emergency medical officials extended their heat alert as extreme heat continues to generate heat-related calls and transports. The immediate local issue is health risk: prolonged exposure can turn routine outdoor activity into an emergency.",
+    "deck": "EMSA issued a Medical Heat Alert for a third straight day as dangerous temperatures continued across the Tulsa area. Local weather reporting and official forecasts warned that prolonged outdoor exposure could cause heat illness, while emergency crews were responding to heat-related calls and transports. Residents were urged to limit strenuous activity, hydrate and check on people especially vulnerable to extreme heat.",
     "significance": 94,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1229,9 +1242,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #1 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "EMSA issued a Medical Heat Alert for a third straight day as dangerous temperatures continued across the Tulsa area. Local weather reporting and official forecasts warned that prolonged outdoor exposure could cause heat illness, while emergency crews were responding to heat-related calls and transports. Residents were urged to limit strenuous activity, hydrate and check on people especially vulnerable to extreme heat."
   },
   {
     "id": "local-2",
@@ -1239,7 +1253,7 @@ const stories = [
     "scope": "Local",
     "rank": 2,
     "title": "Operation SAFE cleanup bill becomes a Tulsa-state dispute",
-    "deck": "A dispute over who should pay for cleanup connected to Operation SAFE has become a local government issue, with Gov. Kevin Stitt saying the City of Tulsa should cover the bill. The practical question is which public entity ultimately bears the cost.",
+    "deck": "A dispute has developed over who should pay costs tied to Oklahoma’s Operation SAFE homeless-camp cleanup in Tulsa. State records previously showed a cleanup contractor billed more than $545,000 for two weeks of work. Gov. Kevin Stitt has said Tulsa should bear the cost, while city leaders have criticized the state-led operation and questioned parts of its approach and financial responsibility.",
     "significance": 87,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1260,9 +1274,10 @@ const stories = [
       "Responsibility for the cleanup cost is contested; the linked report contains the parties' positions.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #2 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A dispute has developed over who should pay costs tied to Oklahoma’s Operation SAFE homeless-camp cleanup in Tulsa. State records previously showed a cleanup contractor billed more than $545,000 for two weeks of work. Gov. Kevin Stitt has said Tulsa should bear the cost, while city leaders have criticized the state-led operation and questioned parts of its approach and financial responsibility."
   },
   {
     "id": "local-3",
@@ -1270,7 +1285,7 @@ const stories = [
     "scope": "Local",
     "rank": 3,
     "title": "Tulsa bank-impersonation scam costs a local mother more than $1,000",
-    "deck": "A Tulsa consumer says scammers impersonating her bank persuaded her to take steps that resulted in a loss of more than $1,000. The story matters locally because bank-impersonation scams depend on urgency and trust in familiar institutions.",
+    "deck": "A Tulsa mother says scammers posing as representatives of her bank convinced her to take actions that cost her more than $1,000. The scheme relied on the appearance of a trusted institution and a sense of urgency. The report illustrates how bank-impersonation scams can bypass normal caution even when victims believe they are communicating with their own financial institution.",
     "significance": 82,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1291,9 +1306,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #3 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A Tulsa mother says scammers posing as representatives of her bank convinced her to take actions that cost her more than $1,000. The scheme relied on the appearance of a trusted institution and a sense of urgency. The report illustrates how bank-impersonation scams can bypass normal caution even when victims believe they are communicating with their own financial institution."
   },
   {
     "id": "local-4",
@@ -1301,7 +1317,7 @@ const stories = [
     "scope": "Local",
     "rank": 4,
     "title": "Bixby responds to resident complaints about low water pressure",
-    "deck": "Bixby officials are addressing reports of low water pressure, an everyday service issue with direct household and fire-protection implications. The immediate concern is whether system conditions stabilize and how quickly residents receive reliable service.",
+    "deck": "Bixby officials are responding to resident complaints about low water pressure. The problem affects ordinary household use and can also raise concerns about water availability for fire protection. City officials said they were addressing the system issue, while residents reported inconsistent pressure. The immediate question is whether pressure returns to normal and whether additional infrastructure work or operational changes are required.",
     "significance": 78,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1322,9 +1338,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #4 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Bixby officials are responding to resident complaints about low water pressure. The problem affects ordinary household use and can also raise concerns about water availability for fire protection. City officials said they were addressing the system issue, while residents reported inconsistent pressure. The immediate question is whether pressure returns to normal and whether additional infrastructure work or operational changes are required."
   },
   {
     "id": "local-5",
@@ -1332,7 +1349,7 @@ const stories = [
     "scope": "Local",
     "rank": 5,
     "title": "Catoosa developer builds an app aimed at helping Tulsa-area animal shelters",
-    "deck": "A Catoosa man created an application intended to help area animal shelters, highlighting a local technology response to shelter capacity and adoption challenges. Its significance depends on adoption by shelters and measurable results.",
+    "deck": "A Catoosa developer created an app intended to help Tulsa-area animal shelters connect animals with potential adopters and improve shelter support. The project is a local technology response to continuing shelter-capacity and adoption challenges. Its practical value will depend on whether shelters and residents use it consistently and whether the tool measurably improves placements, visibility or coordination among participating organizations.",
     "significance": 72,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1353,9 +1370,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #5 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A Catoosa developer created an app intended to help Tulsa-area animal shelters connect animals with potential adopters and improve shelter support. The project is a local technology response to continuing shelter-capacity and adoption challenges. Its practical value will depend on whether shelters and residents use it consistently and whether the tool measurably improves placements, visibility or coordination among participating organizations."
   },
   {
     "id": "local-6",
@@ -1363,7 +1381,7 @@ const stories = [
     "scope": "Local",
     "rank": 6,
     "title": "Broken Arrow volunteer project brings handmade comfort to hospitalized children",
-    "deck": "A Broken Arrow woman is making pillowcases for hospitalized children, a smaller-impact but strongly local story centered on volunteer service and pediatric comfort.",
+    "deck": "A Broken Arrow woman is making handmade pillowcases for children receiving hospital care, using a volunteer project to provide comfort during treatment. The effort is smaller in public impact than the day’s major local stories, but it documents a direct community-service project centered on hospitalized children. The linked report focuses on the volunteer, the pillowcases and the families receiving them.",
     "significance": 67,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1384,9 +1402,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #6 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A Broken Arrow woman is making handmade pillowcases for children receiving hospital care, using a volunteer project to provide comfort during treatment. The effort is smaller in public impact than the day’s major local stories, but it documents a direct community-service project centered on hospitalized children. The linked report focuses on the volunteer, the pillowcases and the families receiving them."
   },
   {
     "id": "local-7",
@@ -1394,7 +1413,7 @@ const stories = [
     "scope": "Local",
     "rank": 7,
     "title": "Tulsa makes its Neighborhood Conditions Index program permanent",
-    "deck": "Tulsa has made a neighborhood-index initiative permanent, using neighborhood-level measures to guide investment while trying to avoid displacement and gentrification. It is less immediate than today's breaking stories but could have long-term local policy consequences.",
+    "deck": "Tulsa made its Neighborhood Conditions Index initiative permanent after launching it as a pilot in 2025. The program evaluates neighborhoods across nine categories, including housing, transportation, parks, economic development and public services. City officials say the goal is to guide improvements without displacing existing residents. Pilot results included traffic changes, cleanup events and free spay-and-neuter clinics.",
     "significance": 65,
     "published": "June 9, 2026",
     "confidence": "Source-backed snapshot",
@@ -1415,9 +1434,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #7 within Local using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Tulsa made its Neighborhood Conditions Index initiative permanent after launching it as a pilot in 2025. The program evaluates neighborhoods across nine categories, including housing, transportation, parks, economic development and public services. City officials say the goal is to guide improvements without displacing existing residents. Pilot results included traffic changes, cleanup events and free spay-and-neuter clinics."
   },
   {
     "id": "national-1",
@@ -1425,7 +1445,7 @@ const stories = [
     "scope": "US",
     "rank": 1,
     "title": "U.S.-Iran talks remain stalled as diplomacy widens and the Hormuz crisis persists",
-    "deck": "The U.S. is widening diplomatic outreach as negotiations with Iran remain stalled and tensions around the Strait of Hormuz continue to carry security and energy-market consequences. The core story is a search for an exit from a conflict whose effects extend beyond the region.",
+    "deck": "U.S.-Iran negotiations remain stalled while diplomatic contacts continue and tensions around the Strait of Hormuz affect regional security and energy markets. U.S. officials are seeking a path toward an agreement, while unresolved disputes with Iran continue to block progress. The situation remains fluid because military activity, shipping risk and diplomacy are unfolding at the same time, with no final settlement announced.",
     "significance": 99,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1462,9 +1482,10 @@ const stories = [
       "Responsibility, motives and the path to a durable settlement remain contested among governments and analysts.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #1 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "U.S.-Iran negotiations remain stalled while diplomatic contacts continue and tensions around the Strait of Hormuz affect regional security and energy markets. U.S. officials are seeking a path toward an agreement, while unresolved disputes with Iran continue to block progress. The situation remains fluid because military activity, shipping risk and diplomacy are unfolding at the same time, with no final settlement announced."
   },
   {
     "id": "state-1",
@@ -1472,7 +1493,7 @@ const stories = [
     "scope": "State",
     "rank": 2,
     "title": "Proposed $4 billion Inola aluminum smelter reshapes Oklahoma governor's race",
-    "deck": "A proposed aluminum smelter in Inola has become a major issue in Oklahoma's Republican gubernatorial contest, combining industrial policy, environmental concerns, federal support and local opposition ahead of the Aug. 25 runoff.",
+    "deck": "A proposed $4 billion aluminum smelter in Inola has become a major issue in Oklahoma’s Republican governor runoff. Supporters, including President Trump and Gov. Kevin Stitt, describe the project as important for domestic aluminum production and jobs. Attorney General Gentner Drummond is trying to block it, citing environmental and farmland concerns. The companies say they will meet environmental standards.",
     "significance": 93,
     "published": "Aug. 7, 2026",
     "confidence": "Source-backed snapshot",
@@ -1493,9 +1514,10 @@ const stories = [
       "Supporters emphasize industrial capacity and jobs; opponents raise environmental, land-use and ownership concerns.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #2 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A proposed $4 billion aluminum smelter in Inola has become a major issue in Oklahoma’s Republican governor runoff. Supporters, including President Trump and Gov. Kevin Stitt, describe the project as important for domestic aluminum production and jobs. Attorney General Gentner Drummond is trying to block it, citing environmental and farmland concerns. The companies say they will meet environmental standards."
   },
   {
     "id": "national-4",
@@ -1503,7 +1525,7 @@ const stories = [
     "scope": "US",
     "rank": 3,
     "title": "Trump asks Supreme Court to let White House ballroom construction continue",
-    "deck": "The administration asked the Supreme Court to allow construction of the White House ballroom to continue while it appeals a lower-court order. The dispute combines presidential authority, congressional approval, historic preservation and the scope of judicial review.",
+    "deck": "The Trump administration asked the Supreme Court to allow construction of a $400 million White House ballroom to continue while it appeals a lower-court ruling. An appeals court said Congress must approve the project. The administration argues the president has authority over White House construction and cites security needs; preservation groups argue the project requires congressional authorization and historic-preservation review.",
     "significance": 90,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1524,9 +1546,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #3 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "The Trump administration asked the Supreme Court to allow construction of a $400 million White House ballroom to continue while it appeals a lower-court ruling. An appeals court said Congress must approve the project. The administration argues the president has authority over White House construction and cites security needs; preservation groups argue the project requires congressional authorization and historic-preservation review."
   },
   {
     "id": "state-2",
@@ -1534,7 +1557,7 @@ const stories = [
     "scope": "State",
     "rank": 4,
     "title": "Oklahoma voters prepare to decide State Question 846",
-    "deck": "State Question 846 is scheduled for Oklahoma's Aug. 25 election. The useful reader question is not the campaign slogan but what the proposal actually changes and how the official ballot language compares with arguments around it.",
+    "deck": "Oklahoma voters are scheduled to decide State Question 846 on Aug. 25. The proposal would move Medicaid expansion, known as SoonerCare expansion, out of the state constitution and into state statute, returning more control over the program to the Legislature. Supporters favor legislative flexibility; opponents argue constitutional protection gives voters stronger assurance that expansion cannot be changed without another statewide vote.",
     "significance": 89,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1563,9 +1586,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #4 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Oklahoma voters are scheduled to decide State Question 846 on Aug. 25. The proposal would move Medicaid expansion, known as SoonerCare expansion, out of the state constitution and into state statute, returning more control over the program to the Legislature. Supporters favor legislative flexibility; opponents argue constitutional protection gives voters stronger assurance that expansion cannot be changed without another statewide vote."
   },
   {
     "id": "state-3",
@@ -1573,7 +1597,7 @@ const stories = [
     "scope": "State",
     "rank": 5,
     "title": "New Oklahoma law creates a formal path for families to seek cold-case review",
-    "deck": "A new Oklahoma law gives cold-case families a defined process for requesting renewed investigative attention. Its long-term effect will depend on how agencies apply the new pathway and what cases qualify.",
+    "deck": "A new Oklahoma law creates a formal process for families to request renewed review of cold criminal cases. The law gives relatives a defined pathway to ask law-enforcement agencies to reconsider investigations that have gone unresolved. It does not guarantee that a case will be reopened or solved; agencies still must evaluate whether the request meets the law’s requirements and whether new investigative work is warranted.",
     "significance": 84,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1594,9 +1618,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #5 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A new Oklahoma law creates a formal process for families to request renewed review of cold criminal cases. The law gives relatives a defined pathway to ask law-enforcement agencies to reconsider investigations that have gone unresolved. It does not guarantee that a case will be reopened or solved; agencies still must evaluate whether the request meets the law’s requirements and whether new investigative work is warranted."
   },
   {
     "id": "national-6",
@@ -1604,7 +1629,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "USS Abraham Lincoln's extended Iran-related deployment draws new presidential comments",
-    "deck": "President Trump commented on the length of the USS Abraham Lincoln's deployment during Iran operations, keeping attention on the human and operational burden of an extended military mission.",
+    "deck": "President Trump commented on the extended deployment of the USS Abraham Lincoln during operations connected to Iran. The carrier’s prolonged mission has kept attention on the operational demands of the conflict and the time sailors have remained deployed. The linked reporting focuses on the president’s remarks and the duration of the mission rather than announcing a new military operation or a confirmed return date.",
     "significance": 82,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1625,9 +1650,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #6 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "President Trump commented on the extended deployment of the USS Abraham Lincoln during operations connected to Iran. The carrier’s prolonged mission has kept attention on the operational demands of the conflict and the time sailors have remained deployed. The linked reporting focuses on the president’s remarks and the duration of the mission rather than announcing a new military operation or a confirmed return date."
   },
   {
     "id": "national-7",
@@ -1635,7 +1661,7 @@ const stories = [
     "scope": "US",
     "rank": 7,
     "title": "Three states move ahead with executions, renewing debate over capital punishment",
-    "deck": "Executions in multiple states are renewing national attention on capital punishment, due process and differences in state criminal-justice policy.",
+    "deck": "Three states are moving forward with executions, putting capital punishment back in the national spotlight. The cases reflect different state laws, court histories and execution procedures. Supporters of the death penalty emphasize punishment for serious crimes and finality for victims’ families; opponents raise concerns about due process, wrongful convictions, execution methods and whether government should retain the power to impose death sentences.",
     "significance": 79,
     "published": "Aug. 2026",
     "confidence": "Source-backed snapshot",
@@ -1656,9 +1682,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #7 within State & National using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Three states are moving forward with executions, putting capital punishment back in the national spotlight. The cases reflect different state laws, court histories and execution procedures. Supporters of the death penalty emphasize punishment for serious crimes and finality for victims’ families; opponents raise concerns about due process, wrongful convictions, execution methods and whether government should retain the power to impose death sentences."
   },
   {
     "id": "national-2",
@@ -1666,7 +1693,7 @@ const stories = [
     "scope": "US",
     "rank": 1,
     "title": "Attacks on two UAE tankers underscore continuing risk in the Strait of Hormuz",
-    "deck": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, reinforcing the shipping and energy risks surrounding the conflict. The event matters because the waterway is central to global oil flows.",
+    "deck": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, adding to security concerns in one of the world’s most important oil-shipping routes. The incidents reinforce risks to commercial vessels and energy markets as regional tensions continue. Authorities and shipping operators are monitoring the waterway, where any sustained disruption could affect oil flows, insurance costs and global transportation.",
     "significance": 97,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1687,9 +1714,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #1 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Two UAE-linked tankers were attacked while transiting the Strait of Hormuz, adding to security concerns in one of the world’s most important oil-shipping routes. The incidents reinforce risks to commercial vessels and energy markets as regional tensions continue. Authorities and shipping operators are monitoring the waterway, where any sustained disruption could affect oil flows, insurance costs and global transportation."
   },
   {
     "id": "worldnature-2",
@@ -1697,7 +1725,7 @@ const stories = [
     "scope": "World",
     "rank": 2,
     "title": "Wildfires force evacuations across European tourist regions as extreme heat persists",
-    "deck": "Fires across Croatia, Greece, France, Germany and other parts of Europe have forced evacuations and caused deaths and injuries during peak travel season. The larger issue is a widening combination of heat, drought, public-safety risk and economic disruption.",
+    "deck": "Wildfires across parts of Europe forced evacuations in tourist areas during a period of extreme heat and dry conditions. Reporting identified fires in countries including Croatia, Greece, France and Germany, with deaths and injuries reported in the broader outbreak. Emergency crews were fighting multiple fires while authorities moved residents and visitors from threatened areas during the peak summer travel season.",
     "significance": 95,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -1718,9 +1746,10 @@ const stories = [
       "Exact losses and final fire footprints remain subject to change while incidents are active.",
       "Verified social reaction totals are not connected in the current POC."
     ],
-    "why": "7 Tribunes ranks this #2 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #2 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Wildfires across parts of Europe forced evacuations in tourist areas during a period of extreme heat and dry conditions. Reporting identified fires in countries including Croatia, Greece, France and Germany, with deaths and injuries reported in the broader outbreak. Emergency crews were fighting multiple fires while authorities moved residents and visitors from threatened areas during the peak summer travel season."
   },
   {
     "id": "worldnature-3",
@@ -1728,7 +1757,7 @@ const stories = [
     "scope": "World",
     "rank": 3,
     "title": "Huge oil slick reaches Oman's shoreline and threatens a marine nature reserve",
-    "deck": "Crude leaking from the grounded Caroline Bezengi has spread over a vast area and begun reaching the Omani coast. The spill threatens protected marine habitat and illustrates how war, sanctions and weak insurance coverage can complicate environmental response.",
+    "deck": "Oil leaking from the grounded tanker Caroline Bezengi spread across a large area off Oman and began reaching the mainland coast. The spill threatens marine habitat, including a nearby nature reserve. Response efforts are complicated by the size of the slick and questions surrounding the vessel’s insurance and operating circumstances. Environmental authorities are assessing shoreline contamination and risks to protected ecosystems.",
     "significance": 94,
     "published": "Aug. 12, 2026",
     "confidence": "Source-backed current edition",
@@ -1749,9 +1778,10 @@ const stories = [
       "The ultimate volume released and long-term ecological damage remain uncertain.",
       "Cleanup and compensation are complicated by sanctions, insurance issues and treatment of the incident as war-related."
     ],
-    "why": "7 Tribunes ranks this #3 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #3 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Oil leaking from the grounded tanker Caroline Bezengi spread across a large area off Oman and began reaching the mainland coast. The spill threatens marine habitat, including a nearby nature reserve. Response efforts are complicated by the size of the slick and questions surrounding the vessel’s insurance and operating circumstances. Environmental authorities are assessing shoreline contamination and risks to protected ecosystems."
   },
   {
     "id": "worldnature-4",
@@ -1759,7 +1789,7 @@ const stories = [
     "scope": "World",
     "rank": 4,
     "title": "WMO says extreme heat is becoming more frequent, intense and long-lasting",
-    "deck": "The World Meteorological Organization says modern heat events cover wider areas, last longer and reach greater intensity than in cooler decades. The finding provides context for the repeated heatwaves, drought and fire emergencies seen across several regions this summer.",
+    "deck": "The World Meteorological Organization says extreme-heat events are becoming more frequent, more intense, longer-lasting and broader in geographic reach. The assessment comes as multiple regions face heatwaves, drought and wildfire conditions. The agency’s findings describe a long-term pattern rather than a single event and provide context for the repeated temperature records and heat-related emergencies occurring during the current summer.",
     "significance": 92,
     "published": "Aug. 11, 2026",
     "confidence": "Source-backed current edition",
@@ -1780,9 +1810,10 @@ const stories = [
       "The contribution of individual weather patterns varies by region and event.",
       "The broader warming trend is distinct from day-to-day weather variability."
     ],
-    "why": "7 Tribunes ranks this #4 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #4 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "The World Meteorological Organization says extreme-heat events are becoming more frequent, more intense, longer-lasting and broader in geographic reach. The assessment comes as multiple regions face heatwaves, drought and wildfire conditions. The agency’s findings describe a long-term pattern rather than a single event and provide context for the repeated temperature records and heat-related emergencies occurring during the current summer."
   },
   {
     "id": "weather-1",
@@ -1790,7 +1821,7 @@ const stories = [
     "scope": "US",
     "rank": 5,
     "title": "Tropical Storm Lala threatens a rare hurricane landfall on Hawaii's Big Island",
-    "deck": "Lala is forecast to strengthen as it approaches Hawaii's Big Island, with hurricane-force conditions, heavy rain, flooding and mudslide risk possible. A direct hurricane landfall on the Big Island would be exceptionally rare.",
+    "deck": "Tropical Storm Lala is forecast to strengthen as it approaches Hawaii’s Big Island, bringing the possibility of hurricane-force conditions, heavy rain, flooding and mudslides. Emergency officials are monitoring the storm’s track and intensity because a direct hurricane landfall on the Big Island would be rare. Forecast changes remain possible, so local warnings and official updates are the key source for immediate risk.",
     "significance": 91,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1811,9 +1842,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #5 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Tropical Storm Lala is forecast to strengthen as it approaches Hawaii’s Big Island, bringing the possibility of hurricane-force conditions, heavy rain, flooding and mudslides. Emergency officials are monitoring the storm’s track and intensity because a direct hurricane landfall on the Big Island would be rare. Forecast changes remain possible, so local warnings and official updates are the key source for immediate risk."
   },
   {
     "id": "worldnature-6",
@@ -1821,7 +1853,7 @@ const stories = [
     "scope": "World",
     "rank": 6,
     "title": "Millions watch Western Europe's first total solar eclipse in 27 years",
-    "deck": "A rare total eclipse swept across Iceland and northern Spain, drawing millions of spectators and large public-safety operations. Beyond the spectacle, the event became a major tourism, science and emergency-management moment during peak wildfire season.",
+    "deck": "A total solar eclipse crossed parts of Iceland and northern Spain, giving Western Europe its first total eclipse in 27 years. Millions of residents and visitors gathered along the path of totality, prompting major tourism and public-safety preparations. The event also gave scientists observation opportunities while emergency officials managed crowds, transportation and wildfire-related concerns during the busy summer travel period.",
     "significance": 86,
     "published": "Aug. 12, 2026",
     "confidence": "Source-backed current edition",
@@ -1842,9 +1874,10 @@ const stories = [
       "Cloud cover limited viewing in some areas, including parts of Iceland.",
       "Spain is scheduled to see another total eclipse in 2027 and an annular eclipse in 2028."
     ],
-    "why": "7 Tribunes ranks this #6 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #6 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A total solar eclipse crossed parts of Iceland and northern Spain, giving Western Europe its first total eclipse in 27 years. Millions of residents and visitors gathered along the path of totality, prompting major tourism and public-safety preparations. The event also gave scientists observation opportunities while emergency officials managed crowds, transportation and wildfire-related concerns during the busy summer travel period."
   },
   {
     "id": "worldnature-7",
@@ -1852,7 +1885,7 @@ const stories = [
     "scope": "World",
     "rank": 7,
     "title": "Scientists watch a strengthening El Niño as global heat risks build",
-    "deck": "Scientists say 2026 is already experiencing severe heat and record ocean temperatures, while a strengthening El Niño could add more warming later. The broader implication is that climate-driven extremes may remain a major global story beyond this summer.",
+    "deck": "Scientists are monitoring a strengthening El Niño while 2026 is already experiencing severe heat and unusually warm ocean conditions. El Niño can add additional warming to the climate system and alter weather patterns around the world. Researchers are watching its development because its strength and timing could influence temperatures, rainfall, drought and storm patterns later in the year and into the next season.",
     "significance": 84,
     "published": "Aug. 4, 2026",
     "confidence": "Source-backed current edition",
@@ -1873,9 +1906,10 @@ const stories = [
       "Forecasts for whether 2026 ultimately becomes the hottest year can change as observations accumulate.",
       "El Niño impacts vary by region and typically emerge with a delay."
     ],
-    "why": "7 Tribunes ranks this #7 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #7 within World & Nature using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Scientists are monitoring a strengthening El Niño while 2026 is already experiencing severe heat and unusually warm ocean conditions. El Niño can add additional warming to the climate system and alter weather patterns around the world. Researchers are watching its development because its strength and timing could influence temperatures, rainfall, drought and storm patterns later in the year and into the next season."
   },
   {
     "id": "sports-1",
@@ -1883,7 +1917,7 @@ const stories = [
     "scope": "US",
     "rank": 1,
     "title": "Record Lakers sale highlights the accelerating value of major U.S. sports franchises",
-    "deck": "The Los Angeles Lakers' reported $12.5 billion sale is another major marker in the rise of professional-sports valuations. Media rights, scarcity and investor demand are pushing elite franchises into a new financial tier.",
+    "deck": "The reported $12.5 billion sale of the Los Angeles Lakers would place the franchise among the most valuable sports properties ever sold. The transaction reflects rising values across major U.S. professional teams, driven by scarce ownership opportunities, media rights and investor demand. The deal is also another sign that elite sports franchises are increasingly being valued more like global entertainment and media assets.",
     "significance": 90,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1904,9 +1938,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #1 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "The reported $12.5 billion sale of the Los Angeles Lakers would place the franchise among the most valuable sports properties ever sold. The transaction reflects rising values across major U.S. professional teams, driven by scarce ownership opportunities, media rights and investor demand. The deal is also another sign that elite sports franchises are increasingly being valued more like global entertainment and media assets."
   },
   {
     "id": "sports-2",
@@ -1914,7 +1949,7 @@ const stories = [
     "scope": "Local",
     "rank": 2,
     "title": "FC Tulsa heads to New Mexico United for an Aug. 15 matchup",
-    "deck": "FC Tulsa's next match sends the club to New Mexico United, giving Tulsa-area fans a direct local sports event on the immediate calendar.",
+    "deck": "FC Tulsa travels to face New Mexico United on Aug. 15 in a match directly relevant to Tulsa-area soccer fans. The game adds another result to the clubs’ current season and provides a near-term local sports event for the 7Tribunes briefing. Match details, lineups, score and standings implications are best followed through the linked game page and official club updates once play begins.",
     "significance": 84,
     "published": "Aug. 15, 2026",
     "confidence": "Source-backed snapshot",
@@ -1935,9 +1970,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #2 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "FC Tulsa travels to face New Mexico United on Aug. 15 in a match directly relevant to Tulsa-area soccer fans. The game adds another result to the clubs’ current season and provides a near-term local sports event for the 7Tribunes briefing. Match details, lineups, score and standings implications are best followed through the linked game page and official club updates once play begins."
   },
   {
     "id": "sports-3",
@@ -1945,7 +1981,7 @@ const stories = [
     "scope": "US",
     "rank": 3,
     "title": "NFL preseason round: rookie quarterbacks and roster battles move into focus",
-    "deck": "NFL preseason games are producing early roster evidence, including a touchdown pass in Fernando Mendoza's debut. Preseason results matter less than health, role competition and how rookies handle live action.",
+    "deck": "NFL preseason games are giving teams their first extended look at rookies, backup quarterbacks and players competing for roster spots. Fernando Mendoza threw a touchdown pass in his debut, one of several performances drawing attention. Preseason scores are secondary to player evaluation, injuries and role competition, as coaches use live game action to make decisions before regular-season rosters are finalized.",
     "significance": 82,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -1966,9 +2002,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #3 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "NFL preseason games are giving teams their first extended look at rookies, backup quarterbacks and players competing for roster spots. Fernando Mendoza threw a touchdown pass in his debut, one of several performances drawing attention. Preseason scores are secondary to player evaluation, injuries and role competition, as coaches use live game action to make decisions before regular-season rosters are finalized."
   },
   {
     "id": "sports-4-current",
@@ -1976,7 +2013,7 @@ const stories = [
     "scope": "US",
     "rank": 4,
     "title": "Astros stun Mariners in extra innings as the MLB playoff picture keeps moving",
-    "deck": "Houston rallied past Seattle in the 10th inning as a full Friday slate reshaped several late-summer baseball races. The result is part of the daily scoreboard context an informed sports reader should know as the postseason push intensifies.",
+    "deck": "Houston rallied to beat Seattle in the 10th inning, adding another result to a late-summer Major League Baseball schedule in which playoff races are tightening. The Astros-Mariners game was part of a broader Friday slate affecting division and wild-card positioning. With the postseason approaching, individual games increasingly change standings, tiebreaker pressure and the margin for teams still competing for playoff spots.",
     "significance": 80,
     "published": "Aug. 15, 2026",
     "confidence": "Source-backed current edition",
@@ -1997,9 +2034,10 @@ const stories = [
       "Standings and playoff implications can change daily as the regular season continues.",
       "Verified cross-platform reaction totals are not connected in this POC."
     ],
-    "why": "7 Tribunes ranks this #4 within Sports using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #4 within Sports using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Houston rallied to beat Seattle in the 10th inning, adding another result to a late-summer Major League Baseball schedule in which playoff races are tightening. The Astros-Mariners game was part of a broader Friday slate affecting division and wild-card positioning. With the postseason approaching, individual games increasingly change standings, tiebreaker pressure and the margin for teams still competing for playoff spots."
   },
   {
     "id": "sports-5",
@@ -2007,7 +2045,7 @@ const stories = [
     "scope": "US",
     "rank": 5,
     "title": "Falcons defensive end James Pearce Jr. receives an eight-game suspension",
-    "deck": "Atlanta will be without James Pearce Jr. for eight games, a personnel and discipline development with direct consequences for the Falcons' defensive rotation.",
+    "deck": "Atlanta Falcons defensive end James Pearce Jr. received an eight-game suspension, removing him from the lineup for a significant portion of the season. The suspension directly affects Atlanta’s defensive depth and rotation planning. The linked report focuses on the league discipline and its length; the practical football impact will depend on how the Falcons replace his snaps and how the defense performs during his absence.",
     "significance": 74,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -2028,9 +2066,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #5 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Atlanta Falcons defensive end James Pearce Jr. received an eight-game suspension, removing him from the lineup for a significant portion of the season. The suspension directly affects Atlanta’s defensive depth and rotation planning. The linked report focuses on the league discipline and its length; the practical football impact will depend on how the Falcons replace his snaps and how the defense performs during his absence."
   },
   {
     "id": "sports-6",
@@ -2038,7 +2077,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "Cardinals rookie guard Chase Bisontis deals with a knee injury",
-    "deck": "Arizona is monitoring a knee injury to rookie guard Chase Bisontis, an example of how preseason health can alter depth-chart plans before games count.",
+    "deck": "Arizona Cardinals rookie guard Chase Bisontis is dealing with a knee injury during the preseason. The injury introduces uncertainty into Arizona’s offensive-line depth chart before the regular season begins. Team medical updates will determine how much time he misses and whether the injury changes roster or starting-lineup plans. The current report identifies the injury but does not establish a final recovery timetable.",
     "significance": 70,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -2059,9 +2098,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #6 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Arizona Cardinals rookie guard Chase Bisontis is dealing with a knee injury during the preseason. The injury introduces uncertainty into Arizona’s offensive-line depth chart before the regular season begins. Team medical updates will determine how much time he misses and whether the injury changes roster or starting-lineup plans. The current report identifies the injury but does not establish a final recovery timetable."
   },
   {
     "id": "sports-7",
@@ -2069,7 +2109,7 @@ const stories = [
     "scope": "Local",
     "rank": 7,
     "title": "Tulsa Golden Hurricane programs move into late-summer competition",
-    "deck": "The University of Tulsa athletics calendar is active with fall programs beginning competition and exhibitions. The official athletics site is the best first stop for schedules, results and team updates.",
+    "deck": "University of Tulsa athletic programs are moving into late-summer competition, exhibitions and preseason preparation as fall sports begin. The official Golden Hurricane athletics site provides the current schedules, results, rosters and team updates. This briefing item serves as the local college-sports check-in rather than a single breaking event, with individual team developments changing as competitions begin across the university’s fall calendar.",
     "significance": 66,
     "published": "Aug. 2026",
     "confidence": "Source-backed snapshot",
@@ -2090,9 +2130,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #7 within Sports using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "University of Tulsa athletic programs are moving into late-summer competition, exhibitions and preseason preparation as fall sports begin. The official Golden Hurricane athletics site provides the current schedules, results, rosters and team updates. This briefing item serves as the local college-sports check-in rather than a single breaking event, with individual team developments changing as competitions begin across the university’s fall calendar."
   },
   {
     "id": "ent-1",
@@ -2100,7 +2141,7 @@ const stories = [
     "scope": "World",
     "rank": 1,
     "title": "‘Spider-Man: Brand New Day’ becomes a billion-dollar hit in near-record time",
-    "deck": "The newest Spider-Man film crossed $1 billion globally after only six days, making it one of the fastest movies ever to reach the milestone. Its performance is a major cultural and business signal for theaters, Marvel and the wider blockbuster economy.",
+    "deck": "‘Spider-Man: Brand New Day’ crossed $1 billion in worldwide box-office revenue after six days, placing it among the fastest films ever to reach that level. The result is a major commercial milestone for the movie, Marvel and theatrical exhibitors. Its performance also demonstrates continued global demand for large franchise releases at a time when studios are closely watching which films can still generate blockbuster-scale audiences.",
     "significance": 93,
     "published": "Aug. 5, 2026",
     "confidence": "Source-backed current edition",
@@ -2121,12 +2162,13 @@ const stories = [
       "Final theatrical grosses remain unknown while the movie is still in release.",
       "The record is a box-office performance measure, not a critical-quality judgment."
     ],
-    "why": "7 Tribunes ranks this #1 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #1 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
       "Movies"
-    ]
+    ],
+    "brief": "‘Spider-Man: Brand New Day’ crossed $1 billion in worldwide box-office revenue after six days, placing it among the fastest films ever to reach that level. The result is a major commercial milestone for the movie, Marvel and theatrical exhibitors. Its performance also demonstrates continued global demand for large franchise releases at a time when studios are closely watching which films can still generate blockbuster-scale audiences."
   },
   {
     "id": "ent-2",
@@ -2134,7 +2176,7 @@ const stories = [
     "scope": "World",
     "rank": 2,
     "title": "‘The Odyssey’ becomes Christopher Nolan’s highest-grossing film and sets an Imax record",
-    "deck": "Christopher Nolan’s adaptation of Homer’s epic reached $1.1 billion worldwide and became Imax’s highest-grossing release. The result makes a classical literary adaptation one of the year’s biggest mass-culture events.",
+    "deck": "Christopher Nolan’s ‘The Odyssey’ reached about $1.1 billion worldwide, becoming the director’s highest-grossing film and setting a new Imax box-office record. The adaptation of Homer’s epic has performed as both a major commercial release and a high-profile literary adaptation. Its results add to evidence that large-format theatrical releases can still attract mass audiences when paired with established filmmakers and event-style marketing.",
     "significance": 91,
     "published": "Aug. 10, 2026",
     "confidence": "Source-backed current edition",
@@ -2155,13 +2197,14 @@ const stories = [
       "Its final box-office total remains unknown while the theatrical run continues.",
       "The milestones are commercial records and do not by themselves measure artistic merit."
     ],
-    "why": "7 Tribunes ranks this #2 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #2 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
       "Movies",
       "Art & Culture"
-    ]
+    ],
+    "brief": "Christopher Nolan’s ‘The Odyssey’ reached about $1.1 billion worldwide, becoming the director’s highest-grossing film and setting a new Imax box-office record. The adaptation of Homer’s epic has performed as both a major commercial release and a high-profile literary adaptation. Its results add to evidence that large-format theatrical releases can still attract mass audiences when paired with established filmmakers and event-style marketing."
   },
   {
     "id": "ent-3",
@@ -2169,7 +2212,7 @@ const stories = [
     "scope": "US",
     "rank": 3,
     "title": "‘Outer Banks’ final season leads a packed new streaming week",
-    "deck": "The final season of Netflix’s Outer Banks arrives alongside Anne Hathaway’s Mother Mary, new music from Anthony Hopkins, Weezer and Sam Smith, and a major game release. This is the week’s broad “what people will be talking about” entertainment briefing.",
+    "deck": "The final season of Netflix’s ‘Outer Banks’ headlines a busy week of new entertainment releases. The same release window includes the film ‘Mother Mary’ starring Anne Hathaway, new music from artists including Weezer and Sam Smith, and a major video-game release. The story is a practical roundup of the television, film, music and gaming titles entering the cultural conversation this week.",
     "significance": 86,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2190,7 +2233,7 @@ const stories = [
       "Availability can vary by streaming platform and territory.",
       "This item is a curated entertainment guide, not a factual controversy."
     ],
-    "why": "7 Tribunes ranks this #3 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #3 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
@@ -2199,7 +2242,8 @@ const stories = [
       "Music",
       "Gaming",
       "Art & Culture"
-    ]
+    ],
+    "brief": "The final season of Netflix’s ‘Outer Banks’ headlines a busy week of new entertainment releases. The same release window includes the film ‘Mother Mary’ starring Anne Hathaway, new music from artists including Weezer and Sam Smith, and a major video-game release. The story is a practical roundup of the television, film, music and gaming titles entering the cultural conversation this week."
   },
   {
     "id": "ent-4",
@@ -2207,7 +2251,7 @@ const stories = [
     "scope": "World",
     "rank": 4,
     "title": "‘The Walking Dead’ universe gets a $500 million Netflix and AMC+ streaming deal",
-    "deck": "A five-year licensing agreement will put the original Walking Dead series and six spinoffs across Netflix and AMC+ beginning in 2027. The deal shows how valuable large franchise libraries remain in the streaming wars.",
+    "deck": "Netflix and AMC+ reached a five-year licensing agreement valued at about $500 million for ‘The Walking Dead’ franchise. Beginning in 2027, the original series and six spinoffs are expected to be available across the two services under the deal. The agreement shows the continuing financial value of established television libraries as streaming companies compete for recognizable franchises and long-term viewer engagement.",
     "significance": 84,
     "published": "Jul. 31, 2026",
     "confidence": "Source-backed current edition",
@@ -2228,13 +2272,14 @@ const stories = [
       "Rollout dates vary by territory as existing licenses expire.",
       "The deal is a distribution agreement and does not imply new episodes for every included series."
     ],
-    "why": "7 Tribunes ranks this #4 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #4 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
       "Television",
       "Business"
-    ]
+    ],
+    "brief": "Netflix and AMC+ reached a five-year licensing agreement valued at about $500 million for ‘The Walking Dead’ franchise. Beginning in 2027, the original series and six spinoffs are expected to be available across the two services under the deal. The agreement shows the continuing financial value of established television libraries as streaming companies compete for recognizable franchises and long-term viewer engagement."
   },
   {
     "id": "ent-5",
@@ -2242,7 +2287,7 @@ const stories = [
     "scope": "World",
     "rank": 5,
     "title": "Ariana Grande’s ‘Petal’ marks one of the biggest stylistic turns of her career",
-    "deck": "Grande’s eighth album moves toward darker, more experimental pop and blunt lyrical themes. Because she is one of the world’s most visible pop artists, the release is already a major music and culture conversation.",
+    "deck": "Ariana Grande released ‘Petal,’ her eighth studio album, with music critics describing it as a darker and more experimental turn in her pop sound. The album also uses more direct lyrical themes than some of her earlier work. Because Grande remains one of the world’s most visible recording artists, the release is drawing significant attention across music, entertainment and fan communities.",
     "significance": 80,
     "published": "Jul. 31, 2026",
     "confidence": "Source-backed current edition",
@@ -2263,12 +2308,13 @@ const stories = [
       "Critical judgments in the linked article are opinion and analysis rather than factual measurements.",
       "Audience reaction totals are not connected in this POC."
     ],
-    "why": "7 Tribunes ranks this #5 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #5 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
       "Music"
-    ]
+    ],
+    "brief": "Ariana Grande released ‘Petal,’ her eighth studio album, with music critics describing it as a darker and more experimental turn in her pop sound. The album also uses more direct lyrical themes than some of her earlier work. Because Grande remains one of the world’s most visible recording artists, the release is drawing significant attention across music, entertainment and fan communities."
   },
   {
     "id": "ent-6",
@@ -2276,7 +2322,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "John Oliver extends his HBO deal through the end of 2027",
-    "deck": "HBO confirmed that Last Week Tonight host John Oliver will remain with the network through 2027. The unusually short extension comes amid broader ownership uncertainty and keeps one of television’s most prominent political-comedy programs in place.",
+    "deck": "HBO extended John Oliver’s contract for ‘Last Week Tonight’ through the end of 2027. The deal keeps the host and his weekly political-comedy program at the network for another year beyond the prior agreement. The relatively short extension comes during broader uncertainty around media ownership and strategy, but the immediate fact is that HBO has chosen to keep the long-running program in place.",
     "significance": 76,
     "published": "Aug. 1, 2026",
     "confidence": "Source-backed current edition",
@@ -2297,12 +2343,13 @@ const stories = [
       "Broader corporate ownership developments could still change the business context around HBO.",
       "The program’s political comedy is commentary; the contract itself is a reported business fact."
     ],
-    "why": "7 Tribunes ranks this #6 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #6 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
       "Television"
-    ]
+    ],
+    "brief": "HBO extended John Oliver’s contract for ‘Last Week Tonight’ through the end of 2027. The deal keeps the host and his weekly political-comedy program at the network for another year beyond the prior agreement. The relatively short extension comes during broader uncertainty around media ownership and strategy, but the immediate fact is that HBO has chosen to keep the long-running program in place."
   },
   {
     "id": "ent-7",
@@ -2310,7 +2357,7 @@ const stories = [
     "scope": "US",
     "rank": 7,
     "title": "A ‘Clueless’ sequel series with Alicia Silverstone is ordered at Paramount+",
-    "deck": "Alicia Silverstone is set to reprise Cher Horowitz in a six-episode sequel series planned for Paramount+. The project brings a 1990s cultural touchstone back as a contemporary story about business, motherhood and parenting a teenager.",
+    "deck": "Paramount+ ordered a six-episode ‘Clueless’ sequel series with Alicia Silverstone returning as Cher Horowitz. The project revisits the character from the 1995 film in a new stage of life involving work, motherhood and parenting a teenager. The series joins a broader television trend of reviving established film and television properties for audiences already familiar with the original characters and settings.",
     "significance": 72,
     "published": "Jul. 31, 2026",
     "confidence": "Source-backed current edition",
@@ -2331,14 +2378,15 @@ const stories = [
       "Casting, production timing and release details can still change before filming and launch.",
       "The project links a current streaming strategy to a longstanding pop-culture property."
     ],
-    "why": "7 Tribunes ranks this #7 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #7 within Entertainment using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
     "live": true,
     "entertainmentTags": [
       "Television",
       "Movies",
       "Art & Culture"
-    ]
+    ],
+    "brief": "Paramount+ ordered a six-episode ‘Clueless’ sequel series with Alicia Silverstone returning as Cher Horowitz. The project revisits the character from the 1995 film in a new stage of life involving work, motherhood and parenting a teenager. The series joins a broader television trend of reviving established film and television properties for audiences already familiar with the original characters and settings."
   },
   {
     "id": "biztech-1",
@@ -2346,7 +2394,7 @@ const stories = [
     "scope": "US",
     "rank": 1,
     "title": "U.S. retail sales post their first decline in nine months",
-    "deck": "Retail sales fell unexpectedly in July, suggesting consumer spending slowed after months of resilience. Because household demand drives a large share of the U.S. economy, the report matters for growth expectations, corporate earnings and Federal Reserve policy.",
+    "deck": "U.S. retail sales unexpectedly declined in July, marking the first monthly drop in nine months. The report suggests consumer spending lost some momentum after a long period of resilience. Because household consumption is a major part of the U.S. economy, economists and investors are watching whether the decline is temporary or the beginning of a broader slowdown in discretionary spending.",
     "significance": 94,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2367,9 +2415,10 @@ const stories = [
       "One month of retail data does not by itself establish a recession or lasting consumer downturn.",
       "Future inflation, jobs and spending data could materially change the economic outlook."
     ],
-    "why": "7 Tribunes ranks this #1 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #1 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "U.S. retail sales unexpectedly declined in July, marking the first monthly drop in nine months. The report suggests consumer spending lost some momentum after a long period of resilience. Because household consumption is a major part of the U.S. economy, economists and investors are watching whether the decline is temporary or the beginning of a broader slowdown in discretionary spending."
   },
   {
     "id": "biztech-2",
@@ -2377,7 +2426,7 @@ const stories = [
     "scope": "US",
     "rank": 2,
     "title": "AI investment and earnings remain central to the stock market’s next move",
-    "deck": "Investors are relying heavily on technology earnings and extraordinary AI-infrastructure spending to support elevated stock valuations while the Federal Reserve remains cautious. The story connects the AI boom directly to capital spending, market concentration and broader economic expectations.",
+    "deck": "Investors are relying heavily on technology-company earnings and large artificial-intelligence infrastructure spending to support elevated stock valuations. At the same time, the Federal Reserve has remained cautious about its next policy move. The market debate centers on whether AI-related revenue and capital spending can continue growing fast enough to justify current prices and offset weaker signals elsewhere in the economy.",
     "significance": 92,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2398,9 +2447,10 @@ const stories = [
       "Market forecasts are inherently uncertain and can change quickly with economic or geopolitical news.",
       "High AI-related valuations increase sensitivity to earnings disappointments."
     ],
-    "why": "7 Tribunes ranks this #2 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #2 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Investors are relying heavily on technology-company earnings and large artificial-intelligence infrastructure spending to support elevated stock valuations. At the same time, the Federal Reserve has remained cautious about its next policy move. The market debate centers on whether AI-related revenue and capital spending can continue growing fast enough to justify current prices and offset weaker signals elsewhere in the economy."
   },
   {
     "id": "biztech-3",
@@ -2408,7 +2458,7 @@ const stories = [
     "scope": "US",
     "rank": 3,
     "title": "S&P 500 slips from a record as investors weigh weaker data and Middle East risk",
-    "deck": "Stocks ended slightly lower after a record, with weaker retail data, high AI expectations and Strait of Hormuz tensions pulling in different directions. The mix shows how consumer demand, technology valuations and geopolitics are converging in markets.",
+    "deck": "The S&P 500 slipped from a record as investors weighed weaker U.S. retail data, high expectations for artificial-intelligence companies and continuing risk around the Strait of Hormuz. None of those forces is moving markets alone: softer consumer data can hurt growth expectations, strong technology earnings can support valuations, and geopolitical tension can raise energy and risk costs at the same time.",
     "significance": 90,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2429,9 +2479,10 @@ const stories = [
       "Energy shares rose with oil prices amid continued Middle East shipping risk.",
       "Daily market moves should not be treated as reliable predictions of longer-term returns."
     ],
-    "why": "7 Tribunes ranks this #3 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #3 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "The S&P 500 slipped from a record as investors weighed weaker U.S. retail data, high expectations for artificial-intelligence companies and continuing risk around the Strait of Hormuz. None of those forces is moving markets alone: softer consumer data can hurt growth expectations, strong technology earnings can support valuations, and geopolitical tension can raise energy and risk costs at the same time."
   },
   {
     "id": "biztech-4",
@@ -2439,7 +2490,7 @@ const stories = [
     "scope": "US",
     "rank": 4,
     "title": "U.S. consumer sentiment deteriorates as households grow less confident",
-    "deck": "Consumer confidence weakened in August, adding another caution signal to the economic picture. Sentiment does not always translate directly into spending, but it can reveal how households perceive inflation, jobs and the direction of the economy.",
+    "deck": "U.S. consumer sentiment weakened in August, showing that households became less confident about economic conditions. Sentiment surveys do not measure actual spending directly, but they indicate how consumers view inflation, jobs, personal finances and the broader economy. Economists will compare the weaker confidence reading with retail sales, employment and inflation data to determine whether attitudes are translating into changes in household behavior.",
     "significance": 88,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2460,9 +2511,10 @@ const stories = [
       "Political affiliation can influence sentiment responses, so economists compare surveys with hard economic data.",
       "The outlook can change with inflation, employment, energy prices and financial markets."
     ],
-    "why": "7 Tribunes ranks this #4 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #4 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "U.S. consumer sentiment weakened in August, showing that households became less confident about economic conditions. Sentiment surveys do not measure actual spending directly, but they indicate how consumers view inflation, jobs, personal finances and the broader economy. Economists will compare the weaker confidence reading with retail sales, employment and inflation data to determine whether attitudes are translating into changes in household behavior."
   },
   {
     "id": "biztech-5",
@@ -2470,7 +2522,7 @@ const stories = [
     "scope": "US",
     "rank": 5,
     "title": "Zuckerberg lays out Meta’s vision for world-changing open AI technology",
-    "deck": "Mark Zuckerberg is arguing for a future in which advanced AI is widely available rather than controlled by a small number of closed systems. Meta’s position matters because it combines technical competition, open-source strategy, enormous capital investment and questions about safety.",
+    "deck": "Meta CEO Mark Zuckerberg is promoting a strategy in which increasingly capable artificial-intelligence systems remain broadly available rather than being controlled only through closed platforms. Meta is pairing that position with large investments in AI infrastructure and model development. The debate involves competition, open technology, safety and control: supporters emphasize broad access and innovation, while critics question how powerful systems should be governed and secured.",
     "significance": 85,
     "published": "Aug. 10, 2026",
     "confidence": "Source-backed current edition",
@@ -2491,9 +2543,10 @@ const stories = [
       "Claims about future AI capability and social benefit are forecasts, not established outcomes.",
       "Safety, cost, intellectual-property and governance questions remain contested across the industry."
     ],
-    "why": "7 Tribunes ranks this #5 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #5 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Meta CEO Mark Zuckerberg is promoting a strategy in which increasingly capable artificial-intelligence systems remain broadly available rather than being controlled only through closed platforms. Meta is pairing that position with large investments in AI infrastructure and model development. The debate involves competition, open technology, safety and control: supporters emphasize broad access and innovation, while critics question how powerful systems should be governed and secured."
   },
   {
     "id": "biztech-6",
@@ -2501,7 +2554,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "AI-linked earnings keep technology stocks near the center of the market rally",
-    "deck": "Strong results from AI-related companies have helped push major U.S. indexes near records, reinforcing how concentrated the market has become around a small group of technology and infrastructure winners.",
+    "deck": "Strong earnings from companies tied to artificial intelligence have helped keep major U.S. stock indexes near record levels. The gains show how much recent market performance depends on a relatively small group of technology, semiconductor and infrastructure companies. Investors are watching whether earnings growth broadens to more industries or whether the rally remains concentrated in businesses benefiting most directly from AI spending.",
     "significance": 82,
     "published": "Aug. 2026",
     "confidence": "Source-backed current edition",
@@ -2522,9 +2575,10 @@ const stories = [
       "Stock performance does not establish whether current valuations are sustainable.",
       "Interest rates, inflation and geopolitical events remain material counterweights."
     ],
-    "why": "7 Tribunes ranks this #6 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #6 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Strong earnings from companies tied to artificial intelligence have helped keep major U.S. stock indexes near record levels. The gains show how much recent market performance depends on a relatively small group of technology, semiconductor and infrastructure companies. Investors are watching whether earnings growth broadens to more industries or whether the rally remains concentrated in businesses benefiting most directly from AI spending."
   },
   {
     "id": "biztech-7",
@@ -2532,7 +2586,7 @@ const stories = [
     "scope": "World",
     "rank": 7,
     "title": "Food inflation risk returns to the global market agenda as El Niño strengthens",
-    "deck": "Investors are watching whether El Niño, energy costs and geopolitical disruptions could push food prices higher again. The issue connects global commodity markets directly to grocery bills, central-bank policy and household purchasing power.",
+    "deck": "Global investors are again watching food-price risk as El Niño strengthens alongside high energy costs and geopolitical disruptions. Changes in weather can affect crop yields and commodity supply, while fuel and transportation costs influence how much food costs to produce and move. The concern is whether those pressures combine to push food inflation higher after households and central banks spent several years dealing with elevated prices.",
     "significance": 80,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed current edition",
@@ -2553,9 +2607,10 @@ const stories = [
       "The size and timing of any price effect remain uncertain and depend on weather, crops, energy and trade flows.",
       "The article is forward-looking market analysis rather than a guarantee of future inflation."
     ],
-    "why": "7 Tribunes ranks this #7 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
+    "why": "7Tribunes ranks this #7 within Business & Tech using Impact Score plus verified reaction signals when direct platform data is available. For this snapshot, direct platform reaction totals are not connected, so reaction counts are not fabricated; impact, sourcing, breadth, relevance and recency drive the rank.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Global investors are again watching food-price risk as El Niño strengthens alongside high energy costs and geopolitical disruptions. Changes in weather can affect crop yields and commodity supply, while fuel and transportation costs influence how much food costs to produce and move. The concern is whether those pressures combine to push food inflation higher after households and central banks spent several years dealing with elevated prices."
   },
   {
     "id": "faith-1",
@@ -2563,7 +2618,7 @@ const stories = [
     "scope": "World",
     "rank": 1,
     "title": "Christians in Israel describe rising harassment and look to faith and allies for support",
-    "deck": "Christians in Israel say harassment has increased, raising questions about religious freedom, minority security and how faith communities respond under political and social pressure.",
+    "deck": "Christians in Israel told the Associated Press they are experiencing increased harassment, raising concerns about religious freedom and minority security. The report describes incidents and the response of Christian communities seeking support from religious and civic allies. Israeli authorities and other groups may dispute how widespread or representative individual incidents are, making documentation, enforcement responses and broader trend data important to evaluating the scale of the problem.",
     "significance": 92,
     "published": "Aug. 14, 2026",
     "confidence": "Source-backed snapshot",
@@ -2584,9 +2639,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #1 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #1 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Christians in Israel told the Associated Press they are experiencing increased harassment, raising concerns about religious freedom and minority security. The report describes incidents and the response of Christian communities seeking support from religious and civic allies. Israeli authorities and other groups may dispute how widespread or representative individual incidents are, making documentation, enforcement responses and broader trend data important to evaluating the scale of the problem."
   },
   {
     "id": "family-3",
@@ -2594,7 +2650,7 @@ const stories = [
     "scope": "US",
     "rank": 2,
     "title": "Inflation slows, but many household prices remain elevated",
-    "deck": "Recent U.S. inflation data show a slower pace of price growth, but that does not mean prices have returned to earlier levels. For families, the distinction between lower inflation and lower prices remains critical.",
+    "deck": "U.S. inflation has slowed from earlier peaks, but many prices paid by households remain well above their previous levels. Lower inflation means prices are rising more slowly; it does not mean prices have returned to where they were before the inflation surge. Families therefore can experience continuing pressure on groceries, housing, services and other expenses even while official inflation measures show improvement.",
     "significance": 90,
     "published": "Aug. 2026",
     "confidence": "Source-backed snapshot",
@@ -2623,9 +2679,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #2 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #2 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "U.S. inflation has slowed from earlier peaks, but many prices paid by households remain well above their previous levels. Lower inflation means prices are rising more slowly; it does not mean prices have returned to where they were before the inflation surge. Families therefore can experience continuing pressure on groceries, housing, services and other expenses even while official inflation measures show improvement."
   },
   {
     "id": "faith-2",
@@ -2633,7 +2690,7 @@ const stories = [
     "scope": "World",
     "rank": 3,
     "title": "Nigerian faith leaders sign a peace accord after months of religious and political tension",
-    "deck": "Faith leaders in Nigeria signed a peace accord aimed at reducing tensions, illustrating how religious institutions can function as civic mediators in a politically charged environment.",
+    "deck": "Religious leaders in Nigeria signed a peace accord intended to reduce tensions after months of political and religious strain. The agreement reflects an effort by faith leaders to act as mediators and encourage restraint across communities. Its effectiveness will depend on whether political actors, religious groups and local communities follow through, and whether the accord reduces violence or mistrust beyond the ceremony where it was signed.",
     "significance": 87,
     "published": "Aug. 13, 2026",
     "confidence": "Source-backed snapshot",
@@ -2654,9 +2711,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #3 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #3 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Religious leaders in Nigeria signed a peace accord intended to reduce tensions after months of political and religious strain. The agreement reflects an effort by faith leaders to act as mediators and encourage restraint across communities. Its effectiveness will depend on whether political actors, religious groups and local communities follow through, and whether the accord reduces violence or mistrust beyond the ceremony where it was signed."
   },
   {
     "id": "faith-3",
@@ -2664,7 +2722,7 @@ const stories = [
     "scope": "US",
     "rank": 4,
     "title": "Released Texas pastors say immigration agents threatened family separation",
-    "deck": "Texas pastors described their treatment by immigration agents after their release, placing questions of immigration enforcement, clergy ministry and family separation inside a faith-community context.",
+    "deck": "Texas pastors who were released after encounters with immigration authorities said agents threatened family separation during their detention. Their account places immigration enforcement, clergy activity and family treatment at the center of the dispute. The pastors are describing their experience; immigration authorities’ account and any official records are necessary for a complete assessment of what agents said, what legal authority was used and how the encounter unfolded.",
     "significance": 81,
     "published": "July 27, 2026",
     "confidence": "Source-backed snapshot",
@@ -2685,9 +2743,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #4 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #4 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Texas pastors who were released after encounters with immigration authorities said agents threatened family separation during their detention. Their account places immigration enforcement, clergy activity and family treatment at the center of the dispute. The pastors are describing their experience; immigration authorities’ account and any official records are necessary for a complete assessment of what agents said, what legal authority was used and how the encounter unfolded."
   },
   {
     "id": "family-6",
@@ -2695,7 +2754,7 @@ const stories = [
     "scope": "US",
     "rank": 5,
     "title": "Back-to-school shoppers start earlier as higher bills pressure family budgets",
-    "deck": "Retailers are seeing families hunt for bargains earlier in the back-to-school season as household expenses remain elevated. The story connects macroeconomic pressures to everyday purchasing decisions.",
+    "deck": "Families began back-to-school shopping earlier as higher household bills increased pressure to find discounts and spread purchases over more time. Retailers reported stronger bargain hunting as parents compared prices on clothing, supplies and other school needs. The pattern connects broader inflation and household-cost pressures with everyday purchasing decisions, even as families still must buy many required items before the school year begins.",
     "significance": 79,
     "published": "July 6, 2026",
     "confidence": "Source-backed snapshot",
@@ -2716,9 +2775,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #5 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #5 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Families began back-to-school shopping earlier as higher household bills increased pressure to find discounts and spread purchases over more time. Retailers reported stronger bargain hunting as parents compared prices on clothing, supplies and other school needs. The pattern connects broader inflation and household-cost pressures with everyday purchasing decisions, even as families still must buy many required items before the school year begins."
   },
   {
     "id": "faith-4",
@@ -2726,7 +2786,7 @@ const stories = [
     "scope": "US",
     "rank": 6,
     "title": "Survey: half of Gen Z respondents say Trump support keeps them out of church",
-    "deck": "A recent report examines how political identification inside churches affects younger adults' willingness to participate. The finding is about reported attitudes, not a claim that all churches or all Gen Z adults respond the same way.",
+    "deck": "A survey reported that about half of Gen Z respondents said support for Donald Trump within churches makes them less willing to attend. The finding measures the attitudes of surveyed respondents, not all young adults or all congregations. The report adds to a broader discussion about whether partisan political identity inside religious communities affects participation, especially among younger people who may separate personal faith from institutional affiliation.",
     "significance": 78,
     "published": "July 20, 2026",
     "confidence": "Source-backed snapshot",
@@ -2747,9 +2807,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #6 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #6 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "A survey reported that about half of Gen Z respondents said support for Donald Trump within churches makes them less willing to attend. The finding measures the attitudes of surveyed respondents, not all young adults or all congregations. The report adds to a broader discussion about whether partisan political identity inside religious communities affects participation, especially among younger people who may separate personal faith from institutional affiliation."
   },
   {
     "id": "family-7",
@@ -2757,7 +2818,7 @@ const stories = [
     "scope": "State",
     "rank": 7,
     "title": "Oklahoma school cellphone rules change the school-day routine for families",
-    "deck": "The state's bell-to-bell cellphone restrictions affect how students use devices during school and how families plan for routine or emergency contact during the day.",
+    "deck": "Oklahoma’s bell-to-bell school cellphone restrictions change when students can use personal devices during the school day. The rule affects classroom routines and how families plan ordinary or emergency communication with students while school is in session. Supporters argue fewer phones can reduce distraction; families and schools still must establish practical ways to handle urgent contact, exceptions and enforcement during the day.",
     "significance": 76,
     "published": "2026 school year",
     "confidence": "Source-backed snapshot",
@@ -2778,9 +2839,10 @@ const stories = [
       "No independent dispute classification has been completed for this snapshot; material disagreements should be checked in the linked reporting.",
       "Verified cross-platform reaction counts are not connected in this POC and are intentionally not estimated."
     ],
-    "why": "7 Tribunes ranks this #7 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
+    "why": "7Tribunes ranks this #7 within Faith & Family using Impact Score plus verified reaction signals when direct platform data is available. In this snapshot, reaction totals are not connected, so impact, source strength, coverage breadth, relevance, recency and persistence determine the order; reaction counts are never invented.",
     "reactions": null,
-    "live": true
+    "live": true,
+    "brief": "Oklahoma’s bell-to-bell school cellphone restrictions change when students can use personal devices during the school day. The rule affects classroom routines and how families plan ordinary or emergency communication with students while school is in session. Supporters argue fewer phones can reduce distraction; families and schools still must establish practical ways to handle urgent contact, exceptions and enforcement during the day."
   }
 ];
 
@@ -2846,7 +2908,7 @@ function render(){
   const total = state.pillar==="All" && !state.search ? 49 : arr.length;
   $("#editionNote").textContent=`${total} sourced story cluster${total===1?"":"s"} · real publisher links · Impact + verified-reaction aware`;
   $("#filterSummary").textContent=`${state.time==="Today"?"Snapshot Edition":"7-Day View"} · ${LIVE_SNAPSHOT_TIME} ${state.search?"· Search: "+state.search:""}`;
-  $("#sectionTitle").textContent=state.pillar==="All"?"The Seven Pillars":state.pillar;
+  $("#sectionTitle").textContent=state.pillar==="All"?"Seven Sections":state.pillar;
 
   if(arr.length===0){
     $("#hero").innerHTML='<span class="kicker">No matching stories</span><h1>Try a broader filter.</h1><p class="deck">No sourced story clusters match the current pillar and search terms.</p>';
@@ -2857,8 +2919,8 @@ function render(){
 
   $("#hero").innerHTML=`
     <span class="kicker">Biggest Impact Story · ${storyRankLabel(hero)}</span>
-    <h1><a class="story-title-link" href="${hero.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${hero.title}</a></h1>
-    <p class="deck">${hero.deck}</p>
+    <h1><button class="story-title-link story-title-button" type="button" onclick="openStory('${hero.id}','summary')" title="Open 7Tribunes Brief">${hero.title}</button></h1>
+    <div class="brief-label">7Tribunes Brief</div><p class="deck">${hero.brief || hero.deck}</p>
     <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score ${hero.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${hero.sources})">${hero.sources} linked source${hero.sources===1?"":"s"}</button> · published ${hero.published}</div>
     <div class="bias-row">
         <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
@@ -2868,7 +2930,7 @@ function render(){
       <button class="btn primary" onclick="openStory('${hero.id}','summary')">What We Know</button>
       <button class="btn" onclick="openStory('${hero.id}','coverage')">Source Coverage</button>
       <button class="btn" onclick="openStory('${hero.id}','takes')">7 Takes</button>
-      <a class="btn soft" target="_blank" rel="noopener noreferrer" href="${hero.sourcesDetail[0].url}">Read Primary Link ↗</a>
+      <a class="btn soft" target="_blank" rel="noopener noreferrer" href="${hero.sourcesDetail[0].url}">Read Original Story ↗</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><b>${hero.significance}</b><span><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score</button></span></div>
@@ -2889,9 +2951,9 @@ function render(){
     <article class="rail-item">
       <span class="num">${i+2}</span>
       <span class="kicker">${storyRankLabel(s)}</span>
-      <h3><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">${s.title}</a></h3>
+      <h3><button class="story-title-link story-title-button" type="button" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h3>
       <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} source${s.sources===1?"":"s"}</button></div>
-      <button class="linkbtn" onclick="openStory('${s.id}','summary')">Read the cluster</button>
+      <button class="linkbtn" onclick="openStory('${s.id}','summary')">7Tribunes Brief</button>
     </article>`).join("");
 
   const visiblePillars = state.pillar==="All" ? PILLARS : [state.pillar];
@@ -2928,14 +2990,14 @@ function render(){
               <article class="ranked-story ${i===0?"is-one":""}">
                 <div class="rnum">${i+1}</div>
                 <div>
-                  <h4><a class="story-title-link" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">${s.title}</a></h4>
+                  <h4><button class="story-title-link story-title-button" type="button" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h4>
                   <div class="rmeta"><strong>${storyRankLabel(s)}</strong> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · ${s.published}</div>
                   <div class="bias-row">
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
                   </div>
                 </div>
-                <div class="mini-reactions"><a href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer" title="Open primary source">Primary Source ↗</a></div>
+                <div class="mini-reactions"><button class="linkbtn" type="button" onclick="openStory('${s.id}','summary')">Brief →</button></div>
               </article>
             `).join("")}
           </div>
@@ -2947,6 +3009,13 @@ function render(){
   renderLocalVoices();
 }
 function scopeLabel(s){return s==="US"?"U.S.":s==="State"?"Oklahoma":s}
+
+function top7TenureEligible(enteredAt, now=Date.now()){
+  if(!enteredAt) return true;
+  const entered = new Date(enteredAt).getTime();
+  if(!Number.isFinite(entered)) return true;
+  return (now-entered) <= TOP7_MAX_TENURE_HOURS*60*60*1000;
+}
 
 function storyRankInPillar(s){
   const ranked = sortPillarStories(stories.filter(x=>x.pillar===s.pillar), s.pillar);
@@ -2963,17 +3032,20 @@ function openStory(id,tab="summary"){
   $("#drawerHeader").innerHTML=`
     <span class="kicker">${storyRankLabel(s)} · ${scopeLabel(s.scope)} · Live-Sourced Snapshot</span>
     <h1>${s.title}</h1>
-    <p class="deck" style="font-size:18px">${s.deck}</p>
     <div class="meta">Published ${s.published} · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal('social')">Social Heat: Pending</button></div>
     <div class="bias-row">
         <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
         <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
       </div>
-    <div class="badges"><span class="badge reliable">Real publisher/source links</span><span class="badge">Neutral brief: POC synthesis</span><span class="badge demo">Perspective scoring pending</span></div>
+    <div class="badges"><span class="badge reliable">Real publisher/source links</span><span class="badge">7Tribunes Brief · source-grounded synthesis</span><span class="badge demo">Perspective scoring pending</span></div>
   `;
 
   $("#tab-summary").innerHTML=`
-    <h2>What We Know</h2>
+    <h2>7Tribunes Brief</h2>
+    <div class="brief-label">${s.brief.split(/\s+/).length} words · Facts first</div>
+    <p class="brief-expanded">${s.brief || s.deck}</p>
+    <a class="btn primary" href="${s.sourcesDetail[0].url}" target="_blank" rel="noopener noreferrer">Read Original Story ↗</a>
+    <h2 style="margin-top:24px">What We Know</h2>
     <div class="factrow"><b>Confirmed</b><p>${s.facts[0]}</p></div>
     <div class="factrow"><b>Source</b><p>${s.facts[1]}</p></div>
     <div class="factrow"><b>Disputed</b><p>${s.facts[2]}</p></div>
@@ -2982,7 +3054,7 @@ function openStory(id,tab="summary"){
     <p>${s.why}</p>
 
     <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
-    <p>The neutral brief is only the entry point. Open one source or several underlying reports and read the journalism directly.</p>
+    <p>The 7Tribunes Brief is the entry point. Open one source or several underlying reports and read the journalism directly.</p>
     <div class="linked-reporting">
       ${s.sourcesDetail.map((src,i)=>`
         <article class="linked-story">
@@ -3003,7 +3075,7 @@ function openStory(id,tab="summary"){
         </article>
       `).join("")}
     </div>
-    <p class="edition-note">7 Tribunes does not reproduce the full article. Source links preserve the publisher relationship and any publisher paywall.</p>
+    <p class="edition-note">7Tribunes does not reproduce the full article. Source links preserve the publisher relationship and any publisher paywall.</p>
   `;
 
   $("#tab-coverage").innerHTML=coverageHTML(s);
@@ -3013,7 +3085,7 @@ function openStory(id,tab="summary"){
     <div class="timeline">
       <div class="event"><time>Source discovery</time><p>Public reporting and official sources were identified for this manual proof-of-concept snapshot.</p></div>
       <div class="event"><time>Story clustering</time><p>Related reports are grouped when they describe the same underlying event; unrelated stories are not treated as corroboration.</p></div>
-      <div class="event"><time>Neutral brief</time><p>The short take is written to preserve material facts and uncertainty while removing loaded framing.</p></div>
+      <div class="event"><time>7Tribunes Brief</time><p>The brief is limited to fewer than 75 words and is written from stated facts, material disputes and uncertainty in the linked reporting.</p></div>
       <div class="event"><time>Production next step</time><p>Automated ingestion, direct social metrics, article-level perspective scoring and continuous refresh are not yet connected.</p></div>
     </div>
   `;
@@ -3054,7 +3126,7 @@ function coverageHTML(s){
     </div>`).join("");
   return `
     <h2>Source Coverage</h2>
-    <p><strong>7 Tribunes will analyze the individual article—not simply label the publisher.</strong> Story Framing will show the direction and intensity of framing in this specific coverage, while Reporting Reliability will remain a separate measure of factual sourcing and reporting quality. This snapshot shows both as Pending rather than inventing scores.</p>
+    <p><strong>7Tribunes will analyze the individual article—not simply label the publisher.</strong> Story Framing will show the direction and intensity of framing in this specific coverage, while Reporting Reliability will remain a separate measure of factual sourcing and reporting quality. This snapshot shows both as Pending rather than inventing scores.</p>
     ${s.sourcesDetail.length===1 ? '<div class="lock"><strong>One linked source in this snapshot.</strong><p>A production cluster would continue discovery for independent corroboration or competing coverage when available.</p></div>' : ''}
     ${cards}
   `;
@@ -3205,8 +3277,8 @@ function openImpactModal(score){
   const scale=document.getElementById("impactModalScale");
   if(scale){
     scale.textContent = Number.isFinite(Number(score))
-      ? `Current story score: ${score}/100 · 7 Tribunes editorial significance signal`
-      : "7 Tribunes editorial significance signal · 0–100";
+      ? `Current story score: ${score}/100 · 7Tribunes editorial significance signal`
+      : "7Tribunes editorial significance signal · 0–100";
   }
   if(backdrop){
     backdrop.classList.add("open");
@@ -3244,22 +3316,22 @@ function openMetricModal(type,count){
         <li><strong>Geographic relevance:</strong> whether engagement is concentrated in the community affected by the story.</li>
         <li><strong>Manipulation discount:</strong> suspected bots, purchased engagement and coordinated activity reduce the signal.</li>
       </ul>
-      <p><strong>Important:</strong> Social Heat never authenticates a story and does not automatically place it in the Top 7. High engagement tells 7 Tribunes what deserves investigation and can influence rank after verification; reputable journalism or authoritative primary evidence must still support the story.</p>
+      <p><strong>Important:</strong> Social Heat never authenticates a story and does not automatically place it in the Top 7. High engagement tells 7Tribunes what deserves investigation and can influence rank after verification; reputable journalism or authoritative primary evidence must still support the story.</p>
       <p class="metric-modal-note">The live demo shows Pending because direct social-platform metrics are not yet connected.</p>`
     },
     sources:{
       title:"What are Linked Sources?",
-      body:`<p><strong>Linked Sources</strong> are the underlying articles, official records or primary materials used to build a 7 Tribunes story cluster. ${Number(count)>0?`This story currently has <strong>${count}</strong> linked source${Number(count)===1?"":"s"}.`:""}</p>
+      body:`<p><strong>Linked Sources</strong> are the underlying articles, official records or primary materials used to build a 7Tribunes story cluster. ${Number(count)>0?`This story currently has <strong>${count}</strong> linked source${Number(count)===1?"":"s"}.`:""}</p>
       <ul>
         <li>Each link should lead readers to the original publisher or authoritative source.</li>
         <li>Multiple links are not automatically multiple independent confirmations; syndicated or duplicated reporting should be identified.</li>
         <li>Primary evidence—such as government, court, weather or league records—is distinguished from secondary reporting when available.</li>
-        <li>7 Tribunes uses linked reporting to establish the fact spine: Confirmed, Reported, Disputed, Unknown and Changed.</li>
+        <li>7Tribunes uses linked reporting to establish the fact spine: Confirmed, Reported, Disputed, Unknown and Changed.</li>
       </ul>
       <p class="metric-modal-note">A larger source count does not automatically make a story more accurate. Independence, quality, relevance and primary evidence matter more than raw quantity.</p>`
     },
     framing:{
-      title:"How 7 Tribunes will show Story Framing",
+      title:"How 7Tribunes will show Story Framing",
       body:`<p><strong>Story Framing</strong> evaluates the specific article being linked—not merely the reputation or political identity of the publisher.</p>
       <p>The reader-facing indicator will show both <strong>direction</strong> and <strong>intensity</strong>, for example:</p>
       <ul>
@@ -3286,7 +3358,7 @@ function openMetricModal(type,count){
         <li>Corrections, transparency and headline-to-article consistency.</li>
       </ul>
       <p>A future article badge could read <strong>High Reliability</strong>, <strong>Generally Reliable</strong>, <strong>Mixed / Needs Caution</strong>, or <strong>Insufficient Evidence</strong>.</p>
-      <p class="metric-modal-note">7 Tribunes should never infer reliability solely from whether an outlet is left, center or right.</p>`
+      <p class="metric-modal-note">7Tribunes should never infer reliability solely from whether an outlet is left, center or right.</p>`
     },
     sourcebias:{
       title:"What is Source Bias?",
@@ -3295,7 +3367,7 @@ function openMetricModal(type,count){
         <li><strong>Left</strong> or <strong>Right</strong> indicates a consistent directional editorial tendency.</li>
         <li><strong>Center / Mixed</strong> indicates limited or inconsistent directional tendency.</li>
         <li><strong>Primary / Official</strong> identifies government, court, weather, league or other authoritative primary material rather than a news publisher.</li>
-        <li><strong>Unknown / Pending</strong> is used when 7 Tribunes does not have enough auditable evidence to classify the source.</li>
+        <li><strong>Unknown / Pending</strong> is used when 7Tribunes does not have enough auditable evidence to classify the source.</li>
       </ul>
       <p class="metric-modal-note">Source Bias is not a reliability score. A left- or right-leaning source may still produce highly reliable reporting.</p>`
     },
@@ -3444,8 +3516,8 @@ updateEditionDate();
   <section class="impact-modal" id="impactModal" role="dialog" aria-modal="true" aria-labelledby="impactModalTitle">
     <button class="impact-modal-close" type="button" aria-label="Close Impact Score explanation" onclick="closeImpactModal()">×</button>
     <h2 id="impactModalTitle">What drives the Impact Score?</h2>
-    <div class="impact-scale" id="impactModalScale">7 Tribunes editorial significance signal · 0–100</div>
-    <p>The <strong>Impact Score</strong> helps 7 Tribunes decide which stories deserve the greatest prominence. It measures potential public consequence—not popularity, ideology, or whether a story is favorable to one side.</p>
+    <div class="impact-scale" id="impactModalScale">7Tribunes editorial significance signal · 0–100</div>
+    <p>The <strong>Impact Score</strong> helps 7Tribunes decide which stories deserve the greatest prominence. It measures potential public consequence—not popularity, ideology, or whether a story is favorable to one side.</p>
     <ul>
       <li><strong>Public consequence:</strong> How significantly could the event affect people, institutions, rights, services, or major decisions?</li>
       <li><strong>Breadth of impact:</strong> How many people, communities, sectors, or geographic areas may be affected?</li>
@@ -3456,7 +3528,7 @@ updateEditionDate();
       <li><strong>Recency and persistence:</strong> Is the development new, still unfolding, or likely to remain consequential beyond a short news cycle?</li>
     </ul>
     <p><strong>What does not drive the score:</strong> partisan viewpoint, advertiser interest, clicks, outrage, or raw social-media reaction totals. Social Heat can help identify stories worth investigating, but it does not substitute for verified impact.</p>
-    <p class="impact-modal-note">The Impact Score is an editorial ranking aid. It is not a truth score, political-bias rating, or prediction. The methodology will be refined and documented as 7 Tribunes develops.</p>
+    <p class="impact-modal-note">The Impact Score is an editorial ranking aid. It is not a truth score, political-bias rating, or prediction. <strong>Top 7 freshness rule:</strong> a story may hold a Top 7 slot for no more than 24 hours. A materially new development is treated as a new story update and must be re-ranked. The methodology will be refined and documented as 7Tribunes develops.</p>
   </section>
 </div>
 

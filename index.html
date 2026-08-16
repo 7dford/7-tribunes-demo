@@ -813,6 +813,48 @@
   }
   .brief-expanded{font-size:18px;line-height:1.48;margin:0 0 14px;max-width:900px}
 
+
+@media (max-width: 640px){
+  #pillarNav{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    gap:7px !important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+    overscroll-behavior-x:contain;
+    padding:7px 10px 8px !important;
+    scroll-padding-inline:16px;
+    align-items:center;
+  }
+  #pillarNav::-webkit-scrollbar{display:none}
+  #pillarNav button{
+    flex:0 0 138px !important;
+    width:138px !important;
+    min-width:138px !important;
+    max-width:138px !important;
+    height:38px;
+    min-height:38px;
+    padding:6px 9px !important;
+    font-size:10px !important;
+    line-height:1.08;
+    white-space:normal;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+  }
+  #pillarNav button[data-pillar="All"]{
+    flex-basis:116px !important;
+    width:116px !important;
+    min-width:116px !important;
+    max-width:116px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2897,6 +2939,17 @@ function renderLocalVoices(){
   `).join("");
 }
 
+
+function centerActiveSectionButton(){
+  const nav=document.getElementById("pillarNav");
+  if(!nav || window.innerWidth>640) return;
+  const active=nav.querySelector("button.active");
+  if(!active) return;
+  requestAnimationFrame(()=>{
+    active.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
+  });
+}
+
 function render(){
   const arr=filteredStories();
   const hero=arr[0] || stories[0];
@@ -2998,6 +3051,7 @@ function render(){
 
   renderAdmin();
   if(typeof renderLocalVoices === "function") renderLocalVoices();
+  centerActiveSectionButton();
 }
 function scopeLabel(s){return s==="US"?"U.S.":s==="State"?"Oklahoma":s}
 
@@ -3484,6 +3538,10 @@ function handleStoryBriefClick(event){
   openStory(id,"summary");
 }
 document.addEventListener("click",handleStoryBriefClick);
+
+
+window.addEventListener("resize",centerActiveSectionButton);
+window.addEventListener("orientationchange",()=>setTimeout(centerActiveSectionButton,120));
 
 </script>
 

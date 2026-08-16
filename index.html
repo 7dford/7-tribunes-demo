@@ -2902,6 +2902,19 @@ function filteredStories(){
   return [...arr].sort((a,b)=>b.significance-a.significance);
 }
 
+
+function renderLocalVoices(){
+  const grid = document.getElementById("localVoicesGrid");
+  if(!grid) return;
+  grid.innerHTML = `
+    <article class="voice-card" style="grid-column:1/-1">
+      <span class="kicker">Local 7 · Pending Live Data</span>
+      <div class="voice-post">Verified local influencer and reaction data are not connected in this proof of concept.</div>
+      <p>Production will rank eligible local posts only after direct platform/API data, manipulation filtering, viewpoint-diversity rules and safety screening are operational.</p>
+    </article>
+  `;
+}
+
 function render(){
   const arr=filteredStories();
   const hero=arr[0] || stories[0];
@@ -2919,7 +2932,7 @@ function render(){
 
   $("#hero").innerHTML=`
     <span class="kicker">Biggest Impact Story · ${storyRankLabel(hero)}</span>
-    <h1><button class="story-title-link story-title-button" type="button" onclick="openStory('${hero.id}','summary')" title="Open 7Tribunes Brief">${hero.title}</button></h1>
+    <h1><button class="story-title-link story-title-button" type="button" data-story-id="${hero.id}" onclick="openStory('${hero.id}','summary')" title="Open 7Tribunes Brief">${hero.title}</button></h1>
     <div class="brief-label">7Tribunes Brief</div><p class="deck">${hero.brief || hero.deck}</p>
     <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${hero.significance})">Impact Score ${hero.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${hero.sources})">${hero.sources} linked source${hero.sources===1?"":"s"}</button> · published ${hero.published}</div>
     <div class="bias-row">
@@ -2951,9 +2964,9 @@ function render(){
     <article class="rail-item">
       <span class="num">${i+2}</span>
       <span class="kicker">${storyRankLabel(s)}</span>
-      <h3><button class="story-title-link story-title-button" type="button" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h3>
+      <h3><button class="story-title-link story-title-button" type="button" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h3>
       <div class="meta"><button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} source${s.sources===1?"":"s"}</button></div>
-      <button class="linkbtn" onclick="openStory('${s.id}','summary')">7Tribunes Brief</button>
+      <button class="linkbtn" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')">7Tribunes Brief</button>
     </article>`).join("");
 
   const visiblePillars = state.pillar==="All" ? PILLARS : [state.pillar];
@@ -2990,14 +3003,14 @@ function render(){
               <article class="ranked-story ${i===0?"is-one":""}">
                 <div class="rnum">${i+1}</div>
                 <div>
-                  <h4><button class="story-title-link story-title-button" type="button" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h4>
+                  <h4><button class="story-title-link story-title-button" type="button" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')" title="Open 7Tribunes Brief">${s.title}</button></h4>
                   <div class="rmeta"><strong>${storyRankLabel(s)}</strong> · <button class="impact-link" type="button" onclick="openImpactModal(${s.significance})">Impact Score ${s.significance}/100</button> · <button class="metric-link" type="button" onclick="openMetricModal(\'sources\',${s.sources})">${s.sources} linked source${s.sources===1?"":"s"}</button> · ${s.published}</div>
                   <div class="bias-row">
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('sourcebias')">Source Bias</button><span class="bias-value">Pending</span></div>
                     <div class="bias-meter"><button type="button" onclick="openMetricModal('storybias')">Story Bias</button><span class="bias-value">Pending</span></div>
                   </div>
                 </div>
-                <div class="mini-reactions"><button class="linkbtn" type="button" onclick="openStory('${s.id}','summary')">Brief →</button></div>
+                <div class="mini-reactions"><button class="linkbtn" type="button" data-story-id="${s.id}" onclick="openStory('${s.id}','summary')">Brief →</button></div>
               </article>
             `).join("")}
           </div>
@@ -3006,7 +3019,7 @@ function render(){
   }).join("");
 
   renderAdmin();
-  renderLocalVoices();
+  if(typeof renderLocalVoices === "function") renderLocalVoices();
 }
 function scopeLabel(s){return s==="US"?"U.S.":s==="State"?"Oklahoma":s}
 
@@ -3078,6 +3091,10 @@ function openStory(id,tab="summary"){
     <p class="edition-note">7Tribunes does not reproduce the full article. Source links preserve the publisher relationship and any publisher paywall.</p>
   `;
 
+  $("#overlay").classList.add("open");
+  $("#drawer").classList.add("open");
+  $("#drawer").setAttribute("aria-hidden","false");
+
   $("#tab-coverage").innerHTML=coverageHTML(s);
   $("#tab-takes").innerHTML=takesHTML(s);
   $("#tab-timeline").innerHTML=`
@@ -3091,7 +3108,6 @@ function openStory(id,tab="summary"){
   `;
   $("#tab-discuss").innerHTML=discussionHTML(s);
   switchTab(tab);
-  $("#overlay").classList.add("open"); $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden","false");
 }
 window.openStory=openStory;
 
@@ -3132,26 +3148,30 @@ function coverageHTML(s){
   `;
 }
 function takesHTML(s){
-  if(!state.premium){
-    return `
-      <h2>7 Takes</h2>
-      <p><strong>Commentary feed not yet connected.</strong> The profiles below remain a UI demonstration of how sourced commentary will be separated from news reporting.</p>
-      ${takeRow(takesProfiles[0],0,s)}
-      ${takeRow(takesProfiles[1],1,s)}
-      <div class="lock">
-        <h3>5 additional Takes are part of the Member demonstration.</h3>
-        <p>This simulates the paywall/entitlement boundary. No payment is required in the POC.</p>
-        <button class="btn primary" onclick="activatePremium()">Activate Demo Membership</button>
-      </div>`;
-  }
-  return `<h2>7 Takes</h2><p><strong>Commentary feed not yet connected.</strong> These fictional profiles demonstrate the future 7 Takes layout; production Takes will link to real attributable commentary.</p>`+
-    takesProfiles.map((p,i)=>takeRow(p,i,s)).join("");
-}
-function takeRow(p,i,s){
-  return `<div class="take">
-    <div class="avatar">${p[0].split(" ").map(x=>x[0]).join("")}</div>
-    <div><h4>${i+1}. ${p[0]}</h4><small>${p[1]} · ${p[2]} perspective</small><p>${p[3]} On this ${s.pillar.toLowerCase()} story, the commentary would link back to the original published analysis rather than replacing it.</p></div>
-  </div>`;
+  const comments = [...FEATURED_COMMENTS]
+    .sort((a,b)=>b.reactions-a.reactions)
+    .slice(0,7);
+
+  return `
+    <h2>7 Takes</h2>
+    <p><strong>The seven most-reacted eligible community comments in this demonstration.</strong> Political disagreement is allowed; threats, doxxing, graphic abuse and targeted harassment are excluded before ranking.</p>
+    <div class="featured-comment-grid" style="grid-template-columns:1fr">
+      ${comments.map((c,i)=>`
+        <article class="featured-comment" data-comment-id="${c.id}">
+          <div class="featured-comment-top">
+            <span class="featured-comment-rank">#${i+1} · ${c.pillar}</span>
+            <span class="featured-comment-reactions">${c.reactions.toLocaleString()} reactions</span>
+          </div>
+          <blockquote>“${c.text}”</blockquote>
+          <div class="featured-comment-meta">
+            <span>${c.author} · Demo community comment</span>
+            <button class="reaction-btn" onclick="reactToFeatured('${c.id}')">+ React</button>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+    <p class="edition-note">Production 7 Takes will use authenticated users, persistent reactions and moderation before comments are eligible for ranking.</p>
+  `;
 }
 
 function discussionHTML(s){
@@ -3509,6 +3529,17 @@ function updateEditionDate(){
   el.textContent=now.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
 }
 updateEditionDate();
+
+
+function handleStoryBriefClick(event){
+  const target=event.target.closest("[data-story-id]");
+  if(!target) return;
+  const id=target.dataset.storyId;
+  if(!id) return;
+  event.preventDefault();
+  openStory(id,"summary");
+}
+document.addEventListener("click",handleStoryBriefClick);
 
 </script>
 

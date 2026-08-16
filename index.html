@@ -3120,7 +3120,7 @@ function render(){
               <div class="entertainment-chips">${ENTERTAINMENT_INTERESTS.map(tag=>`<button type="button" class="entertainment-chip ${(state.entertainmentPreferences||[]).includes(tag)?"active":""}" onclick="toggleEntertainmentPreference('${tag.replace(/'/g,"\'")}')">${tag}</button>`).join("")}</div>
             </div>` : ""}
           </div>
-          ${state.pillar==="All" ? `<button class="btn soft" onclick="focusPillar('${pillar.replace(/'/g,"&#39;")}')">Open ${pillar}</button>` : ""}
+          <button class="btn soft section-home-btn" type="button" onclick="focusPillar('All')">Home</button>
         </div>
         <div class="pillar-layout">
           <article class="reaction-feature">
@@ -3173,6 +3173,8 @@ function storyRankLabel(s){
 
 function openStory(id,tab="summary"){
   const s=stories.find(x=>x.id===id); if(!s)return;
+  const drawerEl=$("#drawer");
+  if(drawerEl) drawerEl.scrollTop=0;
   state.currentStory=s;
   $("#drawerHeader").innerHTML=`
     <span class="kicker">${storyRankLabel(s)} · ${scopeLabel(s.scope)} · Live-Sourced Snapshot</span>
@@ -3196,8 +3198,14 @@ function openStory(id,tab="summary"){
     <div class="factrow"><b>Source</b><p>${s.facts[1]}</p></div>
     <div class="factrow"><b>Disputed</b><p>${s.facts[2]}</p></div>
     <div class="factrow"><b>Unknown</b><p>${s.facts[3]}</p></div>
-    <h2 style="margin-top:24px">Why It Matters</h2>
-    <p>${s.why}</p>
+    <div class="collapsible-brief-section" style="margin-top:24px">
+      <button class="brief-disclosure" type="button" aria-expanded="false" onclick="toggleBriefDisclosure(this)">
+        <span>Why It Matters</span><span class="brief-disclosure-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="brief-disclosure-body" hidden>
+        <p>${s.why}</p>
+      </div>
+    </div>
 
     <h2 style="margin-top:24px">Dig Deeper · Linked Reporting</h2>
     <button class="brief-disclosure brief-disclosure-inline" type="button" aria-expanded="false" onclick="toggleBriefDisclosure(this)">
@@ -3232,6 +3240,10 @@ function openStory(id,tab="summary"){
   $("#overlay").classList.add("open");
   $("#drawer").classList.add("open");
   $("#drawer").setAttribute("aria-hidden","false");
+  if(drawerEl){
+    drawerEl.scrollTop=0;
+    requestAnimationFrame(()=>{ drawerEl.scrollTop=0; });
+  }
 
   $("#tab-coverage").innerHTML=coverageHTML(s);
   $("#tab-timeline").innerHTML=`
